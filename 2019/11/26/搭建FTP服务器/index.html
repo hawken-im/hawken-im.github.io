@@ -5,17 +5,21 @@
   
 
   
-  <title>test | Hawken.im</title>
+  <title>搭建FTP服务器 | Hawken.im</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://example.com/2021/07/29/test/index.html">
+  <meta name="description" content="详细过程有点懒得写，链接一个教程https:&#x2F;&#x2F;www.howtoforge.com&#x2F;tutorial&#x2F;ubuntu-vsftpd&#x2F;这里踩到第一个坑是被动模式因为有防火墙，一定要被动模式才能连通被动模式是这么一回事   开启被动模式在filezilla的log中会看到：p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px ‘Helvetica Ne">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建FTP服务器">
+<meta property="og:url" content="http://example.com/2019/11/26/%E6%90%AD%E5%BB%BAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="详细过程有点懒得写，链接一个教程https:&#x2F;&#x2F;www.howtoforge.com&#x2F;tutorial&#x2F;ubuntu-vsftpd&#x2F;这里踩到第一个坑是被动模式因为有防火墙，一定要被动模式才能连通被动模式是这么一回事   开启被动模式在filezilla的log中会看到：p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px ‘Helvetica Ne">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-29T09:17:44.000Z">
-<meta property="article:modified_time" content="2021-07-29T09:17:44.602Z">
+<meta property="og:image" content="https://4.bp.blogspot.com/-0FCUXqtqBMc/XdwBf5cmwTI/AAAAAAAAGBM/xphTGV2Z4SoLMUbuJeKqZNIyKtZQPvJMQCK4BGAYYCw/s320/221601380466453.jpg">
+<meta property="article:published_time" content="2019-11-25T16:32:00.000Z">
+<meta property="article:modified_time" content="2021-07-29T15:17:08.272Z">
 <meta property="article:author" content="Hawken">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://4.bp.blogspot.com/-0FCUXqtqBMc/XdwBf5cmwTI/AAAAAAAAGBM/xphTGV2Z4SoLMUbuJeKqZNIyKtZQPvJMQCK4BGAYYCw/s320/221601380466453.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hawken.im" type="application/atom+xml">
   
@@ -64,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-搭建FTP服务器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/07/29/test/" class="article-date">
-  <time datetime="2021-07-29T09:17:44.000Z" itemprop="datePublished">2021-07-29</time>
+    <a href="/2019/11/26/%E6%90%AD%E5%BB%BAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="article-date">
+  <time datetime="2019-11-25T16:32:00.000Z" itemprop="datePublished">2019-11-26</time>
 </a>
     
   </div>
@@ -78,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      test
+      搭建FTP服务器
     </h1>
   
 
@@ -86,11 +90,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>详细过程有点懒得写，链接一个教程<br><a target="_blank" rel="noopener" href="https://www.howtoforge.com/tutorial/ubuntu-vsftpd/">https://www.howtoforge.com/tutorial/ubuntu-vsftpd/</a><br>这里踩到第一个坑是被动模式<br>因为有防火墙，一定要被动模式才能连通<br>被动模式是这么一回事<br><a target="_blank" rel="noopener" href="http://4.bp.blogspot.com/-0FCUXqtqBMc/XdwBf5cmwTI/AAAAAAAAGBM/xphTGV2Z4SoLMUbuJeKqZNIyKtZQPvJMQCK4BGAYYCw/s1600/221601380466453.jpg"><img src="https://4.bp.blogspot.com/-0FCUXqtqBMc/XdwBf5cmwTI/AAAAAAAAGBM/xphTGV2Z4SoLMUbuJeKqZNIyKtZQPvJMQCK4BGAYYCw/s320/221601380466453.jpg"></a>  </p>
+<p>开启被动模式在filezilla的log中会看到：<br>p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px ‘Helvetica Neue’; color: #008000; background-color: #ffffff} span.Apple-tab-span {white-space:pre}  </p>
+<p>Response: 227 Entering Passive Mode (H1,H2,H3,H4,P1,P2).</p>
+<p>这里的P1*256+P2，就是当前被动模式的随机端口号  </p>
+<p>防火墙中开启设定好的端口范围，再重启一下vsftp服务<br>搞定了</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/29/test/" data-id="ckrp3txxy000axzctfdai2jcg" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2019/11/26/%E6%90%AD%E5%BB%BAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-id="ckrp3txy6000hxzcthiareoip" class="article-share-link">Share</a>
       
       
     </footer>
@@ -99,10 +108,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2019/11/26/%E6%B5%8B%E8%AF%95%E6%88%91%E7%9A%84%E5%9B%BE%E5%BA%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          测试我的图床
+        
+      </div>
+    </a>
   
-    <a href="/2021/07/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2019/11/24/%E9%87%87%E7%94%A8zsh%E4%BD%9C%E4%B8%BAmac%E7%9A%84%E9%BB%98%E8%AE%A4shell/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">采用zsh作为mac的默认shell</div>
     </a>
   
 </nav>
