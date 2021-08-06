@@ -358,7 +358,7 @@ body {
   text-align: center;
   height: 40px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 0;
   margin-top: -20px;
 }
@@ -435,11 +435,23 @@ body {
   }
 }
 #sub-nav {
-  float: right;
-  margin-right: -15px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 #nav-rss-link:before {
   content: "\f09e";
+}
+#nav-twitter-link:before {
+  content: "\f099";
 }
 #nav-search-btn:before {
   content: "\f002";
