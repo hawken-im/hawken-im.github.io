@@ -5,13 +5,17 @@
   
 
   
-  <title>Hawken.im</title>
+  <title>元宇宙三问 | Hawken.im</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hawken.im">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="元宇宙三问我是谁，从哪来，去哪里 1. 元宇宙是什么？相信本文读者既然能发现我这篇存在于互联网某一处阴暗小角落的一篇不起眼小破文，肯定已经看了很多别的关于元宇宙的文章了。 我打赌5篇有4篇都会说这几个意思：比如，元宇宙这玩意很复杂我跟你说不清，再比如，大家都对元宇宙有不同的理解， 甚至会直接否定元宇宙，说这是个概念炒作或者噱头什么的。 以上对元宇宙的说法，都是故弄玄虚。 元宇宙这个词的来历无非是一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="元宇宙三问">
+<meta property="og:url" content="http://example.com/2021/11/12/%E5%85%83%E5%AE%87%E5%AE%99%E4%B8%89%E9%97%AE/index.html">
 <meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="元宇宙三问我是谁，从哪来，去哪里 1. 元宇宙是什么？相信本文读者既然能发现我这篇存在于互联网某一处阴暗小角落的一篇不起眼小破文，肯定已经看了很多别的关于元宇宙的文章了。 我打赌5篇有4篇都会说这几个意思：比如，元宇宙这玩意很复杂我跟你说不清，再比如，大家都对元宇宙有不同的理解， 甚至会直接否定元宇宙，说这是个概念炒作或者噱头什么的。 以上对元宇宙的说法，都是故弄玄虚。 元宇宙这个词的来历无非是一">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-11T16:31:13.000Z">
+<meta property="article:modified_time" content="2021-11-11T16:32:15.787Z">
 <meta property="article:author" content="Hawken">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@whoareyouandyou">
@@ -61,9 +65,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-元宇宙三问" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-元宇宙三问" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/11/12/%E5%85%83%E5%AE%87%E5%AE%99%E4%B8%89%E9%97%AE/" class="article-date">
   <time datetime="2021-11-11T16:31:13.000Z" itemprop="datePublished">2021-11-12</time>
@@ -76,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/12/%E5%85%83%E5%AE%87%E5%AE%99%E4%B8%89%E9%97%AE/">元宇宙三问</a>
+    <h1 class="article-title" itemprop="name">
+      元宇宙三问
     </h1>
   
 
@@ -199,368 +201,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" class="article-date">
-  <time datetime="2021-08-01T08:57:00.000Z" itemprop="datePublished">2021-08-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/">Nginx and Certbot to build a server to support multiple web sites</a>
-    </h1>
+    <a href="/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Nginx and Certbot to build a server to support multiple web sites</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Install-and-config-nginx-first"><a href="#Install-and-config-nginx-first" class="headerlink" title="Install and config nginx first."></a>Install and config nginx first.</h3><p>I followed these two instructions:<br><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/how-to-install-nginx-on-ubuntu-20-04"></a><br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04"></a></p>
-<p>Remember to config “sites-available” seperately, try not to config the global config file, for two reasons:</p>
-<ol>
-<li>It’ll be easier to maintain.</li>
-<li>Certbot is not that clever, so we want to leave the global config file to Certbot.</li>
-</ol>
-<h3 id="Read-Certbot-manual-first-then-follow-quick-instructions-from-Certbot-homepage"><a href="#Read-Certbot-manual-first-then-follow-quick-instructions-from-Certbot-homepage" class="headerlink" title="Read Certbot manual first then follow quick instructions from Certbot homepage"></a>Read Certbot manual first then follow quick instructions from Certbot homepage</h3><p>Follow the official instructions to install Certbot correctly.<br><a target="_blank" rel="noopener" href="https://certbot.eff.org/instructions"></a><br>Then we need to choose a command to call a plugin to get CA.<br>After I finished reading, I found out many unofficial instructions online are outdated.<br><a target="_blank" rel="noopener" href="https://certbot.eff.org/docs/using.html#nginx"></a><br>If we install Certbot correctly, we only need to use command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx</span><br></pre></td></tr></table></figure>
-<p>Then Certbot can do all for you. Even can create a cron job to renew certificate automatically.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" data-id="cks1o36990004qpct741y86sl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/07/29/test/" class="article-date">
-  <time datetime="2021-07-29T09:17:44.000Z" itemprop="datePublished">2021-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/29/test/">test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/29/test/" data-id="cks1o369e000aqpctgiqa7rd5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Dive-into-Docker-Not-every-image-is-using-the-bash-shell" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/05/18/Dive-into-Docker-Not-every-image-is-using-the-bash-shell/" class="article-date">
-  <time datetime="2021-05-18T08:06:00.000Z" itemprop="datePublished">2021-05-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/18/Dive-into-Docker-Not-every-image-is-using-the-bash-shell/">Dive into Docker - Not every image is using the bash shell</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Try to get into the shawdowsocks container created by docker.</p>
-<p>Found this command:</p>
-<p> docker exec -it <container> bash</p>
-<p>It didn’t work. And I found this:</p>
-<p><a target="_blank" rel="noopener" href="https://mkyong.com/docker/docker-exec-bash-executable-file-not-found-in-path/">https://mkyong.com/docker/docker-exec-bash-executable-file-not-found-in-path/</a></p>
-<p>Noticed not every image is using the bash shell.</p>
-<p>Then tried this:</p>
-<p> docker exec -it <container> sh</p>
-<p>It actually worked.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/18/Dive-into-Docker-Not-every-image-is-using-the-bash-shell/" data-id="cks1o36970002qpcthlwzdhzm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-After-I-figured-out-docker-I-use-this-tutorial-for-installing-shadowsocks-on-my-server" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/05/15/After-I-figured-out-docker-I-use-this-tutorial-for-installing-shadowsocks-on-my-server/" class="article-date">
-  <time datetime="2021-05-14T16:31:00.000Z" itemprop="datePublished">2021-05-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/15/After-I-figured-out-docker-I-use-this-tutorial-for-installing-shadowsocks-on-my-server/">After I figured out docker, I use this tutorial for installing shadowsocks on my server</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> <a target="_blank" rel="noopener" href="https://thematrix.dev/setup-go-shadowsocks-on-ubuntu/">https://thematrix.dev/setup-go-shadowsocks-on-ubuntu/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/15/After-I-figured-out-docker-I-use-this-tutorial-for-installing-shadowsocks-on-my-server/" data-id="cks1o36910000qpct9ogiceee" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-This-instruction-for-install-docker-is-better-than-the-official-docs" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/05/15/This-instruction-for-install-docker-is-better-than-the-official-docs/" class="article-date">
-  <time datetime="2021-05-14T16:15:00.000Z" itemprop="datePublished">2021-05-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/15/This-instruction-for-install-docker-is-better-than-the-official-docs/">This instruction for install docker is better than the official docs:</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> <a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-install-and-use-docker-on-ubuntu-20-04/">https://linuxize.com/post/how-to-install-and-use-docker-on-ubuntu-20-04/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/15/This-instruction-for-install-docker-is-better-than-the-official-docs/" data-id="cks1o369b0007qpct5d7f6t7r" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Each-time-I-try-to-use-mosh-it-asks-me-to-export-LANG-settings" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/05/13/Each-time-I-try-to-use-mosh-it-asks-me-to-export-LANG-settings/" class="article-date">
-  <time datetime="2021-05-13T14:46:00.000Z" itemprop="datePublished">2021-05-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/13/Each-time-I-try-to-use-mosh-it-asks-me-to-export-LANG-settings/">Each time I try to use mosh, it asks me to export LANG settings</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> To fix it, I have set ~/.zshrc file.</p>
-<p>I have added alias command into it.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/13/Each-time-I-try-to-use-mosh-it-asks-me-to-export-LANG-settings/" data-id="cks1o36950001qpct0ios0n4l" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Setting-up-another-Mosh-for-my-another-server-lol-o0o-lol" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/05/13/Setting-up-another-Mosh-for-my-another-server-lol-o0o-lol/" class="article-date">
-  <time datetime="2021-05-13T14:43:00.000Z" itemprop="datePublished">2021-05-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/13/Setting-up-another-Mosh-for-my-another-server-lol-o0o-lol/">Setting up another Mosh for my another server: lol.o0o.lol</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>follow the instructions showing on the website of mosh: </p>
-<p>mosh.org</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/13/Setting-up-another-Mosh-for-my-another-server-lol-o0o-lol/" data-id="cks1o369b0006qpct8bht1yl0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-how-to-fix-apt-get" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/05/13/how-to-fix-apt-get/" class="article-date">
-  <time datetime="2021-05-13T09:55:00.000Z" itemprop="datePublished">2021-05-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/13/how-to-fix-apt-get/">how to fix apt-get</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> <a target="_blank" rel="noopener" href="https://futurestud.io/tutorials/how-to-fix-ubuntu-debian-apt-get-404-not-found-repository-errors">https://futurestud.io/tutorials/how-to-fix-ubuntu-debian-apt-get-404-not-found-repository-errors</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/13/how-to-fix-apt-get/" data-id="cks1o369d0009qpct5kgfbayl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-开始部署，简单记录一下" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/01/15/%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%EF%BC%8C%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/" class="article-date">
-  <time datetime="2021-01-15T13:11:00.000Z" itemprop="datePublished">2021-01-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/15/%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%EF%BC%8C%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/">开始部署，简单记录一下</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 采用这个教程：</p>
-<p><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/how-to-rsync-over-ssh">https://phoenixnap.com/kb/how-to-rsync-over-ssh</a></p>
-<p>就用rsync命令吧</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/15/%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%EF%BC%8C%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/" data-id="cks1o369j000gqpct7dw3hh9d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-  </nav>
 
 </section>
         
