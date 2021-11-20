@@ -63,6 +63,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-开始部署，简单记录一下" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/15/%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%EF%BC%8C%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/" class="article-date">
+  <time datetime="2021-01-15T13:11:00.000Z" itemprop="datePublished">2021-01-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/15/%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%EF%BC%8C%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/">开始部署，简单记录一下</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 采用这个教程：</p>
+<p><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/how-to-rsync-over-ssh">https://phoenixnap.com/kb/how-to-rsync-over-ssh</a></p>
+<p>就用rsync命令吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/15/%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%EF%BC%8C%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/" data-id="cks1o369j000gqpct7dw3hh9d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-MAC-osx-永久设置zsh的locale为en-US-UTF-8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/01/15/MAC-osx-%E6%B0%B8%E4%B9%85%E8%AE%BE%E7%BD%AEzsh%E7%9A%84locale%E4%B8%BAen-US-UTF-8/" class="article-date">
@@ -427,47 +466,6 @@
 
 
   
-    <article id="post-搭建FTP服务器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/26/%E6%90%AD%E5%BB%BAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="article-date">
-  <time datetime="2019-11-25T16:32:00.000Z" itemprop="datePublished">2019-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/26/%E6%90%AD%E5%BB%BAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">搭建FTP服务器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>详细过程有点懒得写，链接一个教程<br><a target="_blank" rel="noopener" href="https://www.howtoforge.com/tutorial/ubuntu-vsftpd/">https://www.howtoforge.com/tutorial/ubuntu-vsftpd/</a><br>这里踩到第一个坑是被动模式<br>因为有防火墙，一定要被动模式才能连通<br>被动模式是这么一回事<br><a target="_blank" rel="noopener" href="http://4.bp.blogspot.com/-0FCUXqtqBMc/XdwBf5cmwTI/AAAAAAAAGBM/xphTGV2Z4SoLMUbuJeKqZNIyKtZQPvJMQCK4BGAYYCw/s1600/221601380466453.jpg"><img src="https://4.bp.blogspot.com/-0FCUXqtqBMc/XdwBf5cmwTI/AAAAAAAAGBM/xphTGV2Z4SoLMUbuJeKqZNIyKtZQPvJMQCK4BGAYYCw/s320/221601380466453.jpg"></a>  </p>
-<p>开启被动模式在filezilla的log中会看到：<br>p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px ‘Helvetica Neue’; color: #008000; background-color: #ffffff} span.Apple-tab-span {white-space:pre}  </p>
-<p>Response: 227 Entering Passive Mode (H1,H2,H3,H4,P1,P2).</p>
-<p>这里的P1*256+P2，就是当前被动模式的随机端口号  </p>
-<p>防火墙中开启设定好的端口范围，再重启一下vsftp服务<br>搞定了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2019/11/26/%E6%90%AD%E5%BB%BAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-id="cks1o369k000hqpct3ut85350" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -504,6 +502,10 @@
       <ul>
         
           <li>
+            <a href="/2021/11/19/NotesOfLearningGo/">Notes Of Learning Go</a>
+          </li>
+        
+          <li>
             <a href="/2021/11/12/%E5%85%83%E5%AE%87%E5%AE%99%E4%B8%89%E9%97%AE/">元宇宙三问</a>
           </li>
         
@@ -517,10 +519,6 @@
         
           <li>
             <a href="/2021/05/18/Dive-into-Docker-Not-every-image-is-using-the-bash-shell/">Dive into Docker - Not every image is using the bash shell</a>
-          </li>
-        
-          <li>
-            <a href="/2021/05/15/After-I-figured-out-docker-I-use-this-tutorial-for-installing-shadowsocks-on-my-server/">After I figured out docker, I use this tutorial for installing shadowsocks on my server</a>
           </li>
         
       </ul>
