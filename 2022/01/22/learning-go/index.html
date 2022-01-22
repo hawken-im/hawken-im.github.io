@@ -5,17 +5,17 @@
   
 
   
-  <title>Nginx and Certbot to build a server to support multiple web sites | Hawken.im</title>
+  <title>学 go 语言的一些小笔记 | Hawken.im</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Install and config nginx first.I followed these two instructions: Remember to config “sites-available” seperately, try not to config the global config file, for two reasons:  It’ll be easier to mainta">
+  <meta name="description" content="Sat-Jan-22 2022今天学 go 语言解析 json，这两个教程解答了我很多问题：https:&#x2F;&#x2F;eager.io&#x2F;blog&#x2F;go-and-json&#x2F;https:&#x2F;&#x2F;golangbyexample.com&#x2F;struct-json-golang&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx and Certbot to build a server to support multiple web sites">
-<meta property="og:url" content="http://example.com/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/index.html">
+<meta property="og:title" content="学 go 语言的一些小笔记">
+<meta property="og:url" content="http://example.com/2022/01/22/learning-go/index.html">
 <meta property="og:site_name" content="Hawken.im">
-<meta property="og:description" content="Install and config nginx first.I followed these two instructions: Remember to config “sites-available” seperately, try not to config the global config file, for two reasons:  It’ll be easier to mainta">
+<meta property="og:description" content="Sat-Jan-22 2022今天学 go 语言解析 json，这两个教程解答了我很多问题：https:&#x2F;&#x2F;eager.io&#x2F;blog&#x2F;go-and-json&#x2F;https:&#x2F;&#x2F;golangbyexample.com&#x2F;struct-json-golang&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-01T08:57:00.000Z">
-<meta property="article:modified_time" content="2021-08-01T09:20:33.065Z">
+<meta property="article:published_time" content="2022-01-22T03:48:32.000Z">
+<meta property="article:modified_time" content="2022-01-22T04:03:33.569Z">
 <meta property="article:author" content="Hawken">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@whoareyouandyou">
@@ -65,10 +65,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-learning-go" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" class="article-date">
-  <time datetime="2021-08-01T08:57:00.000Z" itemprop="datePublished">2021-08-01</time>
+    <a href="/2022/01/22/learning-go/" class="article-date">
+  <time datetime="2022-01-22T03:48:32.000Z" itemprop="datePublished">2022-01-22</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Nginx and Certbot to build a server to support multiple web sites
+      学 go 语言的一些小笔记
     </h1>
   
 
@@ -87,20 +87,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Install-and-config-nginx-first"><a href="#Install-and-config-nginx-first" class="headerlink" title="Install and config nginx first."></a>Install and config nginx first.</h3><p>I followed these two instructions:<br><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/how-to-install-nginx-on-ubuntu-20-04"></a><br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04"></a></p>
-<p>Remember to config “sites-available” seperately, try not to config the global config file, for two reasons:</p>
-<ol>
-<li>It’ll be easier to maintain.</li>
-<li>Certbot is not that clever, so we want to leave the global config file to Certbot.</li>
-</ol>
-<h3 id="Read-Certbot-manual-first-then-follow-quick-instructions-from-Certbot-homepage"><a href="#Read-Certbot-manual-first-then-follow-quick-instructions-from-Certbot-homepage" class="headerlink" title="Read Certbot manual first then follow quick instructions from Certbot homepage"></a>Read Certbot manual first then follow quick instructions from Certbot homepage</h3><p>Follow the official instructions to install Certbot correctly.<br><a target="_blank" rel="noopener" href="https://certbot.eff.org/instructions"></a><br>Then we need to choose a command to call a plugin to get CA.<br>After I finished reading, I found out many unofficial instructions online are outdated.<br><a target="_blank" rel="noopener" href="https://certbot.eff.org/docs/using.html#nginx"></a><br>If we install Certbot correctly, we only need to use command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx</span><br></pre></td></tr></table></figure>
-<p>Then Certbot can do all for you. Even can create a cron job to renew certificate automatically.</p>
+        <h3 id="Sat-Jan-22-2022"><a href="#Sat-Jan-22-2022" class="headerlink" title="Sat-Jan-22 2022"></a>Sat-Jan-22 2022</h3><p>今天学 go 语言解析 json，这两个教程解答了我很多问题：<br><a target="_blank" rel="noopener" href="https://eager.io/blog/go-and-json/">https://eager.io/blog/go-and-json/</a><br><a target="_blank" rel="noopener" href="https://golangbyexample.com/struct-json-golang/">https://golangbyexample.com/struct-json-golang/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" data-id="ckyenneb200094actg9je8gk4" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/01/22/learning-go/" data-id="ckypb4ihy0000prct0n4f4ucd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -109,19 +101,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/11/12/%E5%85%83%E5%AE%87%E5%AE%99%E4%B8%89%E9%97%AE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          元宇宙三问
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/07/29/test/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/01/15/run-quorum-on-ubuntu/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">test</div>
+      <div class="article-nav-title">从零开始在 Ubuntu 20.04 上Build Quorum 并用本地 Rum App 进行连接</div>
     </a>
   
 </nav>
