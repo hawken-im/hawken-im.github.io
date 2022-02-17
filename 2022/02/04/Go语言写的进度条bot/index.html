@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/portnumber.png">
 <meta property="og:image" content="http://example.com/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/groupID.png">
 <meta property="article:published_time" content="2022-02-04T01:42:56.000Z">
-<meta property="article:modified_time" content="2022-02-17T10:17:13.819Z">
+<meta property="article:modified_time" content="2022-02-17T10:35:49.811Z">
 <meta property="article:author" content="Hawken">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png">
@@ -92,7 +92,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。<br>于是我这就来记录这段学习经历：<br>目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；<br>目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；<br>目的三是让更多的人能够对 Rum 这个新的东西感兴趣。<br>希望能成功达成目的：</p>
-<h2 id="1-入门"><a href="#1-入门" class="headerlink" title="1. 入门"></a>1. 入门</h2><p>学 Go 的出发点是因为大佬们都用 Go 语言来写链上应用。看着他们在群里交流的非常欢乐，文字我都认识，但就不懂他们在讲什么。<br>这种感觉太难受，就像小矮人身在片场却眼巴巴看高等精灵们讲精灵语，脸上还是挂着围笑假装在参与对话。</p>
+<h2 id="Go-语言基础入门"><a href="#Go-语言基础入门" class="headerlink" title="Go 语言基础入门"></a>Go 语言基础入门</h2><p>学 Go 的出发点是因为大佬们都用 Go 语言来写链上应用。看着他们在群里交流的非常欢乐，文字我都认识，但就不懂他们在讲什么。<br>这种感觉太难受，就像小矮人身在片场却眼巴巴看高等精灵们讲精灵语，脸上还是挂着围笑假装在参与对话。</p>
 <p>然后呢，因为自己喜欢游戏，找了本书叫：<a target="_blank" rel="noopener" href="https://xue.cn/hub/app/books/236">Pac Go: A Pac Man clone written in Go
 </a><br>就是用 Go 语言写吃豆人游戏。好，从这本书开始入门 Go。<br>并不是因为作者是美丽的女程序员我才选择的这本书。</p>
 <img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png" class="">
@@ -102,8 +102,8 @@
 </blockquote>
 <p><code>P.S. 这本书的链接是链到  [xue.cn](https://xue.cn)  的，是一个可以一边阅读编程教程一边在当前书页运行代码的学习网站。</code></p>
 <p>一边做实例，一边学编程，也非常符合我自己的学习理念。很快我从  <a target="_blank" rel="noopener" href="https://xue.cn/">xue.cn</a> 转移到了 github 去学习，上面有 Pac Go 的开源代码。自己 clone 了一份到电脑上，然后通过读 readme 继续学习。</p>
-<p>老实说 Pac Go 的前 5 章我认真跟着学了，后面就没有认真学，而是略读之后，就开始用 Go 做自己的项目。<br>因为新的一年快要到了，如何让人即便是年初，也要焦虑起来呢？想到了在 Twitter 上见过的 year progress。把人习以为常的日期，转变成百分比的进度条，会发现，时间怎么这么不经用？这么不经意的流逝掉了？这会让人产生巨大的焦虑感。于是我打算做一个这样的 bot 并到 Rum 上去运行。</p>
-<h2 id="3-Go-语言发送-HTTP-request"><a href="#3-Go-语言发送-HTTP-request" class="headerlink" title="3. Go 语言发送 HTTP request"></a>3. Go 语言发送 HTTP request</h2><p>理性的角度出发我应该规划一下这个程序的各个功能零件，以及工作流程，然后从生成进度条这一步开始，最后再做发布到 Rum 的 HTTP 请求。但我是小白啊，我野路子啊！我有搞着玩的特权啊！<br>先试着用 Go 写 HTTP 的 Post 请求，发布到 Rum 上看看再说。</p>
+<p>老实说 Pac Go 的前 5 章我认真跟着学了，后面就没有认真学，而是略读之后，感觉基础语法已经掌握差不多了，就开始用 Go 做自己的项目。<br>因为新的一年快要到了，如何让人即便是年初，也要焦虑起来呢？想到了在 Twitter 上见过的 year progress。把人习以为常的日期，转变成百分比的进度条，会发现，时间怎么这么不经用？这么不经意的流逝掉了？这会让人产生巨大的焦虑感。于是我打算做一个这样的 bot 并到 Rum 上去运行。</p>
+<h2 id="Go-语言发送-HTTP-request"><a href="#Go-语言发送-HTTP-request" class="headerlink" title="Go 语言发送 HTTP request"></a>Go 语言发送 HTTP request</h2><p>理性的角度出发我应该规划一下这个程序的各个功能零件，以及工作流程，然后从生成进度条这一步开始，最后再做发布到 Rum 的 HTTP 请求。但我是小白啊，我野路子啊！我有搞着玩的特权啊！<br>先试着用 Go 写 HTTP 的 Post 请求，发布到 Rum 上看看再说。</p>
 <p>导入Go 语言的 HTTP 包：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;net/http&quot;</span></span><br></pre></td></tr></table></figure>
 
