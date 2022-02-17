@@ -91,10 +91,10 @@
 </a><br>就是用 Go 语言写吃豆人游戏。好，从这本书开始入门 Go。<br>并不是因为作者是美丽的女程序员我才选择的这本书。</p>
 <img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png" class="">
 
-<p><strong>并不是</strong></p>
 <blockquote>
-<p>P.S. 这本书的链接是链到  <a target="_blank" rel="noopener" href="https://xue.cn/">xue.cn</a>  的，是一个可以一边阅读编程教程一边在当前书页运行代码的学习网站。</p>
+<p><strong>并不是</strong></p>
 </blockquote>
+<p><code>P.S. 这本书的链接是链到  [xue.cn](https://xue.cn)  的，是一个可以一边阅读编程教程一边在当前书页运行代码的学习网站。</code></p>
 <p>一边做实例，一边学编程，也非常符合我自己的学习理念。很快我从  <a target="_blank" rel="noopener" href="https://xue.cn/">xue.cn</a> 转移到了 github 去学习，上面有 Pac Go 的开源代码。自己 clone 了一份到电脑上，然后通过读 readme 继续学习。</p>
 <p>老实说 Pac Go 的前 5 章我认真跟着学了，后面就没有认真学，而是略读之后，就开始用 Go 做自己的项目。<br>因为新的一年快要到了，如何让人即便是年初，也要焦虑起来呢？想到了在 Twitter 上见过的 year progress。把人习以为常的日期，转变成百分比的进度条，会发现，时间怎么这么不经用？这么不经意的流逝掉了？这会让人产生巨大的焦虑感。于是我打算做一个这样的 bot 并到 Rum 上去运行。</p>
 <h2 id="3-Go-语言发送-HTTP-request"><a href="#3-Go-语言发送-HTTP-request" class="headerlink" title="3. Go 语言发送 HTTP request"></a>3. Go 语言发送 HTTP request</h2><p>理性的角度出发我应该规划一下这个程序的各个功能零件，以及工作流程，然后从生成进度条这一步开始，最后再做发布到 Rum 的 HTTP 请求。但我是小白啊，我野路子啊！我有搞着玩的特权啊！<br>先试着用 Go 写 HTTP 的 Post 请求，发布到 Rum 上看看再说。</p>
@@ -119,7 +119,7 @@
 
 <p>函数的四个参数分别是 title 表示标题，content 表示内容，group 用于指定要发布内容的种子网络 ID，最后 url 是要发 POST 请求的目标 url，这里的地址是根据 Rum 的 api 要求来的，读者感兴趣可以自己在 Rum 的 github 主页去看看，这里的话可以直接用我提供的地址。</p>
 <p>值得注意的是，请求的内容主体：body 变量，经过了两次加工：<br>最初是一个 struct，这个 struct 要符合 Rum 的格式要求，我们取名叫 Payload。<br>然后用 Payload 来创建一个叫 data 的实例，给 data 填入了具体的内容。<br>再接下来，用 json.Marshal(data) 方法，把 data 解析成了 json 格式，并赋值给变量 payloadBytes。<br>最后再把 payloadBytes 通过 bytes 包的 bytes.NewReader(payloadBytes) 方法，转变成了能够通过 HTTP POST 方法发送给 Rum 的字符。</p>
-<p>既然写好了这个函数，我也迫不及待的往 Rum 上发了一个 Hello Rum 的消息。<br>于是在 mian 函数里写下：</p>
+<p>既然写好了这个函数，我也迫不及待的往 Rum 上发了一个 Hello Rum 的消息。<br>于是在 mian 函数里写下如下代码：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	url := <span class="string">&quot;https://127.0.0.1:[端口号]/api/v1/group/content&quot;</span></span><br><span class="line">	postToRum(<span class="string">&quot;Hello Rum&quot;</span>, <span class="string">&quot;Hello Rum&quot;</span>, <span class="string">&quot;[目标种子网络的ID]&quot;</span>, url)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>目标种子网络的 ID 可以在种子网络的详情处获取到，比如“Go语言学习小组”的 ID 是 </p>
 <blockquote>
@@ -127,15 +127,14 @@
 </blockquote>
 <img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/groupID.png" class="">
 
-<p>我们填入 ID 就可以往“Go语言学习小组”发送 Hello Rum 了。<br>完整的代码提供在 github 仓库的 Step0 文件夹里：<br><a target="_blank" rel="noopener" href="https://github.com/hawken-im/yearprogress/tree/main/Step0">https://github.com/hawken-im/yearprogress/tree/main/Step0</a></p>
-<p>在 Step0 目录下执行：</p>
+<p>我们填入 ID 就可以往“Go语言学习小组”发送 Hello Rum 了。<br>以上代码的片段忽略掉了一些 Go 语言的一些前置语句，比如包管理的 package 语句，比如引入依赖的包的 import 语句。这里我把代码完整的提供到了 github 仓库里。本系列文章的第一步骤放在了 Step0 文件夹里（因为我们程序员要习惯从零开始）：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hawken-im/yearprogress/tree/main/Step0">https://github.com/hawken-im/yearprogress/tree/main/Step0</a></p>
+<p>clone 完整代码或者复制粘贴也行，之后在 Step0 目录下执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run main.go</span><br></pre></td></tr></table></figure>
 
 <p>就能看到结果了。</p>
-<p>另外欢迎读者们发送 Hello Rum 到“Go语言学习小组”，小组的种子提供于此：</p>
-<blockquote>
-<p>{<br>  “genesis_block”: {<br>    “BlockId”: “7016d356-b42f-421c-a086-094e1f35dbeb”,<br>    “GroupId”: “fe2842cb-db6b-4e8a-b007-e83e5603131c”,<br>    “ProducerPubKey”: “CAISIQOU1kDjMc3cCZRKV/r2bU/IUPukEcdFkIqkFe3Gbqfy+w==”,<br>    “Hash”: “v+kfzMMuwNgb2h1PUAktBk1K9DZbN9pEdcfg2rG1Zys=”,<br>    “Signature”: “MEUCIAZ8A4fgP5TWjXZoAe47qqfktrMrP1/2MMsOM5QsaFiQAiEAn8i8SzpdbGd4wlbbtk6Dws32Ea6aBWtcam+VdUzeHBg=”,<br>    “TimeStamp”: “1637338394235167000”<br>  },<br>  “group_id”: “fe2842cb-db6b-4e8a-b007-e83e5603131c”,<br>  “group_name”: “GO语言学习小组”,<br>  “owner_pubkey”: “CAISIQOU1kDjMc3cCZRKV/r2bU/IUPukEcdFkIqkFe3Gbqfy+w==”,<br>  “consensus_type”: “poa”,<br>  “encryption_type”: “public”,<br>  “cipher_key”: “835360cc49a5faf385b906b8fd1fb16f31a73c652c65398513070c27a3920550”,<br>  “app_key”: “group_post”,<br>  “signature”: “304502204baef7f83e01af403791a96024413deb59ecec7b92f9ae2c18377917e127e6c1022100a4529dc2542aa3f6dc9afd8d14d8bfbcbb3ac33a3a32ca993805a13a77942efe”<br>}</p>
-</blockquote>
+<p>非常欢迎读者们发送 Hello Rum 到“Go语言学习小组”，小组的种子提供于此：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;genesis_block&quot;: &#123;</span><br><span class="line">    &quot;BlockId&quot;: &quot;7016d356-b42f-421c-a086-094e1f35dbeb&quot;,</span><br><span class="line">    &quot;GroupId&quot;: &quot;fe2842cb-db6b-4e8a-b007-e83e5603131c&quot;,</span><br><span class="line">    &quot;ProducerPubKey&quot;: &quot;CAISIQOU1kDjMc3cCZRKV/r2bU/IUPukEcdFkIqkFe3Gbqfy+w==&quot;,</span><br><span class="line">    &quot;Hash&quot;: &quot;v+kfzMMuwNgb2h1PUAktBk1K9DZbN9pEdcfg2rG1Zys=&quot;,</span><br><span class="line">    &quot;Signature&quot;: &quot;MEUCIAZ8A4fgP5TWjXZoAe47qqfktrMrP1/2MMsOM5QsaFiQAiEAn8i8SzpdbGd4wlbbtk6Dws32Ea6aBWtcam+VdUzeHBg=&quot;,</span><br><span class="line">    &quot;TimeStamp&quot;: &quot;1637338394235167000&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;group_id&quot;: &quot;fe2842cb-db6b-4e8a-b007-e83e5603131c&quot;,</span><br><span class="line">  &quot;group_name&quot;: &quot;GO语言学习小组&quot;,</span><br><span class="line">  &quot;owner_pubkey&quot;: &quot;CAISIQOU1kDjMc3cCZRKV/r2bU/IUPukEcdFkIqkFe3Gbqfy+w==&quot;,</span><br><span class="line">  &quot;consensus_type&quot;: &quot;poa&quot;,</span><br><span class="line">  &quot;encryption_type&quot;: &quot;public&quot;,</span><br><span class="line">  &quot;cipher_key&quot;: &quot;835360cc49a5faf385b906b8fd1fb16f31a73c652c65398513070c27a3920550&quot;,</span><br><span class="line">  &quot;app_key&quot;: &quot;group_post&quot;,</span><br><span class="line">  &quot;signature&quot;: &quot;304502204baef7f83e01af403791a96024413deb59ecec7b92f9ae2c18377917e127e6c1022100a4529dc2542aa3f6dc9afd8d14d8bfbcbb3ac33a3a32ca993805a13a77942efe&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
