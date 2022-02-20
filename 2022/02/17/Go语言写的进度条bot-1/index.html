@@ -16,7 +16,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/02/17/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/blocks.png">
 <meta property="article:published_time" content="2022-02-17T10:37:15.000Z">
-<meta property="article:modified_time" content="2022-02-20T07:55:26.078Z">
+<meta property="article:modified_time" content="2022-02-20T08:58:19.673Z">
 <meta property="article:author" content="Hawken">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/02/17/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/blocks.png">
@@ -117,6 +117,7 @@
 <p>这里采用了当前的 UTC 时间，传递给 timePerc 函数，生成了百分比，把百分比传递给 printBar 函数，生成要发送的内容，赋值给变量 progressBar。<br>接下来把内容传递给上一篇写的函数，postToRum，礼成！</p>
 <p>按照惯例，我把代码的全貌展示在 github 上，因为跟我一样小白的读者如果通过复制粘贴再加上自己的修修补补可能没法成功运行：</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/hawken-im/yearprogress/tree/main/Step1">https://github.com/hawken-im/yearprogress/tree/main/Step1</a></p>
+<p>另外，最终实现自己的目标前，会出不少问题，要定位这些问题，最好的方法就是每一步都输出一个结果。这里我用了 fmt.Println()。</p>
 
       
     </div>
@@ -129,6 +130,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2022/02/20/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          用 Go 语言写焦虑发生器并发布到 Rum 上·第三篇
+        
+      </div>
+    </a>
   
   
     <a href="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" id="article-nav-older" class="article-nav-link-wrap">
@@ -170,6 +180,10 @@
       <ul>
         
           <li>
+            <a href="/2022/02/20/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/">用 Go 语言写焦虑发生器并发布到 Rum 上·第三篇</a>
+          </li>
+        
+          <li>
             <a href="/2022/02/17/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/">用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇</a>
           </li>
         
@@ -183,10 +197,6 @@
         
           <li>
             <a href="/2022/01/15/run-quorum-on-ubuntu/">从零开始在 Ubuntu 20.04 上Build Quorum 并用本地 Rum App 进行连接</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/19/NotesOfLearningGo/">Notes Of Learning Go</a>
           </li>
         
       </ul>
