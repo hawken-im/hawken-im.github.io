@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>用 Go 语言写焦虑发生器并发布到 Rum 上·最终篇 | Hawken.im</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="8. 变得更酷之立 flag（带参数运行）2. 到 Rum 去写 botRum 是一款建立在区块链上的去中心化的内容平台。 这个定义不一定准确，因为 Rum 现在还是非常初级的阶段，想象空间非常大，提前下定义只会限制想象。这也是我选择 Rum 来学习 Go的原因吧。 这一阶段，我开始搭建一个运行 Rum 服务端的服务器环境，再用我本地的电脑去连接，以便我后续在本地写 Go 程序能够更容易地在服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Go 语言写焦虑发生器并发布到 Rum 上·最终篇">
+<meta property="og:url" content="http://example.com/2022/02/24/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/index.html">
+<meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="8. 变得更酷之立 flag（带参数运行）2. 到 Rum 去写 botRum 是一款建立在区块链上的去中心化的内容平台。 这个定义不一定准确，因为 Rum 现在还是非常初级的阶段，想象空间非常大，提前下定义只会限制想象。这也是我选择 Rum 来学习 Go的原因吧。 这一阶段，我开始搭建一个运行 Rum 服务端的服务器环境，再用我本地的电脑去连接，以便我后续在本地写 Go 程序能够更容易地在服务器">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-23T16:22:43.000Z">
+<meta property="article:modified_time" content="2022-02-23T16:23:31.288Z">
+<meta property="article:author" content="Hawken">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@whoareyouandyou">
+  
+    <link rel="alternate" href="/atom.xml" title="Hawken.im" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hawken.im</a>
+      </h1>
+      
+		  
+	  <nav id="sub-nav">
+		
+		  <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+		
+			
+				 <a id="nav-twitter-link" class="nav-icon" target="_blank" rel="noopener" href="https://twitter.com/whoareyouandyou" title="twitter"></a>
+			
+		<a id="nav-search-btn" class="nav-icon" title="Search"></a>
+	  </nav>
+	  <div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+	  </div>
+	  
+    </div>
+
+
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Go语言写的进度条bot-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/02/24/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/" class="article-date">
+  <time datetime="2022-02-23T16:22:43.000Z" itemprop="datePublished">2022-02-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用 Go 语言写焦虑发生器并发布到 Rum 上·最终篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="8-变得更酷之立-flag（带参数运行）"><a href="#8-变得更酷之立-flag（带参数运行）" class="headerlink" title="8. 变得更酷之立 flag（带参数运行）"></a>8. 变得更酷之立 flag（带参数运行）</h2><h2 id="2-到-Rum-去写-bot"><a href="#2-到-Rum-去写-bot" class="headerlink" title="2. 到 Rum 去写 bot"></a>2. 到 Rum 去写 bot</h2><p>Rum 是一款建立在区块链上的去中心化的内容平台。</p>
+<p>这个定义不一定准确，因为 Rum 现在还是非常初级的阶段，想象空间非常大，提前下定义只会限制想象。这也是我选择 Rum 来学习 Go的原因吧。</p>
+<p>这一阶段，我开始搭建一个运行 Rum 服务端的服务器环境，再用我本地的电脑去连接，以便我后续在本地写 Go 程序能够更容易地在服务器环境上去测试。这个过程我也总结了一篇文章：<br><a href="">从零开始在 Ubuntu 20.04 上Build Quorum 并用本地 Rum App 进行连接</a></p>
+<p>上面提到的文章也是写给我这样的新手小白看的，目的都是帮助新手避免踩坑，与帮助自己巩固基础并进行下一步的学习。搭建好环境之后，就开始正式的写“2022 进度条”了。</p>
+<h2 id="6-变得更酷之通过外部-config-文件配置参数"><a href="#6-变得更酷之通过外部-config-文件配置参数" class="headerlink" title="6. 变得更酷之通过外部 config 文件配置参数"></a>6. 变得更酷之通过外部 config 文件配置参数</h2><h2 id="9-更多：自定义包"><a href="#9-更多：自定义包" class="headerlink" title="9. 更多：自定义包"></a>9. 更多：自定义包</h2><h2 id="以后的计划："><a href="#以后的计划：" class="headerlink" title="以后的计划："></a>以后的计划：</h2><p>年末的时候发的更频繁。99.85% 开始发</p>
+<p>从最基础的语法书看起。到成功用 Go 语言生成一个纯文本的进度条，到成功通过 HTTP 连接 quorum 服务器发送请求。到成功发布一条消息。到</p>
+<p>在度假，网不好，因此没法翻墙，断断续续 baidu 了好几天，被弄到 CSDN 里兜兜转转了好几天！鬼打墙一样。 今天好不容易找了个咖啡店，翻出去了，立刻！马上！看到了这句话： “In the most basic terms, A package is nothing but a directory inside your Go workspace containing one or more Go source files, or other Go packages.” 划重点是”is nothing but” 这个太关键了 中文文章要么就是高深莫测，搞得小白不知道他们是不是在故弄玄虚，要么就觉得包管理是不是太习以为常就干脆跳过。 这篇文章就叫深入浅出。即便是可能会很高深，但是文章也说了， “In the most basic terms”。 对，可以很难，但是本小白要的就是”most basic terms”。 文章链接在此： <a target="_blank" rel="noopener" href="https://www.callicoder.com/golang-packages/">https://www.callicoder.com/golang-packages/</a></p>
+<p>JWT</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/24/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/" data-id="ckzzrnirm00007qct85r9hkn0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/02/20/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">用 Go 语言写焦虑发生器并发布到 Rum 上·第三篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/02/24/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/">用 Go 语言写焦虑发生器并发布到 Rum 上·最终篇</a>
+          </li>
+        
+          <li>
+            <a href="/2022/02/20/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/">用 Go 语言写焦虑发生器并发布到 Rum 上·第三篇</a>
+          </li>
+        
+          <li>
+            <a href="/2022/02/17/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/">用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇</a>
+          </li>
+        
+          <li>
+            <a href="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/">用 Go 语言写焦虑发生器并发布到 Rum 上·第一篇</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/22/learning-go/">学 go 语言的一些小笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Hawken<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
