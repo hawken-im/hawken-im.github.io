@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hawken.im">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="https://blog.hawken.im/index.html">
 <meta property="og:site_name" content="Hawken.im">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Hawken">
@@ -51,7 +51,7 @@
 		<a id="nav-search-btn" class="nav-icon" title="Search"></a>
 	  </nav>
 	  <div id="search-form-wrap">
-		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.hawken.im"></form>
 	  </div>
 	  
     </div>
@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">敏捷学习方法</a>
+      <a class="article-title" href="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">敏捷学习方法论</a>
     </h1>
   
 
@@ -249,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" data-id="cl0aw38lr0000d0ct9ckhaozc" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" data-id="cl0aw38lr0000d0ct9ckhaozc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -284,7 +284,7 @@
         <p>初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。<br>于是我这就来记录这段学习经历：<br>目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；<br>目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；<br>目的三是让更多的人能够对 Rum 这个新的东西感兴趣。<br>希望能成功达成目的：</p>
 <h2 id="到服务器上去运行-bot"><a href="#到服务器上去运行-bot" class="headerlink" title="到服务器上去运行 bot"></a>到服务器上去运行 bot</h2><p>Rum 是一款建立在区块链上的去中心化的内容平台。</p>
 <p>这个定义不一定准确，因为 Rum 现在还是非常初级的阶段，想象空间非常大，提前下定义只会限制想象。这也是我选择 Rum 来学习 Go的原因吧。<br>前面三篇我们做好了一个可以持续运行并给 Rum 发送内容的 bot。我们自己的电脑不一定会长期在线和联网。于是我们可以在服务器上去运行 Rum，同时再运行我们写好的 bot。</p>
-<p>我自己搭建了一个运行 Rum 服务端（Rum 服务端我们称为 quorum）的服务器环境，再用我本地的电脑去连接，以便我后续在本地写 Go 程序能够更容易地在服务器环境上去测试。这个过程我也总结了一篇文章：<br><a target="_blank" rel="noopener" href="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/">从零开始在 Ubuntu 20.04 上Build Quorum 并用本地 Rum App 进行连接</a></p>
+<p>我自己搭建了一个运行 Rum 服务端（Rum 服务端我们称为 quorum）的服务器环境，再用我本地的电脑去连接，以便我后续在本地写 Go 程序能够更容易地在服务器环境上去测试。这个过程我也总结了一篇文章：<br><a href="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/">从零开始在 Ubuntu 20.04 上Build Quorum 并用本地 Rum App 进行连接</a></p>
 <p>上面提到的文章也是写给我这样的新手小白看的，目的都是帮助新手避免踩坑，与帮助自己巩固基础并进行下一步的学习。搭建好环境之后，像我们自己在电脑上测试 bot 一样，把我们的代码放到服务器上运行就可以了。</p>
 <h2 id="变得更酷之立-flag（带参数运行）"><a href="#变得更酷之立-flag（带参数运行）" class="headerlink" title="变得更酷之立 flag（带参数运行）"></a>变得更酷之立 flag（带参数运行）</h2><p>既然到了服务器上去运行就不得不用命令行进行操作。命令行对我这个小白来说，用起来即使不方便，感觉上很酷，就够了。我们自己写的程序要是也需要输入一个带参数的命令才能运行，岂不是酷毙了。</p>
 <p>也是一番搜索，查到我们要带参数运行命令，需要一个包叫做 flag。是的，在命令行里带参数，就是立 flag。<br>我们 import 这个包：</p>
@@ -333,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/02/24/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/" data-id="ckzzrnirm00007qct85r9hkn0" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2022/02/24/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/" data-id="ckzzrnirm00007qct85r9hkn0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -404,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/02/20/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/" data-id="ckzv1fzwn0000g8ctf9d3au6r" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2022/02/20/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/" data-id="ckzv1fzwn0000g8ctf9d3au6r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -469,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/02/17/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/" data-id="ckzuz7g5o00009oct6l9odwya" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2022/02/17/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/" data-id="ckzuz7g5o00009oct6l9odwya" class="article-share-link">Share</a>
       
       
     </footer>
@@ -555,7 +555,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" data-id="ckzl25bqx0000wcct6w3mdtex" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" data-id="ckzl25bqx0000wcct6w3mdtex" class="article-share-link">Share</a>
       
       
     </footer>
@@ -601,7 +601,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/01/22/learning-go/" data-id="ckypb4ihy0000prct0n4f4ucd" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2022/01/22/learning-go/" data-id="ckypb4ihy0000prct0n4f4ucd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -716,7 +716,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/01/15/run-quorum-on-ubuntu/" data-id="ckygoq7eh0000qlct1dyne651" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/" data-id="ckygoq7eh0000qlct1dyne651" class="article-share-link">Share</a>
       
       
     </footer>
@@ -762,7 +762,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/19/NotesOfLearningGo/" data-id="ckyenneb2000a4act2ojsglii" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2021/11/19/NotesOfLearningGo/" data-id="ckyenneb2000a4act2ojsglii" class="article-share-link">Share</a>
       
       
     </footer>
@@ -902,7 +902,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/12/%E5%85%83%E5%AE%87%E5%AE%99%E4%B8%89%E9%97%AE/" data-id="ckyenneba000i4actcsvd59a8" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2021/11/12/%E5%85%83%E5%AE%87%E5%AE%99%E4%B8%89%E9%97%AE/" data-id="ckyenneba000i4actcsvd59a8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -947,7 +947,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" data-id="ckyenneb200094actg9je8gk4" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" data-id="ckyenneb200094actg9je8gk4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -993,7 +993,7 @@
       <ul>
         
           <li>
-            <a href="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">敏捷学习方法</a>
+            <a href="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">敏捷学习方法论</a>
           </li>
         
           <li>
