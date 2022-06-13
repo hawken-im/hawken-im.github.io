@@ -63,6 +63,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" class="article-date">
+  <time datetime="2021-08-01T08:57:00.000Z" itemprop="datePublished">2021-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/">Nginx and Certbot to build a server to support multiple web sites</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Install-and-config-nginx-first"><a href="#Install-and-config-nginx-first" class="headerlink" title="Install and config nginx first."></a>Install and config nginx first.</h3><p>I followed these two instructions:<br><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/how-to-install-nginx-on-ubuntu-20-04"></a><br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04"></a></p>
+<p>Remember to config “sites-available” seperately, try not to config the global config file, for two reasons:</p>
+<ol>
+<li>It’ll be easier to maintain.</li>
+<li>Certbot is not that clever, so we want to leave the global config file to Certbot.</li>
+</ol>
+<h3 id="Read-Certbot-manual-first-then-follow-quick-instructions-from-Certbot-homepage"><a href="#Read-Certbot-manual-first-then-follow-quick-instructions-from-Certbot-homepage" class="headerlink" title="Read Certbot manual first then follow quick instructions from Certbot homepage"></a>Read Certbot manual first then follow quick instructions from Certbot homepage</h3><p>Follow the official instructions to install Certbot correctly.<br><a target="_blank" rel="noopener" href="https://certbot.eff.org/instructions"></a><br>Then we need to choose a command to call a plugin to get CA.<br>After I finished reading, I found out many unofficial instructions online are outdated.<br><a target="_blank" rel="noopener" href="https://certbot.eff.org/docs/using.html#nginx"></a><br>If we install Certbot correctly, we only need to use command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx</span><br></pre></td></tr></table></figure>
+<p>Then Certbot can do all for you. Even can create a cron job to renew certificate automatically.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.hawken.im/2021/08/01/Nginx-and-Certbot-to-build-a-server-to-support-multiple-web-sites/" data-id="ckyenneb200094actg9je8gk4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/07/29/test/" class="article-date">
@@ -414,43 +459,6 @@
 
 
   
-    <article id="post-继续设置了ssl-certificate" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/20/%E7%BB%A7%E7%BB%AD%E8%AE%BE%E7%BD%AE%E4%BA%86ssl-certificate/" class="article-date">
-  <time datetime="2020-03-20T15:23:00.000Z" itemprop="datePublished">2020-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/20/%E7%BB%A7%E7%BB%AD%E8%AE%BE%E7%BD%AE%E4%BA%86ssl-certificate/">继续设置了ssl certificate</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>现在只能通过https来登录<br><a target="_blank" rel="noopener" href="https://linoxide.com/linux-how-to/install-letsencrypt-ubuntu/">https://linoxide.com/linux-how-to/install-letsencrypt-ubuntu/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/2020/03/20/%E7%BB%A7%E7%BB%AD%E8%AE%BE%E7%BD%AE%E4%BA%86ssl-certificate/" data-id="ckyennebh000t4act5z3sa8q4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -474,7 +482,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
     </div>
   </div>
 
@@ -485,6 +493,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/06/10/itsgettingbadorbetter/">画 - 思绪大乱炖</a>
+          </li>
         
           <li>
             <a href="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">敏捷学习方法论</a>
@@ -500,10 +512,6 @@
         
           <li>
             <a href="/2022/02/17/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/">用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇</a>
-          </li>
-        
-          <li>
-            <a href="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/">用 Go 语言写焦虑发生器并发布到 Rum 上·第一篇</a>
           </li>
         
       </ul>
