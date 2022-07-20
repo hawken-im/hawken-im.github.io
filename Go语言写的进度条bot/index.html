@@ -14,14 +14,14 @@
 <meta property="og:site_name" content="Hawken.im">
 <meta property="og:description" content="初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。于是我这就来记录这段学习经历：目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；目的三是让更多的人能够对">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.hawken.im/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png">
-<meta property="og:image" content="https://blog.hawken.im/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/portnumber.png">
-<meta property="og:image" content="https://blog.hawken.im/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/groupID.png">
+<meta property="og:image" content="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png">
+<meta property="og:image" content="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/portnumber.png">
+<meta property="og:image" content="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/groupID.png">
 <meta property="article:published_time" content="2022-02-04T01:42:56.000Z">
 <meta property="article:modified_time" content="2022-02-17T10:35:49.811Z">
 <meta property="article:author" content="Hawken">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hawken.im/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png">
+<meta name="twitter:image" content="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png">
 <meta name="twitter:creator" content="@whoareyouandyou">
   
     <link rel="alternate" href="/atom.xml" title="Hawken.im" type="application/atom+xml">
@@ -95,7 +95,7 @@
 <h2 id="Go-语言基础入门"><a href="#Go-语言基础入门" class="headerlink" title="Go 语言基础入门"></a>Go 语言基础入门</h2><p>学 Go 的出发点是因为大佬们都用 Go 语言来写链上应用。看着他们在群里交流的非常欢乐，文字我都认识，但就不懂他们在讲什么。<br>这种感觉太难受，就像小矮人身在片场却眼巴巴看高等精灵们讲精灵语，脸上还是挂着围笑假装在参与对话。</p>
 <p>然后呢，因为自己喜欢游戏，找了本书叫：<a target="_blank" rel="noopener" href="https://xue.cn/hub/app/books/236">Pac Go: A Pac Man clone written in Go
 </a><br>就是用 Go 语言写吃豆人游戏。好，从这本书开始入门 Go。<br>并不是因为作者是美丽的女程序员我才选择的这本书。</p>
-<img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png" class="">
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png" class="">
 
 <blockquote>
 <p><strong>并不是</strong></p>
@@ -116,7 +116,7 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">req, err := http.NewRequest(<span class="string">&quot;POST&quot;</span>, <span class="string">&quot;https://127.0.0.1:[Rum节点的端口号]/api/v1/group/content&quot;</span>, body)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	req.Header.Set(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/json&quot;</span>)</span><br><span class="line"></span><br><span class="line">	resp, err := client.Do(req)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br></pre></td></tr></table></figure>
 
 <p>变量 req 就是我们要发送请求的一个实例了。通过 http.NewRequest 来建立，有三个参数，分别是：<br>“POST”，表示我们的请求是 POST 方法；<br>第二个参数是 URL，端口号可以在 Rum 客户端的“节点与网络”菜单中的“节点参数”中找到；</p>
-<img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/portnumber.png" class="">
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/portnumber.png" class="">
 
 <p>第三个 body 变量是要 Post 给 Rum 的具体内容。</p>
 <p>接下来设置一个 header，把 header 设置为一个 json 的内容。这是因为 Rum 需要我们发送 json 内容。<br>最后就通过 client.Do(req) 来执行我们设置好的一切，并将请求到的返回值赋值给 resp 变量。这样就通过 Go 完成了一个完整的 HTTP request。</p>
@@ -131,7 +131,7 @@
 <blockquote>
 <p>fe2842cb-db6b-4e8a-b007-e83e5603131c</p>
 </blockquote>
-<img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/groupID.png" class="">
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/groupID.png" class="">
 
 <p>我们填入 ID 就可以往“Go语言学习小组”发送 Hello Rum 了。<br>以上代码的片段忽略掉了一些 Go 语言的一些前置语句，比如包管理的 package 语句，比如引入依赖的包的 import 语句。这里我把代码完整的提供到了 github 仓库里。本系列文章的第一步骤放在了 Step0 文件夹里（因为我们程序员要习惯从零开始）：</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/hawken-im/yearprogress/tree/main/Step0">https://github.com/hawken-im/yearprogress/tree/main/Step0</a></p>
@@ -145,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" data-id="cl5txekln000a35ct2168a3oj" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" data-id="cl5tzfzxg000aaactflvr3sds" class="article-share-link">Share</a>
       
       
     </footer>

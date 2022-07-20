@@ -88,46 +88,46 @@
         <p>亚马逊宣布 Kindle 将退出中国市场。<br>买了的书咋个办？亚马逊给的说法是书仍然可以下载并在阅读器中阅读。<br>但是我的泡面盖子已经好多年历史了，Pad 上的 APP 又给人不踏实的感觉——想起之前还经历过 Pad 版本太旧，Kindle APP 不支持的情况。</p>
 <p>所以趁自己在恐慌期间有动力，把下载 kindle 电子书的方法研究出来了：<br>（有拖延症的朋友也不必太着急，官宣是在2023年6月30日才正式停止运营。）</p>
 <p>第一步，工具下载：<br>首先要感谢这位大佬，这个工具是他创始的，还要感谢之后涌来的一群程序员大佬，做出了图形化界面，才有我们小白的操作空间：</p>
-<img src="/2022/06/19/kindledownload/credit.png" class="">
+<img src="/kindledownload/credit.png" class="">
 <p>下载地址在这里：<br><a target="_blank" rel="noopener" href="https://github.com/yihong0618/Kindle_download_helper/releases">https://github.com/yihong0618/Kindle_download_helper/releases</a></p>
 <p>如果某种不明原因打不开这个网站，可以公众号回复“kindle”获取下载链接。</p>
-<img src="/2022/06/19/kindledownload/guifiles.png" class="">
+<img src="/kindledownload/guifiles.png" class="">
 <p>找到自己操作系统所对应的文件进行下载。<br>第一个是 linux，第二个是 macOS，第三个是 windows。</p>
 <p>第二步，打开下载工具：</p>
-<img src="/2022/06/19/kindledownload/steps.png" class="">
+<img src="/kindledownload/steps.png" class="">
 
 <p>第二.1步，点击登录（1 号红圈处），进入自己的 Kindle 图书管理页面：</p>
-<img src="/2022/06/19/kindledownload/f122.png" class="">
+<img src="/kindledownload/f122.png" class="">
 
 <p>在这个页面按 F12 按键。以我对小白的了解（我就是），我认为有必要讲一下 F12 在哪里：</p>
-<img src="/2022/06/19/kindledownload/f12.jpg" class="">
+<img src="/kindledownload/f12.jpg" class="">
 
 <p>第二.2步，在调试窗口中找两串神秘文本，粘贴到相应的位置：<br>出现了调试窗口，在这个窗口中搜索“csrf”，可以看到“csrfToken&#x3D;”””这一串文本。</p>
-<img src="/2022/06/19/kindledownload/csrf.png" class="">
+<img src="/kindledownload/csrf.png" class="">
 
 <p>把双引号里面的文本复制下来，粘贴到下图 3 号圆圈处。注意不能复制双引号。</p>
-<img src="/2022/06/19/kindledownload/steps.png" class="">
+<img src="/kindledownload/steps.png" class="">
 
 <p>回到调试窗口，找到“network”这一栏，随便找一个带有 200 这个数字的数据，打开：</p>
-<img src="/2022/06/19/kindledownload/network.png" class="">
+<img src="/kindledownload/network.png" class="">
 
 <p>在小窗口中找到“cookie”，鼠标右键，复制下来：</p>
-<img src="/2022/06/19/kindledownload/cookievalue.png" class="">
+<img src="/kindledownload/cookievalue.png" class="">
 
 <p>粘贴到下图 2 号圆圈出：</p>
-<img src="/2022/06/19/kindledownload/steps.png" class="">
+<img src="/kindledownload/steps.png" class="">
 
 <p>第二.3步，点击 4 号圆圈处，获取下载列表，等一小会儿，就会出现自己的书了；<br>第二.4步，点击 5 号圆圈处“浏览”按钮，指定自己的书要下载到哪里（如果是苹果电脑，必须点一次浏览，这样才能给电脑授权）：</p>
-<img src="/2022/06/19/kindledownload/steps.png" class="">
+<img src="/kindledownload/steps.png" class="">
 
 <p>第二.5步，点击 6 号圆圈处的下载全部按钮。<br>这个时候会出现进度条，和一些进度提示，耐心等待完成就好了。</p>
 <p>第三步，转换成 epub 文件：<br>下载下来了后缀名是“.azw”的文件，用 Kindle APP 就可以打开了，但是我还是觉得 epub 文件更通用一点，这里提供一个转换工具：<br><a target="_blank" rel="noopener" href="https://www.neat-reader.cn/downloads/converter">https://www.neat-reader.cn/downloads/converter</a></p>
-<img src="/2022/06/19/kindledownload/neatconverter.png" class="">
+<img src="/kindledownload/neatconverter.png" class="">
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/kindledownload/" data-id="cl5txeklw000k35cthgln1o6a" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/kindledownload/" data-id="cl5tzfzxm000kaact3279faqx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,34 +164,34 @@
 <p>这里引用西乔的文章来介绍一下这个 AI 作画工具：<br>[引用]</p>
 <p>一想到这个 AI 也许在人类睡大觉的时候也不眠不休的在学习人类的绘画作品，有点渗人呢。</p>
 <p>AI 不眠不休的学习人类，这种焦虑刺激着我认真听课，学习人类：</p>
-<img src="/2022/06/10/itsgettingbadorbetter/lesson1.png" class="">
+<img src="/itsgettingbadorbetter/lesson1.png" class="">
 
 <p>朱利安大王的人类历史课，一共有七讲。<br>刚刚听完第一讲，主要是两个部分：<br>一，人类作为生物这种存在本身<br>二，人类早期的文明</p>
 <p>人类这种生物，可以说是进化树上开出的一朵奇葩了。</p>
 <p>门-纲-目-科-属-种。<br>在属和种这两个分支，智人都是独一无二的存在。上溯到科，也仅有几种猩猩和人放在一起。相较别的物种，一个科下面上百个属上千个种，都是很正常的。<br>我们在进化树这个大树上伸出一根长长的光溜溜的树枝，都快伸到外星去了。</p>
 <p>上亿年的生物进化史，智人的出现才十万年。而且这十万年间，考古查证的其他人属人种生物被排挤的一干二净。这个是 Wikipedia 上扒下来的人类种的时间线：</p>
-<img src="/2022/06/10/itsgettingbadorbetter/timeline.jpg" class="">
+<img src="/itsgettingbadorbetter/timeline.jpg" class="">
 
 <p>看看，几百万年漫长的直立人种历史，在最近2万年左右，尼安德特人消亡，只剩下智人，也就是我们。<br>凭什么智人剩下来了，尼安德特人和其他人种到哪里去了，目前是未解之谜。</p>
 <p>作为一种动物，人类搞不明白人类自己。</p>
 <p>而作为一种建立了文明的智慧生物，嗨，看看人类在地球上都干了些什么。</p>
 <p>这里有个概念：世界上最长的步行路线（the Longest Walkable Distance on Earth）<br>有个网站介绍了这个路线：<br><a target="_blank" rel="noopener" href="https://www.popularmechanics.com/science/a30285283/longest-walkable-distance-earth/">https://www.popularmechanics.com/science/a30285283/longest-walkable-distance-earth/</a></p>
-<p><img src="/2022/06/10/itsgettingbadorbetter/road.png"><br>这条路全程都可以步行通过。长度是14000英里。喜欢徒步的人应该知道，人一天大概可以走50公里，差不多是30英里。我们算一下：14000&#x2F;30&#x3D;466天。<br>一年多。<br>一个人在理想的情况下（有吃有喝有住）就这么走下去，一年多可以穿过整个亚非欧三个大陆。<br>再对比智人存在的9万年时间，是不是太长了点，足够我们走遍全世界了。<br>智人的迁徙路线：</p>
-<p><img src="/2022/06/10/itsgettingbadorbetter/homo.png"><br>祖先在几万年前走遍全世界，看看我们现在，有了汽车，飞机，火车，远洋巨轮。我们却被自己在地图上画的那一根根线，圈了起来，哪儿都去不了。</p>
+<p><img src="/itsgettingbadorbetter/road.png"><br>这条路全程都可以步行通过。长度是14000英里。喜欢徒步的人应该知道，人一天大概可以走50公里，差不多是30英里。我们算一下：14000&#x2F;30&#x3D;466天。<br>一年多。<br>一个人在理想的情况下（有吃有喝有住）就这么走下去，一年多可以穿过整个亚非欧三个大陆。<br>再对比智人存在的9万年时间，是不是太长了点，足够我们走遍全世界了。<br>智人的迁徙路线：</p>
+<p><img src="/itsgettingbadorbetter/homo.png"><br>祖先在几万年前走遍全世界，看看我们现在，有了汽车，飞机，火车，远洋巨轮。我们却被自己在地图上画的那一根根线，圈了起来，哪儿都去不了。</p>
 <p>我在[元宇宙三问]这篇文章中就说，人类以后也许再也没有自由迁徙的日子了，统统到虚拟世界去当电池，赚取维持肉身存活的营养液吧。</p>
 <p>朱利安大王讲到史前文明的壁画。<br>首先这是3万年前的史前壁画，发现于法国拉斯科洞穴。</p>
-<img src="/2022/06/10/itsgettingbadorbetter/lsk1.jpg" class="">
+<img src="/itsgettingbadorbetter/lsk1.jpg" class="">
 <p>一头充满细节的牛</p>
-<img src="/2022/06/10/itsgettingbadorbetter/lsk2.jpg" class="">
+<img src="/itsgettingbadorbetter/lsk2.jpg" class="">
 <p>整体观感</p>
 <p>大王还提到了另一处史前壁画：<br>阿根廷平图拉斯河，手洞。<br>叫它手洞是因为真的有很多只手：</p>
-<img src="/2022/06/10/itsgettingbadorbetter/hand.jpg" class="">
+<img src="/itsgettingbadorbetter/hand.jpg" class="">
 
 <p>跟前面的法国拉斯科洞穴一样，也有动物：</p>
-<img src="/2022/06/10/itsgettingbadorbetter/sd2.jpg" class="">
+<img src="/itsgettingbadorbetter/sd2.jpg" class="">
 
 <p>甚至还有涂鸦：</p>
-<img src="/2022/06/10/itsgettingbadorbetter/sd3.jpg" class="">
+<img src="/itsgettingbadorbetter/sd3.jpg" class="">
 
 <p>我看了第一反应，和其他同学一样，觉得法国拉斯科洞穴的画更漂亮。<br>我们来对比一下两处壁画的年代：</p>
 <ul>
@@ -200,22 +200,22 @@
 </ul>
 <p>3万年前的壁画比两万年以后的涂鸦明显漂亮，说明3万年前的人类更聪明吗？</p>
 <p>来看看身边有多少孩子到处乱涂乱画吧。<br>合理的解释是，后来的人类技术更先进，更容易获得颜料和作画工具，更多不专业的人都可以画壁画，甚至是熊孩子。</p>
-<img src="/2022/06/10/itsgettingbadorbetter/dingjinhao.jpg" class="">
+<img src="/itsgettingbadorbetter/dingjinhao.jpg" class="">
 
 <p>以前的画家，为了赚取生活费，要给王公贵族打工，给他们画肖像画。或者给神仙打工，给上帝画壁画。那时候颜料也贵，没人付钱的话，画家不太可能自己凭借兴趣爱好画个什么风景画。</p>
 <p>周末去参观了印象派的绘画展。</p>
-<img src="/2022/06/10/itsgettingbadorbetter/yxp.jpg" class="">
+<img src="/itsgettingbadorbetter/yxp.jpg" class="">
 <p>激发印象派画家开创印象派的很重要的一个动因是，相机的发明。<br>对啊，都有照片，我没必要以写实为目的来画画了。或者，不是没必要而是没需求了。那个时候的画家面对相机的心情是怎样的呢？是否跟现在的艺术家们面对 AI 绘画的心情一样呢？</p>
 <p>至少，我看到艺术家们从此开创了越来越多的艺术形式，开始奔放地表达着自己，无论是好坏美丑善恶或者表达不好不坏反正就什么都不是的或者表达凭什么要这样非要是什么不是什么的艺术。</p>
 <p>现在我请 AI 帮我画了一幅画来具象化我们当前的一种状态：</p>
-<img src="/2022/06/10/itsgettingbadorbetter/qrp.png" class="">
+<img src="/itsgettingbadorbetter/qrp.png" class="">
 
 <p>感谢 AI 帮我这样一艺术白丁也能用艺术创作来表达自己。<br>总之，我们走着瞧吧。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/itsgettingbadorbetter/" data-id="cl5txeklv000j35ctakz7d2eq" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/itsgettingbadorbetter/" data-id="cl5tzfzxl000jaact9uxee3lo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -257,12 +257,12 @@
 
 <h2 id="1-想学好编程，想学多好？其实是学习的项目管理问题"><a href="#1-想学好编程，想学多好？其实是学习的项目管理问题" class="headerlink" title="1. 想学好编程，想学多好？其实是学习的项目管理问题"></a>1. 想学好编程，想学多好？其实是学习的项目管理问题</h2><p>这里引入一个项目管理的概念：“项目管理三角形”；</p>
 <p>如图，想要追求质量，就要投入相应的成本和时间。如果工程范围再不进行限制，整个项目的成本将会爆炸式增长，最后根本收不了工。</p>
-<img src="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/0.png" class="">
+<img src="/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/0.png" class="">
 
 <p>要学习一门技能，完全可以套用相同的模型。</p>
 <p>不管我在前面抖机灵说什么“浅尝则止未尝不可”，但学一门技能，谁又不想学得炉火纯青，达到一定造诣呢？</p>
 <p>在编程领域能达到什么样的学习成果，就要像项目管理那样考虑学习投入的平衡问题。我们把三角形的标注换成这样应该很好理解：</p>
-<img src="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/1.png" class="">
+<img src="/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/1.png" class="">
 
 <p>完全套用这个三角形来建立学习方法又有些问题，因为在学习上我们的成本投入基本就是自己的时间，特别如果是通过阅读来学习，不是报各种学习班的话，金钱成本几乎可以忽略。</p>
 <p>我们在学习上的投入具体有哪些呢？</p>
@@ -275,7 +275,7 @@
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">学力值 = 时间*专注度*兴趣</span><br></pre></td></tr></table></figure>
 
 <p>于是三角形中的两边就合起来，画成一个正方形：</p>
-<img src="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/2.png" class="">
+<img src="/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/2.png" class="">
 
 <p>那么还剩“范围”这一边，看看编程这个技能有可能涵盖的范围吧：</p>
 <p>首先从应用范围来看，</p>
@@ -315,11 +315,11 @@
 </ol>
 <p>综上，如果我们不注意控制学习的范围，我们需要投入的学力值就会去填无底洞了。</p>
 <p>那么投入编程学习前，请参考这个模型，根据自己的兴趣、自己能够投入的时间、自己想要应用的范围做一个规划吧。</p>
-<img src="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/3.png" class="">
+<img src="/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/3.png" class="">
 
 <h2 id="2-要深度还是要广度？其实是投入与回报的平衡问题。"><a href="#2-要深度还是要广度？其实是投入与回报的平衡问题。" class="headerlink" title="2. 要深度还是要广度？其实是投入与回报的平衡问题。"></a>2. 要深度还是要广度？其实是投入与回报的平衡问题。</h2><p>前面我们讲了一个平面的学习模型，似乎只要投入学力值就可以很顺利获得学习成果。可事实仍然是编程学习者众，学成者寥寥。其实除了学习者自身的规划与投入，我的观察是，很多编程学习教程本身对范围没有一个好的把握，典型如：《某语言从入门到精通》、《N天掌握某语言》。</p>
 <p>回顾我们的学习模型：</p>
-<img src="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/3.png" class="">
+<img src="/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/3.png" class="">
 
 <p>这种教程想到达的学习成果是精通、掌握（我理解这两个词是一个意思）。</p>
 <p>投入的时间是N天？一本书就从入门到精通？写书的是有多瞧不起自己的专业？</p>
@@ -352,7 +352,7 @@
 <h2 id="3-拥抱敏捷：敏捷学习方法"><a href="#3-拥抱敏捷：敏捷学习方法" class="headerlink" title="3. 拥抱敏捷：敏捷学习方法"></a>3. 拥抱敏捷：敏捷学习方法</h2><p>本文开头提到，用项目管理的思维来学习编程。而项目管理的方法论是在上个世纪60年代建立起来的，适用于人类对各种工程项目进行大规模合作。</p>
 <p>软件开发行业的出现显然是晚于传统项目所在行业的。到了2001年，一群软件行业大佬相约去滑雪，互相吐槽抱怨了几句终于发现大家都不太认同旧时代的章法，于是滑雪之余顺便签署了一份“敏捷宣言“。</p>
 <p>敏捷宣言的原文以及配套的十二条原则可以在官网上看到（链接附后），经过多年的发展，敏捷方法已经形成了一套成熟的管理体系。这套体系大概长这样：</p>
-<img src="/2022/03/03/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/7.png" class="">
+<img src="/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/7.png" class="">
 
 <p>不是开玩笑，这真就是传统工程项目和软件工程项目的最大区别。</p>
 <p>在传统工程中，如果要建造一辆汽车，需要一个零件一个零件生产，组装，最后完工才能投入使用。</p>
@@ -419,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" data-id="cl5txekm5000w35cthy3d1j2m" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/%E6%95%8F%E6%8D%B7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" data-id="cl5tzfzxt000waact2iyb8x20" class="article-share-link">Share</a>
       
       
     </footer>
@@ -469,7 +469,7 @@
 
 <h2 id="变得更酷之通过外部-config-文件配置参数"><a href="#变得更酷之通过外部-config-文件配置参数" class="headerlink" title="变得更酷之通过外部 config 文件配置参数"></a>变得更酷之通过外部 config 文件配置参数</h2><p>要正式运行这个代码了，会有好多测试，每次都输入一长串的 ID 感觉很麻烦而且一点都不酷。<br>看了大佬们的代码，经常都会有一个配置文件，把很多东西写好在配置文件上，再来运行。<br>酷！我们也来搞这个。</p>
 <p>先设计一下我们配置文件的结构，之前学过一点 Json 的数据结构，所以也没多想，就用 Json 来作为配置文件的格式吧。然后画图进行一个简单的框架设计：</p>
-<img src="/2022/02/24/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/struct.png" class="">
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/struct.png" class="">
 
 <p>这里面计划的功能冗余了一些，很多都没用上，比如可以选择不同的发送方法什么的，可以留给读者来加工（嗯，并不是我偷懒了），按照设计写出来的 Json 文件如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;url&quot;</span>:<span class="string">&quot;https://127.0.0.1/api/v1/group/content&quot;</span>,</span><br><span class="line"><span class="attr">&quot;groups&quot;</span>:[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;name&quot;</span>:<span class="string">&quot;YearProgress 2022&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;ID&quot;</span>:<span class="string">&quot;[quorum seednet ID]&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;testGroup&quot;</span>:<span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;cron&quot;</span>:&#123;</span><br><span class="line">            <span class="attr">&quot;method&quot;</span>:<span class="string">&quot;daily&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;schedule&quot;</span>:<span class="string">&quot;0 0 * * *&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;timeZone&quot;</span>:<span class="string">&quot;UTC&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;name&quot;</span>:<span class="string">&quot;Test Group&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;ID&quot;</span>:<span class="string">&quot;[quorum seednet ID]&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;testGroup&quot;</span>:<span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;cron&quot;</span>:&#123;</span><br><span class="line">            <span class="attr">&quot;method&quot;</span>:<span class="string">&quot;percently&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;schedule&quot;</span>:<span class="string">&quot;default&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;timeZone&quot;</span>:<span class="string">&quot;UTC&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -503,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/" data-id="cl5txekln000935ctaa3zb2kc" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-3/" data-id="cl5tzfzxf0009aact5img1yrh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -574,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/" data-id="cl5txeklm000835ct4tng14w7" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/" data-id="cl5tzfzxe0008aactbkd3fp4r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -608,7 +608,7 @@
       
         <p>初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。<br>于是我这就来记录这段学习经历：<br>目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；<br>目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；<br>目的三是让更多的人能够对 Rum 这个新的东西感兴趣。<br>希望能成功达成目的：</p>
 <h2 id="生成进度条"><a href="#生成进度条" class="headerlink" title="生成进度条"></a>生成进度条</h2><p>上一篇我们写了函数，可以用 HTTP Post 方法向 Rum 发送内容，我们这一篇就来发送焦虑内容之年度进度条吧。<br>进度条采用文本形式，我在 Unicode 的列表里找到了一些方块：</p>
-<img src="/2022/02/17/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/blocks.png" class="">
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/blocks.png" class="">
 
 <blockquote>
 <p>这个找 Unicode 的地方我提供给读者：<a target="_blank" rel="noopener" href="https://unicode-table.com/">https://unicode-table.com/</a></p>
@@ -639,7 +639,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/" data-id="cl5txekll000735ct9l2o7le1" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/" data-id="cl5tzfzxe0007aactbjmj0zeo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -675,7 +675,7 @@
 <h2 id="Go-语言基础入门"><a href="#Go-语言基础入门" class="headerlink" title="Go 语言基础入门"></a>Go 语言基础入门</h2><p>学 Go 的出发点是因为大佬们都用 Go 语言来写链上应用。看着他们在群里交流的非常欢乐，文字我都认识，但就不懂他们在讲什么。<br>这种感觉太难受，就像小矮人身在片场却眼巴巴看高等精灵们讲精灵语，脸上还是挂着围笑假装在参与对话。</p>
 <p>然后呢，因为自己喜欢游戏，找了本书叫：<a target="_blank" rel="noopener" href="https://xue.cn/hub/app/books/236">Pac Go: A Pac Man clone written in Go
 </a><br>就是用 Go 语言写吃豆人游戏。好，从这本书开始入门 Go。<br>并不是因为作者是美丽的女程序员我才选择的这本书。</p>
-<img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png" class="">
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/author_danicat.png" class="">
 
 <blockquote>
 <p><strong>并不是</strong></p>
@@ -696,7 +696,7 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">req, err := http.NewRequest(<span class="string">&quot;POST&quot;</span>, <span class="string">&quot;https://127.0.0.1:[Rum节点的端口号]/api/v1/group/content&quot;</span>, body)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line">	req.Header.Set(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/json&quot;</span>)</span><br><span class="line"></span><br><span class="line">	resp, err := client.Do(req)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br></pre></td></tr></table></figure>
 
 <p>变量 req 就是我们要发送请求的一个实例了。通过 http.NewRequest 来建立，有三个参数，分别是：<br>“POST”，表示我们的请求是 POST 方法；<br>第二个参数是 URL，端口号可以在 Rum 客户端的“节点与网络”菜单中的“节点参数”中找到；</p>
-<img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/portnumber.png" class="">
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/portnumber.png" class="">
 
 <p>第三个 body 变量是要 Post 给 Rum 的具体内容。</p>
 <p>接下来设置一个 header，把 header 设置为一个 json 的内容。这是因为 Rum 需要我们发送 json 内容。<br>最后就通过 client.Do(req) 来执行我们设置好的一切，并将请求到的返回值赋值给 resp 变量。这样就通过 Go 完成了一个完整的 HTTP request。</p>
@@ -711,7 +711,7 @@
 <blockquote>
 <p>fe2842cb-db6b-4e8a-b007-e83e5603131c</p>
 </blockquote>
-<img src="/2022/02/04/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/groupID.png" class="">
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/groupID.png" class="">
 
 <p>我们填入 ID 就可以往“Go语言学习小组”发送 Hello Rum 了。<br>以上代码的片段忽略掉了一些 Go 语言的一些前置语句，比如包管理的 package 语句，比如引入依赖的包的 import 语句。这里我把代码完整的提供到了 github 仓库里。本系列文章的第一步骤放在了 Step0 文件夹里（因为我们程序员要习惯从零开始）：</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/hawken-im/yearprogress/tree/main/Step0">https://github.com/hawken-im/yearprogress/tree/main/Step0</a></p>
@@ -725,7 +725,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" data-id="cl5txekln000a35ct2168a3oj" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" data-id="cl5tzfzxg000aaactflvr3sds" class="article-share-link">Share</a>
       
       
     </footer>
@@ -771,7 +771,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/learning-go/" data-id="cl5txeklx000l35ct30s1delb" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/learning-go/" data-id="cl5tzfzxm000laactc25d0bgb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -815,7 +815,7 @@
 
 <p>检查一下是否安装成功。<br>接下来就是从 github 上通过 git clone 命令来克隆 Rum System。<br>Rum System 在 github 上的地址是：<br><a target="_blank" rel="noopener" href="https://github.com/rumsystem/quorum">https://github.com/rumsystem/quorum</a></p>
 <p>点击“Code”按钮会出现下拉菜单，菜单中选择“SSH”这一栏，就会出现仓库地址了。</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/ScreenShot.png" class="">
+<img src="/run-quorum-on-ubuntu/ScreenShot.png" class="">
 
 <p>将仓库地址放到克隆命令后，回车执行命令行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:rumsystem/quorum.git</span><br></pre></td></tr></table></figure>
@@ -831,7 +831,7 @@
 
 <p>这个时候有可能会报错，是说我们还没有安装 go 语言。那我们就安装一下好了。<br>go 语言的官方下载页面在这里：<br><a target="_blank" rel="noopener" href="https://go.dev/dl/">https://go.dev/dl/</a></p>
 <p>进去后下载 linux 的版本就好：</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/go.png" class="">
+<img src="/run-quorum-on-ubuntu/go.png" class="">
 
 <p>你可以通过 scp 命令上传到服务器，也可以在服务器上用 curl 命令把这个文件下载下来。<br>我这里是在本地用的 scp 命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [本地tar.gz] [用户]@[服务器地址]:[服务器文件路径]</span><br></pre></td></tr></table></figure>
@@ -848,13 +848,13 @@
 <p>go 语言的官方安装教程在这里：<br><a target="_blank" rel="noopener" href="https://go.dev/doc/install">https://go.dev/doc/install</a></p>
 <p>再次 Build 成功，进入下一步。</p>
 <h2 id="3-在服务器上运行-Quorum"><a href="#3-在服务器上运行-Quorum" class="headerlink" title="3. 在服务器上运行 Quorum"></a>3. 在服务器上运行 Quorum</h2><p>Build 成功的可执行文件存在 dist 文件夹中。cd 进 dist 去，ls 看到 dist 里面的文件夹里有个 linux 文件夹，再次 cd 进去，就到了 linux 系统的可执行文件的所在地了。</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/dist.png" class="">
+<img src="/run-quorum-on-ubuntu/dist.png" class="">
 
 <p>直接 .&#x2F;quorum 运行是不行的，需要加一些参数，我的带参数的运行命令是这样的：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUM_KSPASSWD=[我的密码] ./quorum -peername [我的节点名] -listen /ip4/0.0.0.0/tcp/7000  -apilisten 0.0.0.0:8002 -peer /ip4/94.23.17.189/tcp/10666/p2p/16Uiu2HAmGTcDnhj3KVQUwVx8SGLyKBXQwfAxNayJdEwfsnUYKK4u -peer /ip4/132.145.109.63/tcp/10666/p2p/16Uiu2HAmTovb8kAJiYK8saskzz7cRQhb45NRK5AsbtdmYsLfD3RM -ips [服务器的公网IP] -ips 127.0.0.1</span><br></pre></td></tr></table></figure>
 
 <p>这样就能运行成功了。<br>运行成功的界面应该长这样：</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/successed.png" class="">
+<img src="/run-quorum-on-ubuntu/successed.png" class="">
 
 <p>会跳出一些 warning 什么的，可以暂时忽略掉。</p>
 <p>这个时候可以输入一个 curl 命令检查一下是否连接成功：</p>
@@ -867,13 +867,13 @@
 <p>把返回的密钥复制保存在本地。</p>
 <p>新版本里 jwt token 不是必须的，这里也可以去存一个备用，jwt 位于 quorum 运行根目录所在的 config 文件夹里，里面有个后缀为 .toml 的文件，cat 或 vi 打开就能找到 jwt。</p>
 <h2 id="4-本地-Rum-APP-连接服务器"><a href="#4-本地-Rum-APP-连接服务器" class="headerlink" title="4. 本地 Rum APP 连接服务器"></a>4. 本地 Rum APP 连接服务器</h2><p>这下万事俱备了，我们在本地打开 Rum APP，从菜单项“节点与网络”中选中“外部节点”。</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/outterpeer.png" class="">
+<img src="/run-quorum-on-ubuntu/outterpeer.png" class="">
 
 <p>到了填入节点信息的步骤，把我们在上一步收集到的 jwt 和 server.crt 填进去就好了：</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/peerinfo.png" class="">
+<img src="/run-quorum-on-ubuntu/peerinfo.png" class="">
 
 <p>顺利的话，应该可以看到“外部节点模式”亮绿灯了：</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/green.png" class="">
+<img src="/run-quorum-on-ubuntu/green.png" class="">
 
 <p>不顺利的话，比如我，踩到的坑我在下一个小节总结一下，看看读者能不能顺利回避：</p>
 <h2 id="踩到的坑："><a href="#踩到的坑：" class="headerlink" title="踩到的坑："></a>踩到的坑：</h2><ol>
@@ -886,7 +886,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/run-quorum-on-ubuntu/" data-id="cl5txekly000m35ct0vw3dp11" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/run-quorum-on-ubuntu/" data-id="cl5tzfzxn000maact580a315x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -932,7 +932,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/NotesOfLearningGo/" data-id="cl5txeklq000d35ct3hdve58q" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/NotesOfLearningGo/" data-id="cl5tzfzxk000gaact6gm70per" class="article-share-link">Share</a>
       
       
     </footer>

@@ -14,18 +14,18 @@
 <meta property="og:site_name" content="Hawken.im">
 <meta property="og:description" content="2022 Feb 13版本更新：新版 quorum 里 jwt token 是可选项，如果留空的话系统会自动生成一个。  Rum App 发布后我搭建了一个 windows server 运行，但一直感觉不够炫酷，于是折腾了一台 Ubuntu 主机。在主机上自己 Build Quorum，并运行，并在两位大佬轮番指导下才通过本地 Rum App 连接成功。两位大佬一位是 samson 一位是 wa">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/ScreenShot.png">
-<meta property="og:image" content="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/go.png">
-<meta property="og:image" content="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/dist.png">
-<meta property="og:image" content="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/successed.png">
-<meta property="og:image" content="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/outterpeer.png">
-<meta property="og:image" content="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/peerinfo.png">
-<meta property="og:image" content="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/green.png">
+<meta property="og:image" content="https://blog.hawken.im/run-quorum-on-ubuntu/ScreenShot.png">
+<meta property="og:image" content="https://blog.hawken.im/run-quorum-on-ubuntu/go.png">
+<meta property="og:image" content="https://blog.hawken.im/run-quorum-on-ubuntu/dist.png">
+<meta property="og:image" content="https://blog.hawken.im/run-quorum-on-ubuntu/successed.png">
+<meta property="og:image" content="https://blog.hawken.im/run-quorum-on-ubuntu/outterpeer.png">
+<meta property="og:image" content="https://blog.hawken.im/run-quorum-on-ubuntu/peerinfo.png">
+<meta property="og:image" content="https://blog.hawken.im/run-quorum-on-ubuntu/green.png">
 <meta property="article:published_time" content="2022-01-14T16:47:28.000Z">
 <meta property="article:modified_time" content="2022-02-13T09:20:34.601Z">
 <meta property="article:author" content="Hawken">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hawken.im/2022/01/15/run-quorum-on-ubuntu/ScreenShot.png">
+<meta name="twitter:image" content="https://blog.hawken.im/run-quorum-on-ubuntu/ScreenShot.png">
 <meta name="twitter:creator" content="@whoareyouandyou">
   
     <link rel="alternate" href="/atom.xml" title="Hawken.im" type="application/atom+xml">
@@ -107,7 +107,7 @@
 
 <p>检查一下是否安装成功。<br>接下来就是从 github 上通过 git clone 命令来克隆 Rum System。<br>Rum System 在 github 上的地址是：<br><a target="_blank" rel="noopener" href="https://github.com/rumsystem/quorum">https://github.com/rumsystem/quorum</a></p>
 <p>点击“Code”按钮会出现下拉菜单，菜单中选择“SSH”这一栏，就会出现仓库地址了。</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/ScreenShot.png" class="">
+<img src="/run-quorum-on-ubuntu/ScreenShot.png" class="">
 
 <p>将仓库地址放到克隆命令后，回车执行命令行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:rumsystem/quorum.git</span><br></pre></td></tr></table></figure>
@@ -123,7 +123,7 @@
 
 <p>这个时候有可能会报错，是说我们还没有安装 go 语言。那我们就安装一下好了。<br>go 语言的官方下载页面在这里：<br><a target="_blank" rel="noopener" href="https://go.dev/dl/">https://go.dev/dl/</a></p>
 <p>进去后下载 linux 的版本就好：</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/go.png" class="">
+<img src="/run-quorum-on-ubuntu/go.png" class="">
 
 <p>你可以通过 scp 命令上传到服务器，也可以在服务器上用 curl 命令把这个文件下载下来。<br>我这里是在本地用的 scp 命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [本地tar.gz] [用户]@[服务器地址]:[服务器文件路径]</span><br></pre></td></tr></table></figure>
@@ -140,13 +140,13 @@
 <p>go 语言的官方安装教程在这里：<br><a target="_blank" rel="noopener" href="https://go.dev/doc/install">https://go.dev/doc/install</a></p>
 <p>再次 Build 成功，进入下一步。</p>
 <h2 id="3-在服务器上运行-Quorum"><a href="#3-在服务器上运行-Quorum" class="headerlink" title="3. 在服务器上运行 Quorum"></a>3. 在服务器上运行 Quorum</h2><p>Build 成功的可执行文件存在 dist 文件夹中。cd 进 dist 去，ls 看到 dist 里面的文件夹里有个 linux 文件夹，再次 cd 进去，就到了 linux 系统的可执行文件的所在地了。</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/dist.png" class="">
+<img src="/run-quorum-on-ubuntu/dist.png" class="">
 
 <p>直接 .&#x2F;quorum 运行是不行的，需要加一些参数，我的带参数的运行命令是这样的：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUM_KSPASSWD=[我的密码] ./quorum -peername [我的节点名] -listen /ip4/0.0.0.0/tcp/7000  -apilisten 0.0.0.0:8002 -peer /ip4/94.23.17.189/tcp/10666/p2p/16Uiu2HAmGTcDnhj3KVQUwVx8SGLyKBXQwfAxNayJdEwfsnUYKK4u -peer /ip4/132.145.109.63/tcp/10666/p2p/16Uiu2HAmTovb8kAJiYK8saskzz7cRQhb45NRK5AsbtdmYsLfD3RM -ips [服务器的公网IP] -ips 127.0.0.1</span><br></pre></td></tr></table></figure>
 
 <p>这样就能运行成功了。<br>运行成功的界面应该长这样：</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/successed.png" class="">
+<img src="/run-quorum-on-ubuntu/successed.png" class="">
 
 <p>会跳出一些 warning 什么的，可以暂时忽略掉。</p>
 <p>这个时候可以输入一个 curl 命令检查一下是否连接成功：</p>
@@ -159,13 +159,13 @@
 <p>把返回的密钥复制保存在本地。</p>
 <p>新版本里 jwt token 不是必须的，这里也可以去存一个备用，jwt 位于 quorum 运行根目录所在的 config 文件夹里，里面有个后缀为 .toml 的文件，cat 或 vi 打开就能找到 jwt。</p>
 <h2 id="4-本地-Rum-APP-连接服务器"><a href="#4-本地-Rum-APP-连接服务器" class="headerlink" title="4. 本地 Rum APP 连接服务器"></a>4. 本地 Rum APP 连接服务器</h2><p>这下万事俱备了，我们在本地打开 Rum APP，从菜单项“节点与网络”中选中“外部节点”。</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/outterpeer.png" class="">
+<img src="/run-quorum-on-ubuntu/outterpeer.png" class="">
 
 <p>到了填入节点信息的步骤，把我们在上一步收集到的 jwt 和 server.crt 填进去就好了：</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/peerinfo.png" class="">
+<img src="/run-quorum-on-ubuntu/peerinfo.png" class="">
 
 <p>顺利的话，应该可以看到“外部节点模式”亮绿灯了：</p>
-<img src="/2022/01/15/run-quorum-on-ubuntu/green.png" class="">
+<img src="/run-quorum-on-ubuntu/green.png" class="">
 
 <p>不顺利的话，比如我，踩到的坑我在下一个小节总结一下，看看读者能不能顺利回避：</p>
 <h2 id="踩到的坑："><a href="#踩到的坑：" class="headerlink" title="踩到的坑："></a>踩到的坑：</h2><ol>
@@ -178,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.hawken.im/run-quorum-on-ubuntu/" data-id="cl5txekly000m35ct0vw3dp11" class="article-share-link">Share</a>
+      <a data-url="https://blog.hawken.im/run-quorum-on-ubuntu/" data-id="cl5tzfzxn000maact580a315x" class="article-share-link">Share</a>
       
       
     </footer>
