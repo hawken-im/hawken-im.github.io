@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>学 go 语言的一些小笔记 | Hawken.im</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在度假，网不好，因此没法翻墙，断断续续 baidu 了好几天，被弄到 CSDN 里兜兜转转了好几天！鬼打墙一样。今天好不容易找了个咖啡店，翻出去了，立刻！马上！看到了这句话： “In the most basic terms, A package is nothing but a directory inside your Go workspace containing one or more G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学 go 语言的一些小笔记">
+<meta property="og:url" content="https://hawken-im.github.io/learning-go/index.html">
+<meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="在度假，网不好，因此没法翻墙，断断续续 baidu 了好几天，被弄到 CSDN 里兜兜转转了好几天！鬼打墙一样。今天好不容易找了个咖啡店，翻出去了，立刻！马上！看到了这句话： “In the most basic terms, A package is nothing but a directory inside your Go workspace containing one or more G">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-21T19:48:32.000Z">
+<meta property="article:modified_time" content="2025-09-16T07:22:02.195Z">
+<meta property="article:author" content="Hawken">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="思考">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hawken.im" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hawken.im</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hawken-im.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-learning-go" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/learning-go/" class="article-date">
+  <time class="dt-published" datetime="2022-01-21T19:48:32.000Z" itemprop="datePublished">2022-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      学 go 语言的一些小笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在度假，网不好，因此没法翻墙，断断续续 baidu 了好几天，被弄到 CSDN 里兜兜转转了好几天！鬼打墙一样。今天好不容易找了个咖啡店，翻出去了，立刻！马上！看到了这句话：</p>
+<p>“In the most basic terms, A package is nothing but a directory inside your Go workspace containing one or more Go source files, or other Go packages.”划重点是”is nothing but”</p>
+<p>这个太关键了中文文章要么就是高深莫测，搞得小白不知道他们是不是在故弄玄虚，要么就觉得包管理是不是太习以为常就干脆跳过。这篇文章就叫深入浅出。即便是可能会很高深，但是文章也说了， “In the most basic terms”。 对，可以很难，但是本小白要的就是”most basic terms”。 文章链接在此： <a target="_blank" rel="noopener" href="https://www.callicoder.com/golang-packages/">https://www.callicoder.com/golang-packages/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.callicoder.com/golang-packages/">https://www.callicoder.com/golang-packages/</a></p>
+<p>继续学了 flag 和 arguement，这样就可以在命令行输入酷酷的命令了。go 的两个包分别是：</p>
+<p>昨天跑通了 json 的解析，今天开始系统的学习 struct 以及指针，这样就能在函数中读取 struct 并返回一整个 struct今天主要看的书是 Head First Go下一步应该要把包管理学了，不然现在所有的代码都是堆在一个文件里面学完小半本 Head First Go 之前应该暂时不会更新 Year Progress 2022 代码了</p>
+<p>今天学 go 语言解析 json，这两个教程解答了我很多问题：<a target="_blank" rel="noopener" href="https://eager.io/blog/go-and-json/https://golangbyexample.com/struct-json-golang/">https://eager.io/blog/go-and-json/https://golangbyexample.com/struct-json-golang/</a></p>
+<p><a target="_blank" rel="noopener" href="https://eager.io/blog/go-and-json/">https://eager.io/blog/go-and-json/</a></p>
+<p><a target="_blank" rel="noopener" href="https://golangbyexample.com/struct-json-golang/">https://golangbyexample.com/struct-json-golang/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hawken-im.github.io/learning-go/" data-id="cmfm8ha24000zw4ct2l6egd7a" data-title="学 go 语言的一些小笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%9D%E8%80%83/" rel="tag">思考</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          用 Go 语言写焦虑发生器并发布到 Rum 上·第一篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/run-quorum-on-ubuntu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">从零开始在 Ubuntu 20.04 上Build Quorum 并用本地 Rum App 进行连接</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meta/" rel="tag">Meta</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%83%E5%AE%87%E5%AE%99/" rel="tag">元宇宙</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E8%80%83/" rel="tag">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E9%95%BF/" rel="tag">成长</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E6%8A%80/" rel="tag">科技</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Meta/" style="font-size: 11.67px;">Meta</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/%E5%85%83%E5%AE%87%E5%AE%99/" style="font-size: 11.67px;">元宇宙</a> <a href="/tags/%E5%9B%BE%E7%89%87/" style="font-size: 10px;">图片</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 11.67px;">学习</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 18.33px;">思考</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 11.67px;">成长</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 20px;">技术</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 13.33px;">服务器</a> <a href="/tags/%E7%A7%91%E6%8A%80/" style="font-size: 11.67px;">科技</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 13.33px;">运维</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">九月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/test-image-with-md/">图片插入方式对比 - Hexo标签语法 vs Markdown语法</a>
+          </li>
+        
+          <li>
+            <a href="/tools-for-gold-digging/">AI时代决定你成长上限的三种底层能力</a>
+          </li>
+        
+          <li>
+            <a href="/what-happened-recently-and-whats-next/">我在加州卖牛仔裤</a>
+          </li>
+        
+          <li>
+            <a href="/meta2/">Meta 大裁员 他的元宇宙失败了吗？</a>
+          </li>
+        
+          <li>
+            <a href="/postgre/">记录 postgre 的小坑一枚</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Hawken<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
