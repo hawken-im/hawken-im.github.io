@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇 | Hawken.im</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。于是我这就来记录这段学习经历：目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；目的三是让更多的人能够对">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hawken-im.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default","show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。于是我这就来记录这段学习经历：目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；目的三是让更多的人能够对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇">
 <meta property="og:url" content="https://hawken-im.github.io/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/index.html">
@@ -21,85 +34,213 @@
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hawken-im.github.io/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/blocks.png">
+
+
+<link rel="canonical" href="https://hawken-im.github.io/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hawken-im.github.io/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/","path":"Go语言写的进度条bot-1/","title":"用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇 | Hawken.im</title>
   
-    <link rel="alternate" href="/atom.xml" title="Hawken.im" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
 
   
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
   
+
+
+
+
+
+
   
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hawken.im</a>
-      </h1>
-      
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hawken.im</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-bluesky"><a href="https://bsky.app/profile/hawken.im" rel="section" target="_blank"><i class="fab fa-twitter fa-fw"></i>bluesky</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-bento"><a href="https://bento.me/hawken" rel="section" target="_blank"><i class="fas fa-id-card fa-fw"></i>bento</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hawken-im.github.io"></form>
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hawken</p>
+  <div class="site-description" itemprop="description">Hawken的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://bsky.app/profile/hawken.im" title="Bluesky → https:&#x2F;&#x2F;bsky.app&#x2F;profile&#x2F;hawken.im" rel="noopener me" target="_blank"><i class="fa fa-cloud fa-fw"></i>Bluesky</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/hawken-im" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hawken-im" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://bento.me/hawken" title="Bento → https:&#x2F;&#x2F;bento.me&#x2F;hawken" rel="noopener me" target="_blank"><i class="fas fa-id-card fa-fw"></i>Bento</a>
+      </span>
+  </div>
+
+        </div>
       </div>
     </div>
-  </div>
-</header>
 
-      <div class="outer">
-        <section id="main"><article id="post-Go语言写的进度条bot-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/" class="article-date">
-  <time class="dt-published" datetime="2022-02-17T02:37:15.000Z" itemprop="datePublished">2022-02-17</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇
-    </h1>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
   
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇 | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-17 10:37:15" itemprop="dateCreated datePublished" datetime="2022-02-17T10:37:15+08:00">2022-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-16 15:22:02" itemprop="dateModified" datetime="2025-09-16T15:22:02+08:00">2025-09-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。于是我这就来记录这段学习经历：目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；目的三是让更多的人能够对 Rum 这个新的东西感兴趣。希望能成功达成目的：</p>
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。于是我这就来记录这段学习经历：目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；目的三是让更多的人能够对 Rum 这个新的东西感兴趣。希望能成功达成目的：</p>
 <p>上一篇我们写了函数，可以用 HTTP Post 方法向 Rum 发送内容，我们这一篇就来发送焦虑内容之年度进度条吧。进度条采用文本形式，我在 Unicode 的列表里找到了一些方块：</p>
 <img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/blocks.png" class="" title="图片">
 
@@ -120,150 +261,76 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/hawken-im/yearprogress/tree/main/Step1">https://github.com/hawken-im/yearprogress/tree/main/Step1</a></p>
 <p>另外，最终实现自己的目标前，会出不少问题，要定位这些问题，最好的方法就是每一步都输出一个结果。这里我用了 fmt.Println()。</p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="https://hawken-im.github.io/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/" data-id="cmfmis4r30004prcthe5i8zpr" data-title="用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
 
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Go/" rel="tag"># Go</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"># 编程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" rel="prev" title="用 Go 语言写焦虑发生器并发布到 Rum 上·第一篇">
+                  <i class="fa fa-angle-left"></i> 用 Go 语言写焦虑发生器并发布到 Rum 上·第一篇
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/" rel="next" title="用 Go 语言写焦虑发生器并发布到 Rum 上·第三篇">
+                  用 Go 语言写焦虑发生器并发布到 Rum 上·第三篇 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hawken</span>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          用 Go 语言写焦虑发生器并发布到 Rum 上·第三篇
-        
-      </div>
-    </a>
-  
-  
-    <a href="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">用 Go 语言写焦虑发生器并发布到 Rum 上·第一篇</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meta/" rel="tag">Meta</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%83%E5%AE%87%E5%AE%99/" rel="tag">元宇宙</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87/" rel="tag">图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E8%80%83/" rel="tag">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E9%95%BF/" rel="tag">成长</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E6%8A%80/" rel="tag">科技</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a></li></ul>
-    </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Meta/" style="font-size: 11.67px;">Meta</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/%E5%85%83%E5%AE%87%E5%AE%99/" style="font-size: 11.67px;">元宇宙</a> <a href="/tags/%E5%9B%BE%E7%89%87/" style="font-size: 10px;">图片</a> <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 11.67px;">学习</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 18.33px;">思考</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 11.67px;">成长</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 20px;">技术</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 13.33px;">服务器</a> <a href="/tags/%E7%A7%91%E6%8A%80/" style="font-size: 11.67px;">科技</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 16.67px;">编程</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 13.33px;">运维</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">九月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/how-to-learn-english-by-watching-videos/">我是怎么学英语的</a>
-          </li>
-        
-          <li>
-            <a href="/test-image-with-md/">图片插入方式对比 - Hexo标签语法 vs Markdown语法</a>
-          </li>
-        
-          <li>
-            <a href="/tools-for-gold-digging/">AI时代决定你成长上限的三种底层能力</a>
-          </li>
-        
-          <li>
-            <a href="/what-happened-recently-and-whats-next/">我在加州卖牛仔裤</a>
-          </li>
-        
-          <li>
-            <a href="/meta2/">Meta 大裁员 他的元宇宙失败了吗？</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2025 Hawken<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
+  </footer>
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 </body>
 </html>
