@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,6 +185,321 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E5%B0%8F%E9%BE%99%E8%99%BE%EF%BC%88OpenClaw%EF%BC%89%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%8C30%E7%A7%92%E5%91%8A%E8%AF%89%E4%BD%A0%E5%AE%83%E5%B0%B1%E8%BF%99%E4%B9%88%E5%9B%9E%E4%BA%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E5%B0%8F%E9%BE%99%E8%99%BE%EF%BC%88OpenClaw%EF%BC%89%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%8C30%E7%A7%92%E5%91%8A%E8%AF%89%E4%BD%A0%E5%AE%83%E5%B0%B1%E8%BF%99%E4%B9%88%E5%9B%9E%E4%BA%8B/" class="post-title-link" itemprop="url">小龙虾（OpenClaw）其实就这么回事</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-13 12:00:00 / 修改时间：15:33:17" itemprop="dateCreated datePublished" datetime="2026-03-13T12:00:00-06:00">2026-03-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>不神秘，不复杂。</p>
+<hr>
+<h2 id="1-到底是什么"><a href="#1-到底是什么" class="headerlink" title="1. 到底是什么"></a>1. 到底是什么</h2><p><strong>OpenClaw 就是一个跑在你电脑上的 AI 助手框架。</strong> 它把大模型（Claude、GPT、Kimi、DeepSeek 随便选）接到你常用的聊天工具上（Telegram、Slack），让 AI 不只能聊天，还能操作你的电脑——发邮件、改日历、跑代码、刷网页，全自动。</p>
+<p>它是开源免费的。你只需要付大模型的 API 费用。</p>
+<hr>
+<h2 id="2-它怎么工作的"><a href="#2-它怎么工作的" class="headerlink" title="2. 它怎么工作的"></a>2. 它怎么工作的</h2><p>整个架构就三层：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">💬 聊天入口        🦞 OpenClaw 网关      🧠 大模型 API        ⚡ 执行动作</span><br><span class="line">Telegram        →  跑在你电脑上      →  Claude / GPT     →  发邮件 / 改文件</span><br><span class="line">Slack / Discord    调度一切              Kimi / DeepSeek     刷网页 / 跑脚本</span><br></pre></td></tr></table></figure>
+
+<p>你在 Telegram 上说「帮我把明天的会议推迟到下午三点」，消息到 OpenClaw 网关，网关问大模型该怎么做，大模型说调 Google Calendar API，网关就去执行。完事回你一句「搞定了」。</p>
+<hr>
+<h2 id="3-大家拿它干嘛"><a href="#3-大家拿它干嘛" class="headerlink" title="3. 大家拿它干嘛"></a>3. 大家拿它干嘛</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>能做什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>📧 邮件自动化</td>
+<td>每天扫收件箱，总结重要邮件，起草回复</td>
+</tr>
+<tr>
+<td>📅 日程管理</td>
+<td>自动排日程、解决冲突、发送每日简报</td>
+</tr>
+<tr>
+<td>💻 代码助手</td>
+<td>监控 GitHub PR，自动修 bug 并提交</td>
+</tr>
+<tr>
+<td>🌐 网页自动化</td>
+<td>填表、抓数据、自动完成重复操作</td>
+</tr>
+<tr>
+<td>🏠 智能家居</td>
+<td>控制空调、灯光、空气净化器</td>
+</tr>
+<tr>
+<td>📊 投资监控</td>
+<td>每天跑策略回测、推送行情摘要</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-模型怎么选"><a href="#4-模型怎么选" class="headerlink" title="4. 模型怎么选"></a>4. 模型怎么选</h2><p>OpenClaw 不绑定任何模型。你有 API key 就能用。社区里最主流的搭配：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Claude Sonnet</td>
+<td>工具调用最稳，官方推荐</td>
+</tr>
+<tr>
+<td>Kimi K2.5</td>
+<td>OpenRouter 调用量冠军</td>
+</tr>
+<tr>
+<td>DeepSeek V3.2</td>
+<td>极致便宜，日常跑量首选</td>
+</tr>
+<tr>
+<td>MiniMax M2.5</td>
+<td>编码能力对标 Opus</td>
+</tr>
+<tr>
+<td>GLM-5</td>
+<td>长任务 + Agent 特别强</td>
+</tr>
+<tr>
+<td>Qwen3.5-Plus</td>
+<td>性价比天花板</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>省钱心法：</strong> 80% 的日常任务用便宜模型（DeepSeek &#x2F; Qwen-Flash），20% 的硬骨头切到 Claude &#x2F; GLM-5。一个月 API 费用可以从 $500 降到 $50 以内。</p>
+</blockquote>
+<hr>
+<h2 id="5-注意事项"><a href="#5-注意事项" class="headerlink" title="5. 注意事项"></a>5. 注意事项</h2><p><strong>安全第一。</strong> OpenClaw 有系统级权限，能读你的邮件、日历、文件。配置不当等于给 AI 开了你电脑的 root。装之前看一遍安全文档，不懂命令行的慎用。</p>
+<p>解决方案一：安装在非主力机上，甚至可以不用显示器（这也是为啥前段时间 Mac Mini 大卖的原因）。</p>
+<p>解决方案二：安装在云服务器 VPS 上，这个方案更酷但是要花费一笔 VPS 的租用费。</p>
+<p><strong>Token 费用会爆。</strong> Agent 是循环调用的，一个复杂任务可能跑几十轮对话。不设预算上限的话，一觉醒来账单可能吓你一跳。</p>
+<p>解决方案：给你的小龙虾吃好的。我自己发现思考能力差的模型反而会消耗更大量的 Token，因为陷入了思考循环出不来。</p>
+<hr>
+<blockquote>
+<p>说到 Token， OpenClaw 跑任务很费量——如果你没有便宜好用的 API 渠道，可以看看我上篇写的：<a target="_blank" rel="noopener" href="https://hawken.im/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/">那些营销号真的没告诉你，小龙虾要吃很多很多 token 吗？！</a></p>
+</blockquote>
+<hr>
+<p>以上。</p>
+<p>→ <a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">github.com&#x2F;openclaw&#x2F;openclaw</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E5%B0%8F%E9%BE%99%E8%99%BE%EF%BC%88OpenClaw%EF%BC%89%E5%85%B6%E5%AE%9E%E5%B0%B1%E8%BF%99%E4%B9%88%E5%9B%9E%E4%BA%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E5%B0%8F%E9%BE%99%E8%99%BE%EF%BC%88OpenClaw%EF%BC%89%E5%85%B6%E5%AE%9E%E5%B0%B1%E8%BF%99%E4%B9%88%E5%9B%9E%E4%BA%8B/" class="post-title-link" itemprop="url">小龙虾（OpenClaw）其实就这么回事</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-13 12:00:00 / 修改时间：15:33:17" itemprop="dateCreated datePublished" datetime="2026-03-13T12:00:00-06:00">2026-03-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <style>
+.oc-flow{display:flex;margin:24px 0;flex-wrap:wrap;gap:0;}
+.oc-flow-item{flex:1;min-width:130px;background:#141414;border:1px solid #2a2a2a;padding:16px;text-align:center;position:relative;}
+.oc-flow-item:first-child{border-radius:8px 0 0 8px;}
+.oc-flow-item:last-child{border-radius:0 8px 8px 0;}
+.oc-flow-item:not(:last-child)::after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:#ff4d2a;font-weight:700;font-size:16px;z-index:1;background:#0a0a0a;padding:2px 3px;}
+.oc-icon{font-size:22px;margin-bottom:6px;}
+.oc-label{font-size:12px;font-weight:700;color:#fff;}
+.oc-sub{font-size:11px;color:#888;margin-top:3px;line-height:1.5;}
+.oc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0;}
+.oc-card{background:#141414;border:1px solid #2a2a2a;border-radius:8px;padding:14px 16px;transition:border-color .2s;}
+.oc-card:hover{border-color:#ff4d2a;}
+.oc-card-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.oc-card-desc{font-size:12px;color:#888;line-height:1.5;}
+.oc-callout{background:#1a1000;border:1px solid #332200;border-left:3px solid #ff4d2a;border-radius:8px;padding:16px 20px;margin:20px 0;font-size:14px;color:#ddd;}
+.oc-callout strong{color:#ff8c42;}
+@media(max-width:520px){.oc-grid{grid-template-columns:1fr;}.oc-flow{flex-direction:column;}.oc-flow-item{border-radius:0!important;}.oc-flow-item:first-child{border-radius:8px 8px 0 0!important;}.oc-flow-item:last-child{border-radius:0 0 8px 8px!important;}.oc-flow-item:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-10px;transform:translateX(50%);}}
+</style>
+
+<p>不神秘，不复杂。</p>
+<hr>
+<h2 id="1-它到底是什么"><a href="#1-它到底是什么" class="headerlink" title="1. 它到底是什么"></a>1. 它到底是什么</h2><p><strong>OpenClaw 就是一个跑在你电脑上的 AI 助手框架。</strong> 它把大模型（Claude、GPT、Kimi、DeepSeek 随便选）接到你常用的聊天工具上（Telegram、Slack），让 AI 不只能聊天，还能操作你的电脑——发邮件、改日历、跑代码、刷网页，全自动。</p>
+<p>它是开源免费的。你只需要付大模型的 API 费用。</p>
+<hr>
+<h2 id="2-它怎么工作的"><a href="#2-它怎么工作的" class="headerlink" title="2. 它怎么工作的"></a>2. 它怎么工作的</h2><p>整个架构就三层：</p>
+<div class="oc-flow">
+  <div class="oc-flow-item">
+    <div class="oc-icon">💬</div>
+    <div class="oc-label">聊天入口</div>
+    <div class="oc-sub">Telegram<br>Slack / Discord</div>
+  </div>
+  <div class="oc-flow-item">
+    <div class="oc-icon">🦞</div>
+    <div class="oc-label">OpenClaw 网关</div>
+    <div class="oc-sub">跑在你电脑上<br>调度一切</div>
+  </div>
+  <div class="oc-flow-item">
+    <div class="oc-icon">🧠</div>
+    <div class="oc-label">大模型 API</div>
+    <div class="oc-sub">Claude / GPT<br>Kimi / DeepSeek</div>
+  </div>
+  <div class="oc-flow-item">
+    <div class="oc-icon">⚡</div>
+    <div class="oc-label">执行动作</div>
+    <div class="oc-sub">发邮件 / 改文件<br>刷网页 / 跑脚本</div>
+  </div>
+</div>
+
+<p>你在 Telegram 上说「帮我把明天的会议推迟到下午三点」，消息到 OpenClaw 网关，网关问大模型该怎么做，大模型说调 Google Calendar API，网关就去执行。完事回你一句「搞定了」。</p>
+<hr>
+<h2 id="3-大家拿它干嘛"><a href="#3-大家拿它干嘛" class="headerlink" title="3. 大家拿它干嘛"></a>3. 大家拿它干嘛</h2><div class="oc-grid">
+  <div class="oc-card"><div class="oc-card-name">📧 邮件自动化</div><div class="oc-card-desc">每天扫收件箱，总结重要邮件，起草回复</div></div>
+  <div class="oc-card"><div class="oc-card-name">📅 日程管理</div><div class="oc-card-desc">自动排日程、解决冲突、发送每日简报</div></div>
+  <div class="oc-card"><div class="oc-card-name">💻 代码助手</div><div class="oc-card-desc">监控 GitHub PR，自动修 bug 并提交</div></div>
+  <div class="oc-card"><div class="oc-card-name">🌐 网页自动化</div><div class="oc-card-desc">填表、抓数据、自动完成重复操作</div></div>
+  <div class="oc-card"><div class="oc-card-name">🏠 智能家居</div><div class="oc-card-desc">控制空调、灯光、空气净化器</div></div>
+  <div class="oc-card"><div class="oc-card-name">📊 投资监控</div><div class="oc-card-desc">每天跑策略回测、推送行情摘要</div></div>
+</div>
+
+<hr>
+<h2 id="4-模型怎么选"><a href="#4-模型怎么选" class="headerlink" title="4. 模型怎么选"></a>4. 模型怎么选</h2><p>OpenClaw 不绑定任何模型。你有 API key 就能用。社区里最主流的搭配：</p>
+<div class="oc-grid">
+  <div class="oc-card"><div class="oc-card-name">Claude Sonnet</div><div class="oc-card-desc">工具调用最稳，官方推荐</div></div>
+  <div class="oc-card"><div class="oc-card-name">Kimi K2.5</div><div class="oc-card-desc">OpenRouter 调用量冠军</div></div>
+  <div class="oc-card"><div class="oc-card-name">DeepSeek V3.2</div><div class="oc-card-desc">极致便宜，日常跑量首选</div></div>
+  <div class="oc-card"><div class="oc-card-name">MiniMax M2.5</div><div class="oc-card-desc">编码能力对标 Opus</div></div>
+  <div class="oc-card"><div class="oc-card-name">GLM-5</div><div class="oc-card-desc">长任务 + Agent 特别强</div></div>
+  <div class="oc-card"><div class="oc-card-name">Qwen3.5-Plus</div><div class="oc-card-desc">性价比天花板</div></div>
+</div>
+
+<div class="oc-callout"><strong>省钱心法：</strong>80% 的日常任务用便宜模型（DeepSeek / Qwen-Flash），20% 的硬骨头切到 Claude / GLM-5。一个月 API 费用可以从 $500 降到 $50 以内。</div>
+
+<hr>
+<h2 id="5-注意事项"><a href="#5-注意事项" class="headerlink" title="5. 注意事项"></a>5. 注意事项</h2><p><strong>安全第一。</strong> OpenClaw 有系统级权限，能读你的邮件、日历、文件。配置不当等于给 AI 开了你电脑的 root。装之前看一遍安全文档，不懂命令行的慎用。</p>
+<p>解决方案一：安装在非主力机上，甚至可以不用显示器（这也是为啥前段时间 Mac Mini 大卖的原因）。</p>
+<p>解决方案二：安装在云服务器 VPS 上，这个方案更酷但是要花费一笔 VPS 的租用费。</p>
+<p><strong>Token 费用会爆。</strong> Agent 是循环调用的，一个复杂任务可能跑几十轮对话。不设预算上限的话，一觉醒来账单可能吓你一跳。</p>
+<p>解决方案：给你的小龙虾吃好的。我自己发现思考能力差的模型反而会消耗更大量的 Token，因为陷入了思考循环出不来。</p>
+<hr>
+<blockquote>
+<p>说到 Token，OpenClaw 跑任务很费量——如果你没有便宜好用的 API 渠道，可以看看我上篇写的：<a target="_blank" rel="noopener" href="https://hawken.im/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/">那些营销号真的没告诉你，小龙虾要吃很多很多 token 吗？！</a></p>
+</blockquote>
+<hr>
+<p>以上。</p>
+<p>→ <a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">github.com&#x2F;openclaw&#x2F;openclaw</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,7 +530,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-13 10:00:00 / 修改时间：13:59:39" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
+      <time title="创建时间：2026-03-13 10:00:00 / 修改时间：15:33:17" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
     </span>
 
   
@@ -329,7 +644,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 15:33:17" itemprop="dateModified" datetime="2026-03-13T15:33:17-06:00">2026-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -439,7 +754,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 15:33:17" itemprop="dateModified" datetime="2026-03-13T15:33:17-06:00">2026-03-13</time>
     </span>
 
   
@@ -552,7 +867,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 15:33:17" itemprop="dateModified" datetime="2026-03-13T15:33:17-06:00">2026-03-13</time>
     </span>
 
   
@@ -714,7 +1029,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 15:33:17" itemprop="dateModified" datetime="2026-03-13T15:33:17-06:00">2026-03-13</time>
     </span>
 
   
@@ -836,7 +1151,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 15:33:17" itemprop="dateModified" datetime="2026-03-13T15:33:17-06:00">2026-03-13</time>
     </span>
 
   
@@ -933,7 +1248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 15:33:17" itemprop="dateModified" datetime="2026-03-13T15:33:17-06:00">2026-03-13</time>
     </span>
 
   
@@ -1137,7 +1452,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 15:33:17" itemprop="dateModified" datetime="2026-03-13T15:33:17-06:00">2026-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1239,274 +1554,6 @@
 </ul>
 <hr>
 <p>专注力是可以培养的技能，坚持练习，你也能拥有强大的专注力！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E7%BB%83%E6%89%93%E5%AD%97-%E6%88%91%E7%9A%84%E6%89%93%E5%AD%97%E7%BB%83%E4%B9%A0%E5%BF%83%E5%BE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BB%83%E6%89%93%E5%AD%97-%E6%88%91%E7%9A%84%E6%89%93%E5%AD%97%E7%BB%83%E4%B9%A0%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">我的打字练习心得</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-15 12:00:00" itemprop="dateCreated datePublished" datetime="2024-01-15T12:00:00-07:00">2024-01-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:39" itemprop="dateModified" datetime="2026-03-13T13:59:39-06:00">2026-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">技能</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="我的打字练习心得"><a href="#我的打字练习心得" class="headerlink" title="我的打字练习心得"></a>我的打字练习心得</h1><p>作为一个程序员，打字速度直接影响工作效率。经过几个月的练习，我的打字速度从30字&#x2F;分钟提升到了80字&#x2F;分钟。</p>
-<h2 id="为什么练习打字？"><a href="#为什么练习打字？" class="headerlink" title="为什么练习打字？"></a>为什么练习打字？</h2><ol>
-<li><strong>提高工作效率</strong>：快速输入代码和文档</li>
-<li><strong>减少疲劳</strong>：正确的指法减少手指疲劳</li>
-<li><strong>专业形象</strong>：快速打字给人专业的感觉</li>
-</ol>
-<h2 id="练习方法"><a href="#练习方法" class="headerlink" title="练习方法"></a>练习方法</h2><h3 id="1-基础指法练习"><a href="#1-基础指法练习" class="headerlink" title="1. 基础指法练习"></a>1. 基础指法练习</h3><ul>
-<li>使用在线打字练习网站</li>
-<li>每天练习30分钟</li>
-<li>重点练习数字和符号</li>
-</ul>
-<h3 id="2-盲打训练"><a href="#2-盲打训练" class="headerlink" title="2. 盲打训练"></a>2. 盲打训练</h3><ul>
-<li>不看键盘，只看屏幕</li>
-<li>从慢到快，循序渐进</li>
-<li>保持正确的手指位置</li>
-</ul>
-<h3 id="3-实际应用"><a href="#3-实际应用" class="headerlink" title="3. 实际应用"></a>3. 实际应用</h3><ul>
-<li>在编程中应用</li>
-<li>写文档时练习</li>
-<li>聊天时保持正确指法</li>
-</ul>
-<h2 id="推荐练习网站"><a href="#推荐练习网站" class="headerlink" title="推荐练习网站"></a>推荐练习网站</h2><ul>
-<li><strong>Typing.com</strong> - 系统化的练习课程</li>
-<li><strong>10FastFingers</strong> - 速度测试</li>
-<li><strong>Keybr</strong> - 个性化练习</li>
-</ul>
-<h2 id="练习进度"><a href="#练习进度" class="headerlink" title="练习进度"></a>练习进度</h2><table>
-<thead>
-<tr>
-<th>时间</th>
-<th>速度(字&#x2F;分钟)</th>
-<th>准确率</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>第1周</td>
-<td>30</td>
-<td>85%</td>
-</tr>
-<tr>
-<td>第1月</td>
-<td>45</td>
-<td>90%</td>
-</tr>
-<tr>
-<td>第3月</td>
-<td>65</td>
-<td>95%</td>
-</tr>
-<tr>
-<td>第6月</td>
-<td>80</td>
-<td>98%</td>
-</tr>
-</tbody></table>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li><strong>保持耐心</strong>：打字速度提升需要时间</li>
-<li><strong>正确指法</strong>：不要为了速度而牺牲正确性</li>
-<li><strong>定期练习</strong>：每天坚持练习效果更好</li>
-</ol>
-<hr>
-<p>坚持练习，你也能成为打字高手！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E6%A0%87%E7%AD%BE%E5%8A%9F%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E6%A0%87%E7%AD%BE%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">如何使用Hexo标签功能</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-15 10:00:00" itemprop="dateCreated datePublished" datetime="2024-01-15T10:00:00-07:00">2024-01-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="如何使用Hexo标签功能"><a href="#如何使用Hexo标签功能" class="headerlink" title="如何使用Hexo标签功能"></a>如何使用Hexo标签功能</h1><p>标签是Hexo博客中非常重要的功能，它可以帮助你组织和分类你的文章，让读者更容易找到相关内容。</p>
-<h2 id="什么是标签？"><a href="#什么是标签？" class="headerlink" title="什么是标签？"></a>什么是标签？</h2><p>标签（Tags）是用来描述文章主题的关键词。一篇文章可以有多个标签，一个标签也可以对应多篇文章。</p>
-<h2 id="如何在文章中使用标签？"><a href="#如何在文章中使用标签？" class="headerlink" title="如何在文章中使用标签？"></a>如何在文章中使用标签？</h2><h3 id="1-在文章头部添加标签"><a href="#1-在文章头部添加标签" class="headerlink" title="1. 在文章头部添加标签"></a>1. 在文章头部添加标签</h3><p>在每篇文章的开头，你需要添加YAML front matter（文章元数据），其中包含标签信息：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-01-15 10:00:00</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学英语</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">练打字</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">专注力</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">分类名称</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-标签的写法"><a href="#2-标签的写法" class="headerlink" title="2. 标签的写法"></a>2. 标签的写法</h3><p>标签可以用中文或英文，建议保持一致：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中文标签</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学英语</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">练打字</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">专注力</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者英文标签</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">English</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Typing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Focus</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-多个标签的写法"><a href="#3-多个标签的写法" class="headerlink" title="3. 多个标签的写法"></a>3. 多个标签的写法</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学英语</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">练打字</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">专注力</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学习方法</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">效率提升</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="标签页面的访问"><a href="#标签页面的访问" class="headerlink" title="标签页面的访问"></a>标签页面的访问</h2><p>当你设置了标签后，Hexo会自动生成标签页面：</p>
-<ul>
-<li>所有标签页面：<code>/tags/</code></li>
-<li>特定标签页面：<code>/tags/学英语/</code></li>
-</ul>
-<h2 id="导航栏中的标签链接"><a href="#导航栏中的标签链接" class="headerlink" title="导航栏中的标签链接"></a>导航栏中的标签链接</h2><p>我在你的博客导航栏中添加了三个标签链接：</p>
-<ul>
-<li><strong>学英语</strong> - 点击后会显示所有标记为”学英语”的文章</li>
-<li><strong>练打字</strong> - 点击后会显示所有标记为”练打字”的文章  </li>
-<li><strong>专注力</strong> - 点击后会显示所有标记为”专注力”的文章</li>
-</ul>
-<h2 id="实际使用示例"><a href="#实际使用示例" class="headerlink" title="实际使用示例"></a>实际使用示例</h2><h3 id="示例1：学英语相关文章"><a href="#示例1：学英语相关文章" class="headerlink" title="示例1：学英语相关文章"></a>示例1：学英语相关文章</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">如何通过看美剧学英语</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-01-15 10:00:00</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学英语</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学习方法</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">美剧</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">学习</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="示例2：练打字相关文章"><a href="#示例2：练打字相关文章" class="headerlink" title="示例2：练打字相关文章"></a>示例2：练打字相关文章</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我的打字练习心得</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-01-15 10:00:00</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">练打字</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">技能提升</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">效率</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">技能</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="示例3：专注力相关文章"><a href="#示例3：专注力相关文章" class="headerlink" title="示例3：专注力相关文章"></a>示例3：专注力相关文章</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">提升专注力的5个方法</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-01-15 10:00:00</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">专注力</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">效率</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学习方法</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">个人成长</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="标签使用建议"><a href="#标签使用建议" class="headerlink" title="标签使用建议"></a>标签使用建议</h2><ol>
-<li><strong>保持一致性</strong>：使用相同的标签名称，避免”学英语”和”英语学习”这样的重复</li>
-<li><strong>适度使用</strong>：每篇文章建议使用3-5个标签，不要太多</li>
-<li><strong>描述性强</strong>：选择能准确描述文章内容的标签</li>
-<li><strong>定期整理</strong>：定期检查标签，合并相似的标签</li>
-</ol>
-<h2 id="如何创建新文章并添加标签"><a href="#如何创建新文章并添加标签" class="headerlink" title="如何创建新文章并添加标签"></a>如何创建新文章并添加标签</h2><ol>
-<li>在终端中运行：<code>hexo new &quot;文章标题&quot;</code></li>
-<li>编辑生成的文章文件</li>
-<li>在文件开头添加标签信息</li>
-<li>保存并发布</li>
-</ol>
-<h2 id="查看标签效果"><a href="#查看标签效果" class="headerlink" title="查看标签效果"></a>查看标签效果</h2><p>发布文章后，你可以：</p>
-<ol>
-<li>点击导航栏中的标签链接查看该标签下的所有文章</li>
-<li>在文章页面看到标签显示</li>
-<li>在侧边栏的标签云中看到所有标签</li>
-</ol>
-<hr>
-<p>希望这个教程能帮助你更好地使用Hexo的标签功能！如果你有任何问题，随时可以问我。</p>
 
       
     </div>
