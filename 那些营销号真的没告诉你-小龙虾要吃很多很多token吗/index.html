@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hawken-im.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default","show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="身边所有人都在搞 AI，但真正顺畅用上 API 的没几个——封号、网络、信用卡，三道门槛拦着。我自己折腾了一段时间，最后干脆手搓了一个聚合平台，给自己也给大家用。这篇聊聊它是怎么做出来的，以及我拿它做了什么测试。  怎么搭的平台叫 AI加点油，aijia.you。核心是把几条上游 API 渠道汇成一个入口，用户充一次值，用一个 Key，模型随便换。 基础设施选的阿里云新加坡节点（2C2G）。选新加">
+<meta property="og:type" content="article">
+<meta property="og:title" content="那些营销号真的没告诉你，小龙虾要吃很多很多token吗？！">
+<meta property="og:url" content="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/index.html">
+<meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="身边所有人都在搞 AI，但真正顺畅用上 API 的没几个——封号、网络、信用卡，三道门槛拦着。我自己折腾了一段时间，最后干脆手搓了一个聚合平台，给自己也给大家用。这篇聊聊它是怎么做出来的，以及我拿它做了什么测试。  怎么搭的平台叫 AI加点油，aijia.you。核心是把几条上游 API 渠道汇成一个入口，用户充一次值，用一个 Key，模型随便换。 基础设施选的阿里云新加坡节点（2C2G）。选新加">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/modles.png">
+<meta property="og:image" content="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/cline.png">
+<meta property="og:image" content="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/apikey1.png">
+<meta property="og:image" content="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/apikey2.png">
+<meta property="article:published_time" content="2026-03-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-13T19:59:39.205Z">
+<meta property="article:author" content="Hawken">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/modles.png">
+
+
+<link rel="canonical" href="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/","path":"那些营销号真的没告诉你-小龙虾要吃很多很多token吗/","title":"那些营销号真的没告诉你，小龙虾要吃很多很多token吗？！"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>那些营销号真的没告诉你，小龙虾要吃很多很多token吗？！ | Hawken.im</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hawken.im</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-bluesky"><a href="https://bsky.app/profile/hawken.im" rel="section" target="_blank"><i class="fab fa-twitter fa-fw"></i>bluesky</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-bento"><a href="https://bento.me/hawken" rel="section" target="_blank"><i class="fas fa-id-card fa-fw"></i>bento</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E6%90%AD%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">怎么搭的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%B7%B1%E5%BD%93%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E8%B7%91%E4%BA%86%E4%B8%80%E5%9C%88"><span class="nav-number">2.</span> <span class="nav-text">自己当第一个用户跑了一圈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E4%BA%86"><span class="nav-number">3.</span> <span class="nav-text">开了</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hawken</p>
+  <div class="site-description" itemprop="description">Hawken的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://bsky.app/profile/hawken.im" title="Bluesky → https:&#x2F;&#x2F;bsky.app&#x2F;profile&#x2F;hawken.im" rel="noopener me" target="_blank"><i class="fa fa-cloud fa-fw"></i>Bluesky</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/hawken-im" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hawken-im" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://bento.me/hawken" title="Bento → https:&#x2F;&#x2F;bento.me&#x2F;hawken" rel="noopener me" target="_blank"><i class="fas fa-id-card fa-fw"></i>Bento</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="那些营销号真的没告诉你，小龙虾要吃很多很多token吗？！ | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          那些营销号真的没告诉你，小龙虾要吃很多很多token吗？！
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-13 10:00:00 / 修改时间：13:59:39" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>身边所有人都在搞 AI，但真正顺畅用上 API 的没几个——封号、网络、信用卡，三道门槛拦着。我自己折腾了一段时间，最后干脆手搓了一个聚合平台，给自己也给大家用。这篇聊聊它是怎么做出来的，以及我拿它做了什么测试。</p>
+<hr>
+<h2 id="怎么搭的"><a href="#怎么搭的" class="headerlink" title="怎么搭的"></a>怎么搭的</h2><p>平台叫 <strong>AI加点油</strong>，<code>aijia.you</code>。核心是把几条上游 API 渠道汇成一个入口，用户充一次值，用一个 Key，模型随便换。</p>
+<p>基础设施选的阿里云新加坡节点（2C2G）。选新加坡主要是因为需要接入国外的大模型，比如 Gemini， Claude， OpenAI， 但是现在这御三家只接入了 Gemini。</p>
+<blockquote>
+<p>Claude 还不敢接因为中国人一用就封号，大家都怀疑 Anthropic 的老板当年在百度受了什么刺激，对中国人特别不友好。OpenAI 那边单纯是因为成本高接不起哈哈，等我有了前 100 个用户我就接。</p>
+</blockquote>
+<p>最硬啃的部分是支付。国内用户直接走 Stripe 要么被拒刷，要么根本没卡。我自研了一个 <code>stripe-adapter</code>，把易支付协议（支付宝&#x2F;微信）翻译成 Stripe 能接收的格式，绕过了直连限制。上线第一件事是自己充了五美元——支付链路通了，赠送的 100 万 tokens 也到账了，换算大概是五美元的体验额度。（敲重点：充值就送100万token哈！）</p>
+<p>上游目前聚合了四条：阿里百炼、硅基流动、DeepSeek 官方、Gemini 官方。某条上游抖动时自动切换，用户感知不到。当然有发烧友也可以自己玩一玩各种模型，我当前上线了31个模型，其中含5个免费模型（划重点：免费！随便用），这五个模型我全试了，其中 DeepSeek R1 的蒸馏版当真能打，千问开源版也可以的。在模型广场点”免费”的标签就能看到。</p>
+<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/modles.png" class="" title="模型广场，点&quot;免费&quot;标签筛选">
+
+<hr>
+<h2 id="自己当第一个用户跑了一圈"><a href="#自己当第一个用户跑了一圈" class="headerlink" title="自己当第一个用户跑了一圈"></a>自己当第一个用户跑了一圈</h2><p>搭好之后，我用 Cline 接进去跑了一圈真实任务。</p>
+<p>Cline 的接入很简单（图中用红线划出了要填的空）：</p>
+<ol>
+<li>选 “<strong>OpenAI Compatible</strong>“（意思是用和 ChatGPT 家一样的 API 协议）</li>
+<li>Base URL 填：<code>https://aijia.you/v1</code></li>
+<li>API Key 在 aijia.you 后台一键申请，粘贴进去</li>
+<li>模型名从模型广场直接复制——大小写必须一致，不然找不到模型</li>
+</ol>
+<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/cline.png" class="" title="Cline 配置界面">
+
+<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/apikey1.png" class="" title="API Key 申请步骤一">
+
+<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/apikey2.png" class="" title="API Key 申请步骤二">
+
+<p>三分钟搞定。</p>
+<p>然后我挨个测了几个模型：</p>
+<p><strong>GLM-4.7 不行</strong>。让它读一份文档，反复请求了好几次，最后也没成功。智谱家的模型在工具调用这块目前还不够稳，不是 Cline 的好搭档。</p>
+<p><strong>Qwen3-8B 顺利完成了任务</strong>。考虑到它是免费的，性价比相当能打。文档整理、代码注释这类任务交给它完全够用。</p>
+<p>付费模型里：<br>Gemini 就不说了，毕竟是 T0 级别的。<br>性价比高的，可以选 <strong>DeepSeek-Reasoner</strong>， 推理任务交给它，基本不用操心。<br>别忘了 Cline 有个很好的功能是，Plan Mode 和 Act Mode 可以用不同的模型。<br>我 Plan Mode 用 DeepSeek-Reasoner，是一个擅长推理的模型，适合跟你一起讨论计划，执行的时候我选的 Gemini-2.5-Flash，出自 Gemini 家但还相对便宜，速度也快。</p>
+<p>测下来整体流畅，支付链路、token 计费、模型切换都没出问题。GLM 那个坑留着，后续看智谱那边有没有改进。</p>
+<p><strong>对了下次我会试试最近爆火的小龙虾，OpenClaw，可以期待一个。</strong></p>
+<hr>
+<h2 id="开了"><a href="#开了" class="headerlink" title="开了"></a>开了</h2><p><code>aijia.you</code> AI加点油，现在对外开放。（浏览器全拼输入：aijia.you，猛敲回车！）</p>
+<p>注册送 <strong>100 万 tokens</strong>（约五美元额度），支持支付宝&#x2F;微信充值，不需要境外信用卡。</p>
+<p>如果正在被 API 折腾，来试试。</p>
+<p>→ <a target="_blank" rel="noopener" href="https://aijia.you/">aijia.you</a></p>
+<p>有问题可以关注公众号「AI加点油」找我。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/panic-attack-touch-keyboard/" rel="prev" title="恐慌发作 凌晨醒来第一件事是摸键盘">
+                  <i class="fa fa-angle-left"></i> 恐慌发作 凌晨醒来第一件事是摸键盘
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hawken</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

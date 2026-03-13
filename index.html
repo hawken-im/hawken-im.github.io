@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -148,7 +148,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -176,6 +176,114 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/" class="post-title-link" itemprop="url">那些营销号真的没告诉你，小龙虾要吃很多很多token吗？！</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-13 10:00:00 / 修改时间：13:59:39" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>身边所有人都在搞 AI，但真正顺畅用上 API 的没几个——封号、网络、信用卡，三道门槛拦着。我自己折腾了一段时间，最后干脆手搓了一个聚合平台，给自己也给大家用。这篇聊聊它是怎么做出来的，以及我拿它做了什么测试。</p>
+<hr>
+<h2 id="怎么搭的"><a href="#怎么搭的" class="headerlink" title="怎么搭的"></a>怎么搭的</h2><p>平台叫 <strong>AI加点油</strong>，<code>aijia.you</code>。核心是把几条上游 API 渠道汇成一个入口，用户充一次值，用一个 Key，模型随便换。</p>
+<p>基础设施选的阿里云新加坡节点（2C2G）。选新加坡主要是因为需要接入国外的大模型，比如 Gemini， Claude， OpenAI， 但是现在这御三家只接入了 Gemini。</p>
+<blockquote>
+<p>Claude 还不敢接因为中国人一用就封号，大家都怀疑 Anthropic 的老板当年在百度受了什么刺激，对中国人特别不友好。OpenAI 那边单纯是因为成本高接不起哈哈，等我有了前 100 个用户我就接。</p>
+</blockquote>
+<p>最硬啃的部分是支付。国内用户直接走 Stripe 要么被拒刷，要么根本没卡。我自研了一个 <code>stripe-adapter</code>，把易支付协议（支付宝&#x2F;微信）翻译成 Stripe 能接收的格式，绕过了直连限制。上线第一件事是自己充了五美元——支付链路通了，赠送的 100 万 tokens 也到账了，换算大概是五美元的体验额度。（敲重点：充值就送100万token哈！）</p>
+<p>上游目前聚合了四条：阿里百炼、硅基流动、DeepSeek 官方、Gemini 官方。某条上游抖动时自动切换，用户感知不到。当然有发烧友也可以自己玩一玩各种模型，我当前上线了31个模型，其中含5个免费模型（划重点：免费！随便用），这五个模型我全试了，其中 DeepSeek R1 的蒸馏版当真能打，千问开源版也可以的。在模型广场点”免费”的标签就能看到。</p>
+<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/modles.png" class="" title="模型广场，点&quot;免费&quot;标签筛选">
+
+<hr>
+<h2 id="自己当第一个用户跑了一圈"><a href="#自己当第一个用户跑了一圈" class="headerlink" title="自己当第一个用户跑了一圈"></a>自己当第一个用户跑了一圈</h2><p>搭好之后，我用 Cline 接进去跑了一圈真实任务。</p>
+<p>Cline 的接入很简单（图中用红线划出了要填的空）：</p>
+<ol>
+<li>选 “<strong>OpenAI Compatible</strong>“（意思是用和 ChatGPT 家一样的 API 协议）</li>
+<li>Base URL 填：<code>https://aijia.you/v1</code></li>
+<li>API Key 在 aijia.you 后台一键申请，粘贴进去</li>
+<li>模型名从模型广场直接复制——大小写必须一致，不然找不到模型</li>
+</ol>
+<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/cline.png" class="" title="Cline 配置界面">
+
+<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/apikey1.png" class="" title="API Key 申请步骤一">
+
+<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/apikey2.png" class="" title="API Key 申请步骤二">
+
+<p>三分钟搞定。</p>
+<p>然后我挨个测了几个模型：</p>
+<p><strong>GLM-4.7 不行</strong>。让它读一份文档，反复请求了好几次，最后也没成功。智谱家的模型在工具调用这块目前还不够稳，不是 Cline 的好搭档。</p>
+<p><strong>Qwen3-8B 顺利完成了任务</strong>。考虑到它是免费的，性价比相当能打。文档整理、代码注释这类任务交给它完全够用。</p>
+<p>付费模型里：<br>Gemini 就不说了，毕竟是 T0 级别的。<br>性价比高的，可以选 <strong>DeepSeek-Reasoner</strong>， 推理任务交给它，基本不用操心。<br>别忘了 Cline 有个很好的功能是，Plan Mode 和 Act Mode 可以用不同的模型。<br>我 Plan Mode 用 DeepSeek-Reasoner，是一个擅长推理的模型，适合跟你一起讨论计划，执行的时候我选的 Gemini-2.5-Flash，出自 Gemini 家但还相对便宜，速度也快。</p>
+<p>测下来整体流畅，支付链路、token 计费、模型切换都没出问题。GLM 那个坑留着，后续看智谱那边有没有改进。</p>
+<p><strong>对了下次我会试试最近爆火的小龙虾，OpenClaw，可以期待一个。</strong></p>
+<hr>
+<h2 id="开了"><a href="#开了" class="headerlink" title="开了"></a>开了</h2><p><code>aijia.you</code> AI加点油，现在对外开放。（浏览器全拼输入：aijia.you，猛敲回车！）</p>
+<p>注册送 <strong>100 万 tokens</strong>（约五美元额度），支持支付宝&#x2F;微信充值，不需要境外信用卡。</p>
+<p>如果正在被 API 折腾，来试试。</p>
+<p>→ <a target="_blank" rel="noopener" href="https://aijia.you/">aijia.you</a></p>
+<p>有问题可以关注公众号「AI加点油」找我。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -221,7 +329,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -331,7 +439,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -444,7 +552,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:35" itemprop="dateModified" datetime="2026-03-02T11:44:35-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -606,7 +714,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:35" itemprop="dateModified" datetime="2026-03-02T11:44:35-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -728,7 +836,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:35" itemprop="dateModified" datetime="2026-03-02T11:44:35-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -825,7 +933,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -1029,7 +1137,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:35" itemprop="dateModified" datetime="2026-03-02T11:44:35-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1193,7 +1301,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:35" itemprop="dateModified" datetime="2026-03-02T11:44:35-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:39" itemprop="dateModified" datetime="2026-03-13T13:59:39-06:00">2026-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1339,7 +1447,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:35" itemprop="dateModified" datetime="2026-03-02T11:44:35-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -1399,95 +1507,6 @@
 </ol>
 <hr>
 <p>希望这个教程能帮助你更好地使用Hexo的标签功能！如果你有任何问题，随时可以问我。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/postgre/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/postgre/" class="post-title-link" itemprop="url">记录 postgre 的小坑一枚</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-23 17:34:49" itemprop="dateCreated datePublished" datetime="2022-07-23T17:34:49-06:00">2022-07-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Source:<a target="_blank" rel="noopener" href="https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install">https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install</a></p>
-<p><a target="_blank" rel="noopener" href="https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install">https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install</a></p>
-<p>CAUTION The answer about changing the UNIX password for “postgres” through “$ sudo passwd postgres” is not preferred, and can even be DANGEROUS!</p>
-<p>This is why: By default, the UNIX account “postgres” is locked, which means it cannot be logged in using a password. If you use “sudo passwd postgres”, the account is immediately unlocked. Worse, if you set the password to something weak, like “postgres”, then you are exposed to a great security danger. For example, there are a number of bots out there trying the username&#x2F;password combo “postgres&#x2F;postgres” to log into your UNIX system.</p>
-<p>What you should do is follow Chris James‘s answer:</p>
-<p>To explain it a little bit. There are usually two default ways to login to PostgreSQL server:</p>
-<ol>
-<li>By running the “psql” command as a UNIX user (so-called IDENT&#x2F;PEER authentication), e.g.: sudo -u postgres psql. Note that sudo -u does NOT unlock the UNIX user.</li>
-<li>by TCP&#x2F;IP connection using PostgreSQL’s own managed username&#x2F;password (so-called TCP authentication) (i.e., NOT the UNIX password).</li>
-</ol>
-<p>By running the “psql” command as a UNIX user (so-called IDENT&#x2F;PEER authentication), e.g.: sudo -u postgres psql. Note that sudo -u does NOT unlock the UNIX user.</p>
-<p>by TCP&#x2F;IP connection using PostgreSQL’s own managed username&#x2F;password (so-called TCP authentication) (i.e., NOT the UNIX password).</p>
-<p>So you never want to set the password for UNIX account “postgres”. Leave it locked as it is by default.</p>
-<p>Of course things can change if you configure it differently from the default setting. For example, one could sync the PostgreSQL password with UNIX password and only allow local logins. That would be beyond the scope of this question.</p>
 
       
     </div>

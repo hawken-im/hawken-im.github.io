@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -148,7 +148,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -176,6 +176,95 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/postgre/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/postgre/" class="post-title-link" itemprop="url">记录 postgre 的小坑一枚</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-23 17:34:49" itemprop="dateCreated datePublished" datetime="2022-07-23T17:34:49-06:00">2022-07-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Source:<a target="_blank" rel="noopener" href="https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install">https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install</a></p>
+<p><a target="_blank" rel="noopener" href="https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install">https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install</a></p>
+<p>CAUTION The answer about changing the UNIX password for “postgres” through “$ sudo passwd postgres” is not preferred, and can even be DANGEROUS!</p>
+<p>This is why: By default, the UNIX account “postgres” is locked, which means it cannot be logged in using a password. If you use “sudo passwd postgres”, the account is immediately unlocked. Worse, if you set the password to something weak, like “postgres”, then you are exposed to a great security danger. For example, there are a number of bots out there trying the username&#x2F;password combo “postgres&#x2F;postgres” to log into your UNIX system.</p>
+<p>What you should do is follow Chris James‘s answer:</p>
+<p>To explain it a little bit. There are usually two default ways to login to PostgreSQL server:</p>
+<ol>
+<li>By running the “psql” command as a UNIX user (so-called IDENT&#x2F;PEER authentication), e.g.: sudo -u postgres psql. Note that sudo -u does NOT unlock the UNIX user.</li>
+<li>by TCP&#x2F;IP connection using PostgreSQL’s own managed username&#x2F;password (so-called TCP authentication) (i.e., NOT the UNIX password).</li>
+</ol>
+<p>By running the “psql” command as a UNIX user (so-called IDENT&#x2F;PEER authentication), e.g.: sudo -u postgres psql. Note that sudo -u does NOT unlock the UNIX user.</p>
+<p>by TCP&#x2F;IP connection using PostgreSQL’s own managed username&#x2F;password (so-called TCP authentication) (i.e., NOT the UNIX password).</p>
+<p>So you never want to set the password for UNIX account “postgres”. Leave it locked as it is by default.</p>
+<p>Of course things can change if you configure it differently from the default setting. For example, one could sync the PostgreSQL password with UNIX password and only allow local logins. That would be beyond the scope of this question.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -221,7 +310,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:35" itemprop="dateModified" datetime="2026-03-02T11:44:35-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -298,7 +387,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -391,7 +480,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -507,7 +596,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -648,7 +737,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:35" itemprop="dateModified" datetime="2026-03-02T11:44:35-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:39" itemprop="dateModified" datetime="2026-03-13T13:59:39-06:00">2026-03-13</time>
     </span>
 
   
@@ -869,7 +958,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -973,7 +1062,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -1069,7 +1158,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -1164,7 +1253,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
+      <time title="修改时间：2026-03-13 13:59:38" itemprop="dateModified" datetime="2026-03-13T13:59:38-06:00">2026-03-13</time>
     </span>
 
   
@@ -1214,90 +1303,6 @@
 <p>clone 完整代码或者复制粘贴也行，之后在 Step0 目录下执行：</p>
 <p>就能看到结果了。</p>
 <p>非常欢迎读者们发送 Hello Rum 到“Go语言学习小组”，小组的种子提供于此：</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/learning-go/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/learning-go/" class="post-title-link" itemprop="url">学 go 语言的一些小笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-22 03:48:32" itemprop="dateCreated datePublished" datetime="2022-01-22T03:48:32-07:00">2022-01-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-02 11:44:34" itemprop="dateModified" datetime="2026-03-02T11:44:34-07:00">2026-03-02</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在度假，网不好，因此没法翻墙，断断续续 baidu 了好几天，被弄到 CSDN 里兜兜转转了好几天！鬼打墙一样。今天好不容易找了个咖啡店，翻出去了，立刻！马上！看到了这句话：</p>
-<p>“In the most basic terms, A package is nothing but a directory inside your Go workspace containing one or more Go source files, or other Go packages.”划重点是”is nothing but”</p>
-<p>这个太关键了中文文章要么就是高深莫测，搞得小白不知道他们是不是在故弄玄虚，要么就觉得包管理是不是太习以为常就干脆跳过。这篇文章就叫深入浅出。即便是可能会很高深，但是文章也说了， “In the most basic terms”。 对，可以很难，但是本小白要的就是”most basic terms”。 文章链接在此： <a target="_blank" rel="noopener" href="https://www.callicoder.com/golang-packages/">https://www.callicoder.com/golang-packages/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.callicoder.com/golang-packages/">https://www.callicoder.com/golang-packages/</a></p>
-<p>继续学了 flag 和 arguement，这样就可以在命令行输入酷酷的命令了。go 的两个包分别是：</p>
-<p>昨天跑通了 json 的解析，今天开始系统的学习 struct 以及指针，这样就能在函数中读取 struct 并返回一整个 struct今天主要看的书是 Head First Go下一步应该要把包管理学了，不然现在所有的代码都是堆在一个文件里面学完小半本 Head First Go 之前应该暂时不会更新 Year Progress 2022 代码了</p>
-<p>今天学 go 语言解析 json，这两个教程解答了我很多问题：<a target="_blank" rel="noopener" href="https://eager.io/blog/go-and-json/https://golangbyexample.com/struct-json-golang/">https://eager.io/blog/go-and-json/https://golangbyexample.com/struct-json-golang/</a></p>
-<p><a target="_blank" rel="noopener" href="https://eager.io/blog/go-and-json/">https://eager.io/blog/go-and-json/</a></p>
-<p><a target="_blank" rel="noopener" href="https://golangbyexample.com/struct-json-golang/">https://golangbyexample.com/struct-json-golang/</a></p>
 
       
     </div>
