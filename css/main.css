@@ -1251,7 +1251,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #05f0bd;
+  background: #2838f9;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2540,7 +2540,6 @@ header.header {
     left: 320px;
   }
 }
-.menu-item-AI a,
 .menu-item-学英语 a,
 .menu-item-练打字 a,
 .menu-item-专注力 a {
@@ -2552,11 +2551,26 @@ header.header {
   margin: 1px 0;
   transition: all 0.2s ease;
 }
-.menu-item-AI a:hover,
 .menu-item-学英语 a:hover,
 .menu-item-练打字 a:hover,
 .menu-item-专注力 a:hover {
   background: rgba(0,0,0,0.08);
+  transform: translateX(1px);
+}
+.menu-item-ai a {
+  color: #333 !important;
+  font-weight: 500;
+  background: #fff0f2;
+  border-radius: 3px;
+  padding: 2px 6px;
+  margin: 1px 0;
+  transition: all 0.2s ease;
+}
+.menu-item-ai a i {
+  color: #8b2530 !important;
+}
+.menu-item-ai a:hover {
+  background: #ffd8de;
   transform: translateX(1px);
 }
 .menu-item {
@@ -2589,19 +2603,55 @@ header.header {
   font-size: 16px;
 }
 .menu-item-about a,
-.menu-item-archives a {
-  color: #333 !important;
-}
+.menu-item-archives a,
 .menu-item-github a {
-  color: #666 !important;
-  font-style: italic;
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-.menu-item-github a:hover {
   color: #333 !important;
-  opacity: 1;
-  background: rgba(0,0,0,0.05);
-  border-radius: 3px;
-  padding: 2px 4px;
+}
+[class*="menu-item-ai+"] {
+  position: relative;
+}
+[class*="menu-item-ai+"]:hover::after {
+  display: block;
+}
+[class*="menu-item-ai+"]::after {
+  content: '给你的 AI 加点油';
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff url("/images/aijia-icon.svg") center top 10px/55px auto no-repeat;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 72px 12px 10px;
+  width: 110px;
+  text-align: center;
+  font-size: 11px;
+  color: #666;
+  z-index: 9999;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.menu-item-ai加点油 {
+  position: relative;
+}
+.menu-item-ai加点油:hover::after {
+  display: block;
+}
+.menu-item-ai加点油::after {
+  content: '';
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff url("/images/wxqrcode.jpg") center center/120px auto no-repeat;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  width: 130px;
+  height: 130px;
+  z-index: 9999;
+  pointer-events: none;
 }
