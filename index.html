@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -148,7 +148,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -176,6 +176,119 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E8%80%81%E5%B8%88%E6%89%B9%E7%9A%84%E4%BD%9C%E4%B8%9A%EF%BC%8C%E6%88%91%E8%AE%A9AI%E5%81%9A%E6%88%90%E4%BA%86%E9%94%99%E9%A2%98%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E8%80%81%E5%B8%88%E6%89%B9%E7%9A%84%E4%BD%9C%E4%B8%9A%EF%BC%8C%E6%88%91%E8%AE%A9AI%E5%81%9A%E6%88%90%E4%BA%86%E9%94%99%E9%A2%98%E9%9B%86/" class="post-title-link" itemprop="url">老师批的作业，我让AI做成了错题集</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-13 18:01:14 / 修改时间：18:38:56" itemprop="dateCreated datePublished" datetime="2026-03-13T18:01:14-06:00">2026-03-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>孩子在备考 FCE（剑桥英语B2），每周老师批完作业，密密麻麻的红笔，加上孩子本来就歪歪扭扭的文字，肉眼难以识别。而且批改的内容孩子翻翻就搁一边了，真正能内化的没多少。</p>
+<p>于是我想试试把每次批改让 AI 帮我整理成结构化的错题集，挂到网上，随时能查。</p>
+<p>结果出来了：<a target="_blank" rel="noopener" href="https://leonfce.hawken.im/">leonfce.hawken.im</a></p>
+<hr>
+<h2 id="流程是这样的"><a href="#流程是这样的" class="headerlink" title="流程是这样的"></a>流程是这样的</h2><p>整个事情分三步，我基本没手动干预。</p>
+<p><strong>第一步：微信存图</strong></p>
+<p>老师在微信上发来批改图，我全部扔进一个文件夹。不需要命名，不需要整理，就是一堆 <code>xxxx.jpg</code>。</p>
+<img src="/%E8%80%81%E5%B8%88%E6%89%B9%E7%9A%84%E4%BD%9C%E4%B8%9A%EF%BC%8C%E6%88%91%E8%AE%A9AI%E5%81%9A%E6%88%90%E4%BA%86%E9%94%99%E9%A2%98%E9%9B%86/fceessay.png" class="" title="老师批改的一张典型作业">
+
+<p><strong>第二步：OCR 读图</strong></p>
+<p>用 OCR 模型把图片里的文字认出来——不光是学生原文，还有老师的批注、改正、旁边写的评语，全提取出来。</p>
+<p>这一步以前很难做好，批改里有大量手写字，还有删改符号、箭头、圈圈，普通 OCR 基本废了。但是好在老师的红字是键盘敲在图片上的。我给的提示词里还宽容的指出：“即便识别不出来也没关系，因为后面的推理模型可以补全。“</p>
+<p><strong>第三步：推理模型做解析</strong></p>
+<p>拿到 OCR 结果之后，交给推理模型做第二轮处理：</p>
+<ol>
+<li><strong>识别错误类型</strong>——是时态错了、主谓不一致、搭配不对、还是逻辑问题？</li>
+<li><strong>生成示范句</strong>——把错误的那句话改对，作为标准示例</li>
+<li><strong>再造一个同类句</strong>——用同样的语法点或搭配，造一个全新的句子，供孩子对照练习</li>
+</ol>
+<p>这样每一个错误，孩子手里就有三样东西：原来错的、改对的、另一个例子。<br>效果比我预期好很多，因为所谓的 LLM 不就是大语言模型吗，最原始的功能就是补全语言。</p>
+<hr>
+<h2 id="出来的效果"><a href="#出来的效果" class="headerlink" title="出来的效果"></a>出来的效果</h2><p><a target="_blank" rel="noopener" href="https://leonfce.hawken.im/">leonfce.hawken.im</a> 这次处理了 42 页批改，老师的 FCE 写作课内容。</p>
+<p>错误被按类型归类：主谓一致、时态、词形变化、介词搭配、写作结构……每一条都有出处（对应第几张图），方便孩子回头翻原图核对。<br>最后还有一张汇总表，按错误类型统计，一眼能看出哪块是高频弱点。</p>
+<p>然后再让推理模型自己做一个总结，下次我又来图了可以复用整个过程。</p>
+<hr>
+<h2 id="为什么这个对孩子有用"><a href="#为什么这个对孩子有用" class="headerlink" title="为什么这个对孩子有用"></a>为什么这个对孩子有用</h2><p>普通的错题本，孩子自己整理，费时费力，还容易漏，而且整理完也就抄了一遍，没有深度加工。</p>
+<p>这个流程做出来的东西不一样：</p>
+<ul>
+<li><strong>结构化</strong>：不是一页页翻图，是按类型检索</li>
+<li><strong>有例句</strong>：不只是”你这里错了”，而是”对的该是这样，再看另一个同类的”</li>
+<li><strong>可复习</strong>：网页随时打开，不用找本子</li>
+</ul>
+<p>当然，AI 不能替代孩子自己思考。但它能做的那部分——把散乱的批改变成有组织的材料——确实帮我省了大量时间，而且做得比我手工整理好。</p>
+<hr>
+<h2 id="技术上的流程整理"><a href="#技术上的流程整理" class="headerlink" title="技术上的流程整理"></a>技术上的流程整理</h2><p>整个流程用 VSCode + Cline 跑的，本地执行。大概步骤：</p>
+<ol>
+<li>读取文件夹里所有图片</li>
+<li>逐张调 OCR 模型（支持手写识别的多模态模型），输出批改内容</li>
+<li>把 OCR 结果喂给推理模型，按固定 prompt 输出错题结构（错误类型 &#x2F; 示范句 &#x2F; 造句）</li>
+<li>聚合成 HTML，推上服务器</li>
+</ol>
+<p>下次处理新的一批作业，把图片扔进去，重跑一遍，新内容自动合并进去。</p>
+<hr>
+<p>如果你家孩子也在备考英语，或者有类似整理学习材料的需求，这个思路可以直接套用，但是我估计英语和语文要好办一些，数学错题、物理错题能不能被识别的很好还不好说。因为我是先识别成文字再进行推理。跟手机某些 App 的直接分析画面可能还有点距离。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -215,7 +328,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-13 12:00:00 / 修改时间：15:38:36" itemprop="dateCreated datePublished" datetime="2026-03-13T12:00:00-06:00">2026-03-13</time>
+      <time title="创建时间：2026-03-13 12:00:00 / 修改时间：18:38:56" itemprop="dateCreated datePublished" datetime="2026-03-13T12:00:00-06:00">2026-03-13</time>
     </span>
 
   
@@ -369,7 +482,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-13 10:00:00 / 修改时间：15:38:36" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
+      <time title="创建时间：2026-03-13 10:00:00 / 修改时间：18:38:56" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
     </span>
 
   
@@ -483,7 +596,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -593,7 +706,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:55" itemprop="dateModified" datetime="2026-03-13T18:38:55-06:00">2026-03-13</time>
     </span>
 
   
@@ -706,7 +819,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -868,7 +981,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -990,7 +1103,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -1087,7 +1200,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -1291,7 +1404,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1393,152 +1506,6 @@
 </ul>
 <hr>
 <p>专注力是可以培养的技能，坚持练习，你也能拥有强大的专注力！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E7%BB%83%E6%89%93%E5%AD%97-%E6%88%91%E7%9A%84%E6%89%93%E5%AD%97%E7%BB%83%E4%B9%A0%E5%BF%83%E5%BE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BB%83%E6%89%93%E5%AD%97-%E6%88%91%E7%9A%84%E6%89%93%E5%AD%97%E7%BB%83%E4%B9%A0%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">我的打字练习心得</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-15 12:00:00" itemprop="dateCreated datePublished" datetime="2024-01-15T12:00:00-07:00">2024-01-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">技能</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="我的打字练习心得"><a href="#我的打字练习心得" class="headerlink" title="我的打字练习心得"></a>我的打字练习心得</h1><p>作为一个程序员，打字速度直接影响工作效率。经过几个月的练习，我的打字速度从30字&#x2F;分钟提升到了80字&#x2F;分钟。</p>
-<h2 id="为什么练习打字？"><a href="#为什么练习打字？" class="headerlink" title="为什么练习打字？"></a>为什么练习打字？</h2><ol>
-<li><strong>提高工作效率</strong>：快速输入代码和文档</li>
-<li><strong>减少疲劳</strong>：正确的指法减少手指疲劳</li>
-<li><strong>专业形象</strong>：快速打字给人专业的感觉</li>
-</ol>
-<h2 id="练习方法"><a href="#练习方法" class="headerlink" title="练习方法"></a>练习方法</h2><h3 id="1-基础指法练习"><a href="#1-基础指法练习" class="headerlink" title="1. 基础指法练习"></a>1. 基础指法练习</h3><ul>
-<li>使用在线打字练习网站</li>
-<li>每天练习30分钟</li>
-<li>重点练习数字和符号</li>
-</ul>
-<h3 id="2-盲打训练"><a href="#2-盲打训练" class="headerlink" title="2. 盲打训练"></a>2. 盲打训练</h3><ul>
-<li>不看键盘，只看屏幕</li>
-<li>从慢到快，循序渐进</li>
-<li>保持正确的手指位置</li>
-</ul>
-<h3 id="3-实际应用"><a href="#3-实际应用" class="headerlink" title="3. 实际应用"></a>3. 实际应用</h3><ul>
-<li>在编程中应用</li>
-<li>写文档时练习</li>
-<li>聊天时保持正确指法</li>
-</ul>
-<h2 id="推荐练习网站"><a href="#推荐练习网站" class="headerlink" title="推荐练习网站"></a>推荐练习网站</h2><ul>
-<li><strong>Typing.com</strong> - 系统化的练习课程</li>
-<li><strong>10FastFingers</strong> - 速度测试</li>
-<li><strong>Keybr</strong> - 个性化练习</li>
-</ul>
-<h2 id="练习进度"><a href="#练习进度" class="headerlink" title="练习进度"></a>练习进度</h2><table>
-<thead>
-<tr>
-<th>时间</th>
-<th>速度(字&#x2F;分钟)</th>
-<th>准确率</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>第1周</td>
-<td>30</td>
-<td>85%</td>
-</tr>
-<tr>
-<td>第1月</td>
-<td>45</td>
-<td>90%</td>
-</tr>
-<tr>
-<td>第3月</td>
-<td>65</td>
-<td>95%</td>
-</tr>
-<tr>
-<td>第6月</td>
-<td>80</td>
-<td>98%</td>
-</tr>
-</tbody></table>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li><strong>保持耐心</strong>：打字速度提升需要时间</li>
-<li><strong>正确指法</strong>：不要为了速度而牺牲正确性</li>
-<li><strong>定期练习</strong>：每天坚持练习效果更好</li>
-</ol>
-<hr>
-<p>坚持练习，你也能成为打字高手！</p>
 
       
     </div>

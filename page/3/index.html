@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -148,7 +148,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -176,6 +176,101 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/" class="post-title-link" itemprop="url">用 Go 语言写焦虑发生器并发布到 Rum 上·第二篇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-17 10:37:15" itemprop="dateCreated datePublished" datetime="2022-02-17T10:37:15-07:00">2022-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-13 18:38:55" itemprop="dateModified" datetime="2026-03-13T18:38:55-06:00">2026-03-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>初学 Go 语言是在去年 11 月 20 日。到今年 2022 年的 2 月 3 日，我写了一个小 bot 连续运行成功，发布到了 github 上开源。花了两个多月时间。我感觉效率还是不错的。于是我这就来记录这段学习经历：目的一是让同样正在跨编程入门这道薛定谔之忽高忽低门槛的小白同学一些参考，更顺利的入门编程；目的二是回顾并巩固自己过去的学习，为下一步继续学习打好基础；目的三是让更多的人能够对 Rum 这个新的东西感兴趣。希望能成功达成目的：</p>
+<p>上一篇我们写了函数，可以用 HTTP Post 方法向 Rum 发送内容，我们这一篇就来发送焦虑内容之年度进度条吧。进度条采用文本形式，我在 Unicode 的列表里找到了一些方块：</p>
+<img src="/Go%E8%AF%AD%E8%A8%80%E5%86%99%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1bot-1/blocks.png" class="" title="图片">
+
+<p>这个找 Unicode 的地方我提供给读者：<a target="_blank" rel="noopener" href="https://unicode-table.com/">https://unicode-table.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://unicode-table.com/">https://unicode-table.com/</a></p>
+<p>进度条的算法我是这样规定的：整个进度条长度是30个块，把百分比换算成三十分之 N。N 是一个整数。那么把百分之几换算成三十分之几感觉掉了很多精度，这个丢掉的精度我用一些不完整的方块来表示。我找了 quarter block 表示四分之一块，找了 half block 表示一半，three quarter block 表示四分之三块，这样至少视觉上不会感觉太“不精确”了。照着这样的算法思路我写了生成进度条的代码如下：</p>
+<p>变量 bar 是函数要返回的值，也是要发送给 Rum 的全部内容。经过前面的计算，生成进度条之后，干脆在这个函数里把标题和时间戳也加上，成了最后的内容。这个函数的一个参数是 perc，也即percentage，百分比，顺理成章的，我们需要根据时间来计算百分比了。</p>
+<p>计算时间的百分比很简单，输入一个时间，计算从 2022 年 1 月 1 日零点，到这个时间的时间长度，再比上整个 2022 年的时间长度就好了。代码如下：</p>
+<p>代码设置了变量 initialTime ，初始的时间，即是 2022 年 1 月 1 日零点。参数是 nextPost，类型是一个时间类型。变量 duration 就是用 nextPost 减去 initialTime 得出的时长了。精确到了小时，因为我最终输出的百分比只保留了 1 位小数点，精确到小时足够了。</p>
+<p>到这里我们基础的功能都已经有了，再做更进一步的优化调整前我们做一次整合。手上现在有三个函数：</p>
+<p>输入参数 content，也即要发布的内容，参数 group 是指定要发到 Rum 的哪一个种子网络（群组）。</p>
+<p>参数 perc 是百分比，根据百分比生成内容 bar，并返回。</p>
+<p>参数 nextPost 是一个时间，输入时间，返回 perc 这个百分比。</p>
+<p>把三个函数整合到 main 函数中：</p>
+<p>这里采用了当前的 UTC 时间，传递给 timePerc 函数，生成了百分比，把百分比传递给 printBar 函数，生成要发送的内容，赋值给变量 progressBar。接下来把内容传递给上一篇写的函数，postToRum，礼成！</p>
+<p>按照惯例，我把代码的全貌展示在 github 上。作为小白本白，我经常复制粘贴了别人的代码再修修补补一下就没法成功运行了，所以我这里提供一个完整的可以执行的代码，修修补补出了问题可以回滚：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hawken-im/yearprogress/tree/main/Step1">https://github.com/hawken-im/yearprogress/tree/main/Step1</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hawken-im/yearprogress/tree/main/Step1">https://github.com/hawken-im/yearprogress/tree/main/Step1</a></p>
+<p>另外，最终实现自己的目标前，会出不少问题，要定位这些问题，最好的方法就是每一步都输出一个结果。这里我用了 fmt.Println()。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -221,7 +316,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:55" itemprop="dateModified" datetime="2026-03-13T18:38:55-06:00">2026-03-13</time>
     </span>
 
   
@@ -333,7 +428,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -417,7 +512,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -550,7 +645,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -634,7 +729,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -717,7 +812,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:55" itemprop="dateModified" datetime="2026-03-13T18:38:55-06:00">2026-03-13</time>
     </span>
 
   
@@ -802,7 +897,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:55" itemprop="dateModified" datetime="2026-03-13T18:38:55-06:00">2026-03-13</time>
     </span>
 
   
@@ -879,7 +974,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:56" itemprop="dateModified" datetime="2026-03-13T18:38:56-06:00">2026-03-13</time>
     </span>
 
   
@@ -956,7 +1051,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-13 18:38:55" itemprop="dateModified" datetime="2026-03-13T18:38:55-06:00">2026-03-13</time>
     </span>
 
   
@@ -971,83 +1066,6 @@
     <div class="post-body" itemprop="articleBody">
           <p>To fix it, I have set ~&#x2F;.zshrc file.</p>
 <p>I have added alias command into it.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/Setting-up-another-Mosh-for-my-another-server-lol-o0o-lol/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Setting-up-another-Mosh-for-my-another-server-lol-o0o-lol/" class="post-title-link" itemprop="url">Setting up another Mosh for my another server: lol.o0o.lol</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-13 14:43:00" itemprop="dateCreated datePublished" datetime="2021-05-13T14:43:00-06:00">2021-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 15:38:36" itemprop="dateModified" datetime="2026-03-13T15:38:36-06:00">2026-03-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>follow the instructions showing on the website of mosh:</p>
-<p>mosh.org</p>
 
       
     </div>
