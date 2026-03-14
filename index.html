@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,6 +185,190 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E5%85%8D%E8%B4%B9AI%E6%A8%A1%E5%9E%8B%E8%96%85%E7%BE%8A%E6%AF%9B%E6%8C%87%E5%8D%97%EF%BC%9A%E7%94%A8.clinerules%E6%85%A2%E9%80%9F%E8%B7%91%EF%BC%8C%E6%B0%B8%E8%BF%9C%E4%B8%8D%E8%A7%A6%E9%99%90%E9%80%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E5%85%8D%E8%B4%B9AI%E6%A8%A1%E5%9E%8B%E8%96%85%E7%BE%8A%E6%AF%9B%E6%8C%87%E5%8D%97%EF%BC%9A%E7%94%A8.clinerules%E6%85%A2%E9%80%9F%E8%B7%91%EF%BC%8C%E6%B0%B8%E8%BF%9C%E4%B8%8D%E8%A7%A6%E9%99%90%E9%80%9F/" class="post-title-link" itemprop="url">免费AI模型薅羊毛指南：用 .clinerules 慢速跑，永远不触限速</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-14 15:00:00 / 修改时间：14:38:39" itemprop="dateCreated datePublished" datetime="2026-03-14T15:00:00-06:00">2026-03-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约3分钟 · 876汉字+66词</div>
+
+
+<p>你在 Cline 里用免费模型跑任务，跑着跑着突然蹦出来一行红字：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">429 Request was rejected due to rate limiting. Details: TPM limit reached.</span><br></pre></td></tr></table></figure>
+
+<p>任务中断，前功尽弃，还得重头来。</p>
+<p>这不是你的错，这是免费模型的游戏规则：<strong>TPM（Tokens Per Minute）限速</strong>。本文教你用几个组合拳，让 AI 降速跑，榨干免费额度，再也不触红线。</p>
+<hr>
+<h2 id="先搞清楚：为什么会被限速？"><a href="#先搞清楚：为什么会被限速？" class="headerlink" title="先搞清楚：为什么会被限速？"></a>先搞清楚：为什么会被限速？</h2><p>主流免费模型的限制通常有三种：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+<th>最容易触发场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>TPM</strong></td>
+<td>每分钟 Token 数上限</td>
+<td>AI 疯狂输出长代码、读大文件</td>
+</tr>
+<tr>
+<td><strong>RPM</strong></td>
+<td>每分钟请求次数上限</td>
+<td>Cline 连续快速调用工具</td>
+</tr>
+<tr>
+<td><strong>RPD</strong></td>
+<td>每天请求次数上限</td>
+<td>跑了一整天任务</td>
+</tr>
+</tbody></table>
+<p>Cline 的问题在于：它默认”能快就快”。读文件、写代码、回复确认——一口气连续调用十几次 API，每次都带着大段上下文，TPM 很快就爆了。</p>
+<hr>
+<h2 id="方案一：Cline-内置请求延迟（最直接）"><a href="#方案一：Cline-内置请求延迟（最直接）" class="headerlink" title="方案一：Cline 内置请求延迟（最直接）"></a>方案一：Cline 内置请求延迟（最直接）</h2><p>打开 VS Code 设置，搜索 <code>cline</code>，找到 <strong>“API Request Delay (ms)”</strong>（也可能叫 Rate Limit Delay）。</p>
+<p>设置一个延迟，比如 <strong>3000ms（3秒）</strong>，Cline 每次工具调用之间都会暂停 3 秒。</p>
+<ul>
+<li>优点：零成本，一键生效</li>
+<li>缺点：整体变慢，但不触限速</li>
+</ul>
+<p>这是最暴力也最可靠的方法。跑不急的长任务推荐先把这个打开。</p>
+<hr>
+<h2 id="方案二：用-clinerules-限制-AI-的-Token-消耗行为"><a href="#方案二：用-clinerules-限制-AI-的-Token-消耗行为" class="headerlink" title="方案二：用 .clinerules 限制 AI 的 Token 消耗行为"></a>方案二：用 .clinerules 限制 AI 的 Token 消耗行为</h2><p><code>.clinerules</code> 是写给 AI 的”工作守则”，放在项目根目录，每次 Cline 启动新 Task 都会读取。你可以用它来约束 AI 的输出风格，从源头减少 Token 消耗。</p>
+<p>在你的 <code>.clinerules</code> 文件里加入这一节：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 省 Token 守则（免费模型限速保护）</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="strong">**输出精简**</span>：每次工具调用后只汇报关键状态，禁止复述操作细节</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**按需读文件**</span>：只读任务直接相关的文件，不做&quot;预防性探索&quot;</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**分批执行**</span>：完成当前步骤后暂停，等待我确认再继续，不要连续发起超过 3 次工具调用</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**只输出差异**</span>：修改代码时只展示被改动的代码段，不输出整个文件</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**规划先行**</span>：执行复杂任务前先用文字列出步骤，确认后再开始执行</span><br></pre></td></tr></table></figure>
+
+<p>这几条规则的逻辑：</p>
+<ol>
+<li><strong>精简输出</strong> → 减少每次响应的 output tokens</li>
+<li><strong>禁止无效文件读取</strong> → 减少 input tokens（大文件上下文是 TPM 杀手）</li>
+<li><strong>分批+等确认</strong> → 人为拉长两次 API 调用之间的间隔</li>
+<li><strong>只输出差异</strong> → 大幅减少代码类任务的 output tokens</li>
+<li><strong>规划先行</strong> → 一次思考替代多次摸索，减少总调用次数</li>
+</ol>
+<p>实测下来，加了这几条之后，同样的任务 Token 消耗可以降低 40-60%。</p>
+<hr>
+<h2 id="方案三：多-Key-轮换（高阶薅法）"><a href="#方案三：多-Key-轮换（高阶薅法）" class="headerlink" title="方案三：多 Key 轮换（高阶薅法）"></a>方案三：多 Key 轮换（高阶薅法）</h2><p>大部分免费模型的限额是<strong>按 API Key 计算</strong>的。如果你能注册多个账号，就能轮换使用多个 Key，变相突破单 Key 限额。</p>
+<p>以 <strong>Google Gemini 免费额度</strong>为例（目前是免费模型里最豪的选项之一）：</p>
+<ol>
+<li>用不同 Google 账号在 Google AI Studio 各申请一个 API Key</li>
+<li>在 Cline 设置里切换 Key（跑满一个换下一个）</li>
+<li>或者把多任务分配给不同 Key 并行跑</li>
+</ol>
+<p>这个方法有点繁琐，但对于跑量大的批处理任务很有用。</p>
+<hr>
+<h2 id="方案四：混合使用付费-免费（最优解）"><a href="#方案四：混合使用付费-免费（最优解）" class="headerlink" title="方案四：混合使用付费 + 免费（最优解）"></a>方案四：混合使用付费 + 免费（最优解）</h2><p>免费模型限速的根本原因是它处理的 Token 太多了。聪明的做法是：</p>
+<ul>
+<li><strong>简单&#x2F;重复性任务</strong> → 免费模型（代码格式化、简单问答、小文件修改）</li>
+<li><strong>需要大上下文的复杂任务</strong> → 付费模型（跨文件重构、长文生成）</li>
+</ul>
+<p>在 Cline 里可以给不同任务类型预设不同的模型配置。复杂任务偶尔花几分钱，换来不限速地畅快跑，其实更划算。</p>
+<hr>
+<h2 id="一个实用的-clinerules-模板"><a href="#一个实用的-clinerules-模板" class="headerlink" title="一个实用的 .clinerules 模板"></a>一个实用的 .clinerules 模板</h2><p>把这段直接贴到你项目的 <code>.clinerules</code> 末尾：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="section">## 免费模型限速保护规则</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**触发条件**</span>：当你使用免费 API（如 Gemini Free、Step-3.5-Flash、OpenRouter 免费模型）时，必须遵守以下规则。</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 每完成一个独立步骤后暂停，输出&quot;✅ [步骤名] 完成，是否继续？&quot;并等待确认</span><br><span class="line"><span class="bullet">2.</span> 读取文件前先确认是否必要，每次 Task 最多读取 5 个文件</span><br><span class="line"><span class="bullet">3.</span> 代码修改只输出变更的函数或代码块，绝不输出完整文件</span><br><span class="line"><span class="bullet">4.</span> 回复长度控制在 300 字以内，技术细节按需展开</span><br><span class="line"><span class="bullet">5.</span> 遇到不确定的地方，提问而不是猜测并尝试</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>难度</th>
+<th>效果</th>
+<th>推荐场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cline 请求延迟设置</td>
+<td>⭐</td>
+<td>✅ 稳定</td>
+<td>所有免费模型</td>
+</tr>
+<tr>
+<td>.clinerules 省 Token 规则</td>
+<td>⭐⭐</td>
+<td>✅✅ 显著</td>
+<td>日常开发任务</td>
+</tr>
+<tr>
+<td>多 Key 轮换</td>
+<td>⭐⭐⭐</td>
+<td>✅✅✅ 高</td>
+<td>批量任务</td>
+</tr>
+<tr>
+<td>免费+付费混用</td>
+<td>⭐⭐</td>
+<td>✅✅✅ 最优</td>
+<td>长期使用</td>
+</tr>
+</tbody></table>
+<p>免费模型是羊毛，<code>.clinerules</code> 是薅羊毛的梳子。梳子梳得顺，羊毛才薅得多。</p>
+<hr>
+<p><em>如果你有其他躲过限速的方法，欢迎在评论区分享。</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/MCP-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9AAI%E7%9A%84%E4%B8%87%E8%83%BD%E6%8F%92%E5%A4%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,7 +399,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：14:27:01" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
+      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：14:38:39" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
     </span>
 
   
@@ -228,7 +412,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>字数统计  574 汉字+56 词  阅读时长约2分钟</p>
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约2分钟 · 588汉字+56词</div>
+
+
+<p>字数统计  574 汉字+56 词  阅读时长约2分钟</p>
 <p>三分钟搞懂让AI连接万物的协议</p>
 <h2 id="一句话解释：MCP是什么？"><a href="#一句话解释：MCP是什么？" class="headerlink" title="一句话解释：MCP是什么？"></a>一句话解释：MCP是什么？</h2><p>MCP （Model Context Protocol，模型上下文协议） 是Anthropic在 2024年11月推出的一个开放标准。简单说，它是AI连接外部服务的”统一插头”。</p>
 <p>没有MCP之前，让AI操作你的邮箱、日历、项目管理工具，每个服务都需要单独对接。MCP把这些都统一成了一套标准接口，就像 USB-C 统一了充电口一样。</p>
@@ -296,7 +483,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：14:27:01" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
+      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：14:38:39" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
     </span>
 
   
@@ -309,7 +496,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>字数统计  755 汉字+60 词  阅读时长约2分钟</p>
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约2分钟 · 769汉字+60词</div>
+
+
+<p>字数统计  755 汉字+60 词  阅读时长约2分钟</p>
 <p>三分钟搞懂AI世界最火的新概念</p>
 <h2 id="一句话解释：Skill是什么？"><a href="#一句话解释：Skill是什么？" class="headerlink" title="一句话解释：Skill是什么？"></a>一句话解释：Skill是什么？</h2><p>Skill（代理技能）本质上就是一份”工作手册”。就像你给新员工写的培训文档一样，它告诉AI：”碰到这类任务，你应该按这个流程来做。”</p>
 <p>举个例子：你可以写一个Skill，告诉AI”每次写周报时，先列本周完成项，再写下周计划，最后加一句风险提示”。从此，AI就能每周稳定输出符合你要求的周报。</p>
@@ -383,7 +573,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：14:27:01" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
+      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：14:38:39" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
     </span>
 
   
@@ -396,7 +586,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>字数统计  2257 汉字+150 词  阅读时长约6分钟</p>
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约6分钟 · 2256汉字+152词</div>
+
+
+<p>字数统计  2257 汉字+150 词  阅读时长约6分钟</p>
 <p>这场技术圈的论战，最终和你有什么关系</p>
 <h2 id="引言：一场”谁杀死谁”的网络议战"><a href="#引言：一场”谁杀死谁”的网络议战" class="headerlink" title="引言：一场”谁杀死谁”的网络议战"></a>引言：一场”谁杀死谁”的网络议战</h2><p>如果你最近关注AI话题，很难不注意到这场争论：”Skill杀死了MCP！”这个论断从 2025 年底开始在X（原推特）上爆发，引发了AI从业者和开发者们的激烈讨论。知名技术博主Simon Willison称Skill”可能比MCP更重要”，而另一边则有人反驳：这就像”说有了菜谱就不需要厨房”一样荒谬。</p>
 <p>这场争论的本质是什么？谁对谁错？未来会怎样发展？这篇文章尝试给你一个清晰的回答。</p>
@@ -425,11 +618,8 @@
 <p><strong>AI助手会越来越”懂你的风格”。</strong> Skill让AI记住你的创作习惯——你写稿的语气、你发帖的格式、你回复用户的方式——不用每次都重新交代。今天你可能还需要自己写Skill，但未来很可能在应用内通过简单设置就能完成。对内容创作者来说，这意味着AI能持续输出”你的风格”，而不是每次都要花时间调教。</p>
 <p><strong>AI能帮你做的事会越来越多。</strong> MCP生态的壮大意味着AI能连接的平台越来越丰富。从自动整理选题、发布内容到追踪数据、回复私信，AI正在从”聊天机器人”变成真正的”数字助理”。对中国用户来说，最近的落地信号来自腾讯：2026年3月，腾讯宣布基于 OpenClaw 推出兼容微信生态的 AI 产品，意味着这套”MCP执行层 + Skill指令层”的架构，正在借助微信这个超级入口进入普通人的日常。</p>
 <p><strong>安全和信任会成为关注点。</strong> 当AI能直接操作你的工具和数据时，权限管理和安全审计会变得和管理员工权限一样重要。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>技术圈喜欢叫嚣”谁杀死了谁”，但现实往往是更加微妙的共存与分工。Skill和MCP的关系，与其说是”谁淘汰谁”，不如说是”各就各位”。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>技术圈特别是AI圈曾有大佬锐评：「AI 圈子一惊一乍什么都炸裂」，所以我们讨论谁干掉了谁，现实往往是更加微妙的共存与分工。Skill和MCP的关系，不如说是”各就各位”。</p>
 <p>当Skill让AI想明白”该怎么做”，MCP让AI有能力”真正去做”时，我们的AI助手才算真正长大了。而这，才是这场争论背后真正值得关注的事。</p>
-<blockquote>
-<p>菜谱再好，没有厨房也做不出菜；厨房再好，没有菜谱也不知道该做什么。</p>
-</blockquote>
 
       
     </div>
@@ -492,7 +682,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-14 14:27:01" itemprop="dateModified" datetime="2026-03-14T14:27:01-06:00">2026-03-14</time>
+      <time title="修改时间：2026-03-14 14:38:39" itemprop="dateModified" datetime="2026-03-14T14:38:39-06:00">2026-03-14</time>
     </span>
 
   
@@ -505,7 +695,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>孩子在备考 FCE（剑桥英语B2），每周老师批完作业，密密麻麻的红笔，加上孩子本来就歪歪扭扭的文字，肉眼难以识别。而且批改的内容孩子翻翻就搁一边了，真正能内化的没多少。</p>
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约3分钟 · 1000汉字+22词</div>
+
+
+<p>孩子在备考 FCE（剑桥英语B2），每周老师批完作业，密密麻麻的红笔，加上孩子本来就歪歪扭扭的文字，肉眼难以识别。而且批改的内容孩子翻翻就搁一边了，真正能内化的没多少。</p>
 <p>于是我想试试把每次批改让 AI 帮我整理成结构化的错题集，挂到网上，随时能查。</p>
 <p>结果出来了：<a target="_blank" rel="noopener" href="https://leonfce.hawken.im/">leonfce.hawken.im</a></p>
 <hr>
@@ -611,7 +804,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-14 14:27:01" itemprop="dateModified" datetime="2026-03-14T14:27:01-06:00">2026-03-14</time>
+      <time title="修改时间：2026-03-14 14:38:39" itemprop="dateModified" datetime="2026-03-14T14:38:39-06:00">2026-03-14</time>
     </span>
 
   
@@ -624,7 +817,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <style>
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约3分钟 · 668汉字+258词</div>
+
+
+<style>
 .oc-flow{display:flex;margin:24px 0;flex-wrap:wrap;gap:0;}
 .oc-flow-item{flex:1;min-width:130px;background:#141414;border:1px solid #2a2a2a;padding:16px;text-align:center;position:relative;}
 .oc-flow-item:first-child{border-radius:8px 0 0 8px;}
@@ -771,7 +967,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-14 14:27:01" itemprop="dateModified" datetime="2026-03-14T14:27:01-06:00">2026-03-14</time>
+      <time title="修改时间：2026-03-14 14:38:39" itemprop="dateModified" datetime="2026-03-14T14:38:39-06:00">2026-03-14</time>
     </span>
 
   
@@ -784,7 +980,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>身边所有人都在搞 AI，但真正顺畅用上 API 的没几个——封号、网络、信用卡，三道门槛拦着。我自己折腾了一段时间，最后干脆手搓了一个聚合平台，给自己也给大家用。这篇聊聊它是怎么做出来的，以及我拿它做了什么测试。</p>
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约3分钟 · 911汉字+59词</div>
+
+
+<p>身边所有人都在搞 AI，但真正顺畅用上 API 的没几个——封号、网络、信用卡，三道门槛拦着。我自己折腾了一段时间，最后干脆手搓了一个聚合平台，给自己也给大家用。这篇聊聊它是怎么做出来的，以及我拿它做了什么测试。</p>
 <hr>
 <h2 id="怎么搭的"><a href="#怎么搭的" class="headerlink" title="怎么搭的"></a>怎么搭的</h2><p>平台叫 <strong>AI加点油</strong>，<code>aijia.you</code>。核心是把几条上游 API 渠道汇成一个入口，用户充一次值，用一个 Key，模型随便换。</p>
 <p>基础设施选的阿里云新加坡节点（2C2G）。选新加坡主要是因为需要接入国外的大模型，比如 Gemini， Claude， OpenAI， 但是现在这御三家只接入了 Gemini。</p>
@@ -885,7 +1084,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-14 14:27:00" itemprop="dateModified" datetime="2026-03-14T14:27:00-06:00">2026-03-14</time>
+      <time title="修改时间：2026-03-14 14:38:39" itemprop="dateModified" datetime="2026-03-14T14:38:39-06:00">2026-03-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -995,7 +1194,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-14 14:27:00" itemprop="dateModified" datetime="2026-03-14T14:27:00-06:00">2026-03-14</time>
+      <time title="修改时间：2026-03-14 14:38:39" itemprop="dateModified" datetime="2026-03-14T14:38:39-06:00">2026-03-14</time>
     </span>
 
   
@@ -1108,7 +1307,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-14 14:27:01" itemprop="dateModified" datetime="2026-03-14T14:27:01-06:00">2026-03-14</time>
+      <time title="修改时间：2026-03-14 14:38:39" itemprop="dateModified" datetime="2026-03-14T14:38:39-06:00">2026-03-14</time>
     </span>
 
   
@@ -1121,7 +1320,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="图片插入方式对比"><a href="#图片插入方式对比" class="headerlink" title="图片插入方式对比"></a>图片插入方式对比</h1><p>在Hexo博客中，我们可以使用两种不同的语法来插入图片：<strong>Hexo标签语法</strong>和<strong>Markdown语法</strong>。本文将详细介绍这两种方式的区别和使用场景。</p>
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约2分钟 · 523汉字+26词</div>
+
+
+<h1 id="图片插入方式对比"><a href="#图片插入方式对比" class="headerlink" title="图片插入方式对比"></a>图片插入方式对比</h1><p>在Hexo博客中，我们可以使用两种不同的语法来插入图片：<strong>Hexo标签语法</strong>和<strong>Markdown语法</strong>。本文将详细介绍这两种方式的区别和使用场景。</p>
 <h2 id="1-Hexo标签语法"><a href="#1-Hexo标签语法" class="headerlink" title="1. Hexo标签语法"></a>1. Hexo标签语法</h2><p>Hexo提供了专门的标签语法来插入图片，语法如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片文件名 图片描述 %&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1208,128 +1410,6 @@
 <li><strong>路径混乱</strong>：使用完整的相对路径，包含文件夹名</li>
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>两种语法各有优势，您可以根据具体需求选择合适的方式。在Hexo博客中，建议优先使用Hexo标签语法以获得更好的用户体验。记住要正确设置文件结构和路径！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/tools-for-gold-digging/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/tools-for-gold-digging/" class="post-title-link" itemprop="url">AI时代决定你成长上限的三种底层能力</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-09-14 14:25:25" itemprop="dateCreated datePublished" datetime="2025-09-14T14:25:25-06:00">2025-09-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-14 14:27:01" itemprop="dateModified" datetime="2026-03-14T14:27:01-06:00">2026-03-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>我们正身处一个激动人心又充满不确定性的时代。AI正以前所未有的速度，渗透到我们工作和生活的方方面面，它像水和电一样，正在成为一种新的基础设施。</p>
-<p>当许多重复性、流程化的工作可以被AI高效完成时，一个更深刻的问题摆在了我们面前：作为个体，我们真正的价值壁垒在哪里？什么才是那些不会被AI取代，反而会因为AI的普及而变得愈发重要的能力？</p>
-<p>我想，答案不在于追逐日新月异的AI工具，而在于构建我们自身的“内核”。与AI对话，是硅基系统和碳基系统直接的交互，也需要建立一种高效稳定的输入和输出的“协议”。</p>
-<p>以下是我认为至少10年内会对自己非常有帮助的三种底层能力：</p>
-<ol>
-<li>输出能力：打字！而不是语音转文字</li>
-<li>输入能力：至少能听懂看懂英语</li>
-<li>保护自己的注意力：能主动专注25分钟</li>
-</ol>
-<p>输出能力：打字！而不是语音转文字</p>
-<p>输入能力：至少能听懂看懂英语</p>
-<p>保护自己的注意力：能主动专注25分钟</p>
-<p>这项能力，是将脑中纷繁复杂的想法，清晰有逻辑地组织成文本的能力。 它表面上是“会打字”实际上这个表象的底层是一种核心的思维能力。</p>
-<p>很多人可能会说，AI加持的语音转文字已经很方便，为什么还需要打字？这其实是一种对“效率”的误解。</p>
-<p>语音转文字工具记录的是你未经处理的、线性的“想法流”，它充满了口语化的表达、重复和逻辑跳跃。工具或许只花1秒就完成了转录，但你接下来可能需要花费10分钟甚至更长的时间去修改、删除、重组那些混乱的文字，才能得到一份可用的稿件。这个“转录+修改”的总时长和心力成本，往往远高于从一开始就通过打字进行结构化思考和书写的成本。</p>
-<p>真正的效率，不是输入的快，而是获得高质量结果的总时长最短。</p>
-<ul>
-<li>书写即思考： 书写是一个“将思考具象化”的过程。它迫使我们审视逻辑、澄清概念、组织论据。一个能够清晰写作的人，必然是一个思路清晰的人。</li>
-<li>人机协作的“通用语言”： AI无法理解你模糊的意图。你向AI发出的每一个指令，都像是在编写一段代码。清晰的结构、准确的用词，是高效驱动AI为你工作的必要条件。</li>
-</ul>
-<p>书写即思考： 书写是一个“将思考具象化”的过程。它迫使我们审视逻辑、澄清概念、组织论据。一个能够清晰写作的人，必然是一个思路清晰的人。</p>
-<p>人机协作的“通用语言”： AI无法理解你模糊的意图。你向AI发出的每一个指令，都像是在编写一段代码。清晰的结构、准确的用词，是高效驱动AI为你工作的必要条件。</p>
-<p>在这个时代，每个人都需要成为自己思想的“产品经理”，而结构化的文本，就是你向世界和AI交付的、最可靠的“产品文档”。</p>
-<p>如果说精准键入是我们向世界输出指令的“最后一公里”，那么英语能力则决定了我们能从这个世界接收到多宽、多深的信息，为我们的输出提供最高质量的“燃料”。</p>
-<p>一提到“掌握英语”，很多人可能会感到压力巨大，仿佛需要听说读写样样精通。但在这里，我想强调的是一个更经济的支点：至少，要能听懂和看懂。</p>
-<p>因为“听”和“读”是纯粹的输入能力，是我们从世界吸收信息的通道。相较于要求更高的“说”和“写”（输出能力），优先打通输入通道，是普通人提升自己信息获取能力的性价比最高的选择。</p>
-<p>当你能做到这一点时，你便拥有了：</p>
-<ul>
-<li>信息获取的深度与速度： 依赖翻译，你获得的永远是经过“有损压缩”的二手信息。而能直接听懂和看懂，意味着你能第一时间接触到全球最前沿的科技论文、商业洞见、创意趋势等最原始、最未经损耗的信息。</li>
-<li>思想与信任的“无损压缩”： 直接的语言理解，是一种思想的“无损压缩”。你能100%理解对方的意图，其背后传递的信任、情感和文化内涵，是翻译软件无法替代的。</li>
-<li>驱动AI的“母语优势”： 顶级的AI模型，其思考和运作的“母语”是英语。用英文下达指令（Prompt），你能获得更精准、更具创造力的结果。</li>
-</ul>
-<p>信息获取的深度与速度： 依赖翻译，你获得的永远是经过“有损压缩”的二手信息。而能直接听懂和看懂，意味着你能第一时间接触到全球最前沿的科技论文、商业洞见、创意趋势等最原始、最未经损耗的信息。</p>
-<p>思想与信任的“无损压缩”： 直接的语言理解，是一种思想的“无损压缩”。你能100%理解对方的意图，其背后传递的信任、情感和文化内涵，是翻译软件无法替代的。</p>
-<p>驱动AI的“母语优势”： 顶级的AI模型，其思考和运作的“母语”是英语。用英文下达指令（Prompt），你能获得更精准、更具创造力的结果。</p>
-<p>高质量的输入，是高质量输出的前提。打通英语的“听”和“读”，就是为自己打开了一个最高带宽的信息输入通道。</p>
-<p>我们生活在一个注意力被持续收割的时代。但我们需要认识到，专注也分两种：被动专注与主动专注。</p>
-<p>被动专注，是被外部的强刺激牢牢吸住。比如，当你刷着短视频、打着情节紧张的游戏、看着悬念迭起的连续剧时，你的注意力是“被动”的。是精心设计的算法、音效和情节在推着你走，这个过程你几乎不费吹灰之力，甚至会感到愉悦。但这种专注的控制权，在平台和内容创作者手里，而不在你。</p>
-<p>主动专注，则是将注意力“主动”地投向那些不一定有趣、甚至有些枯燥，但却至关重要的事情上。比如，静下心来阅读一本有深度的书籍、思考一个复杂的工作难题、或者学习一门新的技能。这个过程需要你调动自己的意志力，去对抗内心的惰性和外界的干扰。这种专注的控制权，在你手里。</p>
-<p>AI可以帮助我们处理“浅层任务”，从而将我们解放出来，去从事那些需要深度投入的创造性工作。而所有这些高价值的工作，都需要我们能够主动专注。</p>
-<p>能够主动专注25分钟——这正是“番茄工作法”的核心时长——是一个人能否进入深度工作的基本门槛。它代表着你是否有能力将自己的心智资源，像激光一样聚焦于一个目标上。这是一种需要刻意锻炼的“心智肌肉”。</p>
-<p>在这个时代，一个人能走多远，很大程度上取决于他能从“被动专注”的陷阱中挣脱出来，并熟练运用“主动专注”去创造价值的程度。</p>
-<p>认识到这些能力的价值是第一步，而如何系统性地培养它们，是更重要的课题。</p>
-<p>作为一名在互联网行业多年的产品经理，我习惯于发现问题，并思考如何通过构建一个系统或一个产品来解决它。我看到，在这个看似“努力就会被辜负”的时代，依然有很多年轻人，愿意为了自我提升去付出实实在在的努力。</p>
-<p>我的内心有一个强烈的愿望，就是想为这些“还愿意试试”的朋友们做点什么。我希望能够创造一些有价值的东西，用更低的门槛、更友好的方式，帮助他们打磨这些穿越周期的底层能力，让他们在这个充满变化的时代，拥有更多笃定的力量和选择的自由。</p>
-<p>我相信，真正的成长，就像松鼠搬运坚果一样，源于日复一日的、微小而持续的努力。这些努力终将汇聚起来，构建成我们最坚实的、无法被轻易取代的个人价值。</p>
-<p>与你共勉。</p>
 
       
     </div>

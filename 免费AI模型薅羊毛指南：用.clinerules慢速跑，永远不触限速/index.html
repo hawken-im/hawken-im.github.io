@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hawken-im.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default","show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="⏳ 约3分钟 · 876汉字+66词   你在 Cline 里用免费模型跑任务，跑着跑着突然蹦出来一行红字： 1429 Request was rejected due to rate limiting. Details: TPM limit reached.  任务中断，前功尽弃，还得重头来。 这不是你的错，这是免费模型的游戏规则：TPM（Tokens Per Minute）限速。本文教你用几个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="免费AI模型薅羊毛指南：用 .clinerules 慢速跑，永远不触限速">
+<meta property="og:url" content="https://hawken-im.github.io/%E5%85%8D%E8%B4%B9AI%E6%A8%A1%E5%9E%8B%E8%96%85%E7%BE%8A%E6%AF%9B%E6%8C%87%E5%8D%97%EF%BC%9A%E7%94%A8.clinerules%E6%85%A2%E9%80%9F%E8%B7%91%EF%BC%8C%E6%B0%B8%E8%BF%9C%E4%B8%8D%E8%A7%A6%E9%99%90%E9%80%9F/index.html">
+<meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="⏳ 约3分钟 · 876汉字+66词   你在 Cline 里用免费模型跑任务，跑着跑着突然蹦出来一行红字： 1429 Request was rejected due to rate limiting. Details: TPM limit reached.  任务中断，前功尽弃，还得重头来。 这不是你的错，这是免费模型的游戏规则：TPM（Tokens Per Minute）限速。本文教你用几个">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-14T21:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-14T20:38:39.805Z">
+<meta property="article:author" content="Hawken">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="效率">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="技能提升">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hawken-im.github.io/%E5%85%8D%E8%B4%B9AI%E6%A8%A1%E5%9E%8B%E8%96%85%E7%BE%8A%E6%AF%9B%E6%8C%87%E5%8D%97%EF%BC%9A%E7%94%A8.clinerules%E6%85%A2%E9%80%9F%E8%B7%91%EF%BC%8C%E6%B0%B8%E8%BF%9C%E4%B8%8D%E8%A7%A6%E9%99%90%E9%80%9F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hawken-im.github.io/%E5%85%8D%E8%B4%B9AI%E6%A8%A1%E5%9E%8B%E8%96%85%E7%BE%8A%E6%AF%9B%E6%8C%87%E5%8D%97%EF%BC%9A%E7%94%A8.clinerules%E6%85%A2%E9%80%9F%E8%B7%91%EF%BC%8C%E6%B0%B8%E8%BF%9C%E4%B8%8D%E8%A7%A6%E9%99%90%E9%80%9F/","path":"免费AI模型薅羊毛指南：用.clinerules慢速跑，永远不触限速/","title":"免费AI模型薅羊毛指南：用 .clinerules 慢速跑，永远不触限速"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>免费AI模型薅羊毛指南：用 .clinerules 慢速跑，永远不触限速 | Hawken.im</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hawken.im</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-ai"><a href="/tags/AI/" rel="section"><i class="fas fa-robot fa-fw"></i>AI</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-ai+.you"><a href="https://aijia.you/" rel="section" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a></li><li class="menu-item menu-item-ai加点油"><a href="/about/" rel="section"><i class="fab fa-weixin fa-fw"></i>AI加点油</a></li><li class="menu-item menu-item-play.hawken.im"><a href="https://play.hawken.im/" rel="section" target="_blank"><i class="fas fa-gamepad fa-fw"></i>play.hawken.im</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E6%90%9E%E6%B8%85%E6%A5%9A%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%A2%AB%E9%99%90%E9%80%9F%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">先搞清楚：为什么会被限速？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9ACline-%E5%86%85%E7%BD%AE%E8%AF%B7%E6%B1%82%E5%BB%B6%E8%BF%9F%EF%BC%88%E6%9C%80%E7%9B%B4%E6%8E%A5%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">方案一：Cline 内置请求延迟（最直接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E7%94%A8-clinerules-%E9%99%90%E5%88%B6-AI-%E7%9A%84-Token-%E6%B6%88%E8%80%97%E8%A1%8C%E4%B8%BA"><span class="nav-number">3.</span> <span class="nav-text">方案二：用 .clinerules 限制 AI 的 Token 消耗行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%89%EF%BC%9A%E5%A4%9A-Key-%E8%BD%AE%E6%8D%A2%EF%BC%88%E9%AB%98%E9%98%B6%E8%96%85%E6%B3%95%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">方案三：多 Key 轮换（高阶薅法）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E5%9B%9B%EF%BC%9A%E6%B7%B7%E5%90%88%E4%BD%BF%E7%94%A8%E4%BB%98%E8%B4%B9-%E5%85%8D%E8%B4%B9%EF%BC%88%E6%9C%80%E4%BC%98%E8%A7%A3%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">方案四：混合使用付费 + 免费（最优解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E5%AE%9E%E7%94%A8%E7%9A%84-clinerules-%E6%A8%A1%E6%9D%BF"><span class="nav-number">6.</span> <span class="nav-text">一个实用的 .clinerules 模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">小结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hawken</p>
+  <div class="site-description" itemprop="description">Hawken的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hawken-im" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hawken-im" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://aijia.you/" title="AI+.you → https:&#x2F;&#x2F;aijia.you" rel="noopener me" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/about/" title="AI加点油 → &#x2F;about&#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>AI加点油</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E5%85%8D%E8%B4%B9AI%E6%A8%A1%E5%9E%8B%E8%96%85%E7%BE%8A%E6%AF%9B%E6%8C%87%E5%8D%97%EF%BC%9A%E7%94%A8.clinerules%E6%85%A2%E9%80%9F%E8%B7%91%EF%BC%8C%E6%B0%B8%E8%BF%9C%E4%B8%8D%E8%A7%A6%E9%99%90%E9%80%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="免费AI模型薅羊毛指南：用 .clinerules 慢速跑，永远不触限速 | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          免费AI模型薅羊毛指南：用 .clinerules 慢速跑，永远不触限速
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-14 15:00:00 / 修改时间：14:38:39" itemprop="dateCreated datePublished" datetime="2026-03-14T15:00:00-06:00">2026-03-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约3分钟 · 876汉字+66词</div>
+
+
+<p>你在 Cline 里用免费模型跑任务，跑着跑着突然蹦出来一行红字：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">429 Request was rejected due to rate limiting. Details: TPM limit reached.</span><br></pre></td></tr></table></figure>
+
+<p>任务中断，前功尽弃，还得重头来。</p>
+<p>这不是你的错，这是免费模型的游戏规则：<strong>TPM（Tokens Per Minute）限速</strong>。本文教你用几个组合拳，让 AI 降速跑，榨干免费额度，再也不触红线。</p>
+<hr>
+<h2 id="先搞清楚：为什么会被限速？"><a href="#先搞清楚：为什么会被限速？" class="headerlink" title="先搞清楚：为什么会被限速？"></a>先搞清楚：为什么会被限速？</h2><p>主流免费模型的限制通常有三种：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+<th>最容易触发场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>TPM</strong></td>
+<td>每分钟 Token 数上限</td>
+<td>AI 疯狂输出长代码、读大文件</td>
+</tr>
+<tr>
+<td><strong>RPM</strong></td>
+<td>每分钟请求次数上限</td>
+<td>Cline 连续快速调用工具</td>
+</tr>
+<tr>
+<td><strong>RPD</strong></td>
+<td>每天请求次数上限</td>
+<td>跑了一整天任务</td>
+</tr>
+</tbody></table>
+<p>Cline 的问题在于：它默认”能快就快”。读文件、写代码、回复确认——一口气连续调用十几次 API，每次都带着大段上下文，TPM 很快就爆了。</p>
+<hr>
+<h2 id="方案一：Cline-内置请求延迟（最直接）"><a href="#方案一：Cline-内置请求延迟（最直接）" class="headerlink" title="方案一：Cline 内置请求延迟（最直接）"></a>方案一：Cline 内置请求延迟（最直接）</h2><p>打开 VS Code 设置，搜索 <code>cline</code>，找到 <strong>“API Request Delay (ms)”</strong>（也可能叫 Rate Limit Delay）。</p>
+<p>设置一个延迟，比如 <strong>3000ms（3秒）</strong>，Cline 每次工具调用之间都会暂停 3 秒。</p>
+<ul>
+<li>优点：零成本，一键生效</li>
+<li>缺点：整体变慢，但不触限速</li>
+</ul>
+<p>这是最暴力也最可靠的方法。跑不急的长任务推荐先把这个打开。</p>
+<hr>
+<h2 id="方案二：用-clinerules-限制-AI-的-Token-消耗行为"><a href="#方案二：用-clinerules-限制-AI-的-Token-消耗行为" class="headerlink" title="方案二：用 .clinerules 限制 AI 的 Token 消耗行为"></a>方案二：用 .clinerules 限制 AI 的 Token 消耗行为</h2><p><code>.clinerules</code> 是写给 AI 的”工作守则”，放在项目根目录，每次 Cline 启动新 Task 都会读取。你可以用它来约束 AI 的输出风格，从源头减少 Token 消耗。</p>
+<p>在你的 <code>.clinerules</code> 文件里加入这一节：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 省 Token 守则（免费模型限速保护）</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="strong">**输出精简**</span>：每次工具调用后只汇报关键状态，禁止复述操作细节</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**按需读文件**</span>：只读任务直接相关的文件，不做&quot;预防性探索&quot;</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**分批执行**</span>：完成当前步骤后暂停，等待我确认再继续，不要连续发起超过 3 次工具调用</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**只输出差异**</span>：修改代码时只展示被改动的代码段，不输出整个文件</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**规划先行**</span>：执行复杂任务前先用文字列出步骤，确认后再开始执行</span><br></pre></td></tr></table></figure>
+
+<p>这几条规则的逻辑：</p>
+<ol>
+<li><strong>精简输出</strong> → 减少每次响应的 output tokens</li>
+<li><strong>禁止无效文件读取</strong> → 减少 input tokens（大文件上下文是 TPM 杀手）</li>
+<li><strong>分批+等确认</strong> → 人为拉长两次 API 调用之间的间隔</li>
+<li><strong>只输出差异</strong> → 大幅减少代码类任务的 output tokens</li>
+<li><strong>规划先行</strong> → 一次思考替代多次摸索，减少总调用次数</li>
+</ol>
+<p>实测下来，加了这几条之后，同样的任务 Token 消耗可以降低 40-60%。</p>
+<hr>
+<h2 id="方案三：多-Key-轮换（高阶薅法）"><a href="#方案三：多-Key-轮换（高阶薅法）" class="headerlink" title="方案三：多 Key 轮换（高阶薅法）"></a>方案三：多 Key 轮换（高阶薅法）</h2><p>大部分免费模型的限额是<strong>按 API Key 计算</strong>的。如果你能注册多个账号，就能轮换使用多个 Key，变相突破单 Key 限额。</p>
+<p>以 <strong>Google Gemini 免费额度</strong>为例（目前是免费模型里最豪的选项之一）：</p>
+<ol>
+<li>用不同 Google 账号在 Google AI Studio 各申请一个 API Key</li>
+<li>在 Cline 设置里切换 Key（跑满一个换下一个）</li>
+<li>或者把多任务分配给不同 Key 并行跑</li>
+</ol>
+<p>这个方法有点繁琐，但对于跑量大的批处理任务很有用。</p>
+<hr>
+<h2 id="方案四：混合使用付费-免费（最优解）"><a href="#方案四：混合使用付费-免费（最优解）" class="headerlink" title="方案四：混合使用付费 + 免费（最优解）"></a>方案四：混合使用付费 + 免费（最优解）</h2><p>免费模型限速的根本原因是它处理的 Token 太多了。聪明的做法是：</p>
+<ul>
+<li><strong>简单&#x2F;重复性任务</strong> → 免费模型（代码格式化、简单问答、小文件修改）</li>
+<li><strong>需要大上下文的复杂任务</strong> → 付费模型（跨文件重构、长文生成）</li>
+</ul>
+<p>在 Cline 里可以给不同任务类型预设不同的模型配置。复杂任务偶尔花几分钱，换来不限速地畅快跑，其实更划算。</p>
+<hr>
+<h2 id="一个实用的-clinerules-模板"><a href="#一个实用的-clinerules-模板" class="headerlink" title="一个实用的 .clinerules 模板"></a>一个实用的 .clinerules 模板</h2><p>把这段直接贴到你项目的 <code>.clinerules</code> 末尾：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="section">## 免费模型限速保护规则</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**触发条件**</span>：当你使用免费 API（如 Gemini Free、Step-3.5-Flash、OpenRouter 免费模型）时，必须遵守以下规则。</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 每完成一个独立步骤后暂停，输出&quot;✅ [步骤名] 完成，是否继续？&quot;并等待确认</span><br><span class="line"><span class="bullet">2.</span> 读取文件前先确认是否必要，每次 Task 最多读取 5 个文件</span><br><span class="line"><span class="bullet">3.</span> 代码修改只输出变更的函数或代码块，绝不输出完整文件</span><br><span class="line"><span class="bullet">4.</span> 回复长度控制在 300 字以内，技术细节按需展开</span><br><span class="line"><span class="bullet">5.</span> 遇到不确定的地方，提问而不是猜测并尝试</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>难度</th>
+<th>效果</th>
+<th>推荐场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cline 请求延迟设置</td>
+<td>⭐</td>
+<td>✅ 稳定</td>
+<td>所有免费模型</td>
+</tr>
+<tr>
+<td>.clinerules 省 Token 规则</td>
+<td>⭐⭐</td>
+<td>✅✅ 显著</td>
+<td>日常开发任务</td>
+</tr>
+<tr>
+<td>多 Key 轮换</td>
+<td>⭐⭐⭐</td>
+<td>✅✅✅ 高</td>
+<td>批量任务</td>
+</tr>
+<tr>
+<td>免费+付费混用</td>
+<td>⭐⭐</td>
+<td>✅✅✅ 最优</td>
+<td>长期使用</td>
+</tr>
+</tbody></table>
+<p>免费模型是羊毛，<code>.clinerules</code> 是薅羊毛的梳子。梳子梳得顺，羊毛才薅得多。</p>
+<hr>
+<p><em>如果你有其他躲过限速的方法，欢迎在评论区分享。</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/%E6%95%88%E7%8E%87/" rel="tag"># 效率</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+              <a href="/tags/%E6%8A%80%E8%83%BD%E6%8F%90%E5%8D%87/" rel="tag"># 技能提升</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/MCP-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9AAI%E7%9A%84%E4%B8%87%E8%83%BD%E6%8F%92%E5%A4%B4/" rel="prev" title="MCP 懒人包：AI的&quot;万能插头&quot;">
+                  <i class="fa fa-angle-left"></i> MCP 懒人包：AI的"万能插头"
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hawken</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
