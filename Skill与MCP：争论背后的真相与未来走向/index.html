@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hawken-im.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default","show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="AI 智能体的”大脑”与”双手”如何协同进化 引言：一场”谁杀死谁”的网络议战如果你最近关注AI技术圈，很难不注意到这场争论：”Skill杀死了MCP！”这个论断从 2025 年底开始在X（原推特）上爆发，引发了开发者们的激烈讨论。知名开发者Simon Willison称Skill”可能比MCP更重要”，而另一边则有人反驳说这就像”说GitHub Actions杀死了Bash”一样荒谬。 这场争论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Skill与MCP：争论背后的真相与未来走向">
+<meta property="og:url" content="https://hawken-im.github.io/Skill%E4%B8%8EMCP%EF%BC%9A%E4%BA%89%E8%AE%BA%E8%83%8C%E5%90%8E%E7%9A%84%E7%9C%9F%E7%9B%B8%E4%B8%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91/index.html">
+<meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="AI 智能体的”大脑”与”双手”如何协同进化 引言：一场”谁杀死谁”的网络议战如果你最近关注AI技术圈，很难不注意到这场争论：”Skill杀死了MCP！”这个论断从 2025 年底开始在X（原推特）上爆发，引发了开发者们的激烈讨论。知名开发者Simon Willison称Skill”可能比MCP更重要”，而另一边则有人反驳说这就像”说GitHub Actions杀死了Bash”一样荒谬。 这场争论">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-14T18:52:56.000Z">
+<meta property="article:modified_time" content="2026-03-14T19:36:09.836Z">
+<meta property="article:author" content="Hawken">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="MCP">
+<meta property="article:tag" content="Skill">
+<meta property="article:tag" content="Agent">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hawken-im.github.io/Skill%E4%B8%8EMCP%EF%BC%9A%E4%BA%89%E8%AE%BA%E8%83%8C%E5%90%8E%E7%9A%84%E7%9C%9F%E7%9B%B8%E4%B8%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hawken-im.github.io/Skill%E4%B8%8EMCP%EF%BC%9A%E4%BA%89%E8%AE%BA%E8%83%8C%E5%90%8E%E7%9A%84%E7%9C%9F%E7%9B%B8%E4%B8%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91/","path":"Skill与MCP：争论背后的真相与未来走向/","title":"Skill与MCP：争论背后的真相与未来走向"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Skill与MCP：争论背后的真相与未来走向 | Hawken.im</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hawken.im</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-ai"><a href="/tags/AI/" rel="section"><i class="fas fa-robot fa-fw"></i>AI</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-ai+.you"><a href="https://aijia.you/" rel="section" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a></li><li class="menu-item menu-item-ai加点油"><a href="/about/" rel="section"><i class="fab fa-weixin fa-fw"></i>AI加点油</a></li><li class="menu-item menu-item-play.hawken.im"><a href="https://play.hawken.im/" rel="section" target="_blank"><i class="fas fa-gamepad fa-fw"></i>play.hawken.im</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80%EF%BC%9A%E4%B8%80%E5%9C%BA%E2%80%9D%E8%B0%81%E6%9D%80%E6%AD%BB%E8%B0%81%E2%80%9D%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AE%AE%E6%88%98"><span class="nav-number">1.</span> <span class="nav-text">引言：一场”谁杀死谁”的网络议战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E5%9B%9E%E9%A1%BE%E2%80%94%E2%80%94%E4%B8%A4%E8%80%85%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">第一章：回顾——两者是怎么来的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MCP%E7%9A%84%E8%AF%9E%E7%94%9F%EF%BC%9A%E8%A7%A3%E5%86%B3%E2%80%9DAI%E5%AD%A4%E5%B2%9B%E2%80%9D%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">MCP的诞生：解决”AI孤岛”问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Skill%E7%9A%84%E5%B4%9B%E8%B5%B7%EF%BC%9A%E2%80%9D%E8%BD%BB%E9%87%8F%E7%BA%A7%E2%80%9D%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88"><span class="nav-number">2.2.</span> <span class="nav-text">Skill的崛起：”轻量级”替代方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E4%BA%89%E8%AE%BA%E7%9A%84%E6%A0%B8%E5%BF%83%E2%80%94%E2%80%94%E5%88%B0%E5%BA%95%E5%9C%A8%E4%BA%89%E4%BB%80%E4%B9%88"><span class="nav-number">3.</span> <span class="nav-text">第二章：争论的核心——到底在争什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9CSkill%E6%9D%80%E6%AD%BBMCP%E2%80%9D%E6%B4%BE%E7%9A%84%E8%AE%BA%E6%8D%AE"><span class="nav-number">3.1.</span> <span class="nav-text">“Skill杀死MCP”派的论据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9CMCP%E4%B8%8D%E4%BC%9A%E6%AD%BB%E2%80%9D%E6%B4%BE%E7%9A%84%E5%8F%8D%E9%A9%B3"><span class="nav-number">3.2.</span> <span class="nav-text">“MCP不会死”派的反驳</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E7%9C%9F%E7%9B%B8%E2%80%94%E2%80%94%E4%B8%8D%E6%98%AF%E6%9B%BF%E4%BB%A3%EF%BC%8C%E8%80%8C%E6%98%AF%E5%88%86%E5%B1%82"><span class="nav-number">4.</span> <span class="nav-text">第三章：真相——不是替代，而是分层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91%E2%80%94%E2%80%94%E4%B8%89%E4%B8%AA%E5%85%B3%E9%94%AE%E8%B6%8B%E5%8A%BF"><span class="nav-number">5.</span> <span class="nav-text">第四章：未来走向——三个关键趋势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%8B%E5%8A%BF%E4%B8%80%EF%BC%9A%E8%9E%8D%E5%90%88%E8%80%8C%E9%9D%9E%E6%9B%BF%E4%BB%A3"><span class="nav-number">5.1.</span> <span class="nav-text">趋势一：融合而非替代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%8B%E5%8A%BF%E4%BA%8C%EF%BC%9AMCP%E4%B8%8B%E6%B2%89%E4%B8%BA%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD"><span class="nav-number">5.2.</span> <span class="nav-text">趋势二：MCP下沉为基础设施</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%8B%E5%8A%BF%E4%B8%89%EF%BC%9A%E5%AE%89%E5%85%A8%E4%B8%8E%E6%B2%BB%E7%90%86%E6%88%90%E4%B8%BA%E5%85%B3%E9%94%AE%E8%AE%AE%E9%A2%98"><span class="nav-number">5.3.</span> <span class="nav-text">趋势三：安全与治理成为关键议题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E5%AF%B9%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88"><span class="nav-number">6.</span> <span class="nav-text">第五章：对普通用户意味着什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hawken</p>
+  <div class="site-description" itemprop="description">Hawken的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hawken-im" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hawken-im" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://aijia.you/" title="AI+.you → https:&#x2F;&#x2F;aijia.you" rel="noopener me" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/about/" title="AI加点油 → &#x2F;about&#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>AI加点油</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/Skill%E4%B8%8EMCP%EF%BC%9A%E4%BA%89%E8%AE%BA%E8%83%8C%E5%90%8E%E7%9A%84%E7%9C%9F%E7%9B%B8%E4%B8%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Skill与MCP：争论背后的真相与未来走向 | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Skill与MCP：争论背后的真相与未来走向
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：13:36:09" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>AI 智能体的”大脑”与”双手”如何协同进化</p>
+<h2 id="引言：一场”谁杀死谁”的网络议战"><a href="#引言：一场”谁杀死谁”的网络议战" class="headerlink" title="引言：一场”谁杀死谁”的网络议战"></a>引言：一场”谁杀死谁”的网络议战</h2><p>如果你最近关注AI技术圈，很难不注意到这场争论：”Skill杀死了MCP！”这个论断从 2025 年底开始在X（原推特）上爆发，引发了开发者们的激烈讨论。知名开发者Simon Willison称Skill”可能比MCP更重要”，而另一边则有人反驳说这就像”说GitHub Actions杀死了Bash”一样荒谬。</p>
+<p>这场争论的本质是什么？谁对谁错？未来会怎样发展？这篇文章尝试给你一个清晰的回答。</p>
+<h2 id="第一章：回顾——两者是怎么来的"><a href="#第一章：回顾——两者是怎么来的" class="headerlink" title="第一章：回顾——两者是怎么来的"></a>第一章：回顾——两者是怎么来的</h2><h3 id="MCP的诞生：解决”AI孤岛”问题"><a href="#MCP的诞生：解决”AI孤岛”问题" class="headerlink" title="MCP的诞生：解决”AI孤岛”问题"></a>MCP的诞生：解决”AI孤岛”问题</h3><p>2024年11月，Anthropic推出MCP，解决的是一个很现实的问题：AI很聪明，但它被困在聊天窗口里，无法主动操作外部工具。MCP让AI能直接连接Slack、Jira、数据库等外部服务，从”只会聊天”变成”能做事”。</p>
+<p>它迅速获得了行业认可。到 2025 年12月，MCP正式捐赠给Linux基金会旗下的Agentic AI基金会（AAIF），从Anthropic的单独项目变成了行业公共标准，OpenAI、Block等公司共同参与治理。到 2026 年初，生态中已有超过10,000个MCP服务器，主流AI工具全部接入。</p>
+<h3 id="Skill的崛起：”轻量级”替代方案"><a href="#Skill的崛起：”轻量级”替代方案" class="headerlink" title="Skill的崛起：”轻量级”替代方案"></a>Skill的崛起：”轻量级”替代方案</h3><p>2025年10月，Anthropic又推出Agent Skills。如果说MCP是一套复杂的工业协议，Skill就是一份Markdown文档加一点元数据——简单得有点让人难以置信。</p>
+<p>但就是这个”简单”触动了很多人。开发者们发现，以前需要搭建一个MCP服务器才能做的事，现在写一个Markdown文件就能解决。Canva、Notion、Figma等企业迅速跟进，Agent Skills在开发者社区快速扩散。</p>
+<h2 id="第二章：争论的核心——到底在争什么"><a href="#第二章：争论的核心——到底在争什么" class="headerlink" title="第二章：争论的核心——到底在争什么"></a>第二章：争论的核心——到底在争什么</h2><h3 id="“Skill杀死MCP”派的论据"><a href="#“Skill杀死MCP”派的论据" class="headerlink" title="“Skill杀死MCP”派的论据"></a>“Skill杀死MCP”派的论据</h3><p><strong>论据一：上下文污染。</strong> MCP的一大痛点是工具定义会占用大量的上下文空间。开发者Armin Ronacher就提到，Sentry的MCP服务器一加载就占掉约8000个token。而Skill只在初始加载时放一个名字和简介，可能只占20-50个token。</p>
+<p><strong>论据二：过度工程化。</strong> 很多早期的MCP服务器本质上就是包装了一层基础设施的curl命令。一个Skill文档记录下API端点和参数，让AI直接用bash调用，效果一样但零维护成本。</p>
+<p><strong>论据三：复杂度。</strong> MCP是一套完整的协议规范，涉及主机、客户端、服务器、传输层等多个概念。对于很多简单场景，这种复杂度没有必要。</p>
+<h3 id="“MCP不会死”派的反驳"><a href="#“MCP不会死”派的反驳" class="headerlink" title="“MCP不会死”派的反驳"></a>“MCP不会死”派的反驳</h3><p><strong>反驳一：两者根本不在同一层。</strong> Goose团队的Angie Jones打了一个经典比方：说Skill杀死了MCP，就像说GitHub Actions杀死了Bash。实际上Bash还活得好好的，并且在底层干着实际的活。Skill是菜谱，MCP是厨房——菜谱告诉你怎么做，厨房提供做菜的能力。</p>
+<p><strong>反驳二：Skill无法替代外部连接。</strong> 发送Slack消息、查询生产数据库、操作CRM记录——这些需要真实的集成、真实的权限和真实的执行。光靠文档指导是做不到的。</p>
+<p><strong>反驳三：数据说话。</strong> 到 2026 年初，MCP生态的SDK月下载量超过9700万次，10,000+服务器获得主流客户端支持。如果Skill真的”杀死”了MCP，这些数字应该下降而不是上升。</p>
+<h2 id="第三章：真相——不是替代，而是分层"><a href="#第三章：真相——不是替代，而是分层" class="headerlink" title="第三章：真相——不是替代，而是分层"></a>第三章：真相——不是替代，而是分层</h2><p>理清了双方论据，真相其实很清晰：Skill和MCP不是竞争关系，而是同一套架构的不同层次。</p>
+<p><strong>Skill 是”知识层”。</strong> 它编码的是”如何做”——团队规范、工作流程、领域专业知识。它们是Markdown文档，由人类写作和维护，轻量且易于分享。</p>
+<p><strong>MCP 是”执行层”。</strong> 它提供的是”能做什么”——外部服务的连接、认证、执行和状态管理。它是真正让AI”动手”的基础设施。</p>
+<p>OpenClaw 是一个很好的佐证。它的技能市场 ClawHub 上销售的”Skill”，本质上是打包好的 MCP 服务器（执行层）；而它内部的 SKILL.md 文件，则是告诉 AI 代理如何调用这些工具的指令集（知识层）。OpenClaw 把两者都叫”Skill”，造成了命名上的混淆——但底层架构是清晰的：两层各司其职，只是被整合进了同一个产品。这种混淆恰恰说明，在真实的产品演进中，两层正在被有意识地封装在一起，而不是在互相取代。</p>
+<p>所以真正发生的事情是：Skill没有广泛地替代MCP，而是淘汰了那些”本来就不应该存在”的MCP服务器。很多早期的MCP服务器其实只是包装了一层基础设施的CLI命令，Skill用一份文档就能更好地解决。但对于真正需要持久连接、复杂认证和实时数据的场景，MCP仍然不可替代。</p>
+<h2 id="第四章：未来走向——三个关键趋势"><a href="#第四章：未来走向——三个关键趋势" class="headerlink" title="第四章：未来走向——三个关键趋势"></a>第四章：未来走向——三个关键趋势</h2><h3 id="趋势一：融合而非替代"><a href="#趋势一：融合而非替代" class="headerlink" title="趋势一：融合而非替代"></a>趋势一：融合而非替代</h3><p>最务实的开发者已经在同时使用两者，OpenClaw 是目前最完整的”融合产品”案例。它的底层通过 MCP 连接外部服务，上层通过 SKILL.md 定义 AI 的工作逻辑，其技能市场 ClawHub 上已有超过 3,200 个基于 MCP 的 Skill 可供一键安装。有开发者分享，他写了一个 Trello MCP 服务器，同一套代码不改一行就同时跑在 Claude Desktop 和 OpenClaw 里——这正是”融合”的实际样子：工具可复用，平台各自分工。</p>
+<p>未来的主流形态很可能就是这样：Skill 描述工作流程，MCP 提供执行能力，一个 OpenClaw 式的代理框架在中间把两者整合，用户只需通过聊天窗口下指令。</p>
+<h3 id="趋势二：MCP下沉为基础设施"><a href="#趋势二：MCP下沉为基础设施" class="headerlink" title="趋势二：MCP下沉为基础设施"></a>趋势二：MCP下沉为基础设施</h3><p>一个明显的变化是MCP正在从”前台”退到”后台”。以前，AI每次交互都直接调用MCP工具；现在，MCP越来越多地处理底层的持久化、认证、企业SDK复杂性等问题，而上层的交互逻辑则由Skill和代理框架来编排。</p>
+<p>这其实是技术成熟的标志。就像HTTP协议今天无处不在，但普通用户不需要知道它的存在。MCP也在走同样的路——成为”看不见但离不开”的基础层。</p>
+<h3 id="趋势三：安全与治理成为关键议题"><a href="#趋势三：安全与治理成为关键议题" class="headerlink" title="趋势三：安全与治理成为关键议题"></a>趋势三：安全与治理成为关键议题</h3><p>随着两者的普及，安全问题正在上升为核心关切。MCP方面，已经出现过实际的安全漏洞，影响了数十万个环境。”工具下毒”攻击——即在工具描述中隐藏恶意指令来操纵AI行为——成为新的威胁向量。</p>
+<p>Skill同样面临挑战：如果不受信任的Skill被加载，它可能指导 AI 执行有害操作。行业正在探索”AI网关”的方案——在AI和外部服务之间加一层审核，过滤危险操作、记录所有行为。</p>
+<h2 id="第五章：对普通用户意味着什么"><a href="#第五章：对普通用户意味着什么" class="headerlink" title="第五章：对普通用户意味着什么"></a>第五章：对普通用户意味着什么</h2><p>如果你不是开发者，这场技术变迁的实际影响是：</p>
+<p><strong>AI助手会越来越”懂你”。</strong> Skill让AI能学会你的工作习惯和偏好，不用每次都重新解释。今天你可能还需要自己写Skill，但未来很可能在应用内就能通过简单的设置来定义。</p>
+<p><strong>AI能做的事会越来越多。</strong> MCP生态的壮大意味着AI能连接的服务越来越丰富。从发邮件到管理项目，从ERP到CRM，AI正在从”聊天机器人”变成真正的”数字员工”。对中国用户来说，最近的落地信号来自腾讯：2026年3月，腾讯宣布基于 OpenClaw 推出兼容微信生态的 AI 产品，意味着这套”MCP执行层 + Skill指令层”的架构，正在借助微信这个超级入口进入普通人的日常。</p>
+<p><strong>安全和信任会成为关注点。</strong> 当AI能直接操作你的工具和数据时，权限管理和安全审计会变得和管理员工权限一样重要。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>技术圈喜欢叫嚣”谁杀死了谁”，但现实往往是更加微妙的共存与分工。Skill和MCP的关系，与其说是”谁淘汰谁”，不如说是”各就各位”。</p>
+<p>当Skill让AI想明白”该怎么做”，MCP让AI有能力”真正去做”时，我们的AI助手才算真正长大了。而这，才是这场争论背后真正值得关注的事。</p>
+<blockquote>
+<p>菜谱再好，没有厨房也做不出菜；厨房再好，没有菜谱也不知道该做什么。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/MCP/" rel="tag"># MCP</a>
+              <a href="/tags/Skill/" rel="tag"># Skill</a>
+              <a href="/tags/Agent/" rel="tag"># Agent</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E8%80%81%E5%B8%88%E6%89%B9%E7%9A%84%E4%BD%9C%E4%B8%9A%EF%BC%8C%E6%88%91%E8%AE%A9AI%E5%81%9A%E6%88%90%E4%BA%86%E9%94%99%E9%A2%98%E9%9B%86/" rel="prev" title="老师批的作业，我让AI做成了错题集">
+                  <i class="fa fa-angle-left"></i> 老师批的作业，我让AI做成了错题集
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Skill-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9A%E8%AE%A9AI%E5%8F%98%E6%88%90%E4%BD%A0%E7%9A%84%E4%B8%93%E5%B1%9E%E5%91%98%E5%B7%A5/" rel="next" title="Skill 懒人包：让AI变成你的&quot;专属员工&quot;">
+                  Skill 懒人包：让AI变成你的"专属员工" <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hawken</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -148,7 +148,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -176,6 +176,274 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/MCP-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9AAI%E7%9A%84%E4%B8%87%E8%83%BD%E6%8F%92%E5%A4%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/MCP-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9AAI%E7%9A%84%E4%B8%87%E8%83%BD%E6%8F%92%E5%A4%B4/" class="post-title-link" itemprop="url">MCP 懒人包：AI的"万能插头"</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：13:36:09" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>三分钟搞懂让AI连接万物的协议</p>
+<h2 id="一句话解释：MCP是什么？"><a href="#一句话解释：MCP是什么？" class="headerlink" title="一句话解释：MCP是什么？"></a>一句话解释：MCP是什么？</h2><p>MCP （Model Context Protocol，模型上下文协议） 是Anthropic在 2024年11月推出的一个开放标准。简单说，它是AI连接外部服务的”统一插头”。</p>
+<p>没有MCP之前，让AI操作你的邮箱、日历、项目管理工具，每个服务都需要单独对接。MCP把这些都统一成了一套标准接口，就像 USB-C 统一了充电口一样。</p>
+<h2 id="它能做什么？"><a href="#它能做什么？" class="headerlink" title="它能做什么？"></a>它能做什么？</h2><p>通过MCP，AI可以直接：发送Slack（飞书&#x2F;钉钉）消息、创建Jira（飞书项目&#x2F;禅道）任务、查询数据库、读写Google Drive（腾讯文档&#x2F;飞书文档）文件、操作 Salesforce（销售易&#x2F;纷享销客）客户记录……几乎你能想到的外部服务，都可以通过MCP来连接。</p>
+<h2 id="通俗类比"><a href="#通俗类比" class="headerlink" title="通俗类比"></a>通俗类比</h2><p>如果把AI比作一个大脑很聪明但被关在房间里的人，MCP就是给他装了电话、电脑和各种工具。有了MCP，AI就能与外界交互，而不只是和你聊天。</p>
+<h2 id="发展现状"><a href="#发展现状" class="headerlink" title="发展现状"></a>发展现状</h2><p>截至 2026 年初，MCP生态已经非常庞大：超过 10,000 个 MCP 服务器可用，主流 AI 工具全部支持（包括ChatGPT、Claude、Gemini、Cursor、VS Code等）。MCP已经从Anthropic的”自家产品”变成了行业通用标准，由Linux基金会旗下的 Agentic AI 基金会托管。</p>
+<h2 id="一个真实案例"><a href="#一个真实案例" class="headerlink" title="一个真实案例"></a>一个真实案例</h2><p>一位项目经理每周五下午要做同样的事：打开Jira（飞书项目&#x2F;禅道）看本周关闭了哪些任务，打开Slack（飞书&#x2F;钉钉）翻上周的重要讨论，再打开Google Doc（腾讯文档&#x2F;飞书文档）写一份进度周报，发给老板。整套流程要花将近一小时。</p>
+<p>接入MCP之后，她对AI说了一句话：「帮我写这周的项目周报。」</p>
+<p>AI通过Jira的MCP服务器查询了本周已完成的任务列表，通过Slack的MCP读取了#项目频道的关键对话，然后按照公司的周报模板生成了初稿。她只花了5分钟做最终确认，然后直接发送。</p>
+<p>关键在于：AI不是在”假装”完成这些事，它是真的访问了这些系统、读取了真实数据。这就是MCP与普通聊天的本质区别——从”告诉你答案”变成了”替你做事”。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>MCP是AI与外部世界之间的桥。它不让AI变得更聪明，但让AI变得更有用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/Skill-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9A%E8%AE%A9AI%E5%8F%98%E6%88%90%E4%BD%A0%E7%9A%84%E4%B8%93%E5%B1%9E%E5%91%98%E5%B7%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Skill-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9A%E8%AE%A9AI%E5%8F%98%E6%88%90%E4%BD%A0%E7%9A%84%E4%B8%93%E5%B1%9E%E5%91%98%E5%B7%A5/" class="post-title-link" itemprop="url">Skill 懒人包：让AI变成你的"专属员工"</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：13:36:09" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>三分钟搞懂AI世界最火的新概念</p>
+<h2 id="一句话解释：Skill是什么？"><a href="#一句话解释：Skill是什么？" class="headerlink" title="一句话解释：Skill是什么？"></a>一句话解释：Skill是什么？</h2><p>Skill（代理技能）本质上就是一份”工作手册”。就像你给新员工写的培训文档一样，它告诉AI：”碰到这类任务，你应该按这个流程来做。”</p>
+<p>举个例子：你可以写一个Skill，告诉AI”每次写周报时，先列本周完成项，再写下周计划，最后加一句风险提示”。从此，AI就能每周稳定输出符合你要求的周报。</p>
+<h2 id="为什么突然火了？"><a href="#为什么突然火了？" class="headerlink" title="为什么突然火了？"></a>为什么突然火了？</h2><p>2025年10月，Anthropic推出了Agent Skills功能，迅速在开发者社区引发广泛关注。Skill的核心优势在于三点：</p>
+<p><strong>简单到离谱。</strong> 一个Skill就是一个Markdown文件，加上一点YAML元数据。不需要写代码，不需要搭服务器，用记事本就能创建。</p>
+<p><strong>省token。</strong> 传统方式会把工具定义一股脑塞进上下文，而Skill最大只给AI看一个名字和简介（可能只占 20-50 个 token），需要时再加载完整说明。</p>
+<p><strong>可复用、可分享。</strong> 团队里一个人写的Skill，其他人直接拿来用。就像分享一份文档一样简单。</p>
+<h2 id="通俗类比"><a href="#通俗类比" class="headerlink" title="通俗类比"></a>通俗类比</h2><p>如果把AI比作一个新员工，Skill就是你给他的SOP手册。他很聪明，但没有手册的话，每次做事都得重新教；有了手册，他就能稳定输出符合你预期的结果。</p>
+<h2 id="谁在用？"><a href="#谁在用？" class="headerlink" title="谁在用？"></a>谁在用？</h2><p>目前已有包括Canva、Notion、Figma、Atlassian等知名企业提供预建的Skill。开发者社区也在快速跟进，几乎所有主流的AI编程工具（Claude Code、Cursor等）都已支持。</p>
+<p>更进一步的是 <strong>OpenClaw</strong>——一个以 Skill 为核心架构的 AI 代理框架。它运行在用户自己的设备上，通过 WhatsApp、Telegram、微信等聊天工具接受指令，再按照对应的 Skill 驱动 AI 完成任务。它的技能市场 ClawHub 上已有超过 3,200 个 Skill，覆盖从代码审查到客户跟进的各类场景。2026 年 3 月，腾讯宣布基于 OpenClaw 推出兼容微信生态的 AI 产品，Skill 这套机制正式进入中国主流市场视野。</p>
+<h2 id="一个真实案例"><a href="#一个真实案例" class="headerlink" title="一个真实案例"></a>一个真实案例</h2><p>一位独立研究员在 OpenClaw 上写了一个 Skill，大概是这样描述的：</p>
+<blockquote>
+<p>每天早上8点，从36氪、The Information、X科技话题抓取过去24小时的内容，过滤出与 AI Agent 相关的信息，用中文总结成5条要点，每条不超过50字，发送到我的微信。</p>
+</blockquote>
+<p>这个 Skill 写完之后，他什么都不用再做。每天早上微信收到一条消息，AI 已经替他完成了信息筛选、翻译和提炼。</p>
+<p>关键在于：OpenClaw 的 AI 代理本身很聪明，但如果没有这个 Skill，它不知道该关注哪些信源、用什么格式、面向什么读者。Skill 是让 AI 从”能做很多事”变成”稳定做好这一件事”的关键。这个 Skill 本身不到150字，却相当于一份永久有效的工作说明书。</p>
+<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>Skill不是什么高深技术，它就是让AI”照着你的规矩办事”的一种方法。简单、轻量、强大。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/Skill%E4%B8%8EMCP%EF%BC%9A%E4%BA%89%E8%AE%BA%E8%83%8C%E5%90%8E%E7%9A%84%E7%9C%9F%E7%9B%B8%E4%B8%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Skill%E4%B8%8EMCP%EF%BC%9A%E4%BA%89%E8%AE%BA%E8%83%8C%E5%90%8E%E7%9A%84%E7%9C%9F%E7%9B%B8%E4%B8%8E%E6%9C%AA%E6%9D%A5%E8%B5%B0%E5%90%91/" class="post-title-link" itemprop="url">Skill与MCP：争论背后的真相与未来走向</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-14 12:52:56 / 修改时间：13:36:09" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>AI 智能体的”大脑”与”双手”如何协同进化</p>
+<h2 id="引言：一场”谁杀死谁”的网络议战"><a href="#引言：一场”谁杀死谁”的网络议战" class="headerlink" title="引言：一场”谁杀死谁”的网络议战"></a>引言：一场”谁杀死谁”的网络议战</h2><p>如果你最近关注AI技术圈，很难不注意到这场争论：”Skill杀死了MCP！”这个论断从 2025 年底开始在X（原推特）上爆发，引发了开发者们的激烈讨论。知名开发者Simon Willison称Skill”可能比MCP更重要”，而另一边则有人反驳说这就像”说GitHub Actions杀死了Bash”一样荒谬。</p>
+<p>这场争论的本质是什么？谁对谁错？未来会怎样发展？这篇文章尝试给你一个清晰的回答。</p>
+<h2 id="第一章：回顾——两者是怎么来的"><a href="#第一章：回顾——两者是怎么来的" class="headerlink" title="第一章：回顾——两者是怎么来的"></a>第一章：回顾——两者是怎么来的</h2><h3 id="MCP的诞生：解决”AI孤岛”问题"><a href="#MCP的诞生：解决”AI孤岛”问题" class="headerlink" title="MCP的诞生：解决”AI孤岛”问题"></a>MCP的诞生：解决”AI孤岛”问题</h3><p>2024年11月，Anthropic推出MCP，解决的是一个很现实的问题：AI很聪明，但它被困在聊天窗口里，无法主动操作外部工具。MCP让AI能直接连接Slack、Jira、数据库等外部服务，从”只会聊天”变成”能做事”。</p>
+<p>它迅速获得了行业认可。到 2025 年12月，MCP正式捐赠给Linux基金会旗下的Agentic AI基金会（AAIF），从Anthropic的单独项目变成了行业公共标准，OpenAI、Block等公司共同参与治理。到 2026 年初，生态中已有超过10,000个MCP服务器，主流AI工具全部接入。</p>
+<h3 id="Skill的崛起：”轻量级”替代方案"><a href="#Skill的崛起：”轻量级”替代方案" class="headerlink" title="Skill的崛起：”轻量级”替代方案"></a>Skill的崛起：”轻量级”替代方案</h3><p>2025年10月，Anthropic又推出Agent Skills。如果说MCP是一套复杂的工业协议，Skill就是一份Markdown文档加一点元数据——简单得有点让人难以置信。</p>
+<p>但就是这个”简单”触动了很多人。开发者们发现，以前需要搭建一个MCP服务器才能做的事，现在写一个Markdown文件就能解决。Canva、Notion、Figma等企业迅速跟进，Agent Skills在开发者社区快速扩散。</p>
+<h2 id="第二章：争论的核心——到底在争什么"><a href="#第二章：争论的核心——到底在争什么" class="headerlink" title="第二章：争论的核心——到底在争什么"></a>第二章：争论的核心——到底在争什么</h2><h3 id="“Skill杀死MCP”派的论据"><a href="#“Skill杀死MCP”派的论据" class="headerlink" title="“Skill杀死MCP”派的论据"></a>“Skill杀死MCP”派的论据</h3><p><strong>论据一：上下文污染。</strong> MCP的一大痛点是工具定义会占用大量的上下文空间。开发者Armin Ronacher就提到，Sentry的MCP服务器一加载就占掉约8000个token。而Skill只在初始加载时放一个名字和简介，可能只占20-50个token。</p>
+<p><strong>论据二：过度工程化。</strong> 很多早期的MCP服务器本质上就是包装了一层基础设施的curl命令。一个Skill文档记录下API端点和参数，让AI直接用bash调用，效果一样但零维护成本。</p>
+<p><strong>论据三：复杂度。</strong> MCP是一套完整的协议规范，涉及主机、客户端、服务器、传输层等多个概念。对于很多简单场景，这种复杂度没有必要。</p>
+<h3 id="“MCP不会死”派的反驳"><a href="#“MCP不会死”派的反驳" class="headerlink" title="“MCP不会死”派的反驳"></a>“MCP不会死”派的反驳</h3><p><strong>反驳一：两者根本不在同一层。</strong> Goose团队的Angie Jones打了一个经典比方：说Skill杀死了MCP，就像说GitHub Actions杀死了Bash。实际上Bash还活得好好的，并且在底层干着实际的活。Skill是菜谱，MCP是厨房——菜谱告诉你怎么做，厨房提供做菜的能力。</p>
+<p><strong>反驳二：Skill无法替代外部连接。</strong> 发送Slack消息、查询生产数据库、操作CRM记录——这些需要真实的集成、真实的权限和真实的执行。光靠文档指导是做不到的。</p>
+<p><strong>反驳三：数据说话。</strong> 到 2026 年初，MCP生态的SDK月下载量超过9700万次，10,000+服务器获得主流客户端支持。如果Skill真的”杀死”了MCP，这些数字应该下降而不是上升。</p>
+<h2 id="第三章：真相——不是替代，而是分层"><a href="#第三章：真相——不是替代，而是分层" class="headerlink" title="第三章：真相——不是替代，而是分层"></a>第三章：真相——不是替代，而是分层</h2><p>理清了双方论据，真相其实很清晰：Skill和MCP不是竞争关系，而是同一套架构的不同层次。</p>
+<p><strong>Skill 是”知识层”。</strong> 它编码的是”如何做”——团队规范、工作流程、领域专业知识。它们是Markdown文档，由人类写作和维护，轻量且易于分享。</p>
+<p><strong>MCP 是”执行层”。</strong> 它提供的是”能做什么”——外部服务的连接、认证、执行和状态管理。它是真正让AI”动手”的基础设施。</p>
+<p>OpenClaw 是一个很好的佐证。它的技能市场 ClawHub 上销售的”Skill”，本质上是打包好的 MCP 服务器（执行层）；而它内部的 SKILL.md 文件，则是告诉 AI 代理如何调用这些工具的指令集（知识层）。OpenClaw 把两者都叫”Skill”，造成了命名上的混淆——但底层架构是清晰的：两层各司其职，只是被整合进了同一个产品。这种混淆恰恰说明，在真实的产品演进中，两层正在被有意识地封装在一起，而不是在互相取代。</p>
+<p>所以真正发生的事情是：Skill没有广泛地替代MCP，而是淘汰了那些”本来就不应该存在”的MCP服务器。很多早期的MCP服务器其实只是包装了一层基础设施的CLI命令，Skill用一份文档就能更好地解决。但对于真正需要持久连接、复杂认证和实时数据的场景，MCP仍然不可替代。</p>
+<h2 id="第四章：未来走向——三个关键趋势"><a href="#第四章：未来走向——三个关键趋势" class="headerlink" title="第四章：未来走向——三个关键趋势"></a>第四章：未来走向——三个关键趋势</h2><h3 id="趋势一：融合而非替代"><a href="#趋势一：融合而非替代" class="headerlink" title="趋势一：融合而非替代"></a>趋势一：融合而非替代</h3><p>最务实的开发者已经在同时使用两者，OpenClaw 是目前最完整的”融合产品”案例。它的底层通过 MCP 连接外部服务，上层通过 SKILL.md 定义 AI 的工作逻辑，其技能市场 ClawHub 上已有超过 3,200 个基于 MCP 的 Skill 可供一键安装。有开发者分享，他写了一个 Trello MCP 服务器，同一套代码不改一行就同时跑在 Claude Desktop 和 OpenClaw 里——这正是”融合”的实际样子：工具可复用，平台各自分工。</p>
+<p>未来的主流形态很可能就是这样：Skill 描述工作流程，MCP 提供执行能力，一个 OpenClaw 式的代理框架在中间把两者整合，用户只需通过聊天窗口下指令。</p>
+<h3 id="趋势二：MCP下沉为基础设施"><a href="#趋势二：MCP下沉为基础设施" class="headerlink" title="趋势二：MCP下沉为基础设施"></a>趋势二：MCP下沉为基础设施</h3><p>一个明显的变化是MCP正在从”前台”退到”后台”。以前，AI每次交互都直接调用MCP工具；现在，MCP越来越多地处理底层的持久化、认证、企业SDK复杂性等问题，而上层的交互逻辑则由Skill和代理框架来编排。</p>
+<p>这其实是技术成熟的标志。就像HTTP协议今天无处不在，但普通用户不需要知道它的存在。MCP也在走同样的路——成为”看不见但离不开”的基础层。</p>
+<h3 id="趋势三：安全与治理成为关键议题"><a href="#趋势三：安全与治理成为关键议题" class="headerlink" title="趋势三：安全与治理成为关键议题"></a>趋势三：安全与治理成为关键议题</h3><p>随着两者的普及，安全问题正在上升为核心关切。MCP方面，已经出现过实际的安全漏洞，影响了数十万个环境。”工具下毒”攻击——即在工具描述中隐藏恶意指令来操纵AI行为——成为新的威胁向量。</p>
+<p>Skill同样面临挑战：如果不受信任的Skill被加载，它可能指导 AI 执行有害操作。行业正在探索”AI网关”的方案——在AI和外部服务之间加一层审核，过滤危险操作、记录所有行为。</p>
+<h2 id="第五章：对普通用户意味着什么"><a href="#第五章：对普通用户意味着什么" class="headerlink" title="第五章：对普通用户意味着什么"></a>第五章：对普通用户意味着什么</h2><p>如果你不是开发者，这场技术变迁的实际影响是：</p>
+<p><strong>AI助手会越来越”懂你”。</strong> Skill让AI能学会你的工作习惯和偏好，不用每次都重新解释。今天你可能还需要自己写Skill，但未来很可能在应用内就能通过简单的设置来定义。</p>
+<p><strong>AI能做的事会越来越多。</strong> MCP生态的壮大意味着AI能连接的服务越来越丰富。从发邮件到管理项目，从ERP到CRM，AI正在从”聊天机器人”变成真正的”数字员工”。对中国用户来说，最近的落地信号来自腾讯：2026年3月，腾讯宣布基于 OpenClaw 推出兼容微信生态的 AI 产品，意味着这套”MCP执行层 + Skill指令层”的架构，正在借助微信这个超级入口进入普通人的日常。</p>
+<p><strong>安全和信任会成为关注点。</strong> 当AI能直接操作你的工具和数据时，权限管理和安全审计会变得和管理员工权限一样重要。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>技术圈喜欢叫嚣”谁杀死了谁”，但现实往往是更加微妙的共存与分工。Skill和MCP的关系，与其说是”谁淘汰谁”，不如说是”各就各位”。</p>
+<p>当Skill让AI想明白”该怎么做”，MCP让AI有能力”真正去做”时，我们的AI助手才算真正长大了。而这，才是这场争论背后真正值得关注的事。</p>
+<blockquote>
+<p>菜谱再好，没有厨房也做不出菜；厨房再好，没有菜谱也不知道该做什么。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -213,9 +481,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-03-13 18:01:14 / 修改时间：22:32:41" itemprop="dateCreated datePublished" datetime="2026-03-13T18:01:14-06:00">2026-03-13</time>
+      <time title="创建时间：2026-03-13 18:01:14" itemprop="dateCreated datePublished" datetime="2026-03-13T18:01:14-06:00">2026-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-14 13:36:09" itemprop="dateModified" datetime="2026-03-14T13:36:09-06:00">2026-03-14</time>
     </span>
 
   
@@ -326,9 +600,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-03-13 12:00:00 / 修改时间：22:32:41" itemprop="dateCreated datePublished" datetime="2026-03-13T12:00:00-06:00">2026-03-13</time>
+      <time title="创建时间：2026-03-13 12:00:00" itemprop="dateCreated datePublished" datetime="2026-03-13T12:00:00-06:00">2026-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-14 13:36:09" itemprop="dateModified" datetime="2026-03-14T13:36:09-06:00">2026-03-14</time>
     </span>
 
   
@@ -480,9 +760,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-03-13 10:00:00 / 修改时间：22:32:41" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
+      <time title="创建时间：2026-03-13 10:00:00" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-14 13:36:09" itemprop="dateModified" datetime="2026-03-14T13:36:09-06:00">2026-03-14</time>
     </span>
 
   
@@ -596,7 +882,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 22:32:40" itemprop="dateModified" datetime="2026-03-13T22:32:40-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-14 13:36:08" itemprop="dateModified" datetime="2026-03-14T13:36:08-06:00">2026-03-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -706,7 +992,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 22:32:40" itemprop="dateModified" datetime="2026-03-13T22:32:40-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-14 13:36:08" itemprop="dateModified" datetime="2026-03-14T13:36:08-06:00">2026-03-14</time>
     </span>
 
   
@@ -819,7 +1105,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 22:32:40" itemprop="dateModified" datetime="2026-03-13T22:32:40-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-14 13:36:08" itemprop="dateModified" datetime="2026-03-14T13:36:08-06:00">2026-03-14</time>
     </span>
 
   
@@ -981,7 +1267,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 22:32:40" itemprop="dateModified" datetime="2026-03-13T22:32:40-06:00">2026-03-13</time>
+      <time title="修改时间：2026-03-14 13:36:08" itemprop="dateModified" datetime="2026-03-14T13:36:08-06:00">2026-03-14</time>
     </span>
 
   
@@ -1059,473 +1345,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/what-happened-recently-and-whats-next/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/what-happened-recently-and-whats-next/" class="post-title-link" itemprop="url">我在加州卖牛仔裤</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-09-13 08:25:48" itemprop="dateCreated datePublished" datetime="2025-09-13T08:25:48-06:00">2025-09-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 22:32:40" itemprop="dateModified" datetime="2026-03-13T22:32:40-06:00">2026-03-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>大家好，我是 Hawken。</p>
-<p>很多人都听过19世纪淘金热的故事。在那场狂热中，真正赚到大钱的，往往不是前仆后继的淘金者，而是那些在路边卖铲子、卖牛仔裤的聪明商人。他们为掘金的人提供最必需的工具。</p>
-<p>历史总是在重演。如今，AI技术浪潮正以前所未有的势头席卷而来，这就像一场新的“淘金热”。它正在赋能无数的个体，让他们有机会开启自己的小生意，将自己的产品和服务卖向全世界。</p>
-<p>而我，也想成为这个新时代里“卖工具”的人。我提供的这件“工具”，就是“英语”——它是一把能帮你挖掘全球信息的铲子，是一座连接你与世界市场的桥梁。</p>
-<p>这便是我做 Nuts English 的初心：在这个充满机遇的时代，为那些还愿意尝试淘金的朋友，提供一件最实在、最称手的工具。</p>
-<p>最近，工具的初步搭建已经完成，Nuts English 这个项目也从“闷头开发”阶段，正式进入了“与真实世界互动”的新篇章。所以，想借这篇博客，和大家聊聊我最近计划要做的几件事。</p>
-<p>我们推出的第一个辅助学习产品——“《怦然心动》阅读打卡课程”——目前正在进行小范围的内测。</p>
-<p>这件事虽小，但对我意义重大。它不仅仅是做一个课程，更是对我们整个“课程内容 + 学习工具 + 学习平台”生态雏形的第一次真实检验。</p>
-<p>这次内测的核心目标，是密切跟踪大家在学习过程中的每一个环节，收集最真实的反馈。这些反馈会直接用于优化我们的标准化生产文档（SOP）、“坚果读原文”插件以及网站的体验。我希望通过这次“麻雀虽小，五脏俱全”的内测，跑通一个最小的产品闭环，确保我们能为未来的学员提供顺畅、有价值的学习体验。</p>
-<p>如果说阅读打卡课是我们在地图上点亮的第一盏灯，那么接下来，我将开始着手绘制整张地图——启动“雅思101”课程的内容开发工作。</p>
-<p>“雅思101”是我们整个教学体系的“总纲”和“地图”。我深知自学雅思的痛点，其中最大的一个就是信息碎片化，缺少系统。因此，这门课的核心目的，不是灌输知识，而是“赋能”。它会教你如何利用雅思这个科学的测评框架，来系统性地审视和提升自己的综合英语能力，并最终构建属于你自己的“备考知识图谱”。</p>
-<p>根据规划，我会先从“英语核心能力基石”这个模块开始，把语法、词汇这些最根本的内容梳理清楚。这件事工程量不小，但我相信，一张清晰的地图，能让每一个自学者走得更稳、更远。</p>
-<p>做 Nuts English 的另一个核心理念，是“联结陪伴”。我经历过一个人备考的孤独，深知有同伴交流和鼓励的重要性。</p>
-<p>所以，我依然会通过博客、小红书等平台，持续分享我的思考、项目进展以及在英语学习上的感悟。我希望 Nuts English 不仅是一个课程或一个工具，更能成为一个温暖的互助社群的起点，让大家能在这里找到“考试搭子”，互相打气，让这条漫长的自我战斗之路，不再那么孤单。</p>
-<p>Nuts English 是一个希望长期做下去的事业。它会像松鼠的树洞一样，随着时间的推移，慢慢积累起越来越丰富的课程、工具和服务。</p>
-<p>在这个刚刚起步的阶段，我希望邀请一小批真正认同我们理念的朋友，成为 Nuts English 的“创始共建人”和“终身会员”。</p>
-<p>这不仅是一次性的投入，更是对我们未来所有课程、工具和服务的一张永久通票。你将可以免费学习未来开发的“雅思101”、所有的阅读打卡课，以及使用我们生态内的一切工具。</p>
-<p>更重要的是，你将成为我们最核心的反馈者和共建者。你的建议，会直接影响 Nuts English 的成长方向。这不只是一个消费，更是一份投资——投资你自己的英语学习，也投资一个你认可的教育理念。</p>
-<p>就像我们的名字“Nuts English”一样，学习英语就像松鼠一点点搬运坚果，需要耐心和坚持。虽然前路漫长，但每一步都算数。</p>
-<p>到这里了解更多：<a target="_blank" rel="noopener" href="https://nutsenglish.hawken.im/lifetime-membership">https://nutsenglish.hawken.im/lifetime-membership</a></p>
-<p><a target="_blank" rel="noopener" href="https://nutsenglish.hawken.im/lifetime-membership">https://nutsenglish.hawken.im/lifetime-membership</a></p>
-<p>也可以关注公众号：Hawken的AI世界</p>
-<img src="/what-happened-recently-and-whats-next/qrcode_for_gh_ac466d642bff_430.jpg" class="" title="图片">
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/privacy-policy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/privacy-policy/" class="post-title-link" itemprop="url">Privacy Policy For Copy to Bluesky</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-27 12:00:00" itemprop="dateCreated datePublished" datetime="2025-01-27T12:00:00-07:00">2025-01-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 22:32:40" itemprop="dateModified" datetime="2026-03-13T22:32:40-06:00">2026-03-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Privacy-Practices-for-Chrome-Web-Store-Submission"><a href="#Privacy-Practices-for-Chrome-Web-Store-Submission" class="headerlink" title="Privacy Practices for Chrome Web Store Submission"></a>Privacy Practices for Chrome Web Store Submission</h1><h2 id="1-Justification-for-clipboardRead-Permission"><a href="#1-Justification-for-clipboardRead-Permission" class="headerlink" title="1. Justification for clipboardRead Permission"></a>1. Justification for clipboardRead Permission</h2><p><strong>Purpose:</strong><br>The <code>clipboardRead</code> permission is essential for the core functionality of this extension. The extension allows users to quickly post content from their clipboard to Bluesky without manually copying and pasting.</p>
-<p><strong>Usage:</strong></p>
-<ul>
-<li>The extension reads text content from the clipboard when the user clicks the “Paste Text” button or pastes content into the text input field</li>
-<li>The extension reads image content from the clipboard when the user clicks the image upload area or pastes an image</li>
-<li>Clipboard content is only accessed when the user explicitly initiates an action (clicking a button or pasting)</li>
-<li>All clipboard data is processed locally in the browser and is never transmitted to any third-party servers except Bluesky’s official API when the user chooses to post</li>
-</ul>
-<p><strong>User Control:</strong><br>Users have full control over when clipboard content is accessed. The extension does not automatically read the clipboard in the background. All clipboard access requires explicit user interaction.</p>
-<p><strong>Data Handling:</strong><br>Clipboard content is only used to populate the extension’s interface for preview and editing before posting. It is never stored permanently or shared with any service other than Bluesky when the user explicitly posts content.</p>
-<hr>
-<h2 id="2-Justification-for-Remote-Code-Use"><a href="#2-Justification-for-Remote-Code-Use" class="headerlink" title="2. Justification for Remote Code Use"></a>2. Justification for Remote Code Use</h2><p><strong>Purpose:</strong><br>Remote code execution is required to communicate with Bluesky’s official API (<code>https://bsky.social</code>) for authenticating users and posting content to Bluesky.</p>
-<p><strong>Usage:</strong></p>
-<ul>
-<li>The extension uses the official <code>@atproto/api</code> library to communicate with Bluesky’s ATProto protocol servers</li>
-<li>All API calls are made directly to Bluesky’s official service endpoint (<code>https://bsky.social</code>)</li>
-<li>No third-party proxies or intermediaries are used</li>
-<li>Remote code is only executed when:<ul>
-<li>User logs in with their Bluesky credentials</li>
-<li>User posts content to Bluesky</li>
-<li>The extension needs to authenticate API requests</li>
-</ul>
-</li>
-</ul>
-<p><strong>Security:</strong></p>
-<ul>
-<li>All API communications use HTTPS</li>
-<li>User credentials (handle and app password) are stored locally using Chrome’s secure storage API</li>
-<li>No credentials or user data are transmitted to any service other than Bluesky’s official API</li>
-</ul>
-<p><strong>Transparency:</strong><br>The extension uses only the official Bluesky API client library (<code>@atproto/api</code>), which is a well-maintained, open-source library provided by the Bluesky team. No custom or obfuscated remote code is executed.</p>
-<hr>
-<h2 id="3-Justification-for-Storage-Permission"><a href="#3-Justification-for-Storage-Permission" class="headerlink" title="3. Justification for Storage Permission"></a>3. Justification for Storage Permission</h2><p><strong>Purpose:</strong><br>The <code>storage</code> permission is required to securely store user configuration data locally on their device.</p>
-<p><strong>Data Stored:</strong></p>
-<ul>
-<li><strong>Bluesky Handle</strong>: The user’s Bluesky identifier (e.g., <code>username.bsky.social</code>)</li>
-<li><strong>App Password</strong>: The user’s Bluesky App Password (not their main account password)</li>
-<li><strong>Draft Content</strong>: Temporary drafts of posts and configuration (optional, for user convenience)</li>
-</ul>
-<p><strong>Storage Method:</strong></p>
-<ul>
-<li>All data is stored using Chrome’s <code>chrome.storage.local</code> API</li>
-<li>Data is stored locally on the user’s device only</li>
-<li>No data is synchronized to cloud services or transmitted to external servers</li>
-</ul>
-<p><strong>Data Usage:</strong></p>
-<ul>
-<li>Stored credentials are used only to authenticate API requests to Bluesky</li>
-<li>Draft content is used to restore unsaved work if the user closes and reopens the extension</li>
-<li>All stored data can be cleared by the user at any time through Chrome’s extension settings</li>
-</ul>
-<p><strong>Privacy:</strong></p>
-<ul>
-<li>No user data is shared with third parties</li>
-<li>No analytics or tracking data is collected</li>
-<li>All data remains on the user’s local device</li>
-<li>Users can delete all stored data by uninstalling the extension</li>
-</ul>
-<hr>
-<h2 id="4-Single-Purpose-Description"><a href="#4-Single-Purpose-Description" class="headerlink" title="4. Single Purpose Description"></a>4. Single Purpose Description</h2><p><strong>Single Purpose:</strong><br>This extension has a single, narrow purpose: to enable users to quickly post text and images from their clipboard to Bluesky social media platform.</p>
-<p><strong>Functionality:</strong></p>
-<ul>
-<li>Users can copy text or images to their clipboard</li>
-<li>Users open the extension popup</li>
-<li>The extension reads the clipboard content and displays it in the interface</li>
-<li>Users can edit the content (add text descriptions, modify text)</li>
-<li>Users can post the content to their Bluesky account with one click</li>
-</ul>
-<p><strong>Scope:</strong></p>
-<ul>
-<li>The extension only interacts with Bluesky’s official API</li>
-<li>No other social media platforms are supported</li>
-<li>No other functionality beyond posting to Bluesky is provided</li>
-<li>The extension does not modify web pages or inject content scripts into websites</li>
-</ul>
-<p><strong>User Benefit:</strong><br>This single-purpose design allows users to quickly share content to Bluesky without opening a browser tab, navigating to Bluesky’s website, and manually creating a post. It streamlines the content sharing workflow specifically for Bluesky users.</p>
-<hr>
-<h2 id="5-Data-Usage-Compliance-Certification"><a href="#5-Data-Usage-Compliance-Certification" class="headerlink" title="5. Data Usage Compliance Certification"></a>5. Data Usage Compliance Certification</h2><p><strong>Certification Statement:</strong><br>I certify that this extension’s data usage complies with Chrome Web Store’s Developer Program Policies.</p>
-<p><strong>Data Collection:</strong></p>
-<ul>
-<li>This extension collects minimal data necessary for its core functionality</li>
-<li>Only user-provided configuration data (Bluesky handle and app password) is stored</li>
-<li>No personal information, browsing history, or usage analytics are collected</li>
-<li>No data is collected without explicit user action</li>
-</ul>
-<p><strong>Data Usage:</strong></p>
-<ul>
-<li>All collected data is used solely for the stated purpose: posting content to Bluesky</li>
-<li>User credentials are used only to authenticate API requests to Bluesky’s official service</li>
-<li>No data is used for advertising, tracking, or any purpose other than the extension’s core functionality</li>
-</ul>
-<p><strong>Data Sharing:</strong></p>
-<ul>
-<li>User data is shared only with Bluesky’s official API when the user explicitly posts content</li>
-<li>No data is shared with third-party services, advertisers, or analytics providers</li>
-<li>No data is transmitted to servers other than Bluesky’s official API endpoint</li>
-</ul>
-<p><strong>Data Security:</strong></p>
-<ul>
-<li>All data is stored locally using Chrome’s secure storage API</li>
-<li>All API communications use HTTPS encryption</li>
-<li>User credentials are never exposed in logs or error messages</li>
-<li>The extension follows security best practices for handling sensitive authentication data</li>
-</ul>
-<p><strong>User Control:</strong></p>
-<ul>
-<li>Users can view and modify stored configuration at any time</li>
-<li>Users can delete all stored data by uninstalling the extension</li>
-<li>Users have full control over when content is posted to Bluesky</li>
-<li>No automatic posting or background data transmission occurs</li>
-</ul>
-<p><strong>Compliance:</strong></p>
-<ul>
-<li>This extension complies with Chrome Web Store’s User Data Privacy policy</li>
-<li>This extension complies with Chrome Web Store’s Single Purpose policy</li>
-<li>This extension complies with Chrome Web Store’s Permissions policy</li>
-<li>All permissions are used only for their stated purposes</li>
-<li>No deceptive or misleading data practices are employed</li>
-</ul>
-<hr>
-<h2 id="Additional-Privacy-Information"><a href="#Additional-Privacy-Information" class="headerlink" title="Additional Privacy Information"></a>Additional Privacy Information</h2><p><strong>Open Source:</strong><br>The source code for this extension is available for review, ensuring transparency in data handling practices.</p>
-<p><strong>No Third-Party Services:</strong><br>This extension does not use any third-party analytics, advertising, or tracking services. All functionality is self-contained and communicates only with Bluesky’s official API.</p>
-<p><strong>User Consent:</strong><br>All data collection and usage requires explicit user consent. Users must:</p>
-<ul>
-<li>Manually enter their Bluesky credentials</li>
-<li>Explicitly choose to post content</li>
-<li>Grant clipboard access permission (which Chrome prompts for)</li>
-</ul>
-<p><strong>Data Minimization:</strong><br>The extension follows the principle of data minimization, collecting and storing only the minimum data necessary for its core functionality.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E4%B8%93%E6%B3%A8%E5%8A%9B-%E6%8F%90%E5%8D%87%E4%B8%93%E6%B3%A8%E5%8A%9B%E7%9A%845%E4%B8%AA%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E4%B8%93%E6%B3%A8%E5%8A%9B-%E6%8F%90%E5%8D%87%E4%B8%93%E6%B3%A8%E5%8A%9B%E7%9A%845%E4%B8%AA%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">提升专注力的5个方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-15 13:00:00" itemprop="dateCreated datePublished" datetime="2024-01-15T13:00:00-07:00">2024-01-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-13 22:32:40" itemprop="dateModified" datetime="2026-03-13T22:32:40-06:00">2026-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" itemprop="url" rel="index"><span itemprop="name">个人成长</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="提升专注力的5个方法"><a href="#提升专注力的5个方法" class="headerlink" title="提升专注力的5个方法"></a>提升专注力的5个方法</h1><p>在这个信息爆炸的时代，保持专注变得越来越困难。经过实践，我总结了5个有效提升专注力的方法。</p>
-<h2 id="1-番茄工作法"><a href="#1-番茄工作法" class="headerlink" title="1. 番茄工作法"></a>1. 番茄工作法</h2><p><strong>原理</strong>：25分钟专注工作 + 5分钟休息</p>
-<p><strong>实施步骤</strong>：</p>
-<ol>
-<li>设定25分钟计时器</li>
-<li>专注完成一个任务</li>
-<li>休息5分钟</li>
-<li>重复4次后休息15-30分钟</li>
-</ol>
-<p><strong>效果</strong>：提高工作效率，减少疲劳</p>
-<h2 id="2-环境整理"><a href="#2-环境整理" class="headerlink" title="2. 环境整理"></a>2. 环境整理</h2><p><strong>清理物理环境</strong>：</p>
-<ul>
-<li>保持桌面整洁</li>
-<li>移除干扰物品</li>
-<li>调整光线和温度</li>
-</ul>
-<p><strong>清理数字环境</strong>：</p>
-<ul>
-<li>关闭不必要的通知</li>
-<li>整理电脑桌面</li>
-<li>使用专注模式</li>
-</ul>
-<h2 id="3-冥想练习"><a href="#3-冥想练习" class="headerlink" title="3. 冥想练习"></a>3. 冥想练习</h2><p><strong>基础冥想</strong>：</p>
-<ol>
-<li>找一个安静的地方</li>
-<li>闭上眼睛，专注呼吸</li>
-<li>从5分钟开始，逐渐延长</li>
-</ol>
-<p><strong>正念练习</strong>：</p>
-<ul>
-<li>专注当下</li>
-<li>观察思维而不评判</li>
-<li>定期练习</li>
-</ul>
-<h2 id="4-任务分解"><a href="#4-任务分解" class="headerlink" title="4. 任务分解"></a>4. 任务分解</h2><p><strong>SMART原则</strong>：</p>
-<ul>
-<li><strong>S</strong>pecific（具体的）</li>
-<li><strong>M</strong>easurable（可衡量的）</li>
-<li><strong>A</strong>chievable（可实现的）</li>
-<li><strong>R</strong>elevant（相关的）</li>
-<li><strong>T</strong>ime-bound（有时限的）</li>
-</ul>
-<p><strong>分解大任务</strong>：</p>
-<ul>
-<li>将复杂任务分解为小步骤</li>
-<li>每次专注完成一个小任务</li>
-<li>逐步推进</li>
-</ul>
-<h2 id="5-健康生活"><a href="#5-健康生活" class="headerlink" title="5. 健康生活"></a>5. 健康生活</h2><p><strong>睡眠</strong>：</p>
-<ul>
-<li>保持规律作息</li>
-<li>每晚7-9小时睡眠</li>
-<li>避免睡前使用电子设备</li>
-</ul>
-<p><strong>运动</strong>：</p>
-<ul>
-<li>定期有氧运动</li>
-<li>增强大脑供氧</li>
-<li>提高认知能力</li>
-</ul>
-<p><strong>饮食</strong>：</p>
-<ul>
-<li>避免高糖食物</li>
-<li>多吃富含Omega-3的食物</li>
-<li>保持充足水分</li>
-</ul>
-<h2 id="实践建议"><a href="#实践建议" class="headerlink" title="实践建议"></a>实践建议</h2><ol>
-<li><strong>循序渐进</strong>：不要一次性尝试所有方法</li>
-<li><strong>记录效果</strong>：记录哪些方法对你最有效</li>
-<li><strong>坚持练习</strong>：专注力需要长期培养</li>
-<li><strong>调整策略</strong>：根据实际情况调整方法</li>
-</ol>
-<h2 id="我的实践结果"><a href="#我的实践结果" class="headerlink" title="我的实践结果"></a>我的实践结果</h2><p>使用这些方法3个月后：</p>
-<ul>
-<li>专注时间从15分钟提升到45分钟</li>
-<li>工作效率提高40%</li>
-<li>完成任务的质量明显提升</li>
-</ul>
-<hr>
-<p>专注力是可以培养的技能，坚持练习，你也能拥有强大的专注力！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
