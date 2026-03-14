@@ -1251,7 +1251,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #2fb328;
+  background: #05f0bd;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2540,6 +2540,7 @@ header.header {
     left: 320px;
   }
 }
+.menu-item-AI a,
 .menu-item-学英语 a,
 .menu-item-练打字 a,
 .menu-item-专注力 a {
@@ -2551,6 +2552,7 @@ header.header {
   margin: 1px 0;
   transition: all 0.2s ease;
 }
+.menu-item-AI a:hover,
 .menu-item-学英语 a:hover,
 .menu-item-练打字 a:hover,
 .menu-item-专注力 a:hover {
@@ -2586,27 +2588,17 @@ header.header {
   font-weight: normal;
   font-size: 16px;
 }
-.menu-item-bluesky a,
-.menu-item-github a,
-.menu-item-bento a {
-  color: #666 !important;
-  font-style: italic;
-}
 .menu-item-about a,
 .menu-item-archives a {
   color: #333 !important;
 }
-.menu-item-bluesky a,
-.menu-item-github a,
-.menu-item-bento a {
+.menu-item-github a {
   color: #666 !important;
   font-style: italic;
   opacity: 0.8;
   transition: all 0.3s ease;
 }
-.menu-item-bluesky a:hover,
-.menu-item-github a:hover,
-.menu-item-bento a:hover {
+.menu-item-github a:hover {
   color: #333 !important;
   opacity: 1;
   background: rgba(0,0,0,0.05);
