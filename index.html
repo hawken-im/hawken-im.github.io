@@ -139,7 +139,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -187,6 +187,112 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/Markdown-%E6%A0%BC%E5%BC%8F%E4%B8%BB%E6%9D%83%EF%BC%9AAI-%E6%97%B6%E4%BB%A3%E6%9C%80%E5%80%BC%E5%BE%97%E5%AD%A6%E4%BC%9A%E7%9A%84%E4%B8%80%E4%BB%B6%E4%BA%8B%EF%BC%88%E4%B9%8B%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Markdown-%E6%A0%BC%E5%BC%8F%E4%B8%BB%E6%9D%83%EF%BC%9AAI-%E6%97%B6%E4%BB%A3%E6%9C%80%E5%80%BC%E5%BE%97%E5%AD%A6%E4%BC%9A%E7%9A%84%E4%B8%80%E4%BB%B6%E4%BA%8B%EF%BC%88%E4%B9%8B%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">Markdown 格式自主：AI 时代最值得学会的一件事（之二）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-19 11:23:40 / 修改时间：12:12:13" itemprop="dateCreated datePublished" datetime="2026-03-19T11:23:40-06:00">2026-03-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约2分钟 · 762汉字+41词</div>
+
+
+<p>Markdown 格式最早的出现源于程序员们对 Word 排版反复无常的厌恶。因为你在 Word 里面的所有操作会被 Word 处理成藏在背后看不见的标签语言。这种不透明导致用户的意图和 Word 的解读经常不一致。<br>程序员们就想着要有一个透明的语言，写着是“标题”那里就是“标题”，写着是“加粗”的那个地方就是“加粗”。<br>于是 Markdown 很早就成了程序员写文档的默认格式语言。<br>那么可想而知，AI 被大量“投喂”的文档格式，就是 Markdown。</p>
+<hr>
+<h2 id="AI-读的不是字，是结构"><a href="#AI-读的不是字，是结构" class="headerlink" title="AI 读的不是字，是结构"></a>AI 读的不是字，是结构</h2><p>把你的需求发给 AI，本质上是在把一段混乱的人类意图，翻译成机器能精确执行的指令。这个翻译过程，你以为只是”打了一段话”，AI 那边却在做大量的概率计算：哪部分是背景？哪部分是目标？哪部分是约束？</p>
+<p>如果你只给了一团文字，AI 只能去猜。</p>
+<p>Markdown 的作用，就是把这个”猜”变成”看”。</p>
+<p>一个 <code>##</code> 标题，告诉模型”这是一个新的主题锚点”。一个 <code>-</code> 列表，告诉模型”这些条件是平行的、独立的”。一个 <code>**加粗**</code>，告诉模型”这是最高优先级的关键词”。</p>
+<p>这不是玄学，是模型训练的必然结果——GitHub、Stack Overflow、技术文档，这些 AI 摄取最多的高质量语料，几乎全是 Markdown 格式写的。用 Markdown 跟 AI 说话，你在用它的母语和它沟通。</p>
+<hr>
+<h2 id="有数字为证"><a href="#有数字为证" class="headerlink" title="有数字为证"></a>有数字为证</h2><p>研究数据显示：</p>
+<ul>
+<li>仅仅加入清晰的 Markdown 标题和分隔符，模型的理解准确度可提升 <strong>31%</strong></li>
+<li>在 Markdown 框架内嵌入示例，任务执行成功率比纯文字指令高出 <strong>58%</strong></li>
+<li>相同内容，Markdown 格式消耗的 Token 仅是 PDF&#x2F;DOCX 的 <strong>三分之一到八分之一</strong></li>
+</ul>
+<p>最后一条对重度 API 用户来说意义直接：Markdown 不只是更准，还更省钱。</p>
+<hr>
+<h2 id="三个上手就能用的场景"><a href="#三个上手就能用的场景" class="headerlink" title="三个上手就能用的场景"></a>三个上手就能用的场景</h2><p><strong>场景一：结构化你的 Prompt</strong></p>
+<p>不要再发一整段话了。试试这个格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">## 任务</span><br><span class="line">帮我写一封拒绝合作的商务邮件</span><br><span class="line"></span><br><span class="line">## 背景</span><br><span class="line">对方是我们的老供应商，关系还不错，但这次报价超预算 30%</span><br><span class="line"></span><br><span class="line">## 要求</span><br><span class="line">- 语气委婉但立场明确</span><br><span class="line">- 不承诺下次合作</span><br><span class="line">- 不超过 150 字</span><br></pre></td></tr></table></figure>
+
+<p>发出去，感受一下区别。</p>
+<p><strong>场景二：建一个”技能文件”</strong></p>
+<p>把你常用的复杂操作模式写成一个 <code>skill.md</code>，比如你喜欢的写作风格、常见的任务模板、固定的约束条件。每次开新对话时直接粘贴进去。</p>
+<p>这是一种”拥有”你的 AI 的方式——不依赖某一家平台的记忆功能，你的指令，你管着。</p>
+<p><strong>场景三：你的笔记，变成 AI 就绪的数据集</strong></p>
+<p>如果你用 Obsidian 或 Notion 记笔记（它们的底层都是 Markdown），你的知识库天然就是 AI 可以直接检索和分析的格式。</p>
+<hr>
+<h2 id="十分钟入门，够用一辈子"><a href="#十分钟入门，够用一辈子" class="headerlink" title="十分钟入门，够用一辈子"></a>十分钟入门，够用一辈子</h2><p>Markdown 没有学习门槛。核心语法六行就写完了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">**加粗** / *斜体*</span><br><span class="line">- 列表项</span><br><span class="line">1. 有序列表</span><br><span class="line">&gt; 引用块</span><br></pre></td></tr></table></figure>
+
+
+<p>一个写得好的 Markdown 文档，不只是给 AI 读的。给人读，也更清楚。</p>
+<hr>
+<p>为了让大家尽快掌握这个技能，我做了一个免费小游戏。<br>Markdown练习小游戏。浏览器输入网址，或者在本公众号（AI加点油）留言：play 就可以找到。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/BYOK-%E7%AE%97%E5%8A%9B%E4%B8%BB%E6%9D%83%EF%BC%9AAI-%E6%97%B6%E4%BB%A3%E6%9C%80%E5%80%BC%E5%BE%97%E5%AD%A6%E4%BC%9A%E7%9A%84%E4%B8%80%E4%BB%B6%E4%BA%8B%EF%BC%88%E4%B9%8B%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,7 +323,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-19 10:43:42 / 修改时间：11:11:02" itemprop="dateCreated datePublished" datetime="2026-03-19T10:43:42-06:00">2026-03-19</time>
+      <time title="创建时间：2026-03-19 10:43:42 / 修改时间：12:12:13" itemprop="dateCreated datePublished" datetime="2026-03-19T10:43:42-06:00">2026-03-19</time>
     </span>
 
   
@@ -413,7 +519,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
+      <time title="修改时间：2026-03-19 12:12:13" itemprop="dateModified" datetime="2026-03-19T12:12:13-06:00">2026-03-19</time>
     </span>
 
   
@@ -525,7 +631,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
+      <time title="修改时间：2026-03-19 12:12:13" itemprop="dateModified" datetime="2026-03-19T12:12:13-06:00">2026-03-19</time>
     </span>
 
   
@@ -683,7 +789,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
+      <time title="修改时间：2026-03-19 12:12:13" itemprop="dateModified" datetime="2026-03-19T12:12:13-06:00">2026-03-19</time>
     </span>
 
   
@@ -872,7 +978,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
+      <time title="修改时间：2026-03-19 12:12:13" itemprop="dateModified" datetime="2026-03-19T12:12:13-06:00">2026-03-19</time>
     </span>
 
   
@@ -962,7 +1068,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
+      <time title="修改时间：2026-03-19 12:12:13" itemprop="dateModified" datetime="2026-03-19T12:12:13-06:00">2026-03-19</time>
     </span>
 
   
@@ -1057,7 +1163,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
+      <time title="修改时间：2026-03-19 12:12:13" itemprop="dateModified" datetime="2026-03-19T12:12:13-06:00">2026-03-19</time>
     </span>
 
   
@@ -1165,7 +1271,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
+      <time title="修改时间：2026-03-19 12:12:13" itemprop="dateModified" datetime="2026-03-19T12:12:13-06:00">2026-03-19</time>
     </span>
 
   
@@ -1287,7 +1393,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
+      <time title="修改时间：2026-03-19 12:12:13" itemprop="dateModified" datetime="2026-03-19T12:12:13-06:00">2026-03-19</time>
     </span>
 
   
@@ -1388,123 +1494,6 @@
 <hr>
 <p>以上。</p>
 <p>→ <a target="_blank" rel="noopener" href="https://github.com/openclaw/openclaw">github.com&#x2F;openclaw&#x2F;openclaw</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/" class="post-title-link" itemprop="url">那些营销号真的没告诉你，小龙虾要吃很多很多token吗？！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-03-13 10:00:00" itemprop="dateCreated datePublished" datetime="2026-03-13T10:00:00-06:00">2026-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-19 11:11:02" itemprop="dateModified" datetime="2026-03-19T11:11:02-06:00">2026-03-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约3分钟 · 911汉字+59词</div>
-
-
-<p>身边所有人都在搞 AI，但真正顺畅用上 API 的没几个——封号、网络、信用卡，三道门槛拦着。我自己折腾了一段时间，最后干脆手搓了一个聚合平台，给自己也给大家用。这篇聊聊它是怎么做出来的，以及我拿它做了什么测试。</p>
-<hr>
-<h2 id="怎么搭的"><a href="#怎么搭的" class="headerlink" title="怎么搭的"></a>怎么搭的</h2><p>平台叫 <strong>AI加点油</strong>，<code>aijia.you</code>。核心是把几条上游 API 渠道汇成一个入口，用户充一次值，用一个 Key，模型随便换。</p>
-<p>基础设施选的阿里云新加坡节点（2C2G）。选新加坡主要是因为需要接入国外的大模型，比如 Gemini， Claude， OpenAI， 但是现在这御三家只接入了 Gemini。</p>
-<blockquote>
-<p>Claude 还不敢接因为中国人一用就封号，大家都怀疑 Anthropic 的老板当年在百度受了什么刺激，对中国人特别不友好。OpenAI 那边单纯是因为成本高接不起哈哈，等我有了前 100 个用户我就接。</p>
-</blockquote>
-<p>最硬啃的部分是支付。国内用户直接走 Stripe 要么被拒刷，要么根本没卡。我自研了一个 <code>stripe-adapter</code>，把易支付协议（支付宝&#x2F;微信）翻译成 Stripe 能接收的格式，绕过了直连限制。上线第一件事是自己充了五美元——支付链路通了，赠送的 100 万 tokens 也到账了，换算大概是五美元的体验额度。（敲重点：充值就送100万token哈！）</p>
-<p>上游目前聚合了四条：阿里百炼、硅基流动、DeepSeek 官方、Gemini 官方。某条上游抖动时自动切换，用户感知不到。当然有发烧友也可以自己玩一玩各种模型，我当前上线了31个模型，其中含5个免费模型（划重点：免费！随便用），这五个模型我全试了，其中 DeepSeek R1 的蒸馏版当真能打，千问开源版也可以的。在模型广场点”免费”的标签就能看到。</p>
-<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/modles.png" class="" title="模型广场，点&quot;免费&quot;标签筛选">
-
-<hr>
-<h2 id="自己当第一个用户跑了一圈"><a href="#自己当第一个用户跑了一圈" class="headerlink" title="自己当第一个用户跑了一圈"></a>自己当第一个用户跑了一圈</h2><p>搭好之后，我用 Cline 接进去跑了一圈真实任务。</p>
-<p>Cline 的接入很简单（图中用红线划出了要填的空）：</p>
-<ol>
-<li>选 “<strong>OpenAI Compatible</strong>“（意思是用和 ChatGPT 家一样的 API 协议）</li>
-<li>Base URL 填：<code>https://aijia.you/v1</code></li>
-<li>API Key 在 aijia.you 后台一键申请，粘贴进去</li>
-<li>模型名从模型广场直接复制——大小写必须一致，不然找不到模型</li>
-</ol>
-<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/cline.png" class="" title="Cline 配置界面">
-
-<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/apikey1.png" class="" title="API Key 申请步骤一">
-
-<img src="/%E9%82%A3%E4%BA%9B%E8%90%A5%E9%94%80%E5%8F%B7%E7%9C%9F%E7%9A%84%E6%B2%A1%E5%91%8A%E8%AF%89%E4%BD%A0-%E5%B0%8F%E9%BE%99%E8%99%BE%E8%A6%81%E5%90%83%E5%BE%88%E5%A4%9A%E5%BE%88%E5%A4%9Atoken%E5%90%97/apikey2.png" class="" title="API Key 申请步骤二">
-
-<p>三分钟搞定。</p>
-<p>然后我挨个测了几个模型：</p>
-<p><strong>GLM-4.7 不行</strong>。让它读一份文档，反复请求了好几次，最后也没成功。智谱家的模型在工具调用这块目前还不够稳，不是 Cline 的好搭档。</p>
-<p><strong>Qwen3-8B 顺利完成了任务</strong>。考虑到它是免费的，性价比相当能打。文档整理、代码注释这类任务交给它完全够用。</p>
-<p>付费模型里：<br>Gemini 就不说了，毕竟是 T0 级别的。<br>性价比高的，可以选 <strong>DeepSeek-Reasoner</strong>， 推理任务交给它，基本不用操心。<br>别忘了 Cline 有个很好的功能是，Plan Mode 和 Act Mode 可以用不同的模型。<br>我 Plan Mode 用 DeepSeek-Reasoner，是一个擅长推理的模型，适合跟你一起讨论计划，执行的时候我选的 Gemini-2.5-Flash，出自 Gemini 家但还相对便宜，速度也快。</p>
-<p>测下来整体流畅，支付链路、token 计费、模型切换都没出问题。GLM 那个坑留着，后续看智谱那边有没有改进。</p>
-<p><strong>对了下次我会试试最近爆火的小龙虾，OpenClaw，可以期待一个。</strong></p>
-<hr>
-<h2 id="开了"><a href="#开了" class="headerlink" title="开了"></a>开了</h2><p><code>aijia.you</code> AI加点油，现在对外开放。（浏览器全拼输入：aijia.you，猛敲回车！）</p>
-<p>注册送 <strong>100 万 tokens</strong>（约五美元额度），支持支付宝&#x2F;微信充值，不需要境外信用卡。</p>
-<p>如果正在被 API 折腾，来试试。</p>
-<p>→ <a target="_blank" rel="noopener" href="https://aijia.you/">aijia.you</a></p>
-<p>有问题可以关注公众号「AI加点油」找我。</p>
 
       
     </div>
