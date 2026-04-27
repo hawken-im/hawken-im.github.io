@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/hawken.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hawken.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hawken.png">
+  <link rel="mask-icon" href="/images/hawken.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hawken-im.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default","show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="⏳ 约27分钟 · 12067汉字+392词    【第二版说明 · 2026 年 4 月】 本文第一版发表于 2025 年初，原为一场面向非技术背景朋友的 AI 讲座整理稿。一年多后，AI 世界已面目全非：模型更迭、芯片战争升级、Agent 从概念变成现实。 第二版修订了若干事实性错误，刷新了所有过时的模型信息，并在 DeepSeek 章节补充了 V4 发布（2026 年 4 月 24 日）的最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI浪潮中是否FOMO？恐慌焦虑？希望这篇文章可以帮到你（第二版）">
+<meta property="og:url" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="⏳ 约27分钟 · 12067汉字+392词    【第二版说明 · 2026 年 4 月】 本文第一版发表于 2025 年初，原为一场面向非技术背景朋友的 AI 讲座整理稿。一年多后，AI 世界已面目全非：模型更迭、芯片战争升级、Agent 从概念变成现实。 第二版修订了若干事实性错误，刷新了所有过时的模型信息，并在 DeepSeek 章节补充了 V4 发布（2026 年 4 月 24 日）的最">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image19.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image23.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image17.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image18.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image16.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image6.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image15.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image4.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image5.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image2.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image7.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image9.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image8.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image13.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image21.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image12.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image10.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image22.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image25.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image1.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image14.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image3.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image11.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image20.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image24.png">
+<meta property="og:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image26.png">
+<meta property="article:published_time" content="2026-04-27T20:46:34.000Z">
+<meta property="article:modified_time" content="2026-04-27T21:54:02.920Z">
+<meta property="article:author" content="Hawken">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="科技">
+<meta property="article:tag" content="科普">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image19.png">
+
+
+<link rel="canonical" href="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/","path":"AI浪潮中是否FOMO？恐慌焦虑？希望这篇文章可以帮到你（第二版）/","title":"AI浪潮中是否FOMO？恐慌焦虑？希望这篇文章可以帮到你（第二版）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>AI浪潮中是否FOMO？恐慌焦虑？希望这篇文章可以帮到你（第二版） | Hawken.im</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4142358445708823"
+     crossorigin="anonymous"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hawken.im</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-ai"><a href="/tags/AI/" rel="section"><i class="fas fa-robot fa-fw"></i>AI</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-xter"><a href="https://x.com/pluto_warrior_1/" rel="section" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>Xter</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-ai+.you"><a href="https://aijia.you/" rel="section" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a></li><li class="menu-item menu-item-ai加点油"><a href="/about/" rel="section"><i class="fab fa-weixin fa-fw"></i>AI加点油</a></li><li class="menu-item menu-item-play.hawken.im"><a href="https://play.hawken.im/" rel="section" target="_blank"><i class="fas fa-gamepad fa-fw"></i>play.hawken.im</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hawken</p>
+  <div class="site-description" itemprop="description">Hawken的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hawken-im" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hawken-im" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://aijia.you/" title="AI+.you → https:&#x2F;&#x2F;aijia.you" rel="noopener me" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/about/" title="AI加点油 → &#x2F;about&#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>AI加点油</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="AI浪潮中是否FOMO？恐慌焦虑？希望这篇文章可以帮到你（第二版） | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AI浪潮中是否FOMO？恐慌焦虑？希望这篇文章可以帮到你（第二版）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-04-27 14:46:34 / 修改时间：15:54:02" itemprop="dateCreated datePublished" datetime="2026-04-27T14:46:34-06:00">2026-04-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约27分钟 · 12067汉字+392词</div>
+
+
+<blockquote>
+<p><strong>【第二版说明 · 2026 年 4 月】</strong></p>
+<p>本文第一版发表于 2025 年初，原为一场面向非技术背景朋友的 AI 讲座整理稿。一年多后，AI 世界已面目全非：模型更迭、芯片战争升级、Agent 从概念变成现实。</p>
+<p>第二版修订了若干事实性错误，刷新了所有过时的模型信息，并在 DeepSeek 章节补充了 V4 发布（2026 年 4 月 24 日）的最新进展。其中有一个细节值得在此单独点出：DeepSeek V4 的训练完全使用了<strong>华为昇腾芯片</strong>，而非英伟达 GPU——这恰好发生在英伟达 CEO 黄仁勋公开为对华芯片出口解禁发声的同一周。黄仁勋的论点是：封锁只会把中国的钱推向华为，并不能阻止中国 AI 的发展。DeepSeek V4 的出现，像是对这一论点最直接的现实注脚。</p>
+<p>框架和叙事不变，适合全新读者从头读起，也适合读过第一版的朋友直接跳到第四章看新内容。</p>
+</blockquote>
+<p>大家好！我是 hawken，非常荣幸能有机会和大家分享我在人工智能领域的一些学习和实践经历。我并非 AI 科班出身，但几年前，我有幸给几位很能抓住前沿信息的老板打工，开始接触并参与到了一些 AI 产品的研发，这成为了我职业生涯的一个重要转折点。<br>说是不幸也可以说幸运，在早期接触了兴起的 AI，我被冲击到三天三夜睡不着。所以我对很多朋友的恐慌和焦虑也是感同身受。而且这段时间更加是鱼龙混杂，各种新兴概念层出不穷。真真假假混淆视听，我认为很多朋友缺少一张全貌的概念图。有一个全图可以帮助我们把接触到的新概念放进去，这样也能帮我们辨别真假。<br>那么，我就和大家一起回顾AI的发展历程，梳理关键技术脉络，探讨AI的实际应用，并对未来趋势做一些展望。</p>
+<p><strong>一、 我的 AI 引路人：三个不同领域的导师</strong></p>
+<p>AI 并非横空出世，它有着漫长而曲折的发展历史。在我个人的学习过程中，有幸遇到了三位不同领域的导师，他们的研究方向，也恰好代表了AI发展过程中的一些重要分支：</p>
+<ul>
+<li><strong>导师一：决策树与游戏 AI</strong></li>
+</ul>
+<p>这位导师曾给我讲解了 AI 如何利用决策树与人类下棋。决策树是一种模拟人类决策过程的算法，通过构建树状结构，来预测不同选择的可能结果。在下棋游戏中，每一步棋都会产生多种应对，形成一个庞大的决策树。如何高效地搜索这棵树，找到最优解，是关键所在。<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image19.png" class="" title="图1"></p>
+<p>这是一棵典型的国际象棋决策树，我走一步，对面有三种可能的应对，对面的每一种应对，我又有三种可能，这就有九种了，类推下去，我分析五步棋，也就是三的五次方而已。对于计算机来说是个小 Case，所以到了 1997 年，IBM 的深蓝就凭借这种暴力计算力战胜了人类的国际象棋世界冠军卡斯帕罗夫。<br>可是围棋有所不同。围棋每下一步棋都有几十上百种应对，仅分析五步就有上亿个分枝，而后看五步可能都还不足以打败人类的围棋冠军。因此，在AI发展的几十年里，围棋似乎是人类为数不多的骄傲所在。直到 2016 年 AlphaGo 战胜了人类的围棋冠军。<br>AlphaGo 在战胜人类围棋冠军的过程中，除了采用更先进的决策树搜索算法：</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image23.png" class="" title="图2">
+<p>因为即使对于计算机来说，从上亿个分支中搜索最优解也是一个挑战，这里就引入了这个蒙特卡洛树搜索算法。我们今天不会详细讲解算法，但是大家可以大致了解，引入算法就意味着有所取舍，计算机为了时间效率，会牺牲最优解，就是说算法不一定算的出最优解，但是通过提高效率计算机可以多往后看几步棋。而光是采用决策树都还不够。<br>它使用了深度学习技术，配备两个神经网络：一个策略网络（Policy Network）用于预测下一步棋的概率分布，一个价值网络（Value Network）用于评估当前局势的胜率。这启示我们，将传统算法与深度学习相结合，可以创造出更强大的AI。</p>
+<ul>
+<li><strong>导师二：遗传编程与代码生成</strong></li>
+</ul>
+<p>在 AlphaGo 战胜人类的15年前，我的这位导师就在研究 AI 写代码了。其基础算法是模拟进化算法，也叫遗传算法。在编程领域，它被称为遗传编程。其基本原理是，人类告诉计算机需求，计算机生成一段代码（或称”基因”），这段代码会变异出多个”个体”，经过反复淘汰和繁殖，最终得到理想的代码。<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image17.png" class="" title="图3"></p>
+<p>这种方法也是在过去的几十年一直没有取得大的进展。大家可以类比人类的基因，要编写出像人类这样强大的程序，自然界已经发展了几十亿年，经历了无数轮的淘汰，即便如此，我们人类仍然保留着很多遗传病。因此，这种算法在编写复杂的程序时非常困难，而且需要大量的计算资源，所以AI在这个方向上没有取得太多成就。</p>
+<ul>
+<li><strong>导师三：语义学与自然语言理解</strong></li>
+</ul>
+<p>这位导师来自电子科大，他的研究方向是语义学。在当时，语义学主要关注的是如何让计算机理解人类语言的语法结构，分析句子中的主谓宾定状补等成分。<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image18.png" class="" title="图4"><br>看这里是不是终于有个语言相关的词了，听起来跟当下的AI热词，大语言模型比较接近了。<br>很遗憾，刚才我讲的这三个老师的研究，都跟大语言模型没啥太大关系。纠正一下，深度学习关系密切，不过将决策树和深度学习相结合是后来的事了。<br>早期的聊天机器人（如微软小冰）主要依赖于语义分析技术，但效果并不理想，容易出现”尬聊”的情况。<br>图中就示范了 AI 怎么通过语义学来分析一段文字。可以看出这就要求输入的精度了：人的自然语言语法经常混乱，文字也有可能出现错别字，还有标点符号也有可能错误。所以几十年来 AI 一直无法人进行正常的对话。</p>
+<p>这三位导师的研究，代表了 AI 发展早期的一些探索方向。然而，它们与当前的大语言模型（LLM）热潮，似乎并没有直接的联系。在浩如烟海的计算机科学中的人工智能专业里，都还有无数个研究领域，最后在大语言模型这个分枝引爆。可想而知给整个行业造成多大的冲击。<br>OpenAI 带着 ChatGPT 横空出世那几天，我自己是恐慌，焦虑，三天三夜睡不着。想想这些老师，毕生的研究都被多多少少绕开了，不知道他们的心情是怎样的。AI 技术的发展是多么的迅速和不可预测。</p>
+<p><strong>二、 AI发展简史：从图灵测试到大语言模型</strong></p>
+<p>刚才讲了很多碎片化的信息，我们就简单再梳理AI的发展历史，给大家掌握一个全貌。<br>回顾 AI 的发展历程，我们会发现，它并非一蹴而就，而是经历了一次又一次的”寒冬”与”复兴”：</p>
+<ul>
+<li><strong>图灵测试 (1950s)：</strong></li>
+</ul>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image16.png" class="" title="图5">
+<p>这位是计算机科学的开山祖师，上古真神，图灵老人家。他在很年轻的时候自杀而死，咬了一口有毒的苹果。这个苹果就成了后来苹果公司 logo 的来历。<br>这位计算机科学的奠基人艾伦·图灵提出了著名的”图灵测试”，为人工智能设定了一个目标：让计算机能够模拟人类的智能，以至于人类无法分辨出与之对话的是人还是机器。这成为了AI研究的早期目标。<br>图灵测试思路其实很简单，怎么测试一个人工智能算真正意义上的人工智能，让一个真人 C，坐在墙后面，跟对面的 A，B 对话，如果 C 分不清谁是电脑谁是人，那么这个AI就算通过测试。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image6.png" class="" title="图6">
+
+<ul>
+<li><strong>第一次AI寒冬 (1970s)：</strong></li>
+</ul>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image15.png" class="" title="图7">
+<p>这位叫赫伯特·西蒙，他的名言是：十年内，AI 将成为国际象棋世界冠军。这是他在 1958 年说的。十多年后的 70 年代，开启了后人所称的第一次 AI 寒冬。<br>早期的 AI 研究过于乐观地追求通用人工智能（AGI），但受限于当时的计算能力和理论基础，未能实现预期目标。当时的科幻小说、科幻电影都在狠狠期待着人工智能。可以说期望越高失望越大。研究经费大幅削减，AI 研究进入低谷。</p>
+<ul>
+<li><strong>专家系统时代 (1980s)：</strong></li>
+</ul>
+<p>有寒冬自然有春天，为了走出困境，研究者们开始转向更务实的方向，专注于开发能够在特定领域模拟人类专家知识和推理能力的专家系统。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image4.png" class="" title="图8">
+<p>专家系统的核心组成部分是知识库和推理引擎。知识库存储领域专家的知识，通常以规则（IF-THEN）的形式表示；推理引擎则根据知识库中的规则和用户提供的事实，进行逻辑推理，得出结论。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image5.png" class="" title="图9">
+<p>图为一个典型的知识库规则<br>专家系统的一个显著特点是贵。<br>下面是专家系统的建设过程：<br>    - <strong>知识工程师 (Knowledge Engineer) 与领域专家合作：</strong> 知识工程师负责从领域专家（如医生、工程师、金融分析师等）那里获取专业知识。<br>    - <strong>知识表示：</strong> 将获取到的知识转化为计算机可理解的形式，通常是规则、框架或语义网络。大白话说，其实就是if else then，如果这样就那样，然后就那样。但是那个年代需要人去手动告诉电脑。<br>    - <strong>构建知识库：</strong> 将表示好的知识存储到知识库中。<br>    - <strong>开发推理引擎：</strong> 选择或开发合适的推理引擎，实现知识的推理和应用。<br>    - <strong>设计用户界面：</strong> 提供友好的交互方式，方便用户使用。<br>    - <strong>测试与评估：</strong> 对专家系统进行测试，确保其准确性和可靠性。<br>    - <strong>维护与更新：</strong> 随着领域知识的变化，不断更新知识库。<br>当时世界上成功的专家系统屈指可数，分别在医疗领域，计算机领域和地质勘测领域。说到地勘领域就应景了，这个 prospector 系统建成于 70 年代，现在都还是一个很重要的系统。也许这个系统在座的是有所了解哈。</p>
+<ul>
+<li><p><strong>优点：</strong></p>
+</li>
+<li><p>专业性</p>
+</li>
+<li><p>可解释性</p>
+</li>
+<li><p>知识的显性化</p>
+</li>
+<li><p><strong>局限性：</strong></p>
+<ul>
+<li>知识获取困难。</li>
+<li>领域狭窄。</li>
+<li>难以处理不确定性。</li>
+<li>缺乏常识。</li>
+<li>维护成本高。</li>
+</ul>
+</li>
+<li><p><strong>第二次AI寒冬 (1990s)：</strong></p>
+</li>
+</ul>
+<p>专家系统建设成本高，维护成本高，应用领域狭窄。于是自然而然，业界也很少投入资金做专家系统了。而且不光不做专家系统了，人们甚至感觉你这个系统不太好意思叫做AI系统呀，因为稍有不确定性就难以处理，干脆把这种系统叫做自动化系统好了。自动化系统听起来是不是很熟悉。后来把那段时间也被称为一次寒冬。</p>
+<ul>
+<li><strong>机器学习的崛起 (2000s)：</strong></li>
+</ul>
+<p>专家系统的局限性主要来自于一个问题，专家知识库是手工编写的，这个问题在90年代得到了解决，得益于计算能力的提升和数据的爆炸式增长，人们开始尝试自动化编写知识库，这个方法我们叫机器学习。<br>机器学习的核心思想是，让计算机从数据中自动学习规律和模式，而无需人工编写规则。<br>机器学习的主要类型有：</p>
+<ul>
+<li><strong>监督学习：</strong> 从带有标签的数据中学习，用于分类和回归任务。</li>
+<li><strong>非监督学习：</strong> 从无标签的数据中学习，用于聚类和降维任务。</li>
+<li><strong>强化学习：</strong> 智能体通过与环境交互，学习如何采取行动以最大化累积奖励。<br>机器学习技术的成熟迎来一次蓬勃的发展。<br>这里给大家看看这次蓬勃的发展带来了哪些成果。</li>
+</ul>
+<ol>
+<li>1997年，IBM所开发的西洋棋机器人深蓝战胜了当时的西洋棋世界冠军卡斯帕罗夫。<br>1958年的预测”十年内，AI将成为西洋棋世界冠军。”</li>
+<li>2005年，由斯坦福所开发的一台机器人成功在一条沙漠小路上行驶了210公里。</li>
+<li>2006年，深度学习（多层的神经网络）以及云计算的观念问世。</li>
+<li>2011年，Apple发表了语音助手Siri。</li>
+<li>2012年，Google发表了个人助理Google Now。</li>
+</ol>
+<ul>
+<li><strong>深度学习革命 (2010s)：</strong></li>
+</ul>
+<p>大家也许发现，到了机器学习时代已经开始慢慢接近真相了。其实后面还有一段时期被称为第三次寒冬，这种略带争议的细分历史我们就不再赘述了。<br>我们进一步深入，就到了，深度学习。<br>传统的机器学习方法需要人类为机器学习软件提供输入，才能充分发挥作用。<br>我们在这一步通常称为数据处理，他有数据收集，数据清洗，数据标记等等工作。直白说就是这个时期的学习材料需要人工处理到软硬适中，大小适中才喂给机器，像是喂养小婴儿一样。<br>而在深度学习中，数据科学家只向软件提供原始数据。深度学习网络自行推导特征，更独立地学习。它可以分析非结构化数据集，什么是非结构化数据集呢，就是我们人写给人看的 word 文档呀，电子表格呀。<br>另外强调一下，深度学习准确的说属于机器学习的子集，他不是一个独立的分类。而底层技术都离不开神经网络。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image2.png" class="" title="图10">
+<p>所以到了这一步，给计算机投喂数据就变得简单，而且计算机的胃口也越来越大。现在我们可以看到 OpenAI 的胃口甚至大到了想吃下全世界的数据。深度学习的突破性进展，主要得益于以下几个方面：</p>
+<ul>
+<li><strong>大数据：</strong> 互联网的普及和移动设备的广泛应用，产生了海量的数据。</li>
+<li><strong>计算能力：</strong> GPU（图形处理器）的出现，为深度学习提供了强大的计算支持。</li>
+<li><strong>算法创新：</strong> 新的神经网络结构（如CNN、RNN，后面还会提及）和训练方法（如反向传播）的出现，提高了模型的性能。</li>
+</ul>
+<p>讲到神经网络，属于 AI 领域的深水区，深奥而且很重要，我们今天以科普目的，对神经网络进行一些粗浅的了解。<br>神经网络顾名思义，就是对我们人类的神经结构进行模拟。<br>他的基础单元就是对神经元的模拟。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image7.png" class="" title="图11">
+<p>图中 a 代表输入，w 代表权重，b 代表偏移量，进行一个汇总，之后给中间的函数(f)进行处理得到输出 O。<br>大家知道人脑的神经元是很强大的，会根据人的外界输入得到刺激进行生长，包括连接和断开，有点像搭电路的感觉，我们常说建立脑回路好像就是说这个过程。<br>我们现在看到的这个模拟神经元也会自己进行一些调节，比如对权重的重新调整，偏移量的重新调整。<br>具体的算法我们今天肯定无法涉及。我们知道神经网络的基本单元是这个样子。基本单元组成一个单层神经网络，单层神经网络组成一个多层神经网络。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image9.png" class="" title="图12">
+<p>这样的神经网络已经可以干成不少事情了。我们的家用电脑上都可以跑一个神经网络用来简单的进行图像识别。而传闻 OpenAI 的 GPT-4 拥有约 1.8 万亿个参数（官方从未证实这一数字），一次训练就要花掉 6000 多万美元。<br>我们这一路打怪升级，终于要进入大语言模型的领域了。<br>前往这个大魔王的路上其实还有很多很多技术细节。我这里只能抛出一大堆术语，这些术语都是短短两小时无法进行展开。但是他们确实又是重要的，在这里我们简单过一遍。下面就给出一些核心概念和解释：</p>
+<ul>
+<li><strong>核心概念：</strong><ul>
+<li><strong>神经网络：</strong> 由多个层次的神经元组成，模拟人脑神经系统的工作方式。</li>
+<li><strong>激活函数：</strong> 神经元的基本结构只能输出线性函数，而真实世界通常是复杂和非线性。激活函数引入了非线性，使神经网络能够拟合复杂的函数。</li>
+<li><strong>前向传播：</strong> 从输入到输出的一次基本的运算。</li>
+<li><strong>反向传播：</strong> 根据模型的输出与真实标签之间的误差，反向调整神经网络的权重。这个真实标签很多时候都是人手动给标上的，所以我们也可以把反向传播理解成一次训练过程。<br>神经网络这一个领域中还有这几个重要的神经网络模式：</li>
+</ul>
+</li>
+<li><strong>常见模型：</strong><ul>
+<li><strong>卷积神经网络 (CNN)：</strong> 擅长处理图像数据，广泛应用于图像识别、目标检测等领域。卷积是一种数学运算，在定义上，我模糊地记得是两个函数相乘可以用两个函数的导数和积分的特定的运算表达出来。在座的理工科生应该都对卷积有所了解。我这里可以分享的是为什么卷积神经网络在图像识别领域很擅长。首先通过卷积运算和池化操作，计算机可以识别出出现在图像不同位置的同一物体（即平移不变性）。这是图像进行了卷积之后的样子，可以让计算机分辨出轮廓。</li>
+</ul>
+</li>
+</ul>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image8.png" class="" title="图13">
+<p>电脑里面的花非花雾非雾的状态经过卷积可以知道花的边界在哪里。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image13.png" class="" title="图14">
+<pre><code>- **循环神经网络 (RNN)：** 擅长处理序列数据，他能有效的处理自然语言，甚至音乐片段，但是他缺乏长期记忆，不过后来有了 LSTM 机制，Long and Short Term Memory，长短期记忆，改良了循环神经网络。
+- **生成对抗网络（GAN）:** 还有一个重要的神经网络叫生成式对抗网络。一般有两个网络组成，一个用于生成结果，一个用于批判。经常用于图像生成，图像修复领域。前不久韩国发生的一个臭名昭著的 deepfake 事件，把一个人的脸装到另一个人身上，就是用的生成式对抗神经网络。
+- **Transformer：** 这就是最后登场的主角了，我看网上都用英文来称呼这个神经网络模型，也没给取一个正式的中文名，大家可以想象变形金刚就是 transformer。他的特点，不需要循环或者卷积的架构。应用的一个机制叫做注意力机制。基于注意力机制，无需循环或卷积结构，成为大语言模型的基石。
+</code></pre>
+<p>Transformer 就是当前所有流行的大语言模型的底层神经网络。具体 transformer 的理论知识也是一下子讲不清的。大家感兴趣的话，中文网络里一个叫李宏毅的老师讲的很好。我也看他的视频学了不少知识。<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image21.png" class="" title="图15"><br>今天不可能放一个李宏毅的课给大家听，那么只能先肤浅的理解transformer，可以说他是一个很直接，很简单粗暴的模型，但这样说又过于武断，他应用了一个叫注意力机制的方式来让 AI 关注到自然语言中文字与文字之间的关系，还用了编码和解码的机制选择最高概率的文字进行输出。<br>还记得刚开始我说的语义学，要分析自然语言的语法，transformer 就不做这个事，它关心一个直接的文字关系，输出最有可能出现的文字，听起来简单而背后的机制并不简单。这里我用文字这个词，其实在大模型里面，AI 用的是 token，这个 token 有可能是单词，也有可能是长的单词拆分开的一部分词。所以我才说，我们今天只能既简单又武断地概括 transformer。<br>这里还可以提一嘴，OpenAI 的 transformer 甚至不做编码，只做解码。所以 OpenAI 发布 chatGPT 出来的时候，我们常说 chatGPT 最厉害的是补全。就是你如果给他一个不完整的段落，他可以很好的把缺失的部分补上。这也是 OpenAI 官方发了一个教程，教提示词工程，要我们多利用这个特点来给 chatGPT 写提示词，让它生成我们想要的东西。我后面会讲讲这个提示词工程。</p>
+<p><strong>三、 大语言模型 (LLM)：AI 的新里程碑</strong></p>
+<p>进度有一半多了，回顾一下我们当前掌握的情报：<br>首先 AI 作为计算机科学中的一个重要领域，是跟随计算机科学一同发展的。计算机科学的历史有多长，AI 的发展历史就有多长。<br>第二，AI 的发展历程几经起伏，给人类带来希望也带来失望，每当有重大突破的时候又会给人带来焦虑和不安。<br>最后，AI 是一门复杂的学科，涉及到不同的科学领域，也有许多发展方向，而不同的方向上都有很多重要的成果。就像一棵大树伸出很多枝干，而很多枝干上都已经开花结果。今天我们的重点方向是大语言模型。在这个一开始不算起眼的枝干上居然结出一个巨大的果子。<br>虽然说 AI 技术在大语言模型这个分枝上走的很远，大家有没有回想起最早讲的图灵测试，就是测试自然语言的辨识能力。这在某种意义上 AI 领域又回归了本心。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image12.png" class="" title="图16">
+<p>而我们沿着这个果子的枝干回溯，经历了很多重要的技术里程碑。包括前面讲的机器学习，深度学习，神经网络，还包括神经网络中的 tranformer 这一类型。<br>Transformer 已经着了太多笔墨，但这确实没办法，因为 Transformer 就是大语言模型的核心技术，大语言模型又是深度学习在自然语言处理领域的最新进展，也是当前 AI 研究的热点。<br>大语言模型又是长什么样？我们这里又来给一个概括：</p>
+<p><strong>首先，大语言模型采用的核心技术：</strong></p>
+<ul>
+<li><strong>Transformer 架构：</strong> 采用自注意力机制，能够捕捉文本中的长距离依赖关系，提高了模型的性能。</li>
+<li><strong>预训练与微调：</strong> 首先在大规模无标签文本数据上进行预训练，学习通用的语言知识；然后在特定任务的有标签数据上进行微调，使模型适应具体应用。</li>
+<li><strong>Tokenization</strong>: 把输入的文字转化成模型能理解的 token（关于 token 前面已经讲过一二）。</li>
+</ul>
+<p><strong>蓝星上最重要的一些大语言模型有哪些：</strong></p>
+<ul>
+<li><strong>GPT 系列 (OpenAI)：</strong> GPT-4o、o3、o4-mini 等；推理模型 o1&#x2F;o3 系列已独立成线。</li>
+<li><strong>Gemini 系列 (Google)：</strong> Gemini 2.0 Flash、Gemini 2.5 Pro 等。</li>
+<li><strong>LLaMA 系列 (Meta)：</strong> LLaMA 3、LLaMA 4。</li>
+<li><strong>Claude 系列 (Anthropic)：</strong> Claude 4（Opus 4、Sonnet 4、Haiku 4）。</li>
+<li><strong>DeepSeek 系列：</strong> DeepSeek-V3、R1、V4（2026 年 4 月最新发布）。</li>
+</ul>
+<p><strong>国内还有哪些大语言模型：</strong> 通义千问、文心一言、智谱AI、百川智能、MiniMax、零一万物、华为盘古、腾讯混元、字节跳动豆包、月之暗面 Kimi 等。<br>大语言模型一个关键字是大，这个大指的是训练数据大，训练参数多，OpenAI 就是恨不得把全世界的互联网上的内容都塞给他们的 chatGPT。这个也带来了很多法律问题。<br>那么 chatGPT 是大语言模型吗？准确说不是。GPT 3，GPT 3.5，GPT 4，还有现在的o1，4o啥的，这些是大语言模型，但也不完全是。有些模型，比如o1，我们叫做 reasoning model，中文叫推理模型，推理模型又是一个新词，我们后面会讲一下。<br>OpenAI 公司还有一些模型用来生成图像，识别语音，这些也不是大语言模型。这一类模型我们前面提到过，采用了卷积神经网络或循环神经网络。<br>我必须打住了，再讲下去就单纯在堆砌术语，根本没法展开了。就好像在地图上瞎戳一些点，每个点是一个地名，但是根本又不说这里到底长什么样，徒劳的增加知识负担。<br>今天我们得到一个大的框架就够了，有心的朋友以后可以慢慢往这个框架里继续装填知识。</p>
+<p><strong>四、 DeepSeek：国产大模型的崛起</strong></p>
+<p>终于讲到 DeepSeek 了。一开始走入大众视线的模型叫 DeepSeek V3，当时 V3 最突出的特点就是便宜而且够用。请注意是够用而不是好用。但是因为他太便宜了，所以在行业中造成了巨大的轰动。不过当时 OpenAI 的CEO，山姆奥特曼稍微有点嘴硬，他认为 DeepSeek 是蒸馏了 OpenAI 的模型。后来也证明他不完全错，DeepSeek 除了做了蒸馏，还使用了一个外部教师模型。后面 DeepSeek 公布自己的技术论文后，我们也发现了他还使用了更多深奥的技术。<br>最关键的两个因素叫做：</p>
+<ol>
+<li>MoE 混合专家模型：通过稀疏激活机制大幅减少了计算量。刚刚我们提到过神经网络使用激活函数来更好的拟合非线性函数，换句话说就是让计算结果更加贴近真实世界。而 MoE 的效果是混合了不同分工的专家模型，处理不同的任务的时候可以调用不同的专家。可以简单比喻为人类的大脑也进行了分区，不同的区域处理不同的任务，而不是同时全部激活。</li>
+<li>FP8 训练：也就是使用 8 位浮点数进行深度学习训练，通常用的是 16 位或 32 位。降低了精度也就降低了成本。<br>降低了成本的同时肯定会损失一些效果，所以 DeepSeek V3 的评分并没有达到顶尖水平。而且使用过程中会发现幻觉现象很严重，幻觉的意思就是前文有点长了之后 transformer 的注意力机制就会发挥失常，会一本正经的编出一些不存在的事情。<br>后来还传出一个小插曲，有时候你问 DeepSeek，你的模型是什么？他会回答你：我是 GPT 3.5。大家众说纷纭，有一个可靠的理论认为这是温度这项参数调的比较高，也就是随机性变强，GPT 3.5 作为 OpenAI 发布的最有影响力的一款模型，DeepSeek 作为后来用互联网数据训练的模型，是有可能说错的。也有推测 DeepSeek 的外部教师模型就是用了 ChatGPT。<br>直到有一天，英伟达的股价因为 DeepSeek R1 被打下 17%。这就不是闹着玩了。<br>人们开始认真对比 DeepSeek 和 OpenAI。</li>
+</ol>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image10.png" class="" title="图17">
+<p>网上还有很多梗图来嘲笑 OpenAI，例如下图：</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image22.png" class="" title="图18">
+<p>我们今天是一个略带严肃氛围的讲座，我们来看看跑分：</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image25.png" class="" title="图19">
+<p>DeepSeek 的 R1 对标 OpenAI 的 o1。完全是在伯仲之间。<br>DeepSeek的 V3 对标 o1-mini，大部分情况差不多，做数学题和写代码有明显差距。<br>还有一点很重要，DeepSeek 的模型开源。模型开源并不是代码和训练过程开源，不过模型开源已经很了不起了。我们普通的公司本来也训练不起一个大语言模型，而且即便投入资金和资源去训练大语言模型，也没法和这些巨头进行竞争。<br>所以我们从应用层面，最多自己部署一个本地的私有化模型应该是最高级的应用方式了。<br>前面讲的是技术层面上 DeepSeek 的不同，我这里没有说优势，因为目前还没有说哪一种技术能够比另一种技术好，都是能够带来更好的 AI 的技术。我心里愿意他们能共同进步。<br>我们现在从应用层面上讲 DeepSeek 有个很独到的功能，他内置了思维链并且展示了思维链（CoT）。就好比，我们人类思考的时候是不是像自己在跟自己说话呢？思维链就像是 AI 自己先进行思考再来回答人类的问题。如果不用思维链，就需要人类自己调整提示词，前面提到过一个提示词工程，就是用来精修提示词，让 AI 能给出理想的，稳定的回答。后面我还会更详细的讲到。<br>当然，我还是不会妄下评论内置思维链就一定是好的。大模型的基础本身很好，如果人工对提示词进行一些精修，甚至我也可以人工引导 AI 产生思维链，这样反而能够更自由的发挥大模型，如果提前内置思维链，可能会限制大模型自由的发挥。所以至少我看来这是仁者见仁智者见智的事情。当然应用层面上，DeepSeek 的确是对新手非常友好。不用研究提示词，就可以得到很好的结果。而且看到了 AI 的思维链，也可以进行手动修正。</p>
+<p><strong>【2026 年 4 月更新：V4 来了，而且抛弃了英伟达】</strong></p>
+<p>距离 R1 震惊世界整整一年，DeepSeek 于 2026 年 4 月 24 日发布了 V4。技术突破之外，更大的新闻是：V4 的训练完全依赖<strong>华为昇腾 950 芯片</strong>，彻底绕开了美国对英伟达 GPU 的出口限制。</p>
+<p>V4 的主要特性：</p>
+<ul>
+<li><strong>两个版本</strong>：V4-Pro（1.6T 总参数 &#x2F; 49B 激活参数）和 V4-Flash</li>
+<li><strong>上下文窗口</strong>：100 万 token，整个代码库可以一次性塞进去</li>
+<li><strong>宣称最强</strong>：开源模型中 Agent 编程能力最强，推理能力”世界级”</li>
+<li><strong>仍有差距</strong>：DeepSeek 自己承认，整体能力仍落后于 Gemini 等顶级闭源模型</li>
+<li><strong>价格依旧极低</strong>：$0.14 &#x2F; 百万 input token</li>
+</ul>
+<p>这让局面变得非常微妙。就在 V4 发布的十天前，英伟达 CEO 黄仁勋在 Dwarkesh Patel 播客中被主持人反复追问：向中国出口高端 AI 芯片是否危害国家安全？黄仁勋被逼急了，直接怼回去：</p>
+<blockquote>
+<p><strong>“You’re not talking to somebody who woke up a loser.”</strong>（你说话的对象可不是什么睡醒的失败者。）</p>
+</blockquote>
+<p>他的核心论点是：美国出口限制根本挡不住中国 AI 发展，只是把中国的钱推向了华为。而 DeepSeek V4 恰恰就是用华为芯片训练出来的——讽刺的是，验证了他的论点，也验证了他的担忧。</p>
+<p>这场博弈，已经从”谁的模型更强”，升级成了”谁能造出自己的算力基础设施”。</p>
+<p><strong>五、 AI 应用：从聊天机器人到智能体</strong></p>
+<p>OpenAI 在 2022 年 11 月 30 日发布了轰动世界的 ChatGPT。第一版写于 2025 年初，那时距 ChatGPT 发布才两年多。如今 2026 年再看，又是一番新天地，AI 应用的爆发速度远超当时所有人的预期。<br>未来会怎样简直是不敢想象的。不过我们借助一些大佬的说法来斗胆想象一下。<br>首先来自 OpenAI 的 CEO 山姆奥特曼的预测，他也算是业界一个显眼包吧，为人很高调，经常接受采访，他的预测越来越激进——早期他说”四五年内见到 AGI”，到 2025 年底已改口说 AGI”可能就在眼前”，甚至有观点认为某种意义上的 AGI 已经到来。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image1.png" class="" title="图20">
+<p>AGI 就是通用人工智能，中间的 G 是 general，通用的意思。这个就是最早，在第一次 AI 寒冬前，人们对 AI 抱有的最高期待了。<br>下图是我截取的英伟达发布会上，黄仁勋对AI未来的一个描画。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image14.png" class="" title="图21">
+<p>我们现阶段应该已经到了这个位置。生成式 AI （Generative AI）往智能体 AI （Agentic AI）发展的过程中。<br>生成式 AI 和智能体 AI 又是两个新词，其实刚刚讲 AI 概貌的时候差点讲到，只是这两个词更多的是在应用层面上的分类。所以我们现在来讲讲。<br>首先生成式 AI ，指的是专注于创建新的内容，而不是仅仅分析或处理现有数据的 AI。这些内容可以是文本、图像、音频、视频、代码等。所以我们刚刚讲了很多的大语言模型应用，都属于生成式 AI 的一部分，那么一些不用大语言模型的 AI，也很出名的，比如文生图的 Stable Diffusion 和 Midjourney 都是生成式 AI。<br>再来是智能体 AI，我们可以从下图来看。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image3.png" class="" title="图22">
+
+<p>X 轴上，从左到右是对大模型要求的从弱到强，y 轴上，从下到上，是对传入大模型的信息的从简单到复杂。<br>所以我们知道最简单，最便宜的应用，就是聊天机器人。<br>这也是最早 ChatGPT 出来给我们展示的应用方式。<br>横向发展，对大模型进行了更进一步的训练，我们叫微调，使得大模型可以应用在一些更专业的场景，就可以低成本的达到一定的效果，所以经常被一些公司用来搭建自己的模型。我之前做的一个英语学习项目就是对模型进行了微调，然后才可以搭建在便宜的服务器上的。<br>纵向发展，RAG，就是 Retrieval-Augmented Generation（检索增强生成）的缩写。这个是目前的一个主流方向。简单说就是有知识库辅助的大模型。直接让 AI 去检索你给他提供的知识库，省去了微调的成本，出来的效果还非常漂亮。我们现在的人工智能客服就是采用的这个方向的技术。<br>那他们结合起来，一个在应用层面上的目标应用，我们叫 Agent，智能体。我们认为智能体至少要能实时接受外部的信息，也就是要么有个摄像头这类传感器，要么得联网搜索信息。然后能够操作外部世界。这里也可以是虚拟的外部世界，比如能操作我电脑上的文件的 AI，也可以是一个智能体。<br>还有一个关键的功能，一个智能体一定能够跟另一个智能体进行交互。<br>这样的想象空间就太大了。因为人工智能的工作效率远超人类，想象我一个人的 100 个智能体工作一晚上，跟外面的 1 万个智能体进行交互，第二天再来给我汇报工作，是一个什么场景。<br>我这里斗胆预判以后的商业模式会出现一个 A2A 模式。就是 Agent to Agent，我们现在总结的商业模式什么 B2BC2CB2C 之类的很多都会被 A2A 替代。（记一下：2025 年 2 月预判）<br>回到这个截图，看来黄仁勋认为我们最后才会拥有能操作物理世界的 AI。<br>去年的 5 月，诺贝尔物理学奖得主辛顿在采访中说，最难被取代的人类工作是水管工。这里我们看黄仁勋也是这么认为的。</p>
+<p>AI 的应用已经渗透到我们生活的方方面面，从简单的聊天机器人，到复杂的智能体，AI 正在改变我们的工作和生活方式。我们<br>应用层面说了这么多，还这么远，好像离我们日常的应用还有点距离，接下来我就细说日常的应用场景。<br>首先，最基础，最简单的应用方式当然就是 APP，或者网页端上通过跟聊天机器人进行对话来获取帮助了。这种应用方式，有什么好的诀窍能够得到更好的帮助呢？<br>就是前面提到过的，提示词工程了。这是因为 transformer 本身的特性，我们要跟AI交流需要一些技巧，因为 transformer 是注意力机制，聊多了容易产生幻觉，聊少了达不到想要的内容，那么我们就尽量用提示词工程快速达到我们想要的输出结果。具体的技巧，AI 教育领域的著名学者**吴恩达（Andrew Ng）**开过一门很有影响力的课。吴恩达是 deeplearning.ai 创始人、Coursera 联合创始人，曾任谷歌 Brain 负责人和百度首席科学家，是全球最具影响力的 AI 教育者之一。我是听完了的，可以给大家分享一下要点：</p>
+<ol>
+<li>给 AI 分配角色：因为大语言模型的训练数据来自于网上乱七八糟的材料，所以如果让 AI 明确自己的身份角色，因为注意力机制的特性，AI 可以更精确的生成我们需要的专业内容。</li>
+<li>用好分割符号：特别是可以了解一下 Markdown 这种文本语法，因为很多优质训练材料都是用 Markdown 写的。举个例子，Markdown 的语法会用三个撇点来括代码内容，那么我们要给 AI Review 自己的代码的时候就可以把代码用三个撇点括起来。</li>
+<li>给出例子：给 AI 样例，让它依葫芦画瓢。</li>
+<li>给出开头方便 AI 进行补全：这也是利用 transformer 的特点，因为 transformer 的生成过程用了编码和解码的机制选择最高概率的文字输出。所以给出了开头，会很好的引导 AI 推算出后面的文字。</li>
+</ol>
+<p>这里还有我自己的一个小诀窍，你可以单独开一个聊天窗口，专门跟 AI 聊怎么写提示词，也可以把你写的提示词先给 AI 过一遍。就可以得到很棒的提示词了。</p>
+<p>下面我分享我自己写的一段提示词工程代码，因为这是用在一个英语学习工具里的代码，跟平时用聊天不一样，需要更加稳定的输出，而且格式也要固定，才能让后续的程序能够处理妥当。而且出于成本考虑，用的模型也比较便宜，就更需要提示词工程减少模型出错的几率。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image11.png" class="" title="图23">
+<p>第一段文字就是在给 AI 分配角色，并做出很细节的指导，我给一下第一段文字的翻译：<br>“您是一位英语专家，对词汇的复杂性有着深刻的理解。这包括单词用法和频率的知识。您可以分析单词列表，并找出那些对于熟悉一定数量最常见英语单词或词汇水平的非英语母语人士来说可能不熟悉或具有挑战性的单词。请记住，以英语为母语的人的平均词汇量为 15,000 个单词，但雅思考试成绩为 6 分的非英语母语者的平均词汇量为 5,000 个单词。考虑到给定的词汇水平，以 CSV 格式返回不熟悉的单词列表。如果您确实确定非英语母语人士知道所有单词，请返回：”none”。”<br>请注意我会先让 AI 知道它是一个英语专家，而且特别专长于词汇。然后还告诉它一些常见的英语评级下非母语的英语学习者和英语母语的人的词汇量情况。然后明确告诉它我需要CSV的返回格式。我几经测试，这样都还经常出先幻觉和格式错误。那么接下来我就连续给出了三个例子。<br>我格式化地给出一串英文单词，和用户的词汇量。然后例子里格式化地得到用户可能不认识的单词。这样下来效果非常漂亮。<br>这就是聊天机器人用上了提示词工程的应用方式。</p>
+<p>我自己归纳了从简单到复杂的一个应用路线：<br>1- APP、网页端的聊天机器人 → 2- 在其他应用中接入 API → 3- 使用自己搭建的 AI 工具 → 4- 自己搭建开源模型<br>我们刚才讲的就是第一个应用场景。<br>那么第二个应用场景就是在其他应用中接入 API，这里需要对 API 有个简单的解释，API 就是Application Programming Interface 的缩写，翻译过来是应用程序接口。 我们写一个应用程序想用上那些大厂的 AI，就需要调用 API，而我调用的 API 要输入我自己的密码，因为用他们的 API 通常是按量付费，费用要算在自己的账号上。<br>但我们也可以不用自己写程序，现在很多软件已经带有了输入 API 的功能了。感兴趣的可以到 DeepSeek 官网上，右上角就有 API 开放平台，申请一个 API 就可以用了。印象中应该一开始是有免费额度的，所以不妨试试。<br>使用自己搭建的 AI 工具又是一个更加复杂的使用场景了。但是又能有更高的自由度，完成更多的工作。这里介绍几款代表性工具。<strong>Dify</strong> 是一个可视化 AI 工作流平台，你可以建立多步骤的工作流，每一步写一个提示词，上一步的结果直接喂给下一步——非常适合非技术背景的人搭建自己的 AI 流程。我找了一个截图，大家就能大致明白我的意思。</p>
+<p>另一个更惊艳的方向是 <strong>AI 编程工具</strong>，以 <strong>Cursor</strong> 为代表，AI 深度融入代码编辑器，程序员只需用自然语言描述需求，AI 就能直接写出代码。这个领域有个新词叫 <strong>Vibe Coding</strong>——即”氛围编程”，描述的就是这种人机协作写代码的工作方式。2025-2026 年，AI 编程工具已经让”非程序员也能做软件”从梦想变成了现实。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image20.png" class="" title="图24">
+<p>所以，这个也不妨试试吧。<br>最后我认为普通用户，甚至普通公司能够用到的最高级的使用方法就是自己跑一个模型了。首先一个大语言模型要求不晓得硬盘空间，通常上百个 G。然后要不少的内存，我体会过起码要 8 个G 以上而且是关掉所有别的应用吧。最后也是最贵的，我们需要买不少的名贵显卡。普通电脑的显卡是跑不动大语言模型的。一买恐怕就 8 个 10 个。所以除非有明确的需求，好多公司都不会轻易投入自己的 AI 本地模型。<br>当然测试，或者单纯玩一玩，我们可以找蒸馏版本的模型，效果会比较接近被蒸馏的对象。为了达到更好的效果，那就又要请出我前面讲到的提示词工程。<br>除了 DeepSeek 的模型开源，著名的还算能用的开源模型有：Meta 公司的 LLaMA 3&#x2F;4、通义千问的部分模型、Mistral 7B 等。注意，Anthropic 的 Claude 是闭源商业产品，不在此列。<br>这些模型都可以到这个地方找，哎，这个我都有点舍不得分享的地方：</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image24.png" class="" title="图25">
+<p>叫做 hugging face，异形那个电影里的抱脸虫就叫 face hugger，完全跟这个公司萌萌哒 logo 联系不起来，外国人取名字很会开玩笑。这是个很年轻的公司，他们一开始就是自己在做 transformer 模型，或者做一些青少年的教学聊天机器人。后来他们自己做了一个 transformer 的搭建平台，叫做 transformers，仅仅加了个复数词缀”s”。所以他们真的很喜欢取奇怪的名字。<br>我们行业内一开始对他们有所了解，我自己偶尔也试用过他们的平台。他们是怎么出圈，为人所知的呢，主要就是靠 DeepSeek。DeepSeek 也将自己的模型开源在他们的平台上。<br>去他们的网页列表上前面第一名就是他们的 DeepSeek R1 模型。当然我刚刚也提过，一般的家用电脑很难拖的动一个大语言模型，那么我们就找蒸馏版本，看到名字里带有”Distill”的就是了。</p>
+<img src="/AI%E6%B5%AA%E6%BD%AE%E4%B8%AD%E6%98%AF%E5%90%A6FOMO%EF%BC%9F%E6%81%90%E6%85%8C%E7%84%A6%E8%99%91%EF%BC%9F%E5%B8%8C%E6%9C%9B%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E4%BD%A0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89/image26.png" class="" title="图26">
+<p>希望今天的分享能给大家带来一些启发。感谢大家的聆听！</p>
+<p><strong>我最后给出了一些术语集，争取这次讲座后大家都不会被网上乱七八糟的课程给忽悠到。掌握一些术语会比较有用。既是一个回顾也补充一下可能没讲到的点。</strong></p>
+<p><strong>一些术语 :</strong></p>
+<ul>
+<li><strong>对齐 Alignment：</strong><br>使人工智能系统的目标和行为与人类的价值观、意图和期望相一致的过程。OpenAI 联合创始人兼首席科学家 Ilya Sutskever 辞职，就是因为他不认同 OpenAI 不好好对齐就发布 ChatGPT 的做法。</li>
+<li><strong>微调 Fine Tune：</strong><br>在一个已经预训练好的模型（通常是在大规模数据集上训练）的基础上，使用特定任务的数据集继续训练模型，使其适应特定任务或领域。</li>
+<li><strong>幻觉 Hallucination：</strong><br>在生成式 AI 模型（尤其是大语言模型）中，指模型生成的内容与事实不符、无中生有、或与上下文矛盾的现象。</li>
+<li><strong>思维链 CoT：</strong><br>一种提示（Prompting）技术，通过引导语言模型逐步推理，给出中间推理步骤，而不是直接给出最终答案，从而提高模型在复杂推理任务上的性能。</li>
+<li><strong>涌现： （一本书叫涌现可以看看）</strong><br>在复杂系统中，当组成系统的各个部分相互作用时，整体上表现出单个部分所不具有的性质或行为。<br>在 AI 中的含义： 指当大语言模型的规模（参数量、训练数据量）达到一定程度时，模型会突然表现出一些在小模型中没有观察到的能力，如复杂推理、上下文学习、多语言能力等。</li>
+<li><strong>RAG 检索生成：</strong><br>一种结合了信息检索（Retrieval）和文本生成（Generation）的技术，旨在提高生成式 AI 模型（尤其是大语言模型）的准确性、可靠性和知识覆盖范围。</li>
+<li><strong>Token：</strong><br>在自然语言处理中，将文本序列切分成一个个独立单元的过程称为分词（Tokenization），而这些独立单元就称为 Token。</li>
+<li><strong>提示词 Prompt：</strong><br>输入给大语言模型的文本，用于引导模型生成期望的输出。</li>
+<li><strong>Context Window 上下文窗口：</strong><br>大语言模型在处理文本时能够考虑的最大的文本长度（通常以 token 数量表示）。<br>有时候会用一些摘要方法来增加上下文窗口的大小，比如：分块、递归、关键字搜索。</li>
+<li><strong>蒸馏：</strong><br>一种模型压缩技术，通过训练一个较小的模型（学生模型）来模仿一个较大的模型（教师模型）的行为，从而在保持一定性能的同时减少模型的规模和计算成本。</li>
+<li><strong>MoE (Mixture of Experts, 专家混合):</strong><br>一种特殊的神经网络结构，它将多个神经网络模块（称为”专家”）组合在一起，并使用一个门控网络（Gating Network）来决定在处理特定输入时应该激活哪些专家。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/%E7%A7%91%E6%8A%80/" rel="tag"># 科技</a>
+              <a href="/tags/%E7%A7%91%E6%99%AE/" rel="tag"># 科普</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84API%20Key%E8%B0%83%E7%94%A8Cline/" rel="prev" title="如何使用自己的API Key调用Cline（BYOK实战指南）">
+                  <i class="fa fa-angle-left"></i> 如何使用自己的API Key调用Cline（BYOK实战指南）
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hawken</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
