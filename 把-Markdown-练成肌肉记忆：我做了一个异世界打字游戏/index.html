@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/hawken.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hawken.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hawken.png">
+  <link rel="mask-icon" href="/images/hawken.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hawken-im.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default","show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="⏳ 约3分钟 · 945汉字+32词   前段时间我写了一篇《Markdown 格式自主：AI 时代最值得学会的一件事（之二）》，没想到我这个毫无流量的小公众号居然能有几十个转发。 那确实说明了一个事实就是 Markdown 的好处大家多少都能意识到了。是的，Markdown 已经不是程序员才需要掌握的神秘玩意了。从笔记软件 Notion、Obsidian，到办公协作的飞书、钉钉，再到你每天都在对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 Markdown 练成肌肉记忆：我做了一个“异世界”打字游戏">
+<meta property="og:url" content="https://hawken-im.github.io/%E6%8A%8A-Markdown-%E7%BB%83%E6%88%90%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%EF%BC%9A%E6%88%91%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%BC%82%E4%B8%96%E7%95%8C%E6%89%93%E5%AD%97%E6%B8%B8%E6%88%8F/index.html">
+<meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="⏳ 约3分钟 · 945汉字+32词   前段时间我写了一篇《Markdown 格式自主：AI 时代最值得学会的一件事（之二）》，没想到我这个毫无流量的小公众号居然能有几十个转发。 那确实说明了一个事实就是 Markdown 的好处大家多少都能意识到了。是的，Markdown 已经不是程序员才需要掌握的神秘玩意了。从笔记软件 Notion、Obsidian，到办公协作的飞书、钉钉，再到你每天都在对">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hawken-im.github.io/%E6%8A%8A-Markdown-%E7%BB%83%E6%88%90%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%EF%BC%9A%E6%88%91%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%BC%82%E4%B8%96%E7%95%8C%E6%89%93%E5%AD%97%E6%B8%B8%E6%88%8F/banner.svg">
+<meta property="article:published_time" content="2026-04-30T19:08:00.000Z">
+<meta property="article:modified_time" content="2026-04-30T19:22:43.096Z">
+<meta property="article:author" content="Hawken">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="效率">
+<meta property="article:tag" content="游戏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hawken-im.github.io/%E6%8A%8A-Markdown-%E7%BB%83%E6%88%90%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%EF%BC%9A%E6%88%91%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%BC%82%E4%B8%96%E7%95%8C%E6%89%93%E5%AD%97%E6%B8%B8%E6%88%8F/banner.svg">
+
+
+<link rel="canonical" href="https://hawken-im.github.io/%E6%8A%8A-Markdown-%E7%BB%83%E6%88%90%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%EF%BC%9A%E6%88%91%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%BC%82%E4%B8%96%E7%95%8C%E6%89%93%E5%AD%97%E6%B8%B8%E6%88%8F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hawken-im.github.io/%E6%8A%8A-Markdown-%E7%BB%83%E6%88%90%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%EF%BC%9A%E6%88%91%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%BC%82%E4%B8%96%E7%95%8C%E6%89%93%E5%AD%97%E6%B8%B8%E6%88%8F/","path":"把-Markdown-练成肌肉记忆：我做了一个异世界打字游戏/","title":"把 Markdown 练成肌肉记忆：我做了一个“异世界”打字游戏"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>把 Markdown 练成肌肉记忆：我做了一个“异世界”打字游戏 | Hawken.im</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HR8HYBMQ1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3HR8HYBMQ1');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4142358445708823"
+     crossorigin="anonymous"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hawken.im</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-ai"><a href="/tags/AI/" rel="section"><i class="fas fa-robot fa-fw"></i>AI</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-xter"><a href="https://x.com/pluto_warrior_1/" rel="section" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>Xter</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-ai+.you"><a href="https://aijia.you/" rel="section" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a></li><li class="menu-item menu-item-ai加点油"><a href="/about/" rel="section"><i class="fab fa-weixin fa-fw"></i>AI加点油</a></li><li class="menu-item menu-item-play.hawken.im"><a href="https://play.hawken.im/" rel="section" target="_blank"><i class="fas fa-gamepad fa-fw"></i>play.hawken.im</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%EF%BC%9AMarkdown-%E5%A4%A7%E5%86%92%E9%99%A9"><span class="nav-number">1.</span> <span class="nav-text">欢迎来到：Markdown 大冒险</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8B%E7%9C%8B%E5%A4%A7%E5%AE%B6%E7%9A%84%E6%88%98%E7%BB%A9"><span class="nav-number">2.</span> <span class="nav-text">看看大家的战绩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%9C%B0%E5%9D%80"><span class="nav-number">3.</span> <span class="nav-text">访问地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95%EF%BC%9AMarkdown-%E5%B8%B8%E7%94%A8%E6%B3%95%E6%9C%AF%E9%80%9F%E6%9F%A5%E8%A1%A8-Cheat-Sheet"><span class="nav-number">4.</span> <span class="nav-text">附录：Markdown 常用法术速查表 (Cheat Sheet)</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hawken</p>
+  <div class="site-description" itemprop="description">Hawken的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hawken-im" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hawken-im" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://aijia.you/" title="AI+.you → https:&#x2F;&#x2F;aijia.you" rel="noopener me" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/about/" title="AI加点油 → &#x2F;about&#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>AI加点油</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E6%8A%8A-Markdown-%E7%BB%83%E6%88%90%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%EF%BC%9A%E6%88%91%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%BC%82%E4%B8%96%E7%95%8C%E6%89%93%E5%AD%97%E6%B8%B8%E6%88%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="把 Markdown 练成肌肉记忆：我做了一个“异世界”打字游戏 | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          把 Markdown 练成肌肉记忆：我做了一个“异世界”打字游戏
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-04-30 13:08:00 / 修改时间：13:22:43" itemprop="dateCreated datePublished" datetime="2026-04-30T13:08:00-06:00">2026-04-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约3分钟 · 945汉字+32词</div>
+
+
+<p>前段时间我写了一篇<a target="_blank" rel="noopener" href="https://hawken.im/Markdown-%E6%A0%BC%E5%BC%8F%E4%B8%BB%E6%9D%83%EF%BC%9AAI-%E6%97%B6%E4%BB%A3%E6%9C%80%E5%80%BC%E5%BE%97%E5%AD%A6%E4%BC%9A%E7%9A%84%E4%B8%80%E4%BB%B6%E4%BA%8B%EF%BC%88%E4%B9%8B%E4%BA%8C%EF%BC%89/">《Markdown 格式自主：AI 时代最值得学会的一件事（之二）》</a>，没想到我这个毫无流量的小公众号居然能有几十个转发。</p>
+<p>那确实说明了一个事实就是 Markdown 的好处大家多少都能意识到了。<br>是的，Markdown 已经不是程序员才需要掌握的神秘玩意了。从笔记软件 Notion、Obsidian，到办公协作的飞书、钉钉，再到你每天都在对话的 ChatGPT 和 豆包，Markdown 早就成了这些主流工具的“通用语言”。它不再是程序员的专利，而是每一个追求效率的现代人的标配。</p>
+<p>但随之而来的另一个痛点也特别真实：<strong>“道理我都懂，但打起来真的慢。”</strong></p>
+<p>对于习惯了 Word 或者富文本编辑器的朋友来说，每次想加个粗、分个段，都要停下来想一下：加粗是两个星号还是一个？标题要加几个井号？这种“思维断层”极大地破坏了写作和调教 AI 的心流。</p>
+<p><strong>当然，你真的熟练了要什么就直接在键盘上敲出来，而不是到 Word 的菜单栏里面去翻找之后，效率真的会大大提升。</strong></p>
+<p>为了帮大家把 Markdown 真正练成“肌肉记忆”，我决定把枯燥的符号练习，变成一场<strong>异世界冒险</strong>。</p>
+<hr>
+<h2 id="欢迎来到：Markdown-大冒险"><a href="#欢迎来到：Markdown-大冒险" class="headerlink" title="欢迎来到：Markdown 大冒险"></a>欢迎来到：Markdown 大冒险</h2><p>为了帮大家快速上手，我利用 AI 辅助，花了一个晚上撸出了这个网页小游戏：<strong>Markdown 大冒险 (Markdown Typing)</strong>。</p>
+<img src="/%E6%8A%8A-Markdown-%E7%BB%83%E6%88%90%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%EF%BC%9A%E6%88%91%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%BC%82%E4%B8%96%E7%95%8C%E6%89%93%E5%AD%97%E6%B8%B8%E6%88%8F/banner.svg" class="" title="游戏封面">
+
+<p>这个游戏其实非常简单、基础。我自己试了一下，通关时间也就 <strong>10 分钟左右</strong>。这也正说明了 Markdown 本身就是一种极其简单的工具，完全没有什么神秘感，只要稍微练习一下就能掌握。</p>
+<p>游戏虽然简单，但该有的练习都涵盖了：</p>
+<ul>
+<li><strong>第一章：基础练习</strong>。练习最常用的 <code>#</code> 标题、<code>**</code> 加粗、<code>- [ ]</code> 任务列表等。</li>
+<li><strong>第二章：进阶练习</strong>。涉及链接、代码块以及稍微复杂一点的表格。</li>
+</ul>
+<p>为了让练习不那么枯燥，我给它套了一个“异世界冒险”的小壳子，配了一些简单的像素风场景。你每打对一个符号，右侧的预览区就会实时渲染出效果，让你直观地看到 Markdown 是如何工作的。</p>
+<hr>
+<h2 id="看看大家的战绩"><a href="#看看大家的战绩" class="headerlink" title="看看大家的战绩"></a>看看大家的战绩</h2><p>在游戏首页，我接入了一个实时看板。你可以看到目前有多少人开始了这场冒险，又有多少人最终成为了“Markdown 大师”。</p>
+<hr>
+<h2 id="访问地址"><a href="#访问地址" class="headerlink" title="访问地址"></a>访问地址</h2><p>游戏已经上线我的 Playground，完全免费，无需注册：</p>
+<p>👉 <strong><a target="_blank" rel="noopener" href="https://play.hawken.im/markdown-typing/">play.hawken.im&#x2F;markdown-typing&#x2F;</a></strong></p>
+<p><em>建议使用电脑实体键盘访问，并切换到英文输入法，那是法术生效的唯一途径。</em></p>
+<hr>
+<p>其实，Markdown 已经渗透到了我们数字生活的方方面面。无论是在飞书里写文档，在 Notion 里做知识库，还是在 GitHub 上发评论，甚至是用各种插件给微信公众号排版，这套简单的语法都是通用的。学会了它，你就拥有了一把通往所有主流生产力工具的万能钥匙。</p>
+<hr>
+<h2 id="附录：Markdown-常用法术速查表-Cheat-Sheet"><a href="#附录：Markdown-常用法术速查表-Cheat-Sheet" class="headerlink" title="附录：Markdown 常用法术速查表 (Cheat Sheet)"></a>附录：Markdown 常用法术速查表 (Cheat Sheet)</h2><p>如果你在冒险中卡住了，或者日常写作需要参考，可以保存这张表：</p>
+<table>
+<thead>
+<tr>
+<th align="left">效果</th>
+<th align="left">语法</th>
+<th align="left">秘籍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>一级标题</strong></td>
+<td align="left"><code># 标题内容</code></td>
+<td align="left">井号后记得加空格</td>
+</tr>
+<tr>
+<td align="left"><strong>二级标题</strong></td>
+<td align="left"><code>## 标题内容</code></td>
+<td align="left">井号越多，字号越小</td>
+</tr>
+<tr>
+<td align="left"><strong>加粗</strong></td>
+<td align="left"><code>**文字**</code></td>
+<td align="left">左右各两个星号</td>
+</tr>
+<tr>
+<td align="left"><strong>斜体</strong></td>
+<td align="left"><code>*文字*</code></td>
+<td align="left">左右各一个星号</td>
+</tr>
+<tr>
+<td align="left"><strong>无序列表</strong></td>
+<td align="left"><code>- 项目</code></td>
+<td align="left">减号&#x2F;星号 + 空格</td>
+</tr>
+<tr>
+<td align="left"><strong>任务列表</strong></td>
+<td align="left"><code>- [ ] 待办</code></td>
+<td align="left">中括号内空格是未完成，<code>x</code> 是完成</td>
+</tr>
+<tr>
+<td align="left"><strong>链接</strong></td>
+<td align="left"><code>[文字](链接)</code></td>
+<td align="left">括号不要用错</td>
+</tr>
+<tr>
+<td align="left"><strong>代码块</strong></td>
+<td align="left"><code>```代码 ```</code></td>
+<td align="left">三个反引号包裹</td>
+</tr>
+<tr>
+<td align="left"><strong>引用</strong></td>
+<td align="left"><code>&gt; 引用内容</code></td>
+<td align="left">像箭头一样指向右边</td>
+</tr>
+<tr>
+<td align="left"><strong>高亮</strong></td>
+<td align="left"><code>==文字==</code></td>
+<td align="left">两个等号（部分编辑器支持）</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+              <a href="/tags/%E6%95%88%E7%8E%87/" rel="tag"># 效率</a>
+              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E4%B8%87%E5%AD%97AI%E7%AE%80%E5%8F%B2%EF%BC%9A%E4%BB%8E%E5%9B%BE%E7%81%B5%E5%88%B0%E8%8A%AF%E7%89%87%E6%88%98%E4%BA%89/" rel="prev" title="万字AI简史：从图灵到芯片战争">
+                  <i class="fa fa-angle-left"></i> 万字AI简史：从图灵到芯片战争
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hawken</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

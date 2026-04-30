@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200" shape-rendering="crispEdges">
+  <defs>
+    <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f5e6b3" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f5e6b3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="castleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0c040" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#f0c040" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="portalGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Night sky -->
+  <rect width="900" height="200" fill="#0c1824"/>
+
+  <!-- Stars -->
+  <g fill="#ffffff">
+    <rect x="18"  y="8"  width="2" height="2" opacity="0.9"/>
+    <rect x="55"  y="4"  width="2" height="2" opacity="0.7"/>
+    <rect x="92"  y="16" width="3" height="3" opacity="0.8"/>
+    <rect x="138" y="6"  width="2" height="2" opacity="0.6"/>
+    <rect x="180" y="20" width="2" height="2" opacity="0.9"/>
+    <rect x="225" y="10" width="2" height="2" opacity="0.7"/>
+    <rect x="265" y="3"  width="3" height="3" opacity="0.8"/>
+    <rect x="310" y="14" width="2" height="2" opacity="0.6"/>
+    <rect x="352" y="7"  width="2" height="2" opacity="0.9"/>
+    <rect x="395" y="18" width="2" height="2" opacity="0.7"/>
+    <rect x="438" y="5"  width="2" height="2" opacity="0.8"/>
+    <rect x="478" y="13" width="3" height="3" opacity="0.6"/>
+    <rect x="524" y="8"  width="2" height="2" opacity="0.9"/>
+    <rect x="565" y="3"  width="2" height="2" opacity="0.7"/>
+    <rect x="608" y="17" width="2" height="2" opacity="0.8"/>
+    <rect x="650" y="9"  width="2" height="2" opacity="0.6"/>
+    <rect x="695" y="5"  width="3" height="3" opacity="0.9"/>
+    <rect x="740" y="14" width="2" height="2" opacity="0.7"/>
+    <rect x="782" y="7"  width="2" height="2" opacity="0.8"/>
+    <rect x="828" y="19" width="2" height="2" opacity="0.6"/>
+    <rect x="870" y="11" width="2" height="2" opacity="0.9"/>
+    <!-- Dim secondary stars -->
+    <rect x="38"  y="30" width="2" height="2" opacity="0.4"/>
+    <rect x="112" y="38" width="2" height="2" opacity="0.5"/>
+    <rect x="195" y="32" width="2" height="2" opacity="0.4"/>
+    <rect x="280" y="42" width="2" height="2" opacity="0.5"/>
+    <rect x="360" y="28" width="2" height="2" opacity="0.4"/>
+    <rect x="450" y="36" width="2" height="2" opacity="0.5"/>
+    <rect x="540" y="30" width="2" height="2" opacity="0.4"/>
+    <rect x="630" y="44" width="2" height="2" opacity="0.5"/>
+    <rect x="715" y="32" width="2" height="2" opacity="0.4"/>
+    <rect x="800" y="38" width="2" height="2" opacity="0.5"/>
+    <rect x="855" y="26" width="2" height="2" opacity="0.4"/>
+    <!-- Shooting star -->
+    <rect x="160" y="24" width="3" height="1" opacity="0.6"/>
+    <rect x="163" y="25" width="6" height="1" opacity="0.4"/>
+    <rect x="169" y="26" width="9" height="1" opacity="0.2"/>
+  </g>
+
+  <!-- Moon glow -->
+  <circle cx="790" cy="42" r="50" fill="url(#moonGlow)"/>
+  <!-- Moon crescent -->
+  <circle cx="790" cy="42" r="28" fill="#f0dfa0"/>
+  <circle cx="806" cy="34" r="22" fill="#0c1824"/>
+
+  <!-- Far mountains layer 1 (darkest) -->
+  <g fill="#0e1e38">
+    <polygon points="0,130 70,50  140,130"/>
+    <polygon points="100,130 195,35 290,130"/>
+    <polygon points="230,130 345,25 460,130"/>
+    <polygon points="380,130 490,40 600,130"/>
+    <polygon points="520,130 630,50 740,130"/>
+    <polygon points="660,130 760,45 860,130"/>
+    <polygon points="800,130 880,60 900,130"/>
+    <polygon points="0,130  0,80  50,130"/>
+  </g>
+
+  <!-- Castle (on tallest peak at ~x=345) -->
+  <g fill="#08101e">
+    <!-- Main keep -->
+    <rect x="330" y="44"  width="30" height="46"/>
+    <!-- Battlements main -->
+    <rect x="328" y="38"  width="7"  height="9"/>
+    <rect x="337" y="38"  width="7"  height="9"/>
+    <rect x="346" y="38"  width="7"  height="9"/>
+    <rect x="355" y="38"  width="7"  height="9"/>
+    <!-- Left tower -->
+    <rect x="310" y="54"  width="20" height="36"/>
+    <rect x="308" y="48"  width="5"  height="8"/>
+    <rect x="314" y="48"  width="5"  height="8"/>
+    <rect x="320" y="48"  width="5"  height="8"/>
+    <!-- Right tower -->
+    <rect x="360" y="56"  width="20" height="34"/>
+    <rect x="358" y="50"  width="5"  height="8"/>
+    <rect x="364" y="50"  width="5"  height="8"/>
+    <rect x="370" y="50"  width="5"  height="8"/>
+    <!-- Connecting wall -->
+    <rect x="310" y="75"  width="70" height="8"/>
+    <!-- Windows (glowing amber) -->
+    <rect x="340" y="56"  width="8"  height="10" fill="#f0c040" opacity="0.9"/>
+    <rect x="315" y="62"  width="6"  height="8"  fill="#f0883e" opacity="0.7"/>
+    <rect x="366" y="64"  width="6"  height="8"  fill="#f0883e" opacity="0.7"/>
+    <!-- Flag pole + flag -->
+    <rect x="343" y="30"  width="2"  height="14" fill="#aaaaaa"/>
+    <polygon points="345,30 358,35 345,40" fill="#f85149"/>
+  </g>
+  <!-- Castle ambient glow -->
+  <ellipse cx="345" cy="70" rx="50" ry="30" fill="url(#castleGlow)"/>
+
+  <!-- Mid mountains layer 2 -->
+  <g fill="#142030">
+    <polygon points="0,150  40,105 100,150"/>
+    <polygon points="60,150 140,90  220,150"/>
+    <polygon points="165,150 265,82  365,150"/>
+    <polygon points="295,150 395,95  495,150"/>
+    <polygon points="420,150 520,88  620,150"/>
+    <polygon points="550,150 645,98  740,150"/>
+    <polygon points="680,150 770,105 860,150"/>
+    <polygon points="820,150 900,110 900,150"/>
+    <polygon points="0,150   0,120  40,150"/>
+  </g>
+
+  <!-- Near hills layer 3 -->
+  <g fill="#162818">
+    <polygon points="0,200   60,148 150,200"/>
+    <polygon points="80,200 200,140 330,200"/>
+    <polygon points="250,200 380,145 510,200"/>
+    <polygon points="420,200 540,142 660,200"/>
+    <polygon points="590,200 710,150 840,200"/>
+    <polygon points="760,200 880,155 900,200"/>
+    <polygon points="0,200   0,165  60,200"/>
+  </g>
+
+  <!-- Left pine forest -->
+  <!-- Tall tree L1 -->
+  <polygon points="52,200  30,148  74,148" fill="#1c3f0e"/>
+  <polygon points="52,170  28,132  76,132" fill="#235214"/>
+  <polygon points="52,150  30,110  74,110" fill="#2a641a"/>
+  <polygon points="52,128  32,92   72,92"  fill="#317820"/>
+  <rect x="47" y="190" width="10" height="10" fill="#4a2a0a"/>
+  <!-- Tree L2 -->
+  <polygon points="95,200  76,158 114,158" fill="#182f0a"/>
+  <polygon points="95,174  74,138 116,138" fill="#1e3e10"/>
+  <polygon points="95,152  76,116 114,116" fill="#255016"/>
+  <rect x="91" y="192" width="8"  height="8"  fill="#3d2008"/>
+  <!-- Tree L3 small -->
+  <polygon points="128,200 114,165 142,165" fill="#142508"/>
+  <polygon points="128,176 112,148 144,148" fill="#1a320c"/>
+  <rect x="125" y="194" width="6"  height="6"  fill="#33180a"/>
+  <!-- Tree L4 tiny -->
+  <polygon points="18,200  8,172   28,172"  fill="#0f1e08"/>
+  <polygon points="18,182  6,156   30,156"  fill="#152808"/>
+  <rect x="15"  y="194" width="6"  height="6"  fill="#2a1408"/>
+
+  <!-- Right pine forest -->
+  <!-- Tall tree R1 -->
+  <polygon points="848,200 826,148 870,148" fill="#1c3f0e"/>
+  <polygon points="848,170 824,132 872,132" fill="#235214"/>
+  <polygon points="848,150 826,110 870,110" fill="#2a641a"/>
+  <polygon points="848,128 828,92  868,92"  fill="#317820"/>
+  <rect x="843" y="190" width="10" height="10" fill="#4a2a0a"/>
+  <!-- Tree R2 -->
+  <polygon points="805,200 786,158 824,158" fill="#182f0a"/>
+  <polygon points="805,174 784,138 826,138" fill="#1e3e10"/>
+  <polygon points="805,152 786,116 824,116" fill="#255016"/>
+  <rect x="801" y="192" width="8"  height="8"  fill="#3d2008"/>
+  <!-- Tree R3 small -->
+  <polygon points="772,200 758,165 786,165" fill="#142508"/>
+  <polygon points="772,176 756,148 788,148" fill="#1a320c"/>
+  <rect x="769" y="194" width="6"  height="6"  fill="#33180a"/>
+  <!-- Tree R4 tiny -->
+  <polygon points="882,200 872,172 892,172" fill="#0f1e08"/>
+  <polygon points="882,182 870,156 894,156" fill="#152808"/>
+  <rect x="879" y="194" width="6"  height="6"  fill="#2a1408"/>
+
+  <!-- Portal / magic gate (center-foreground, subtle) -->
+  <ellipse cx="450" cy="170" rx="22" ry="28" fill="url(#portalGlow)"/>
+  <ellipse cx="450" cy="170" rx="18" ry="24" fill="none" stroke="#58a6ff" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="450" cy="170" rx="12" ry="16" fill="none" stroke="#79c0ff" stroke-width="1" opacity="0.4"/>
+  <rect x="448" y="190" width="4" height="10" fill="#1a2a40"/>
+
+  <!-- Fireflies -->
+  <g fill="#3fb950" opacity="0.8">
+    <rect x="160" y="160" width="3" height="3"/>
+    <rect x="240" y="155" width="2" height="2"/>
+    <rect x="620" y="162" width="3" height="3"/>
+    <rect x="700" y="156" width="2" height="2"/>
+  </g>
+  <g fill="#58a6ff" opacity="0.7">
+    <rect x="190" y="168" width="2" height="2"/>
+    <rect x="550" y="160" width="2" height="2"/>
+    <rect x="660" y="170" width="2" height="2"/>
+  </g>
+
+  <!-- Ground strip -->
+  <rect y="194" width="900" height="6" fill="#0f1e08"/>
+</svg>
