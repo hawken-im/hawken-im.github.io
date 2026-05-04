@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -158,7 +158,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,207 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E7%9C%8B%E5%90%A7%EF%BC%8C%E7%AD%89%E7%AD%89%E5%85%9A%E5%8F%88%E8%B5%A2%E4%BA%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E7%9C%8B%E5%90%A7%EF%BC%8C%E7%AD%89%E7%AD%89%E5%85%9A%E5%8F%88%E8%B5%A2%E4%BA%86/" class="post-title-link" itemprop="url">看吧，等等党又赢了</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-04 12:00:42 / 修改时间：12:50:33" itemprop="dateCreated datePublished" datetime="2026-05-04T12:00:42-06:00">2026-05-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约5分钟 · 2019汉字+125词</div>
+
+
+<p>其实 Hermes 出来已经好多天了。我一直在观望，自己也在配、在用，故意没有急着发文章——因为上次被小龙虾搞了个焦虑，这次我想确认自己真的觉得好用，再开口。</p>
+<p>现在我觉得可以说了。</p>
+<hr>
+<h2 id="我早说过了吧（得意脸）"><a href="#我早说过了吧（得意脸）" class="headerlink" title="我早说过了吧（得意脸）"></a>我早说过了吧（得意脸）</h2><p>几个月前，我写过一篇文章：<a href="/2026/%E5%B0%8F%E9%BE%99%E8%99%BE-OpenClaw-%E8%AF%95%E5%90%83%E8%AE%B0%E5%BD%95-%E4%BB%A5%E5%8F%8A%E6%84%9F%E6%83%B3/">小龙虾(OpenClaw)试吃记录，以及感想</a>。当时的结论是——<strong>等等党永远胜利</strong>。</p>
+<p>我替你们亲自踩过了：服务器被吃垮三次，本地安装花了一个下午，配好之后发现能干的事情 Gemini 和 Claude 早就在帮我做了。最后我写道：</p>
+<blockquote>
+<p>“小龙虾还有很长的路要走：安装门槛太高、资源消耗太大、启动太慢、实际能解决的问题和现有工具高度重叠。”</p>
+</blockquote>
+<p>但我当时也说了，小龙虾是<strong>过渡性产品</strong>。这类东西的逻辑历来如此：先有一批先行者跑出来验证需求、暴露痛点，然后才会有真正成熟的东西接上来。小龙虾帮整个行业试出来了”AI Agent 需要什么”——需要持久记忆、需要轻量部署、需要和你现有的工作流咬合——这个价值是真实的。只是那个答案，不是它自己。</p>
+<p>我们等下一个，现在：</p>
+<p><strong>Hermes</strong> 来了。</p>
+<hr>
+<p>我看了不少对比文章，好多没有提一个我们用户最关心的问题：<strong>token 消耗多少？上下文会不会爆？</strong></p>
+<p>这两件事直接关系到钱包和体验，但评测文章普遍喜欢聊功能，不聊账单。</p>
+<p>Hermes 在这两点上的设计，我觉得值得单独说一下。</p>
+<p><strong>token 消耗</strong>：Hermes 解决过的复杂问题，会被固化成 Skill 文档。下次遇到同类任务，直接调 Skill，不需要重新把整段背景推导一遍——节省的是几倍到几十倍的 token。而且 Hermes 从 Vault 里取记忆用的是语义检索，不是全库塞进上下文，每次只拿相关的片段。</p>
+<p><strong>上下文长度</strong>：正因为检索精准，上下文天然短。上下文短带来的副作用是：模型更难”脑补”——也就是幻觉更少。这不是玄学，是 RAG 领域的基本共识：给模型喂干净的短上下文，比喂一大堆噪声然后祈祷它不出错，靠谱得多。</p>
+<p><strong>省钱和准确，这次是同一件事。</strong></p>
+<hr>
+<h2 id="Hermes-是什么"><a href="#Hermes-是什么" class="headerlink" title="Hermes 是什么"></a>Hermes 是什么</h2><p><a target="_blank" rel="noopener" href="https://github.com/nousresearch/hermes-agent">Hermes Agent</a>（NousResearch 出品，GitHub 40,000+ Stars）是一个开源的、会自我成长的 AI Agent。</p>
+<p>它的定位和小龙虾有一个根本性的不同：</p>
+<ul>
+<li>小龙虾是<strong>网关中心</strong>（gateway-centric）：接入一堆服务、帮你路由指令。它也有记忆系统，但记什么、调什么，得靠 Agent 自己判断和触发——更像是一个<strong>被动存档</strong>，不是主动带入。</li>
+<li>Hermes 是<strong>运行时中心</strong>（runtime-centric）：它<strong>记住你</strong>。上周它帮你解决过一个复杂问题，它会把方法固化成一份 Skill 文档存起来。下周你再遇到类似的事，一句话，它直接调出来用。而且每次对话只精准检索相关片段、复用压缩过的 Skill——上下文更短、信噪比更高，<strong>省 token 的同时，幻觉也更少</strong>。</li>
+</ul>
+<p>而且它是模型无关的——你可以接 OpenAI、OpenRouter，也可以跑本地模型，不绑死任何一家。</p>
+<hr>
+<h2 id="Hermes-Obsidian，怎么配"><a href="#Hermes-Obsidian，怎么配" class="headerlink" title="Hermes + Obsidian，怎么配"></a>Hermes + Obsidian，怎么配</h2><p>目前社区里最热门的组合是 <strong>Hermes + Obsidian</strong>，有人还会加上 <strong>OMI</strong> 做全天上下文捕获，但那个我觉得是进阶玩法，先说核心两件套。</p>
+<p>逻辑很简单：</p>
+<p><strong>Obsidian 存记忆，Hermes 用记忆。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的笔记 / 日常记录 → Obsidian Vault（本地）→ Hermes 读取 → 对话时自动带入上下文</span><br></pre></td></tr></table></figure>
+
+<p>你不需要每次打开对话都跟 AI 自我介绍一遍，也不需要把上下文手动复制粘贴进去。Hermes 启动时会读你的 Vault，它知道你在做什么、你的偏好是什么、上次讨论到哪里了。</p>
+<p><strong>对我来说这个组合天然咬合</strong>——我本来就在用 Obsidian 做笔记，那些笔记不需要做任何额外处理，直接就变成了 Hermes 的”长期记忆库”。零迁移成本。</p>
+<p>基本搭建步骤：</p>
+<ol>
+<li>从 GitHub 安装 Hermes（一行命令，Linux&#x2F;macOS&#x2F;WSL2 均可）</li>
+<li>终端启动，<code>hermes setup</code> 引导配置</li>
+<li>把 Obsidian Vault 路径接入作为记忆源</li>
+<li>开始用</li>
+</ol>
+<h3 id="API-Key-从哪来？"><a href="#API-Key-从哪来？" class="headerlink" title="API Key 从哪来？"></a>API Key 从哪来？</h3><p><code>hermes setup</code> 过程中会要求填入一个大模型的 API。Hermes 支持任何 OpenAI 兼容格式的 API，不绑死哪一家。</p>
+<p>如果你在国内，直连 OpenAI 或者 Gemini 会有各种门槛。我自己用的是 <a target="_blank" rel="noopener" href="https://aijia.you/">AI加点油（aijia.you）</a>——这是我自己做的一个 AI API 聚合平台，把 Qwen、Kimi、DeepSeek、Gemini 等主流模型集中在一个 API key 下统一调用，接口格式 OpenAI 兼容，直接填进 Hermes 就能用。</p>
+<p>注册后在账户页面生成 API Key，然后在 <code>hermes setup</code> 里填入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">API Base URL：https://aijia.you/v1</span><br><span class="line">API Key：你的 aijia.you key</span><br><span class="line">Model：Qwen3.5-Plus（日常首选，性价比高）</span><br></pre></td></tr></table></figure>
+
+<p>新注册用户有免费额度，试一试足够了。如果预算有限，用 <code>Qwen-Flash</code> 或 <code>DeepSeek-V4-Flash</code> 跑 Hermes 的日常记忆调用，价格非常低——顺便说一句，AI加点油最近刚上了 DeepSeek V4 和 Gemini 3 Flash，感兴趣的可以看我上一篇：<a href="/2026/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/">Flash 时代降临：DeepSeek V4 与 Gemini 3 Flash 联手，打造 Cline 的极致能效比</a>。</p>
+<hr>
+<p>如果你之前用过小龙虾，<code>hermes setup</code> 会自动检测 <code>~/.openclaw</code>，提供一键迁移——配置、记忆、API key 全部带过来。</p>
+<hr>
+<h2 id="好在哪里"><a href="#好在哪里" class="headerlink" title="好在哪里"></a>好在哪里</h2><p><strong>1. AI 终于有了长期记忆</strong></p>
+<p>这是最核心的。以前每次开新对话，AI 都是失忆状态，你要把背景重新铺一遍。Hermes + Obsidian 解决了这个问题：你的偏好、你的项目背景、你上次得出的结论，它都记得。</p>
+<p><strong>2. Skills 自动积累，越用越聪明</strong></p>
+<p>它解决过的复杂工作流，会被固化成 Skill 文档存在 Vault。几周之后，一个原来需要你写长 prompt 才能触发的操作，变成一句话指令。这是真正意义上的”随时间增值”。</p>
+<p><strong>3. 本地存储，数据自己拿着</strong></p>
+<p>所有记忆在你的 Obsidian Vault 里，不上云。可以检视、可以编辑、可以删除。这一点对我来说很重要。</p>
+<p><strong>4. 跨平台连续作战</strong></p>
+<p>CLI 开始一个任务，手机 Telegram 收通知，Discord 继续跟进——不断线，不丢上下文。</p>
+<p><strong>5. 更省 token，更少幻觉</strong></p>
+<p>Skills 把复杂推理的结果压缩成可复用的文档，下次直接调取而非重新推导，省的是几倍到几十倍的 token。精准语义检索只把相关片段塞进上下文，没有噪声——上下文越短、越干净，模型越难”脑补”出不存在的东西。省钱和准确，这次是同一件事。</p>
+<hr>
+<h2 id="和小龙虾对比"><a href="#和小龙虾对比" class="headerlink" title="和小龙虾对比"></a>和小龙虾对比</h2><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>OpenClaw（小龙虾）</strong></th>
+<th><strong>Hermes + Obsidian</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设计哲学</td>
+<td>网关中心：接入多服务</td>
+<td>运行时中心：记忆+技能积累</td>
+</tr>
+<tr>
+<td>安装难度</td>
+<td>高（编译 + 依赖 + 配置一下午）</td>
+<td>低（一行命令，自动迁移 OpenClaw 配置）</td>
+</tr>
+<tr>
+<td>资源消耗</td>
+<td>重（我实测吃垮服务器）</td>
+<td>轻量，本地友好</td>
+</tr>
+<tr>
+<td>启动速度</td>
+<td>慢（&gt;10 秒）</td>
+<td>快</td>
+</tr>
+<tr>
+<td>持久记忆</td>
+<td>有，但依赖 Agent 主动保存，旧内容需手动搜索触发</td>
+<td>自动全量读取 Vault，Skills 自动检索，无需手动干预</td>
+</tr>
+<tr>
+<td>技能积累</td>
+<td>无</td>
+<td>自动生成 Skill 文档，越用越强</td>
+</tr>
+<tr>
+<td>数据存储</td>
+<td>依赖第三方配置</td>
+<td>本地 Vault，完全掌控</td>
+</tr>
+<tr>
+<td>Token 消耗</td>
+<td>无 Skill 压缩，每次推导成本完整支付</td>
+<td>Skill 复用大幅压缩，精准检索减少噪声</td>
+</tr>
+<tr>
+<td>幻觉风险</td>
+<td>上下文质量依赖用户手动管理</td>
+<td>短上下文、高信噪比，幻觉概率更低</td>
+</tr>
+<tr>
+<td>适合人群</td>
+<td>技术玩家，喜欢折腾服务连接</td>
+<td>笔记重度用户，想要 AI 真正记住你的人</td>
+</tr>
+</tbody></table>
+<p>一句话总结：小龙虾是”AI 接线员”，Hermes 是”AI 长期搭档”。</p>
+<hr>
+<h2 id="最后说两句"><a href="#最后说两句" class="headerlink" title="最后说两句"></a>最后说两句</h2><p>折腾文具这件事，我折腾够了。</p>
+<p>一个工具如果需要我反复调教才能勉强跑起来，它就不配占用我的时间。我之前说，在我已有 MCP 和 Skill 的工作流基础上：</p>
+<blockquote>
+<p>“小龙虾能帮我做什么？所以就真的安排不下你的工位啊亲！”</p>
+</blockquote>
+<p>Hermes 换了个思路——它没有挤进来抢别人的工位，而且它一看设计的产品生命周期就长。开源、模型无关、和 Obsidian 这种已经成熟的生态深度咬合，这套底层逻辑不会因为某个模型降价或某个竞品冒出来就垮掉。</p>
+<p>至少我感觉我等到一个称手的工具了，暂时不会换了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -223,9 +424,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-04-30 14:19:44 / 修改时间：14:34:29" itemprop="dateCreated datePublished" datetime="2026-04-30T14:19:44-06:00">2026-04-30</time>
+      <time title="创建时间：2026-04-30 14:19:44" itemprop="dateCreated datePublished" datetime="2026-04-30T14:19:44-06:00">2026-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -305,9 +512,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-04-30 13:08:00 / 修改时间：14:34:29" itemprop="dateCreated datePublished" datetime="2026-04-30T13:08:00-06:00">2026-04-30</time>
+      <time title="创建时间：2026-04-30 13:08:00" itemprop="dateCreated datePublished" datetime="2026-04-30T13:08:00-06:00">2026-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -469,7 +682,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-30 14:34:29" itemprop="dateModified" datetime="2026-04-30T14:34:29-06:00">2026-04-30</time>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -761,7 +974,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-30 14:34:29" itemprop="dateModified" datetime="2026-04-30T14:34:29-06:00">2026-04-30</time>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -889,7 +1102,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-30 14:34:29" itemprop="dateModified" datetime="2026-04-30T14:34:29-06:00">2026-04-30</time>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -1009,7 +1222,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-30 14:34:29" itemprop="dateModified" datetime="2026-04-30T14:34:29-06:00">2026-04-30</time>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -1205,7 +1418,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-30 14:34:29" itemprop="dateModified" datetime="2026-04-30T14:34:29-06:00">2026-04-30</time>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -1317,7 +1530,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-30 14:34:29" itemprop="dateModified" datetime="2026-04-30T14:34:29-06:00">2026-04-30</time>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -1475,7 +1688,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-30 14:34:29" itemprop="dateModified" datetime="2026-04-30T14:34:29-06:00">2026-04-30</time>
+      <time title="修改时间：2026-05-04 12:50:33" itemprop="dateModified" datetime="2026-05-04T12:50:33-06:00">2026-05-04</time>
     </span>
 
   
@@ -1620,98 +1833,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/MCP-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9AAI%E7%9A%84%E4%B8%87%E8%83%BD%E6%8F%92%E5%A4%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hawken">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hawken.im">
-      <meta itemprop="description" content="Hawken的个人博客">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hawken.im">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/MCP-%E6%87%92%E4%BA%BA%E5%8C%85%EF%BC%9AAI%E7%9A%84%E4%B8%87%E8%83%BD%E6%8F%92%E5%A4%B4/" class="post-title-link" itemprop="url">MCP 懒人包：AI的"万能插头"</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-03-14 12:52:56" itemprop="dateCreated datePublished" datetime="2026-03-14T12:52:56-06:00">2026-03-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-30 14:34:29" itemprop="dateModified" datetime="2026-04-30T14:34:29-06:00">2026-04-30</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约2分钟 · 588汉字+56词</div>
-
-
-<p>字数统计  574 汉字+56 词  阅读时长约2分钟</p>
-<p>三分钟搞懂让AI连接万物的协议</p>
-<h2 id="一句话解释：MCP是什么？"><a href="#一句话解释：MCP是什么？" class="headerlink" title="一句话解释：MCP是什么？"></a>一句话解释：MCP是什么？</h2><p>MCP （Model Context Protocol，模型上下文协议） 是Anthropic在 2024年11月推出的一个开放标准。简单说，它是AI连接外部服务的”统一插头”。</p>
-<p>没有MCP之前，让AI操作你的邮箱、日历、项目管理工具，每个服务都需要单独对接。MCP把这些都统一成了一套标准接口，就像 USB-C 统一了充电口一样。</p>
-<h2 id="它能做什么？"><a href="#它能做什么？" class="headerlink" title="它能做什么？"></a>它能做什么？</h2><p>通过MCP，AI可以直接：发送Slack（飞书&#x2F;钉钉）消息、创建Jira（飞书项目&#x2F;禅道）任务、查询数据库、读写Google Drive（腾讯文档&#x2F;飞书文档）文件、操作 Salesforce（销售易&#x2F;纷享销客）客户记录……几乎你能想到的外部服务，都可以通过MCP来连接。</p>
-<h2 id="通俗类比"><a href="#通俗类比" class="headerlink" title="通俗类比"></a>通俗类比</h2><p>如果把AI比作一个大脑很聪明但被关在房间里的人，MCP就是给他装了电话、电脑和各种工具。有了MCP，AI就能与外界交互，而不只是和你聊天。</p>
-<h2 id="发展现状"><a href="#发展现状" class="headerlink" title="发展现状"></a>发展现状</h2><p>截至 2026 年初，MCP生态已经非常庞大：超过 10,000 个 MCP 服务器可用，主流 AI 工具全部支持（包括ChatGPT、Claude、Gemini、Cursor、VS Code等）。MCP已经从Anthropic的”自家产品”变成了行业通用标准，由Linux基金会旗下的 Agentic AI 基金会托管。</p>
-<h2 id="一个真实案例"><a href="#一个真实案例" class="headerlink" title="一个真实案例"></a>一个真实案例</h2><p>一位项目经理每周五下午要做同样的事：打开Jira（飞书项目&#x2F;禅道）看本周关闭了哪些任务，打开Slack（飞书&#x2F;钉钉）翻上周的重要讨论，再打开Google Doc（腾讯文档&#x2F;飞书文档）写一份进度周报，发给老板。整套流程要花将近一小时。</p>
-<p>接入MCP之后，她对AI说了一句话：「帮我写这周的项目周报。」</p>
-<p>AI通过Jira的MCP服务器查询了本周已完成的任务列表，通过Slack的MCP读取了#项目频道的关键对话，然后按照公司的周报模板生成了初稿。她只花了5分钟做最终确认，然后直接发送。</p>
-<p>关键在于：AI不是在”假装”完成这些事，它是真的访问了这些系统、读取了真实数据。这就是MCP与普通聊天的本质区别——从”告诉你答案”变成了”替你做事”。</p>
-<h2 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h2><p>MCP是AI与外部世界之间的桥。它不让AI变得更聪明，但让AI变得更有用。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
