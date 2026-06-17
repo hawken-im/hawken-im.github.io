@@ -19,24 +19,23 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hawken-im.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default","show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="⏳ 约2分钟 · 677汉字+90词   最近 AI 圈最火的消息莫过于 DeepSeek V4 的发布。作为国产大模型的骄傲，DeepSeek 每次更新都能在性能和成本之间找到一个极其恐怖的平衡点。 目前，DeepSeek V4 已经正式登入了 AI加点油 的模型库。出于成本和实用性的双重考虑，我第一时间在后台上线了 DeepSeek V4 Flash。 为什么是 Flash？因为在 2026">
+    <meta name="description" content="⏳ 约2分钟 · 692汉字+107词    【编者注】 本文写于 2026 年 4 月，当时以「爱加油（aijia.you）」平台为例演示模型接入。该平台已于 2026 年 6 月停止运营。文中关于 DeepSeek V4 Flash 和 Gemini 3 Flash 能效比的判断本身仍然有效；若要自行接入，直接用 DeepSeek 开放平台 或 OpenRouter 即可，截图部分作为历史记录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flash 时代降临：DeepSeek V4 与 Gemini 3 Flash 联手，打造 Cline 的极致能效比">
 <meta property="og:url" content="https://hawken-im.github.io/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/index.html">
 <meta property="og:site_name" content="Hawken.im">
-<meta property="og:description" content="⏳ 约2分钟 · 677汉字+90词   最近 AI 圈最火的消息莫过于 DeepSeek V4 的发布。作为国产大模型的骄傲，DeepSeek 每次更新都能在性能和成本之间找到一个极其恐怖的平衡点。 目前，DeepSeek V4 已经正式登入了 AI加点油 的模型库。出于成本和实用性的双重考虑，我第一时间在后台上线了 DeepSeek V4 Flash。 为什么是 Flash？因为在 2026">
+<meta property="og:description" content="⏳ 约2分钟 · 692汉字+107词    【编者注】 本文写于 2026 年 4 月，当时以「爱加油（aijia.you）」平台为例演示模型接入。该平台已于 2026 年 6 月停止运营。文中关于 DeepSeek V4 Flash 和 Gemini 3 Flash 能效比的判断本身仍然有效；若要自行接入，直接用 DeepSeek 开放平台 或 OpenRouter 即可，截图部分作为历史记录">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://hawken-im.github.io/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/aijia-you-deepseek-v4.png">
 <meta property="og:image" content="https://hawken-im.github.io/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/google-ai-studio-gemini.png">
 <meta property="og:image" content="https://hawken-im.github.io/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/cline-plan-mode-gemini.png">
 <meta property="article:published_time" content="2026-04-30T20:19:44.000Z">
-<meta property="article:modified_time" content="2026-06-16T19:32:18.992Z">
+<meta property="article:modified_time" content="2026-06-17T02:33:32.547Z">
 <meta property="article:author" content="Hawken">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="DeepSeek">
 <meta property="article:tag" content="Gemini">
 <meta property="article:tag" content="Cline">
-<meta property="article:tag" content="AI加点油">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hawken-im.github.io/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/aijia-you-deepseek-v4.png">
 
@@ -121,7 +120,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-ai"><a href="/tags/AI/" rel="section"><i class="fas fa-robot fa-fw"></i>AI</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-xter"><a href="https://x.com/pluto_warrior_1/" rel="section" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>Xter</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-ai+.you"><a href="https://aijia.you/" rel="section" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a></li><li class="menu-item menu-item-ai加点油"><a href="/about/" rel="section"><i class="fab fa-weixin fa-fw"></i>AI加点油</a></li><li class="menu-item menu-item-play.hawken.im"><a href="https://play.hawken.im/" rel="section" target="_blank"><i class="fas fa-gamepad fa-fw"></i>play.hawken.im</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-ai"><a href="/tags/AI/" rel="section"><i class="fas fa-robot fa-fw"></i>AI</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-xter"><a href="https://x.com/pluto_warrior_1/" rel="section" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>Xter</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-play.hawken.im"><a href="https://play.hawken.im/" rel="section" target="_blank"><i class="fas fa-gamepad fa-fw"></i>play.hawken.im</a></li>
   </ul>
 </nav>
 
@@ -146,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepSeek-V4-Flash%EF%BC%9A%E6%80%A7%E4%BB%B7%E6%AF%94%E7%9A%84%E6%9E%81%E8%87%B4"><span class="nav-number">1.</span> <span class="nav-text">DeepSeek V4 Flash：性价比的极致</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gemini-3-Flash%EF%BC%9ACline-Plan-Mode-%E7%9A%84%E2%80%9C%E6%9C%80%E5%BC%BA%E5%A4%A7%E8%84%91%E2%80%9D"><span class="nav-number">2.</span> <span class="nav-text">Gemini 3 Flash：Cline Plan Mode 的“最强大脑”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%E5%A4%8D%E4%B9%A0%EF%BC%9A%E5%A6%82%E4%BD%95%E5%9C%A8-Cline-%E4%B8%AD%E6%8E%A5%E5%85%A5-AI%E5%8A%A0%E7%82%B9%E6%B2%B9%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">实战复习：如何在 Cline 中接入 AI加点油？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepSeek-V4-Flash%EF%BC%9A%E6%80%A7%E4%BB%B7%E6%AF%94%E7%9A%84%E6%9E%81%E8%87%B4"><span class="nav-number">1.</span> <span class="nav-text">DeepSeek V4 Flash：性价比的极致</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gemini-3-Flash%EF%BC%9ACline-Plan-Mode-%E7%9A%84%E2%80%9C%E6%9C%80%E5%BC%BA%E5%A4%A7%E8%84%91%E2%80%9D"><span class="nav-number">2.</span> <span class="nav-text">Gemini 3 Flash：Cline Plan Mode 的“最强大脑”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9A%E5%A6%82%E4%BD%95%E5%9C%A8-Cline-%E4%B8%AD%E6%8E%A5%E5%85%A5%E8%87%AA%E5%B7%B1%E7%9A%84-API%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">实战：如何在 Cline 中接入自己的 API？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -170,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -178,12 +177,6 @@
   <div class="links-of-author animated">
       <span class="links-of-author-item">
         <a href="https://github.com/hawken-im" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hawken-im" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://aijia.you/" title="AI+.you → https:&#x2F;&#x2F;aijia.you" rel="noopener me" target="_blank"><i class="fas fa-link fa-fw"></i>AI+.you</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/about/" title="AI加点油 → &#x2F;about&#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>AI加点油</a>
       </span>
   </div>
 
@@ -244,7 +237,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-06-16 13:32:18" itemprop="dateModified" datetime="2026-06-16T13:32:18-06:00">2026-06-16</time>
+      <time title="修改时间：2026-06-16 20:33:32" itemprop="dateModified" datetime="2026-06-16T20:33:32-06:00">2026-06-16</time>
     </span>
 
   
@@ -256,17 +249,20 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约2分钟 · 677汉字+90词</div>
+    <div class="post-body" itemprop="articleBody"><div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约2分钟 · 692汉字+107词</div>
 
 
+<blockquote>
+<p><strong>【编者注】</strong> 本文写于 2026 年 4 月，当时以「爱加油（aijia.you）」平台为例演示模型接入。该平台已于 2026 年 6 月停止运营。文中关于 DeepSeek V4 Flash 和 Gemini 3 Flash 能效比的判断本身仍然有效；若要自行接入，直接用 <a target="_blank" rel="noopener" href="https://platform.deepseek.com/">DeepSeek 开放平台</a> 或 <a target="_blank" rel="noopener" href="https://openrouter.ai/">OpenRouter</a> 即可，截图部分作为历史记录保留。</p>
+</blockquote>
 <p>最近 AI 圈最火的消息莫过于 DeepSeek V4 的发布。作为国产大模型的骄傲，DeepSeek 每次更新都能在性能和成本之间找到一个极其恐怖的平衡点。</p>
-<p>目前，DeepSeek V4 已经正式登入了 <strong><a target="_blank" rel="noopener" href="https://aijia.you/">AI加点油</a></strong> 的模型库。出于成本和实用性的双重考虑，我第一时间在后台上线了 <strong>DeepSeek V4 Flash</strong>。</p>
+<p>DeepSeek V4 发布后，<strong>DeepSeek V4 Flash</strong> 第一时间可以在各大 API 平台获取。出于成本和实用性的双重考虑，我直接接入来测试。</p>
 <p>为什么是 Flash？因为在 2026 年的今天，我们已经过了那个盲目追求“参数最大、价格最贵”模型的阶段。Flash 模型（闪电版&#x2F;轻量版）已经进化到了一个临界点：<strong>在 90% 的日常任务中，它们的速度和逻辑已经完全够用，而成本却只有旗舰模型的零头。</strong></p>
 <span id="more"></span>
 
-<h2 id="DeepSeek-V4-Flash：性价比的极致"><a href="#DeepSeek-V4-Flash：性价比的极致" class="headerlink" title="DeepSeek V4 Flash：性价比的极致"></a>DeepSeek V4 Flash：性价比的极致</h2><p>在 AI加点油的后台，你可以轻松找到 DeepSeek V4 Flash。它的响应速度极快，非常适合处理那些需要快速反馈的简单代码修改、文档总结或者初步的逻辑梳理。</p>
-<img src="/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/aijia-you-deepseek-v4.png" class="" title="AI加点油后台截图：DeepSeek V4 Flash 模型名称复制按钮">
-<p><em>（注：上图展示了 AI加点油模型库后台，我已经把复制模型名称的按钮标记出来了，方便大家一键配置。）</em></p>
+<h2 id="DeepSeek-V4-Flash：性价比的极致"><a href="#DeepSeek-V4-Flash：性价比的极致" class="headerlink" title="DeepSeek V4 Flash：性价比的极致"></a>DeepSeek V4 Flash：性价比的极致</h2><p>DeepSeek V4 Flash 的响应速度极快，非常适合处理那些需要快速反馈的简单代码修改、文档总结或者初步的逻辑梳理。</p>
+<img src="/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/aijia-you-deepseek-v4.png" class="" title="模型库后台截图：DeepSeek V4 Flash 模型名称复制按钮">
+<p><em>（注：上图为当时使用的 API 平台后台截图，作为历史记录保留。现在可直接前往 <a target="_blank" rel="noopener" href="https://platform.deepseek.com/">DeepSeek 开放平台</a> 获取 API Key。）</em></p>
 <h2 id="Gemini-3-Flash：Cline-Plan-Mode-的“最强大脑”"><a href="#Gemini-3-Flash：Cline-Plan-Mode-的“最强大脑”" class="headerlink" title="Gemini 3 Flash：Cline Plan Mode 的“最强大脑”"></a>Gemini 3 Flash：Cline Plan Mode 的“最强大脑”</h2><p>除了 DeepSeek，Google 最近发布的 <strong>Gemini 3 Flash</strong> 同样令人惊艳。甚至在 Google AI Studio 的官方介绍中，Gemini 3 Flash 也被列为他们 <strong>most powerful model</strong> 之一。</p>
 <img src="/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/google-ai-studio-gemini.png" class="" title="Google AI Studio 后台：Gemini 3 Flash 介绍">
 <p><em>（注：Google 官方背书，Flash 并不代表弱，而是代表了极高的能效比。）</em></p>
@@ -278,24 +274,22 @@
 <p>我现在写这篇文章时，Cline 正在使用的就是 Gemini 3 Flash Preview。</p>
 <img src="/Flash-%E6%97%B6%E4%BB%A3%E9%99%8D%E4%B8%B4-DeepSeek-V4-%E4%B8%8E-Gemini-3-Flash-%E8%81%94%E6%89%8B-%E6%89%93%E9%80%A0-Cline-%E6%9E%81%E8%87%B4%E8%83%BD%E6%95%88%E6%AF%94/cline-plan-mode-gemini.png" class="" title="Cline 界面截图：Plan Mode 使用 Gemini 3 Flash">
 <p><em>（注：实测证明，用 Flash 模型跑 Plan Mode，不仅计划做得准，而且几乎感觉不到 Token 的消耗。）</em></p>
-<h2 id="实战复习：如何在-Cline-中接入-AI加点油？"><a href="#实战复习：如何在-Cline-中接入-AI加点油？" class="headerlink" title="实战复习：如何在 Cline 中接入 AI加点油？"></a>实战复习：如何在 Cline 中接入 AI加点油？</h2><p>你还没试过在 Cline 里使用自己的 API Key（BYOK）？</p>
-<p>我之前在<a target="_blank" rel="noopener" href="https://hawken.im/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84API%20Key%E8%B0%83%E7%94%A8Cline/">《如何使用自己的API Key调用Cline》</a>中详细写过，这里再帮大家快速复习一下：</p>
+<h2 id="实战：如何在-Cline-中接入自己的-API？"><a href="#实战：如何在-Cline-中接入自己的-API？" class="headerlink" title="实战：如何在 Cline 中接入自己的 API？"></a>实战：如何在 Cline 中接入自己的 API？</h2><p>你还没试过在 Cline 里使用自己的 API Key（BYOK）？</p>
+<p>详细教程在[《如何使用自己的API Key调用Cline》](&#x2F;如何使用自己的API Key调用Cline&#x2F;)，这里快速复习核心步骤：</p>
 <ol>
-<li><strong>获取 API Key</strong>：登录 <a target="_blank" rel="noopener" href="https://aijia.you/">aijia.you</a>，充值后在令牌页面创建一个 Key。</li>
+<li><strong>获取 API Key</strong>：前往 <a target="_blank" rel="noopener" href="https://platform.deepseek.com/">DeepSeek 开放平台</a> 或 <a target="_blank" rel="noopener" href="https://openrouter.ai/">OpenRouter</a> 注册并创建 Key。</li>
 <li><strong>配置 Cline</strong>：<ul>
 <li><strong>API Provider</strong>: 选择 <code>OpenAI Compatible</code>。</li>
-<li><strong>Base URL</strong>: 填写 <code>https://api.aijia.you/v1</code>。</li>
-<li><strong>API Key</strong>: 填入你刚才创建的 Key。</li>
-<li><strong>Model ID</strong>: 从 AI加点油后台复制模型名称（比如 <code>deepseek-v4-flash</code> 或 <code>gemini-3-flash</code>）。</li>
+<li><strong>Base URL</strong>: DeepSeek 填 <code>https://api.deepseek.com/v1</code>，OpenRouter 填 <code>https://openrouter.ai/api/v1</code>。</li>
+<li><strong>API Key</strong>: 填入你的 Key。</li>
+<li><strong>Model ID</strong>: DeepSeek 填 <code>deepseek-chat</code>，Gemini 系列通过 OpenRouter 填对应 model slug。</li>
 </ul>
 </li>
-<li><strong>分模式配置</strong>：别忘了在 Cline 的设置里，可以分别为 Plan Mode 和 Act Mode 指定不同的模型。</li>
+<li><strong>分模式配置</strong>：在 Cline 的设置里，可以分别为 Plan Mode 和 Act Mode 指定不同的模型。</li>
 </ol>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Flash 时代的降临，意味着 AI 助手不再是昂贵的奢侈品，而是可以 24 小时待命的廉价劳动力。</p>
-<p>DeepSeek V4 Flash 的稳健，Gemini 3 Flash 的博学，再配合 AI加点油的稳定中转，AI 使用成本大降。</p>
-<p>还没体验过的朋友，赶紧去 <code>aijia.you</code> 复制一下模型名称试试吧！</p>
-<hr>
-<p>有问题可以关注公众号「AI加点油」找我。</p>
+<p>DeepSeek V4 Flash 的稳健，Gemini 3 Flash 的博学，直接接官方 API，AI 使用成本大降。</p>
+<p>还没试过的朋友，去 <a target="_blank" rel="noopener" href="https://platform.deepseek.com/">DeepSeek 开放平台</a> 开个账号，五分钟就能配好 Cline。</p>
 
     </div>
 
@@ -309,7 +303,6 @@
               <a href="/tags/DeepSeek/" rel="tag"># DeepSeek</a>
               <a href="/tags/Gemini/" rel="tag"># Gemini</a>
               <a href="/tags/Cline/" rel="tag"># Cline</a>
-              <a href="/tags/AI%E5%8A%A0%E7%82%B9%E6%B2%B9/" rel="tag"># AI加点油</a>
           </div>
 
         
