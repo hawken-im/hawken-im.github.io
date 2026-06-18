@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/hawken.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/hawken.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/hawken.png">
+  <link rel="mask-icon" href="/images/hawken.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hawken-im.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default","show_result":false},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"normal"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="⏳ 约3分钟 · 1237汉字+44词   先说结果：aijia.you 于 2026 年 6 月 1 日停止运营。数据备份了，服务器快照打了，Docker 容器停了，域名现在是一个说明页。 但在解释为什么之前，我想先说一件更真实的事——  付费用户屈指可数爱加油从上线到关掉，实际的付费用户屈指可数。基本上是几个朋友在用，后台翻一翻，后期连他们的调用量也越来越少了。 同期，我陆续看到一些同行的消息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我为什么关掉了爱加油，以及这个博客接下来做什么">
+<meta property="og:url" content="https://hawken-im.github.io/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%85%B3%E6%8E%89%E4%BA%86%E7%88%B1%E5%8A%A0%E6%B2%B9%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88/index.html">
+<meta property="og:site_name" content="Hawken.im">
+<meta property="og:description" content="⏳ 约3分钟 · 1237汉字+44词   先说结果：aijia.you 于 2026 年 6 月 1 日停止运营。数据备份了，服务器快照打了，Docker 容器停了，域名现在是一个说明页。 但在解释为什么之前，我想先说一件更真实的事——  付费用户屈指可数爱加油从上线到关掉，实际的付费用户屈指可数。基本上是几个朋友在用，后台翻一翻，后期连他们的调用量也越来越少了。 同期，我陆续看到一些同行的消息">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-17T02:46:48.000Z">
+<meta property="article:modified_time" content="2026-06-18T03:40:35.486Z">
+<meta property="article:author" content="Hawken">
+<meta property="article:tag" content="思考">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hawken-im.github.io/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%85%B3%E6%8E%89%E4%BA%86%E7%88%B1%E5%8A%A0%E6%B2%B9%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hawken-im.github.io/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%85%B3%E6%8E%89%E4%BA%86%E7%88%B1%E5%8A%A0%E6%B2%B9%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88/","path":"我为什么关掉了爱加油，以及这个博客接下来做什么/","title":"我为什么关掉了爱加油，以及这个博客接下来做什么"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>我为什么关掉了爱加油，以及这个博客接下来做什么 | Hawken.im</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3HR8HYBMQ1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3HR8HYBMQ1');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4142358445708823"
+     crossorigin="anonymous"></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hawken.im</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-ai"><a href="/tags/AI/" rel="section"><i class="fas fa-robot fa-fw"></i>AI</a></li><li class="menu-item menu-item-学英语"><a href="/tags/%E5%AD%A6%E8%8B%B1%E8%AF%AD/" rel="section"><i class="fas fa-book-open fa-fw"></i>学英语</a></li><li class="menu-item menu-item-练打字"><a href="/tags/%E7%BB%83%E6%89%93%E5%AD%97/" rel="section"><i class="fas fa-keyboard fa-fw"></i>练打字</a></li><li class="menu-item menu-item-专注力"><a href="/tags/%E4%B8%93%E6%B3%A8%E5%8A%9B/" rel="section"><i class="fas fa-bullseye fa-fw"></i>专注力</a></li><li class="menu-item menu-item-xter"><a href="https://x.com/pluto_warrior_1/" rel="section" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>Xter</a></li><li class="menu-item menu-item-github"><a href="https://github.com/hawken-im" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>github</a></li><li class="menu-item menu-item-play.hawken.im"><a href="https://play.hawken.im/" rel="section" target="_blank"><i class="fas fa-gamepad fa-fw"></i>play.hawken.im</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%98%E8%B4%B9%E7%94%A8%E6%88%B7%E5%B1%88%E6%8C%87%E5%8F%AF%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">付费用户屈指可数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E5%8F%B0%E6%9D%A1%E6%AC%BE%E6%98%AF%E4%B8%AA%E5%AE%9A%E6%97%B6%E7%82%B8%E5%BC%B9"><span class="nav-number">2.</span> <span class="nav-text">平台条款是个定时炸弹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%9C%AC%E6%9D%A5%E5%B0%B1%E4%B8%8D%E5%8F%AA%E6%98%AF%E7%88%B1%E5%8A%A0%E6%B2%B9"><span class="nav-number">3.</span> <span class="nav-text">这个博客本来就不只是爱加油</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%B0%E4%B8%96%E7%95%8C%E8%A7%82"><span class="nav-number">4.</span> <span class="nav-text">这个博客的新世界观</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%86%99%E4%BB%80%E4%B9%88"><span class="nav-number">5.</span> <span class="nav-text">接下来写什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E4%BB%A5%E5%89%8D%E6%98%AF%E7%88%B1%E5%8A%A0%E6%B2%B9%E7%9A%84%E7%94%A8%E6%88%B7"><span class="nav-number">6.</span> <span class="nav-text">如果你以前是爱加油的用户</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hawken</p>
+  <div class="site-description" itemprop="description">Hawken的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hawken-im" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hawken-im" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hawken-im.github.io/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%85%B3%E6%8E%89%E4%BA%86%E7%88%B1%E5%8A%A0%E6%B2%B9%EF%BC%8C%E4%BB%A5%E5%8F%8A%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hawken">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawken.im">
+      <meta itemprop="description" content="Hawken的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="我为什么关掉了爱加油，以及这个博客接下来做什么 | Hawken.im">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我为什么关掉了爱加油，以及这个博客接下来做什么
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-06-16 20:46:48" itemprop="dateCreated datePublished" datetime="2026-06-16T20:46:48-06:00">2026-06-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-06-17 21:40:35" itemprop="dateModified" datetime="2026-06-17T21:40:35-06:00">2026-06-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div style="background:#f5f5f5;padding:3px 10px;border-radius:4px;font-size:0.82em;color:#aaa;display:inline-block;margin-bottom:1.2em;">⏳ 约3分钟 · 1237汉字+44词</div>
+
+
+<p>先说结果：aijia.you 于 2026 年 6 月 1 日停止运营。数据备份了，服务器快照打了，Docker 容器停了，域名现在是一个说明页。</p>
+<p>但在解释为什么之前，我想先说一件更真实的事——</p>
+<hr>
+<h2 id="付费用户屈指可数"><a href="#付费用户屈指可数" class="headerlink" title="付费用户屈指可数"></a>付费用户屈指可数</h2><p>爱加油从上线到关掉，实际的付费用户屈指可数。基本上是几个朋友在用，后台翻一翻，后期连他们的调用量也越来越少了。</p>
+<p>同期，我陆续看到一些同行的消息。有人靠 Token 转售月流水做到很大的数字，截图里那种增长曲线，谁都会多看两眼。也有人因为上游渠道走在违法边缘被立案。一个赛道里同时存在这两种极端，说明它还在野蛮期。</p>
+<p>我得诚实承认：<strong>看到那些月流水，我是眼馋的</strong>。不只是眼馋，还有”为什么我做了同样的事，数字差这么远”的实在落差感。</p>
+<p>但我也很快意识到几件事。</p>
+<p>我接的是 DeepSeek、SiliconFlow、阿里云百炼这些合规上游——这条路注定不会暴利。</p>
+<p>真正能把这门生意做起来的人，投入的是 all in 级别的精力——运营、客服、渠道、内容、定价、客户关系，每一块都要持续跑。我之前那种”业余写写公众号、偶尔更新功能”的节奏，和人家根本不是一个量级的玩法。</p>
+<p>还有：<strong>光靠写公众号是做不成这门生意的</strong>。公众号能带来认知，带不来稳定的付费转化。要做大，得做投放、做社群、做 to B 销售。这些事比搭一个网站再写文章推广，要难很多，也更消耗精力。</p>
+<p>想清楚这些，反而轻松了。</p>
+<hr>
+<h2 id="平台条款是个定时炸弹"><a href="#平台条款是个定时炸弹" class="headerlink" title="平台条款是个定时炸弹"></a>平台条款是个定时炸弹</h2><p>除了现实判断，还有一个更硬的原因。</p>
+<p>AI API 中转，本质上是转售别人的服务。当上游模型厂商的 ToS 里写着”不得转售”，你的整个商业模型就建在一个法律模糊地带上。我踩过一次边界，让我意识到这不是我想长期承担的风险——尤其是在我还有别的事情要做的时候。</p>
+<p>收款同样脆弱。面向国内用户的 SaaS，微信支付和支付宝的接入门槛、Stripe 对国内商家的限制、汇率、提现……每一个环节都是麻烦。我花在处理收款问题上的时间，远比我预期的多。</p>
+<p>三件事合在一起，就是一个信号：<strong>这个方向的性价比不值得我继续投入</strong>。</p>
+<hr>
+<h2 id="这个博客本来就不只是爱加油"><a href="#这个博客本来就不只是爱加油" class="headerlink" title="这个博客本来就不只是爱加油"></a>这个博客本来就不只是爱加油</h2><p>关掉爱加油之后，我重新看了一遍这个博客。</p>
+<p>被读得最多的几篇：万字 AI 简史、BYOK 算力主权、Markdown 格式主权。这些文章指向的方向，从来不是”来买我的 API Key”，而是——<strong>把几样底层能力握在自己手里</strong>。</p>
+<hr>
+<h2 id="这个博客的新世界观"><a href="#这个博客的新世界观" class="headerlink" title="这个博客的新世界观"></a>这个博客的新世界观</h2><p>这段时间我反复在想，我真正想写的是什么。最后落在一条判断上：</p>
+<blockquote>
+<p><strong>会过时的，做等等党；不会过时的，现在就学。</strong></p>
+</blockquote>
+<p>具体说：</p>
+<p>追某个具体模型（Claude 5、GPT-5、DeepSeek V4）——等等，谨慎追。模型每隔几个月就会有新版本，今天的最优解，半年后可能已经不是答案。</p>
+<p>追某家产品（Cursor、Perplexity、各种 AI 工具）——同样，等等。今天的热门工具，明天可能已经被收购（SpaceX 就刚收购了 Cursor）、停更或者被更好的替代。</p>
+<p>但英语就不是，<strong>现在就该学</strong>。五年后还有用，十年后还有用。</p>
+<p>这个框架不是反对用 AI 新工具，而是说：<strong>追新品测评是旧的流量打法，常青内容才有复利</strong>。看一下这个博客被读得最久的几篇，恰好都是常青文，不是新闻。这就是配比该往哪边调的证据。</p>
+<p>接下来这个博客的重心：<strong>英语 + 打字，以及 AI 时代该自己握住的底层能力</strong>。</p>
+<hr>
+<h2 id="接下来写什么"><a href="#接下来写什么" class="headerlink" title="接下来写什么"></a>接下来写什么</h2><p>「最值得学会的一件事」系列会继续。</p>
+<p>之一是 BYOK，之二是 Markdown，之三是做一些我喜欢的小产品。</p>
+<p>比如：<strong>用打字来练英语</strong>。中文母语者的英语输出问题，不是词汇量不够、不是语法不懂，是缺少主动输出的练习。打字是最好的切入点，也是我自己真实在做的事。之后会有一篇讲清楚为什么，以及具体怎么做。</p>
+<hr>
+<h2 id="如果你以前是爱加油的用户"><a href="#如果你以前是爱加油的用户" class="headerlink" title="如果你以前是爱加油的用户"></a>如果你以前是爱加油的用户</h2><p>如果你用爱加油是为了 BYOK、为了把算力握在自己手里——这条线没断，只是不再需要通过我：</p>
+<ul>
+<li>国内模型直连：DeepSeek 开放平台、Kimi API、Qwen API，直接申请，比中转更稳</li>
+<li>海外模型：OpenRouter 是目前最正规的聚合方案</li>
+<li>BYOK 实战教程：<a href="/2026/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84API-Key%E8%B0%83%E7%94%A8Cline/">如何使用自己的 API Key 调用 Cline</a> 已更新为中立版本，可以直接参考</li>
+</ul>
+<hr>
+<p>下篇见。</p>
+<p>— hawken，2026.06</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%80%9D%E8%80%83/" rel="tag"># 思考</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E7%9C%8B%E5%90%A7%EF%BC%8C%E7%AD%89%E7%AD%89%E5%85%9A%E5%8F%88%E8%B5%A2%E4%BA%86/" rel="prev" title="等等党又对了一次，Hermes + Obsidian 我打算长期用了">
+                  <i class="fa fa-angle-left"></i> 等等党又对了一次，Hermes + Obsidian 我打算长期用了
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hawken</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
